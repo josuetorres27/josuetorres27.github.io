@@ -1,0 +1,45 @@
+Virtual Microscope Administration Panel
+
+Mar 2026 – Jul 2026
+
+Contributed to the end-to-end development of the Virtual Microscope Administration Panel, a desktop application that digitizes real-world microscopy workflows. Designed and implemented a comprehensive data management system leveraging C# and .NET technologies to organize specimen collections into hierarchical structures (Groups, Boxes, and Slides) and associate them with high-fidelity microscope images. Developed the application as a self-contained desktop solution with embedded database capabilities, enabling secure local data management on the administrator's workstation.
+
+Tech Stack: C#, ASP.NET Core, HTML, CSS, JavaScript, PostgreSQL, Visual Studio.
+
+Associated with Universidad de Costa Rica UCR
+
+
+
+ThemePark UCR
+
+Aug 2025 – Dec 2025
+
+Contributed to the backend development of ThemePark UCR, a virtual university simulation built with Unity. Implemented REST APIs in C# for managing buildings, learning spaces, and interactive objects using .NET and SQL Server. The project was developed following Scrum methodology and focused on integrating backend services with the virtual environment while ensuring maintainability and scalability.
+
+Tech Stack: C#, ASP.NET Core, REST APIs, SQL Server, Visual Studio.
+
+Associated with Universidad de Costa Rica UCR
+
+
+
+Distributed ASCII Art System
+
+Mar 2025 – Jul 2025
+
+Developed a distributed system in C++ consisting of a client, an intermediary server, and multiple ASCII art servers connected through sockets in a Linux environment. Implemented inter-process communication, connection management, and a custom file system for storing and retrieving ASCII art figures across servers. The project focused on distributed systems concepts, network communication, and low-level systems programming.
+
+Tech Stack: C++, Sockets, HTTP, Linux.
+
+Associated with Universidad de Costa Rica UCR
+
+
+
+Online Learning Platform
+
+Mar 2025 – Jul 2025
+
+Developed a web-based online learning platform featuring user management, course publishing, content administration, rating systems, and user reviews. The project was developed following Scrum methodology, applying SOLID principles and collaborative development practices through GitHub, including static code analysis automation using continuous integration pipelines.
+
+Tech Stack: Python, HTML, CSS, JavaScript, CI/CD, GitHub, VS Code.
+
+Associated with Universidad de Costa Rica UCR

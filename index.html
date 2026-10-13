@@ -506,6 +506,62 @@
         </a>
       </div>
 
+      <!-- Spotlight: Currently Working On -->
+      <div class="mb-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border-2 border-brand-500/40 relative overflow-hidden shadow-2xl">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16"></div>
+        
+        <div class="relative z-10">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold font-mono">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span>Currently Working On · Proyecto Activo</span>
+            </div>
+            <span class="text-xs font-mono text-slate-400">Universidad de Costa Rica (UCR)</span>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+            <div>
+              <h4 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                LASCE — Institutional Scientific Web Platform
+              </h4>
+              <p class="text-xs font-mono text-cyan-400 mt-1">Laboratorio de Astrofísica Solar y Clima Espacial · UCR</p>
+            </div>
+            <a href="https://lasce.up.railway.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-md shrink-0">
+              <span>Visitar Producción</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <div class="space-y-3 text-slate-300 text-sm leading-relaxed mb-6">
+            <p>
+              Plataforma web institucional y de datos científicos desarrollada para el Laboratorio de Astrofísica Solar y Clima Espacial de la Universidad de Costa Rica. Provee un portal público bilingüe para la presentación de líneas de investigación, publicaciones científicas, noticias, colaboraciones, instrumentos espaciales y el observatorio de radio ROSAC.
+            </p>
+            <p>
+              Arquitectura como monorepo pnpm/Turborepo con <strong class="text-white">TypeScript, Next.js 16, React 19, PostgreSQL, Prisma, Redis, BullMQ, MinIO, InfluxDB</strong> y un worker en segundo plano en <strong class="text-white">Python 3.13</strong>.
+            </p>
+            <p class="text-xs text-slate-400">
+              <strong class="text-slate-300">Contribuciones clave:</strong> Desarrollo integral de la suite CMS para noticias y observatorio ROSAC (flujos de creación, edición, borrado, transacciones Prisma, subida a MinIO y control de concurrencia optimista), estandarización de componentes modales de gestión, accesibilidad WCAG y cobertura automatizada con Playwright E2E y Vitest.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2 pt-4 border-t border-slate-800/80 font-mono text-xs">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-brand-300 border border-slate-700">Next.js 16</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-brand-300 border border-slate-700">React 19</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700">TypeScript</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 border border-slate-700">PostgreSQL / Prisma</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 border border-slate-700">Redis / BullMQ</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700">Python 3.13 Worker</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 border border-slate-700">Playwright E2E</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200 border border-slate-700">WCAG Accessibility</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Past Projects Header -->
+      <div class="mb-6 flex items-center justify-between">
+        <h4 class="text-sm uppercase tracking-wider font-bold text-slate-400 font-mono">Proyectos Universitarios Anteriores (UCR)</h4>
+      </div>
+
       <!-- Project Cards Grid -->
       <div class="space-y-8">
 

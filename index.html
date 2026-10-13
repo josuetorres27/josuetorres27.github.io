@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Josué | Software Engineer & Computer Science</title>
+  <meta name="description" content="Portafolio profesional de Josué. Estudiante avanzado de Ciencias de la Computación enfocado en desarrollo de software, algoritmos (DSA) y backend.">
+  
+  <!-- Favicon Monograma -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            },
+            accent: {
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Suavizado de bordes y selecciones */
+    ::selection {
+      background-color: #4f46e5;
+      color: #ffffff;
+    }
+    .glass-nav {
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .radial-bg {
+      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+    }
+    .card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 102, 241, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
+
+  <!-- Glow Background Effect -->
+  <div class="absolute top-0 left-0 right-0 h-[600px] radial-bg pointer-events-none -z-10"></div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Logo / Monogram -->
+      <a href="#hero" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center font-mono font-bold text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform">
+          J
+        </span>
+        <span class="font-mono font-semibold text-lg tracking-tight text-slate-200 group-hover:text-white transition-colors">
+          josue<span class="text-brand-400">.dev</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#sobre-mi" class="hover:text-brand-400 transition-colors">Sobre Mí</a>
+        <a href="#habilidades" class="hover:text-brand-400 transition-colors">Habilidades</a>
+        <a href="#proyectos" class="hover:text-brand-400 transition-colors">Proyectos</a>
+        <a href="#enfoque-tecnico" class="hover:text-brand-400 transition-colors flex items-center gap-1.5">
+          <span>LeetCode / DSA</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-semibold bg-brand-500/20 text-brand-300 rounded border border-brand-500/30">Target</span>
+        </a>
+        <a href="#contacto" class="hover:text-brand-400 transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Action Button / CV -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="./cv-josue.pdf" target="_blank" download="CV_Josue_Software_Engineer.pdf" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-all hover:border-slate-600 shadow-sm active:scale-95">
+          <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Descargar CV
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 border-b border-slate-800 bg-slate-900/95 backdrop-blur-md">
+      <div class="flex flex-col space-y-3 font-medium text-slate-300">
+        <a href="#sobre-mi" class="mobile-nav-link py-2 hover:text-brand-400">Sobre Mí</a>
+        <a href="#habilidades" class="mobile-nav-link py-2 hover:text-brand-400">Habilidades</a>
+        <a href="#proyectos" class="mobile-nav-link py-2 hover:text-brand-400">Proyectos</a>
+        <a href="#enfoque-tecnico" class="mobile-nav-link py-2 hover:text-brand-400 flex items-center justify-between">
+          <span>LeetCode / DSA</span>
+          <span class="px-2 py-0.5 text-xs bg-brand-500/20 text-brand-300 rounded border border-brand-500/30">Target</span>
+        </a>
+        <a href="#contacto" class="mobile-nav-link py-2 hover:text-brand-400">Contacto</a>
+        <div class="pt-2">
+          <a href="./cv-josue.pdf" target="_blank" download="CV_Josue_Software_Engineer.pdf" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-lg transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Descargar CV (PDF)
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="hero" class="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Availability Badge -->
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900 border border-emerald-500/30 text-xs font-medium text-emerald-400 mb-8 shadow-sm">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        Graduación en 2 meses · Disponible para Pasantías & Roles Junior
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+        Construyendo software con <br class="hidden sm:inline">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">
+          código limpio, eficiencia y algoritmos.
+        </span>
+      </h1>
+
+      <!-- Value Proposition / Bio Summary -->
+      <p class="text-lg sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed mb-10">
+        Hola, soy <strong class="text-white font-semibold">Josué</strong>. Estudiante avanzado de Ciencias de la Computación / Ingeniería de Software. Enfocado en resolver problemas complejos utilizando 
+        <span class="font-mono text-brand-300 bg-brand-950/60 px-1.5 py-0.5 rounded border border-brand-800/50">Python</span>, 
+        <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">C++</span> y 
+        <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">Java</span>, 
+        con sólidas bases en estructuras de datos, rendimiento y arquitectura backend.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center gap-4 mb-14">
+        <a href="#proyectos" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 active:scale-95">
+          <span>Ver Proyectos Destacados</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </a>
+
+        <a href="./cv-josue.pdf" target="_blank" download="CV_Josue_Software_Engineer.pdf" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl transition-all shadow-sm active:scale-95">
+          <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span>Descargar Resume (PDF)</span>
+        </a>
+
+        <!-- Quick Links: GitHub & LinkedIn -->
+        <div class="flex items-center gap-2 ml-1">
+          <!-- GITHUB (Reemplazar con tu URL de GitHub) -->
+          <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+            </svg>
+          </a>
+
+          <!-- LINKEDIN (Reemplazar con tu URL de LinkedIn) -->
+          <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="Perfil de LinkedIn" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+
+          <!-- EMAIL BUTTON -->
+          <a href="mailto:dev.josue.torres@gmail.com" aria-label="Enviar correo" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Row -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-800/80">
+        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Estado</p>
+          <p class="text-lg font-bold text-white">Graduando 2026</p>
+          <span class="text-xs text-brand-400">~2 meses restantes</span>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Core Stack</p>
+          <p class="text-lg font-bold text-white">Python · C++</p>
+          <span class="text-xs text-slate-400">& Java / SQL</span>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Especialidad</p>
+          <p class="text-lg font-bold text-white">Algoritmos & DSA</p>
+          <span class="text-xs text-emerald-400">Big-O Optimization</span>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
+          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Objetivo</p>
+          <p class="text-lg font-bold text-white">Software Engineer</p>
+          <span class="text-xs text-brand-400">Junior / Intern</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ME ================= -->
+  <section id="sobre-mi" class="py-16 md:py-20 border-t border-slate-800/70">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex items-center gap-3 mb-8">
+        <span class="h-px w-8 bg-brand-500"></span>
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">01. Perfil Profesional</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-7 space-y-4 text-slate-300 leading-relaxed text-base">
+          <p>
+            ¡Hola! Soy estudiante en la etapa final de mi carrera universitaria en <strong class="text-white">Ciencias de la Computación / Ingeniería en Sistemas</strong>. Me apasiona entender cómo funcionan las cosas desde sus cimientos: cómo viajan los datos en memoria, cómo optimizar la complejidad temporal de una función y cómo estructurar código mantenible y testeable.
+          </p>
+          <p>
+            Mi formación académica y proyectos personales me han permitido desarrollar sólidas competencias en programación orientada a objetos, diseño modular y algoritmos fundamentales. Recientemente he participado en procesos de evaluación técnica para empresas tecnológicas globales (como <strong class="text-white">Microsoft</strong>), lo que ha fortalecido mi disciplina de estudio en patrones algorítmicos y resolución estructurada de problemas bajo presión.
+          </p>
+          <p>
+            Busco una oportunidad laboral como <strong class="text-white">Ingeniero de Software Junior o Pasante</strong> donde pueda aportar rigor técnico, aprender de ingenieros experimentados y construir soluciones de alto impacto.
+          </p>
+
+          <div class="pt-4 flex flex-wrap gap-4 text-sm font-mono text-slate-400">
+            <span class="inline-flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Pensamiento crítico
+            </span>
+            <span class="inline-flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Autonomía de aprendizaje
+            </span>
+            <span class="inline-flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Buenas prácticas & Clean Code
+            </span>
+          </div>
+        </div>
+
+        <!-- Academic / Highlights Card -->
+        <div class="lg:col-span-5 bg-slate-900/80 rounded-2xl border border-slate-800 p-6 space-y-6">
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-mono">Resumen Académico</h3>
+          
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white">Ingeniería de Software / Computación</h4>
+                <p class="text-xs text-slate-400">Universidad (Último semestre)</p>
+                <p class="text-xs text-brand-300 mt-1">Culminación estimada: Próximos 2 meses</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white">Cursos Clave Aprobados</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Estructuras de Datos, Algoritmos, Arquitectura de Computadoras, Bases de Datos Relacionales, Sistemas Operativos.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-white">Modalidad Laboral</h4>
+                <p class="text-xs text-slate-400 mt-0.5">Disponible para trabajo Remoto, Híbrido o Presencial según ubicación.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HABILIDADES TÉCNICAS ================= -->
+  <section id="habilidades" class="py-16 md:py-20 border-t border-slate-800/70">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex items-center gap-3 mb-8">
+        <span class="h-px w-8 bg-brand-500"></span>
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">02. Stack & Habilidades</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Category 1: Lenguajes -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5 text-indigo-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">Lenguajes de Programación</h3>
+          <p class="text-xs text-slate-400 mb-5 leading-relaxed">
+            Manejo de paradigmas imperativo, orientado a objetos y tipado estático/dinámico.
+          </p>
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="font-mono text-slate-200">Python</span>
+              <span class="text-xs text-slate-500 font-mono">Scripting / DSA</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="font-mono text-slate-200">C++</span>
+              <span class="text-xs text-slate-500 font-mono">Punteros / Memoria</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="font-mono text-slate-200">Java</span>
+              <span class="text-xs text-slate-500 font-mono">OOP / Arquitectura</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="font-mono text-slate-200">SQL</span>
+              <span class="text-xs text-slate-500 font-mono">PostgreSQL / MySQL</span>
+            </li>
+            <li class="flex items-center justify-between py-1">
+              <span class="font-mono text-slate-200">JavaScript</span>
+              <span class="text-xs text-slate-500 font-mono">Frontend / Async</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Category 2: DSA & Fundamentos CS -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-5 text-cyan-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">Fundamentos & DSA</h3>
+          <p class="text-xs text-slate-400 mb-5 leading-relaxed">
+            Bases matemáticas y de computación para escribir código eficiente y escalable.
+          </p>
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-200">Estructuras de Datos</span>
+              <span class="text-xs text-cyan-400 font-mono">Trees, Graphs, Maps</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-200">Análisis Big-O</span>
+              <span class="text-xs text-cyan-400 font-mono">O(n), O(log n), O(1)</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-200">Algoritmos de Búsqueda</span>
+              <span class="text-xs text-cyan-400 font-mono">Binary Search, BFS/DFS</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-200">Patrones de Diseño</span>
+              <span class="text-xs text-cyan-400 font-mono">Factory, Singleton, etc.</span>
+            </li>
+            <li class="flex items-center justify-between py-1">
+              <span class="text-slate-200">Principios SOLID</span>
+              <span class="text-xs text-cyan-400 font-mono">Clean Architecture</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Category 3: Herramientas & Entorno -->
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5 text-emerald-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">Herramientas & Entorno</h3>
+          <p class="text-xs text-slate-400 mb-5 leading-relaxed">
+            Flujo de trabajo para desarrollo colaborativo, control de versiones y despliegue.
+          </p>
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-200">Git & GitHub</span>
+              <span class="text-xs text-emerald-400 font-mono">Branching, PRs, CI</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-200">Linux & Shell</span>
+              <span class="text-xs text-emerald-400 font-mono">Bash Scripting</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-200">APIs RESTful</span>
+              <span class="text-xs text-emerald-400 font-mono">Postman, HTTP JSON</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="text-slate-200">Docker (Básico)</span>
+              <span class="text-xs text-emerald-400 font-mono">Contenedores</span>
+            </li>
+            <li class="flex items-center justify-between py-1">
+              <span class="text-slate-200">VS Code & Debuggers</span>
+              <span class="text-xs text-emerald-400 font-mono">GDB, PyTest</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROYECTOS DESTACADOS ================= -->
+  <section id="proyectos" class="py-16 md:py-20 border-t border-slate-800/70">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex items-center justify-between mb-10">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <span class="h-px w-8 bg-brand-500"></span>
+            <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">03. Portafolio de Código</h2>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Proyectos Seleccionados</h3>
+        </div>
+        <a href="https://github.com/josuetorres27?tab=repositories" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
+          <span>Ver todos en GitHub</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="space-y-8">
+
+        <!-- Proyecto 1: Algoritmos / C++ o Python -->
+        <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+            <div>
+              <span class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/50">
+                Algoritmos & Rendimiento
+              </span>
+              <h4 class="text-xl sm:text-2xl font-bold text-white mt-3">
+                Motor de Simulación y Análisis de Grafos en C++
+              </h4>
+            </div>
+            
+            <!-- External Links -->
+            <div class="flex items-center gap-3 shrink-0">
+              <a href="https://github.com/josuetorres27/proyecto-grafos-cpp" target="_blank" rel="noopener noreferrer" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" title="Ver Repositorio">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+              </a>
+              <a href="#" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" title="Demo / Documentación">
+                <svg class="w-5 h-5 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+            Implementación desde cero de algoritmos clásicos de grafos (Dijkstra, A*, BFS, DFS) y estructuras de datos dinámicas sin dependencias externas. Diseñado con gestión rigurosa de memoria dinámica en C++, benchmarking de tiempos de ejecución y análisis formal de complejidad asintótica en grafos de hasta 100,000 nodos.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">C++20</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Algoritmos de Grafos</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Complejidad Big-O</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Valgrind / Memory Leak Free</span>
+          </div>
+        </article>
+
+        <!-- Proyecto 2: Backend / Java o Python -->
+        <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+            <div>
+              <span class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-400 bg-brand-950/60 px-2.5 py-1 rounded border border-brand-800/50">
+                Backend Architecture & API REST
+              </span>
+              <h4 class="text-xl sm:text-2xl font-bold text-white mt-3">
+                Sistema de Gestión y API RESTful con Persistencia SQL
+              </h4>
+            </div>
+            
+            <!-- External Links -->
+            <div class="flex items-center gap-3 shrink-0">
+              <a href="https://github.com/josuetorres27/sistema-gestion-backend" target="_blank" rel="noopener noreferrer" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" title="Ver Repositorio">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+              </a>
+              <a href="#" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" title="Demo / Documentación">
+                <svg class="w-5 h-5 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+            Arquitectura backend desacoplada por capas (Controladores, Servicios, Repositorios) con autenticación basada en tokens JWT y validación exhaustiva de datos. Integra base de datos relacional con migraciones automáticas, relaciones normalizadas y manejo de transacciones concurrentes ACID.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Java / Spring Boot</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">PostgreSQL</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Autenticación JWT</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Pruebas Unitarias (JUnit)</span>
+          </div>
+        </article>
+
+        <!-- Proyecto 3: Automatización / Herramienta con Python -->
+        <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+            <div>
+              <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded border border-emerald-800/50">
+                Scripting & Automatización
+              </span>
+              <h4 class="text-xl sm:text-2xl font-bold text-white mt-3">
+                Pipeline de Procesamiento de Datos y CLI en Python
+              </h4>
+            </div>
+            
+            <!-- External Links -->
+            <div class="flex items-center gap-3 shrink-0">
+              <a href="https://github.com/josuetorres27/python-data-cli" target="_blank" rel="noopener noreferrer" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" title="Ver Repositorio">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+              </a>
+              <a href="#" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors" title="Demo / Documentación">
+                <svg class="w-5 h-5 fill-none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+            Herramienta de línea de comandos para parsear, filtrar y transformar grandes volúmenes de registros en formato CSV y JSON. Incorpora logging estructurado, manejo de excepciones defensivo y un set completo de pruebas automatizadas con PyTest para garantizar confiabilidad en entornos de producción.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Python 3.11</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">PyTest</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">CLI Architecture</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Git / GitHub Actions CI</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="mt-8 text-center sm:hidden">
+        <a href="https://github.com/josuetorres27?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-brand-400 hover:text-brand-300 font-medium">
+          <span>Ver todos los proyectos en GitHub</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ENFOQUE TÉCNICO & LEETCODE ================= -->
+  <section id="enfoque-tecnico" class="py-16 md:py-20 border-t border-slate-800/70 bg-slate-900/30">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex items-center gap-3 mb-4">
+        <span class="h-px w-8 bg-brand-500"></span>
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">04. Preparación Técnica para Big Tech</h2>
+      </div>
+
+      <div class="p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border border-brand-500/30 relative overflow-hidden shadow-2xl">
+        <!-- Accent Glow -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-brand-500/20 text-brand-300 text-xs font-mono font-semibold">
+              <span>🎯 Enfoque Actual: Patrones de Algoritmos</span>
+            </div>
+            
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Dominando Entrevistas Técnicas & Resolución de Problemas
+            </h3>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Inspirado por procesos de selección en empresas de primer nivel, dedico tiempo diario a la resolución metódica de problemas algorítmicos. Mi enfoque no consiste en memorizar soluciones, sino en identificar patrones clave y justificar decisiones de complejidad temporal y espacial (<span class="font-mono text-brand-300">$O(n)$</span>, <span class="font-mono text-cyan-300">$O(1)$</span>).
+            </p>
+
+            <!-- Patrones dominados -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+              <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 text-xs font-mono text-slate-300">
+                <span class="text-brand-400 font-bold">#</span> Two Pointers
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 text-xs font-mono text-slate-300">
+                <span class="text-brand-400 font-bold">#</span> Sliding Window
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 text-xs font-mono text-slate-300">
+                <span class="text-brand-400 font-bold">#</span> Binary Search
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 text-xs font-mono text-slate-300">
+                <span class="text-brand-400 font-bold">#</span> DFS / BFS Trees
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 text-xs font-mono text-slate-300">
+                <span class="text-brand-400 font-bold">#</span> Hash Maps & Heaps
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700/60 text-xs font-mono text-slate-300">
+                <span class="text-brand-400 font-bold">#</span> Fast & Slow Pointers
+              </div>
+            </div>
+          </div>
+
+          <!-- Teaser Roadmap Fase 3 -->
+          <div class="lg:col-span-5 bg-slate-950/80 rounded-2xl border border-slate-800 p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-mono font-bold text-slate-400 tracking-wider">Fase 3 del Proyecto</span>
+              <span class="px-2 py-0.5 text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 rounded border border-cyan-500/30">Próximamente</span>
+            </div>
+
+            <h4 class="text-base font-bold text-white">Bitácora Técnica & Videos Explicativos</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Al finalizar mis cursos universitarios, este espacio se ampliará con un tracker interactivo de problemas resueltos en Python y C++, desgloses matemáticos y videos explicando la intuición detrás de cada solución con la técnica de Feynman.
+            </p>
+
+            <div class="pt-2 border-t border-slate-800/80">
+              <a href="https://github.com/josuetorres27/leetcode-solutions" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-400 hover:text-brand-300">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+                <span>Explorar repositorio de soluciones en progreso</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO ================= -->
+  <section id="contacto" class="py-16 md:py-24 border-t border-slate-800/70">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <div class="inline-flex items-center gap-2 mb-4">
+        <span class="h-px w-8 bg-brand-500"></span>
+        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">05. ¿Conversamos?</h2>
+        <span class="h-px w-8 bg-brand-500"></span>
+      </div>
+
+      <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-5 tracking-tight">
+        Conectemos y creemos algo extraordinario
+      </h3>
+
+      <p class="text-slate-300 text-base leading-relaxed mb-8 max-w-xl mx-auto">
+        Estoy activamente en búsqueda de pasantías, oportunidades junior de ingeniería de software o colaboraciones técnicas. Mi bandeja de entrada siempre está abierta.
+      </p>
+
+      <!-- Contact Interaction Box -->
+      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+        <div class="text-left">
+          <p class="text-xs font-mono uppercase text-slate-400 mb-1">Correo Electrónico</p>
+          <p id="email-text" class="text-base sm:text-lg font-mono font-medium text-white">dev.josue.torres@gmail.com</p>
+        </div>
+        
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <!-- Botón de Enviar Correo -->
+          <a href="mailto:dev.josue.torres@gmail.com" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-md active:scale-95">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            Escribir
+          </a>
+
+          <!-- Botón de Copiar con Feedback Visual -->
+          <button id="copy-email-btn" type="button" class="inline-flex items-center justify-center p-2.5 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl transition-all active:scale-95" title="Copiar correo">
+            <svg id="copy-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+            <span id="copied-toast" class="hidden text-xs font-semibold text-emerald-400 font-mono ml-2">¡Copiado!</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Social Links Row -->
+      <div class="flex items-center justify-center gap-6">
+        <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+          <span>GitHub</span>
+        </a>
+        <span class="text-slate-700">·</span>
+        <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <span class="text-slate-700">·</span>
+        <a href="./cv-josue.pdf" target="_blank" download="CV_Josue_Software_Engineer.pdf" class="inline-flex items-center gap-1.5 text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
+          <span>Curriculum PDF</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="py-8 border-t border-slate-900 bg-slate-950 text-slate-500 text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>
+        © 2026 Josué · Portafolio de Ingeniería de Software.
+      </p>
+      <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
+        <span>Alojado en <strong class="text-slate-200">GitHub Pages</strong></span>
+        <span>·</span>
+        <span>HTML + Tailwind CSS</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Toggle Mobile Menu
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconOpen = document.getElementById('menu-icon-open');
+    const menuIconClose = document.getElementById('menu-icon-close');
+
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+          mobileMenu.classList.add('hidden');
+          menuIconOpen.classList.remove('hidden');
+          menuIconClose.classList.add('hidden');
+        } else {
+          mobileMenu.classList.remove('hidden');
+          menuIconOpen.classList.add('hidden');
+          menuIconClose.classList.remove('hidden');
+        }
+      });
+
+      // Close menu on link click
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIconOpen.classList.remove('hidden');
+          menuIconClose.classList.add('hidden');
+        });
+      });
+    }
+
+    // Copy Email to Clipboard
+    const copyBtn = document.getElementById('copy-email-btn');
+    const emailText = document.getElementById('email-text');
+    const copiedToast = document.getElementById('copied-toast');
+
+    if (copyBtn && emailText && copiedToast) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(emailText.innerText.trim());
+          copiedToast.classList.remove('hidden');
+          setTimeout(() => {
+            copiedToast.classList.add('hidden');
+          }, 2000);
+        } catch (err) {
+          console.error('Error al copiar correo:', err);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

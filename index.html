@@ -143,6 +143,76 @@
     html.light .card-hover:hover {
       box-shadow: 0 16px 32px -8px rgba(99, 102, 241, 0.12), 0 0 0 1px rgba(99, 102, 241, 0.35) !important;
     }
+
+    /* High contrast color overrides for Light Mode */
+    html.light .text-brand-300,
+    html.light .text-brand-400 {
+      color: #4338ca !important; /* Deep Indigo 700 */
+    }
+    html.light .text-cyan-300,
+    html.light .text-cyan-400 {
+      color: #0e7490 !important; /* Cyan 700 */
+    }
+    html.light .text-emerald-300,
+    html.light .text-emerald-400 {
+      color: #047857 !important; /* Emerald 700 */
+    }
+    html.light .text-amber-300,
+    html.light .text-amber-400 {
+      color: #b45309 !important; /* Amber 700 */
+    }
+    html.light .text-rose-300,
+    html.light .text-rose-400,
+    html.light .text-red-400 {
+      color: #b91c1c !important; /* Red 700 */
+    }
+    html.light .text-indigo-300,
+    html.light .text-indigo-400 {
+      color: #4338ca !important; /* Indigo 700 */
+    }
+    html.light .text-slate-400 {
+      color: #475569 !important; /* Slate 600 for crisp readability */
+    }
+    html.light .text-slate-500 {
+      color: #64748b !important; /* Slate 500 */
+    }
+
+    /* Light Mode Headline Gradient - higher contrast vibrant tones */
+    html.light .bg-clip-text {
+      background-image: linear-gradient(to right, #4338ca, #6366f1, #0891b2) !important;
+    }
+
+    /* Badge & Tag Container Contrast in Light Mode */
+    html.light .bg-brand-950\/60,
+    html.light .bg-brand-500\/10 {
+      background-color: #eef2ff !important;
+      border-color: #c7d2fe !important;
+    }
+    html.light .bg-cyan-950\/60,
+    html.light .bg-cyan-500\/10 {
+      background-color: #ecfeff !important;
+      border-color: #a5f3fc !important;
+    }
+    html.light .bg-emerald-950\/60,
+    html.light .bg-emerald-500\/10 {
+      background-color: #ecfdf5 !important;
+      border-color: #a7f3d0 !important;
+    }
+    html.light .bg-amber-950\/60,
+    html.light .bg-amber-500\/10 {
+      background-color: #fffbeb !important;
+      border-color: #fde68a !important;
+    }
+    html.light .bg-indigo-950\/60,
+    html.light .bg-indigo-500\/10 {
+      background-color: #e0e7ff !important;
+      border-color: #c7d2fe !important;
+    }
+    html.light .bg-rose-500\/10,
+    html.light .bg-red-500\/10 {
+      background-color: #fff1f2 !important;
+      border-color: #fecdd3 !important;
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
@@ -354,7 +424,7 @@
                 </svg>
               </a>
 
-              <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
+              <a href="https://www.linkedin.com/in/josue-torres-sibaja/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
@@ -849,7 +919,7 @@
             </div>
             
             <div class="flex items-center gap-2 shrink-0">
-              <span class="px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono text-xs border border-slate-700">UCR Project</span>
+              <span data-i18n="project_ucr_tag" class="px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono text-xs border border-slate-700">UCR Project</span>
             </div>
           </div>
 
@@ -882,7 +952,7 @@
             </div>
             
             <div class="flex items-center gap-2 shrink-0">
-              <span class="px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono text-xs border border-slate-700">UCR Project</span>
+              <span data-i18n="project_ucr_tag" class="px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono text-xs border border-slate-700">UCR Project</span>
             </div>
           </div>
 
@@ -916,7 +986,7 @@
             </div>
             
             <div class="flex items-center gap-2 shrink-0">
-              <span class="px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono text-xs border border-slate-700">UCR Project</span>
+              <span data-i18n="project_ucr_tag" class="px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono text-xs border border-slate-700">UCR Project</span>
             </div>
           </div>
 
@@ -949,7 +1019,7 @@
             </div>
             
             <div class="flex items-center gap-2 shrink-0">
-              <span class="px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono text-xs border border-slate-700">UCR Project</span>
+              <span data-i18n="project_ucr_tag" class="px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono text-xs border border-slate-700">UCR Project</span>
             </div>
           </div>
 
@@ -1198,7 +1268,7 @@
               <p data-i18n="interests_crafts_sub" class="text-xs text-amber-400 font-mono">Painting & Sculpture Workshops · TCU (University Community Service)</p>
             </div>
           </div>
-          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/30 w-fit">
+          <span data-i18n="interests_crafts_badge" class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/30 w-fit">
             100% Handcrafted
           </span>
         </div>
@@ -1242,7 +1312,7 @@
               <p data-i18n="interests_photo_sub" class="text-xs text-cyan-400 font-mono">Enthusiast Photographer · Costa Rica Sceneries</p>
             </div>
           </div>
-          <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 w-fit">
+          <span data-i18n="interests_photo_badge" class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 w-fit">
             Amateur Eye for Framing
           </span>
         </div>
@@ -1269,52 +1339,32 @@
                 </div>
               </div>
 
-              <!-- Slide 2: 2.jpg -->
-              <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md">
-                  <img src="./img/photography/2.jpg" alt="Pacific sunset with golden ocean reflections" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span data-i18n="interests_photo_img2" class="text-xs font-medium text-slate-200">Pacific Sunset & Ocean Reflection</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 3: 3.jpeg -->
+              <!-- Slide 2: 3.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
                 <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md">
                   <img src="./img/photography/3.jpeg" alt="Iconic sunflower mural at University of Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span data-i18n="interests_photo_img3" class="text-xs font-medium text-slate-200">Campus Art & Sunflower Mural · UCR</span>
+                    <span data-i18n="interests_photo_img2" class="text-xs font-medium text-slate-200">Campus Art & Sunflower Mural · UCR</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Slide 4: 4.jpg -->
-              <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md">
-                  <img src="./img/photography/4.jpg" alt="Marina dock and boats during golden hour" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span data-i18n="interests_photo_img4" class="text-xs font-medium text-slate-200">Marina Dock & Golden Hour Reflections</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 5: 5.jpeg -->
+              <!-- Slide 3: 5.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
                 <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md">
                   <img src="./img/photography/5.jpeg" alt="Sunset sky gradient with violet and amber tones" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span data-i18n="interests_photo_img5" class="text-xs font-medium text-slate-200">Evening Sky Gradient & Dusk Horizon</span>
+                    <span data-i18n="interests_photo_img3" class="text-xs font-medium text-slate-200">Evening Sky Gradient & Dusk Horizon</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Slide 6: 6.jpg -->
+              <!-- Slide 4: 6.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
                 <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md">
                   <img src="./img/photography/6.jpg" alt="Rustic treehouse in pine trees under clear sky" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span data-i18n="interests_photo_img6" class="text-xs font-medium text-slate-200">Rustic Treehouse & Mountain Pines</span>
+                    <span data-i18n="interests_photo_img4" class="text-xs font-medium text-slate-200">Rustic Treehouse & Mountain Pines</span>
                   </div>
                 </div>
               </div>
@@ -1333,7 +1383,7 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
               </button>
               <span class="text-[11px] font-mono text-slate-400 ml-1.5 hidden sm:inline">
-                <span data-i18n="interests_carousel_note">Auto-sliding · Hover to pause</span>
+                <span data-i18n="interests_carousel_note">Manual gallery · Use arrows or dots to navigate</span>
               </span>
             </div>
 
@@ -1450,7 +1500,7 @@
           <span>GitHub</span>
         </a>
         <span class="text-slate-700">·</span>
-        <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+        <a href="https://www.linkedin.com/in/josue-torres-sibaja/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           <span>LinkedIn</span>
         </a>
@@ -1641,7 +1691,7 @@
         experience_location: "San Pedro, San José · On-site",
         experience_role_title: "Information Technology Support Assistant",
         experience_company: "Universidad de Costa Rica (UCR)",
-        experience_department: "Oficina de Orientación",
+        experience_department: "Orientation Office",
         experience_btn_linkedin: "View on LinkedIn",
         experience_role_desc: "Deliver end-to-end IT support for the Orientation Office at the University of Costa Rica, keeping hardware, software, and institutional web infrastructure reliable for staff and students across academic units.",
         experience_item1_title: "Hardware & Software Diagnostics",
@@ -1678,6 +1728,7 @@
         lasce_p3: `<strong class="text-slate-300">Key Contributions:</strong> Complete CMS suite for news and ROSAC observatory (create, edit, delete workflows, Prisma transactions, MinIO uploads, and optimistic concurrency patterns), standardized management and confirmation modals, accessibility safeguards (axe-core, WCAG), and test automation across Playwright E2E and Vitest.`,
 
         past_projects_header: "Previous University Projects (UCR)",
+        project_ucr_tag: "UCR Project",
         p1_type: "C# / .NET · Desktop Application",
         p1_date: "Mar 2026 – Jul 2026 · UCR",
         p1_title: "Virtual Microscope Administration Panel",
@@ -1734,20 +1785,20 @@
         interests_sub: "Engineering is my profession and obsession, but creativity and discipline take many shapes. Here is a glimpse of what recharges my energy, trains my patience, and keeps me grounded.",
         interests_crafts_title: "Manual Crafts & Foamy Clay Sculptures",
         interests_crafts_sub: "Painting & Sculpture Workshops · TCU (University Community Service)",
+        interests_crafts_badge: "100% Handcrafted",
         interests_crafts_desc: "For my University Community Service (TCU) at UCR, I planned and delivered hands-on painting and moldable foamy sculpting workshops. Sculpting requires fine motor precision, spatial awareness, and patient iteration—traits that surprisingly parallel good software architecture and clean design.",
         interests_crafts_img1: "Miniature Sculpting & Pencil Toppers",
         interests_crafts_img2: "Character Clay Figures",
         interests_crafts_img3: "Foamy Sculpting Workshop Batch",
         interests_photo_title: "Landscape & Scenery Photography",
         interests_photo_sub: "Enthusiast Photographer · Costa Rica Sceneries",
+        interests_photo_badge: "Amateur Eye for Framing",
         interests_photo_desc: "I have a deep passion for capturing sceneries, horizon lines, vibrant golden hours, and unique places. I possess hundreds of scenery and nature photos—vastly outnumbering photos of myself. It is a visual exercise in composition, patience, and finding stillness.",
         interests_photo_img1: "Tropical Coastline & Marine Horizon",
-        interests_photo_img2: "Pacific Sunset & Ocean Reflection",
-        interests_photo_img3: "Campus Art & Sunflower Mural · UCR",
-        interests_photo_img4: "Marina Dock & Golden Hour Reflections",
-        interests_photo_img5: "Evening Sky Gradient & Dusk Horizon",
-        interests_photo_img6: "Rustic Treehouse & Mountain Pines",
-        interests_carousel_note: "Auto-sliding · Hover to pause",
+        interests_photo_img2: "Campus Art & Sunflower Mural · UCR",
+        interests_photo_img3: "Evening Sky Gradient & Dusk Horizon",
+        interests_photo_img4: "Rustic Treehouse & Mountain Pines",
+        interests_carousel_note: "Manual gallery · Use arrows or dots to navigate",
         interests_more_title: "More Activities That Keep Me Grounded",
         interests_pogo_title: "Pokémon GO Trainer",
         interests_pogo_desc: "Without a home console, Pokémon GO is my chosen video game. Proud of my consistent progress, raid milestones, and high-level collection built over years.",
@@ -1778,7 +1829,7 @@
         nav_contact: "Contacto",
 
         hero_badge: "Estudiante de Último Semestre · Disponible para Pasantías & Roles Junior",
-        hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span> 👋<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span>`,
+        hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span> 👋<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Ingeniería de Software & Computación</span>`,
         hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con <span class="font-mono text-brand-300 bg-brand-950/60 px-1.5 py-0.5 rounded border border-brand-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> y <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
         hero_btn_projects: "Ver Proyectos Destacados",
         hero_btn_cv: "Descargar CV / Resume",
@@ -1791,10 +1842,10 @@
         metric_stack_sub: "& Java / SQL",
         metric_spec_label: "Especialidad",
         metric_spec_val: "Algoritmos & DSA",
-        metric_spec_sub: "Big-O Optimization",
+        metric_spec_sub: "Optimización Big-O",
         metric_goal_label: "Objetivo",
-        metric_goal_val: "Software Engineer",
-        metric_goal_sub: "Junior / Intern",
+        metric_goal_val: "Ingeniero de Software",
+        metric_goal_sub: "Junior / Pasante",
 
         about_section_tag: "01. Perfil Profesional",
         about_p1: `¡Hola! Soy estudiante en la etapa final de mi carrera universitaria en <strong class="text-white">Ciencias de la Computación / Ingeniería en Sistemas</strong> en la <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. Me apasiona entender cómo funcionan las cosas desde sus cimientos: cómo viajan los datos en memoria, cómo optimizar la complejidad temporal de una función y cómo estructurar código mantenible y testeable.`,
@@ -1847,9 +1898,9 @@
         projects_section_tag: "04. Portafolio de Código",
         projects_heading: "Proyectos Seleccionados",
         projects_all_gh: "Ver todos en GitHub",
-        lasce_badge: "Currently Working On · Proyecto Activo",
+        lasce_badge: "Actualmente en Desarrollo · Proyecto Institucional",
         lasce_univ: "Universidad de Costa Rica (UCR)",
-        lasce_title: "LASCE — Institutional Scientific Web Platform",
+        lasce_title: "LASCE — Plataforma Web Científica Institucional",
         lasce_sub: "Laboratorio de Astrofísica Solar y Clima Espacial · UCR",
         lasce_btn: "Visitar Producción",
         lasce_p1: "Plataforma web institucional y de datos científicos desarrollada para el Laboratorio de Astrofísica Solar y Clima Espacial de la Universidad de Costa Rica. Provee un portal público bilingüe para la presentación de líneas de investigación, publicaciones científicas, noticias, colaboraciones, instrumentos espaciales y el observatorio de radio ROSAC.",
@@ -1857,24 +1908,25 @@
         lasce_p3: `<strong class="text-slate-300">Contribuciones clave:</strong> Desarrollo integral de la suite CMS para noticias y observatorio ROSAC (flujos de creación, edición, borrado, transacciones Prisma, subida a MinIO y control de concurrencia optimista), estandarización de componentes modales de gestión, accesibilidad WCAG y cobertura automatizada con Playwright E2E y Vitest.`,
 
         past_projects_header: "Proyectos Universitarios Anteriores (UCR)",
-        p1_type: "C# / .NET · Desktop Application",
+        project_ucr_tag: "Proyecto UCR",
+        p1_type: "C# / .NET · Aplicación de Escritorio",
         p1_date: "Mar 2026 – Jul 2026 · UCR",
-        p1_title: "Virtual Microscope Administration Panel",
+        p1_title: "Panel de Administración del Microscopio Virtual",
         p1_desc: "Desarrollo integral del panel de administración del Microscopio Virtual, una aplicación de escritorio que digitaliza los flujos de trabajo de microscopía del mundo real. Diseñé e implementé un sistema integral de gestión de datos en C# y .NET para organizar colecciones de especímenes en estructuras jerárquicas (Grupos, Cajas y Muestras) asociadas con imágenes microscópicas de alta fidelidad. Desarrollada como una solución de escritorio autocontenida con base de datos embebida para administración segura y local.",
 
-        p2_type: "Backend Architecture · Unity & REST APIs",
+        p2_type: "Arquitectura Backend · Unity & APIs REST",
         p2_date: "Ago 2025 – Dic 2025 · UCR",
         p2_title: "ThemePark UCR — Simulación Virtual Universitaria",
         p2_desc: "Desarrollo backend de ThemePark UCR, una simulación virtual del campus universitario construida en Unity. Implementación de APIs REST en C# para la gestión de edificios, espacios de aprendizaje y objetos interactivos utilizando .NET y SQL Server. El proyecto se desarrolló siguiendo la metodología Scrum, enfocado en integrar servicios backend desacoplados con el entorno virtual garantizando alta mantenibilidad y escalabilidad.",
 
         p3_type: "Sistemas Distribuidos & Redes de Bajo Nivel",
         p3_date: "Mar 2025 – Jul 2025 · UCR",
-        p3_title: "Distributed ASCII Art System",
+        p3_title: "Sistema Distribuido de Arte ASCII",
         p3_desc: "Desarrollo de un sistema distribuido en C++ compuesto por un cliente, un servidor intermediario y múltiples servidores de arte ASCII conectados mediante sockets en entorno Linux. Implementación de comunicación entre procesos (IPC), gestión de conexiones concurrentes y un sistema de archivos personalizado para almacenar y recuperar figuras de arte ASCII entre nodos. Enfocado en conceptos de sistemas distribuidos y programación de sistemas de bajo nivel.",
 
-        p4_type: "Web Application · Principios SOLID & CI/CD",
+        p4_type: "Aplicación Web · Principios SOLID & CI/CD",
         p4_date: "Mar 2025 – Jul 2025 · UCR",
-        p4_title: "Online Learning Platform",
+        p4_title: "Plataforma de Aprendizaje en Línea",
         p4_desc: "Plataforma web de aprendizaje en línea que cuenta con autenticación y gestión de usuarios, publicación de cursos, administración de contenidos, sistema de valoración y reseñas. El proyecto se desarrolló bajo la metodología ágil Scrum, aplicando rigurosamente los principios SOLID y prácticas de colaboración en GitHub, incluyendo la automatización del análisis estático de código mediante pipelines de integración continua (CI/CD).",
 
         ai_section_tag: "05. Inteligencia Artificial Aplicada",
@@ -1913,20 +1965,20 @@
         interests_sub: "La ingeniería de software es mi profesión y vocación, pero la creatividad y la disciplina adoptan muchas formas. Esta sección muestra aquello que renueva mi energía, entrena mi paciencia y me mantiene conectado con el mundo real.",
         interests_crafts_title: "Manualidades & Esculturas en Foamy Moldeable",
         interests_crafts_sub: "Talleres de Pintura y Escultura · TCU (Trabajo Comunal Universitario)",
+        interests_crafts_badge: "100% Hecho a Mano",
         interests_crafts_desc: "Durante mi Trabajo Comunal Universitario (TCU) en la UCR, impartí talleres de pintura y escultura con foamy moldeable. Esculpir figuras exige motricidad fina, noción espacial e iteración paciente: habilidades que guardan una asombrosa analogía con el diseño de arquitecturas limpias de software.",
         interests_crafts_img1: "Escultura en Miniatura & Punteros de Lápiz",
         interests_crafts_img2: "Figuras de Personajes en Foamy",
         interests_crafts_img3: "Lote de Creaciones del Taller",
         interests_photo_title: "Fotografía de Paisajes & Entornos",
         interests_photo_sub: "Fotógrafo Aficionado · Escenarios de Costa Rica",
+        interests_photo_badge: "Fotografía de Autor Aficionado",
         interests_photo_desc: "Me apasiona capturar paisajes naturales, horizontes marinos, atardeceres y lugares especiales. Conservo cientos de fotos de escenarios y naturaleza, muchas más de las que tengo de mí mismo; es un ejercicio de composición, calma y perspectiva.",
         interests_photo_img1: "Litoral Costero & Horizonte Marino",
-        interests_photo_img2: "Atardecer Pacífico & Reflejos Marinos",
-        interests_photo_img3: "Murales & Arte del Campus · UCR",
-        interests_photo_img4: "Muelle de Marina & Barcos al Atardecer",
-        interests_photo_img5: "Gradiente de Atardecer & Anochecer",
-        interests_photo_img6: "Casa en el Árbol & Pinos de Altura",
-        interests_carousel_note: "Desplazamiento automático · Pausa al pasar el cursor",
+        interests_photo_img2: "Murales & Arte del Campus · UCR",
+        interests_photo_img3: "Gradiente de Atardecer & Anochecer",
+        interests_photo_img4: "Casa en el Árbol & Pinos de Altura",
+        interests_carousel_note: "Galería manual · Usa las flechas o puntos para navegar",
         interests_more_title: "Otras Actividades Que Me Mantienen Equilibrado",
         interests_pogo_title: "Entrenador en Pokémon GO",
         interests_pogo_desc: "Al no tener consola de videojuegos en casa, Pokémon GO es mi juego predilecto. Me siento orgulloso de mi progreso constante, incursiones en equipo y colección acumulada con dedicación.",
@@ -2001,7 +2053,7 @@
     const initialLang = localStorage.getItem('portfolio_lang') || 'en';
     applyLanguage(initialLang);
 
-    // ================= PHOTOGRAPHY RESPONSIVE CAROUSEL =================
+    // ================= PHOTOGRAPHY RESPONSIVE CAROUSEL (MANUAL) =================
     function initPhotoCarousel() {
       const track = document.getElementById('photo-carousel-track');
       const prevBtn = document.getElementById('photo-prev-btn');
@@ -2010,9 +2062,8 @@
       const dotsContainer = document.getElementById('photo-dots-container');
       if (!track || !container) return;
 
-      const totalItems = track.children.length; // 6
+      const totalItems = track.children.length; // 4
       let currentIndex = 0;
-      let timer = null;
 
       function getVisibleCards() {
         if (window.innerWidth >= 1024) return 3;
@@ -2037,7 +2088,6 @@
           }`;
           dot.addEventListener('click', () => {
             goToSlide(i);
-            resetTimer();
           });
           dotsContainer.appendChild(dot);
         }
@@ -2087,30 +2137,8 @@
         updateCarousel();
       }
 
-      function startTimer() {
-        stopTimer();
-        timer = setInterval(nextSlide, 3500);
-      }
-
-      function stopTimer() {
-        if (timer) {
-          clearInterval(timer);
-          timer = null;
-        }
-      }
-
-      function resetTimer() {
-        stopTimer();
-        startTimer();
-      }
-
-      if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
-      if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
-
-      container.addEventListener('mouseenter', stopTimer);
-      container.addEventListener('mouseleave', startTimer);
-      container.addEventListener('touchstart', stopTimer, { passive: true });
-      container.addEventListener('touchend', startTimer, { passive: true });
+      if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+      if (prevBtn) prevBtn.addEventListener('click', prevSlide);
 
       let resizeTimeout;
       window.addEventListener('resize', () => {
@@ -2123,7 +2151,6 @@
 
       renderDots();
       updateCarousel();
-      startTimer();
     }
 
     initPhotoCarousel();

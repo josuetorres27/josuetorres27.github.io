@@ -44,6 +44,18 @@
     }
   </script>
 
+  <script>
+    // Theme initialization (default dark)
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    }
+  </script>
+
   <style>
     /* Suavizado de bordes y selecciones */
     ::selection {
@@ -64,6 +76,69 @@
     .card-hover:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 102, 241, 0.35);
+    }
+
+    /* Light Mode Theme Overrides */
+    html.light body {
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+    }
+    html.light .glass-nav {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border-color: #e2e8f0 !important;
+    }
+    html.light .radial-bg {
+      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, rgba(248, 250, 252, 0) 70%) !important;
+    }
+    html.light .bg-slate-950,
+    html.light .bg-slate-950\/80,
+    html.light .bg-slate-950\/60 {
+      background-color: #f1f5f9 !important;
+    }
+    html.light .bg-slate-900,
+    html.light .bg-slate-900\/95,
+    html.light .bg-slate-900\/80,
+    html.light .bg-slate-900\/70,
+    html.light .bg-slate-900\/60,
+    html.light .bg-slate-900\/30 {
+      background-color: #ffffff !important;
+    }
+    html.light .border-slate-800,
+    html.light .border-slate-800\/80,
+    html.light .border-slate-800\/70,
+    html.light .border-slate-800\/60,
+    html.light .border-slate-700,
+    html.light .border-slate-700\/80,
+    html.light .border-slate-700\/60 {
+      border-color: #e2e8f0 !important;
+    }
+    html.light .text-white {
+      color: #0f172a !important;
+    }
+    html.light .text-slate-100,
+    html.light .text-slate-200,
+    html.light .text-slate-300 {
+      color: #334155 !important;
+    }
+    html.light .text-slate-400 {
+      color: #64748b !important;
+    }
+    html.light .text-slate-500 {
+      color: #94a3b8 !important;
+    }
+    html.light .bg-slate-800,
+    html.light .bg-slate-800\/80,
+    html.light .bg-slate-800\/60 {
+      background-color: #f8fafc !important;
+      color: #1e293b !important;
+      border-color: #e2e8f0 !important;
+    }
+    html.light .hover\:bg-slate-800:hover,
+    html.light .hover\:bg-slate-700:hover {
+      background-color: #e2e8f0 !important;
+    }
+    html.light .card-hover:hover {
+      box-shadow: 0 16px 32px -8px rgba(99, 102, 241, 0.12), 0 0 0 1px rgba(99, 102, 241, 0.35) !important;
     }
   </style>
 </head>
@@ -99,42 +174,66 @@
         <a href="#contacto" class="hover:text-brand-400 transition-colors">Contacto</a>
       </nav>
 
-      <!-- Action Button / CV & Resume Dropdown -->
-      <div class="relative hidden md:block" id="desktop-cv-container">
-        <button id="desktop-cv-btn" type="button" aria-expanded="false" class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-all hover:border-slate-600 shadow-sm active:scale-95">
-          <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      <!-- Desktop Actions: Theme Toggle & CV Dropdown -->
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Theme Toggle Desktop -->
+        <button id="theme-toggle-btn" type="button" aria-label="Cambiar tema / Toggle theme" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-700/60 transition-all active:scale-95">
+          <svg class="theme-icon-sun w-4 h-4 hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
           </svg>
-          <span>CV / Resume</span>
-          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          <svg class="theme-icon-moon w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
         </button>
-        <div id="desktop-cv-dropdown" class="hidden absolute right-0 mt-2 w-52 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl py-1.5 z-50">
-          <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
-            <span class="text-sm">🇪🇸</span>
-            <div>
-              <p class="font-semibold text-white">Curriculum Vitae</p>
-              <p class="text-[10px] text-slate-400 font-mono">Español (PDF)</p>
-            </div>
-          </a>
-          <a href="./Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors border-t border-slate-800/60">
-            <span class="text-sm">🇺🇸</span>
-            <div>
-              <p class="font-semibold text-white">Resume</p>
-              <p class="text-[10px] text-slate-400 font-mono">English (PDF)</p>
-            </div>
-          </a>
+
+        <!-- CV & Resume Dropdown -->
+        <div class="relative" id="desktop-cv-container">
+          <button id="desktop-cv-btn" type="button" aria-expanded="false" class="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-all hover:border-slate-600 shadow-sm active:scale-95">
+            <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <span>CV / Resume</span>
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="desktop-cv-dropdown" class="hidden absolute right-0 mt-2 w-52 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl py-1.5 z-50">
+            <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
+              <span class="text-sm">🇪🇸</span>
+              <div>
+                <p class="font-semibold text-white">Curriculum Vitae</p>
+                <p class="text-[10px] text-slate-400 font-mono">Español (PDF)</p>
+              </div>
+            </a>
+            <a href="./Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors border-t border-slate-800/60">
+              <span class="text-sm">🇺🇸</span>
+              <div>
+                <p class="font-semibold text-white">Resume</p>
+                <p class="text-[10px] text-slate-400 font-mono">English (PDF)</p>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors">
-        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
+      <!-- Mobile Right Controls (Theme Toggle + Hamburger) -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="theme-toggle-mobile" type="button" aria-label="Cambiar tema / Toggle theme" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800/80 rounded-lg border border-slate-800 transition-colors">
+          <svg class="theme-icon-sun w-5 h-5 hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+          </svg>
+          <svg class="theme-icon-moon w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+
+        <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Dropdown -->
@@ -1056,6 +1155,37 @@
         }
       });
     }
+
+    // Theme Toggle Functionality
+    function updateThemeUI(theme) {
+      const isLight = theme === 'light';
+      document.querySelectorAll('.theme-icon-sun').forEach(el => el.classList.toggle('hidden', !isLight));
+      document.querySelectorAll('.theme-icon-moon').forEach(el => el.classList.toggle('hidden', isLight));
+    }
+
+    function toggleTheme() {
+      const isLight = document.documentElement.classList.contains('light');
+      if (isLight) {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        updateThemeUI('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        localStorage.setItem('theme', 'light');
+        updateThemeUI('light');
+      }
+    }
+
+    // Attach listeners
+    const themeBtnDesktop = document.getElementById('theme-toggle-btn');
+    const themeBtnMobile = document.getElementById('theme-toggle-mobile');
+    if (themeBtnDesktop) themeBtnDesktop.addEventListener('click', toggleTheme);
+    if (themeBtnMobile) themeBtnMobile.addEventListener('click', toggleTheme);
+
+    // Initial theme sync for icons
+    updateThemeUI(document.documentElement.classList.contains('light') ? 'light' : 'dark');
   </script>
 </body>
 </html>

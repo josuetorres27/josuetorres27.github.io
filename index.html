@@ -146,19 +146,27 @@
 
     /* High contrast color overrides for Light Mode */
     html.light .text-brand-300,
-    html.light .text-brand-400 {
+    html.light .text-brand-400,
+    html.light .text-brand-500 {
       color: #4338ca !important; /* Deep Indigo 700 */
     }
+    html.light .text-cyan-200,
     html.light .text-cyan-300,
-    html.light .text-cyan-400 {
+    html.light .text-cyan-400,
+    html.light .text-cyan-500 {
       color: #0e7490 !important; /* Cyan 700 */
     }
     html.light .text-emerald-300,
-    html.light .text-emerald-400 {
+    html.light .text-emerald-400,
+    html.light .text-emerald-500 {
       color: #047857 !important; /* Emerald 700 */
     }
     html.light .text-amber-300,
-    html.light .text-amber-400 {
+    html.light .text-amber-400,
+    html.light .text-amber-500,
+    html.light .text-yellow-300,
+    html.light .text-yellow-400,
+    html.light .text-yellow-500 {
       color: #b45309 !important; /* Amber 700 */
     }
     html.light .text-rose-300,
@@ -176,6 +184,13 @@
     html.light .text-slate-500 {
       color: #64748b !important; /* Slate 500 */
     }
+    html.light code,
+    html.light .font-mono.text-cyan-300,
+    html.light .font-mono.text-amber-300,
+    html.light .font-mono.text-brand-300,
+    html.light .font-mono.text-indigo-300 {
+      font-weight: 600 !important;
+    }
 
     /* Light Mode Headline Gradient - higher contrast vibrant tones */
     html.light .bg-clip-text {
@@ -189,7 +204,8 @@
       border-color: #c7d2fe !important;
     }
     html.light .bg-cyan-950\/60,
-    html.light .bg-cyan-500\/10 {
+    html.light .bg-cyan-500\/10,
+    html.light .bg-cyan-500\/20 {
       background-color: #ecfeff !important;
       border-color: #a5f3fc !important;
     }
@@ -213,6 +229,69 @@
       background-color: #fff1f2 !important;
       border-color: #fecdd3 !important;
     }
+
+    /* Fix Dark Island Sections in Light Mode (Selected Projects spotlight & AI LLM section) */
+    html.light #spotlight-project,
+    html.light #ia-agentes-container {
+      background-image: linear-gradient(to bottom, #ffffff, #f8fafc) !important;
+      background-color: #ffffff !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03) !important;
+    }
+    html.light #spotlight-project {
+      border-color: #c7d2fe !important;
+    }
+    html.light #ia-agentes-container {
+      border-color: #a5f3fc !important;
+    }
+    html.light #ia-agentes {
+      background-color: #f1f5f9 !important;
+    }
+    html.light #ia-agentes .bg-slate-950\/80,
+    html.light #ia-agentes .bg-slate-950\/60 {
+      background-color: #ffffff !important;
+      border-color: #e2e8f0 !important;
+    }
+    html.light #spotlight-project .bg-slate-800 {
+      background-color: #f1f5f9 !important;
+      color: #334155 !important;
+      border-color: #cbd5e1 !important;
+    }
+
+    /* Buttons in Light Mode: Vibrant Indigo / Violet */
+    html.light .bg-brand-600 {
+      background-color: #4f46e5 !important;
+      color: #ffffff !important;
+    }
+    html.light .hover\:bg-brand-500:hover,
+    html.light .bg-brand-600:hover {
+      background-color: #4338ca !important;
+    }
+    html.light .shadow-brand-600\/30 {
+      box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.25), 0 4px 6px -4px rgba(79, 70, 229, 0.2) !important;
+    }
+
+    /* Navigation Links Fixed Widths for zero layout shifts */
+    .nav-item-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    @media (min-width: 1024px) {
+      .nav-item-link[data-i18n="nav_about"] { width: 88px; }
+      .nav-item-link[data-i18n="nav_experience"] { width: 98px; }
+      .nav-item-link[data-i18n="nav_skills"] { width: 88px; }
+      .nav-item-link[data-i18n="nav_projects"] { width: 88px; }
+      .nav-item-link:has([data-i18n="nav_ai"]) { width: 116px; }
+      .nav-item-link[data-i18n="nav_mindset"] { width: 90px; }
+      .nav-item-link[data-i18n="nav_interests"] { width: 130px; }
+      .nav-item-link[data-i18n="nav_contact"] { width: 80px; }
+    }
+    html.light .nav-item-link:hover {
+      background-color: #e2e8f0 !important;
+      color: #0f172a !important;
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
@@ -234,23 +313,23 @@
         </span>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
-        <a href="#sobre-mi" data-i18n="nav_about" class="hover:text-brand-400 transition-colors">About Me</a>
-        <a href="#experiencia" data-i18n="nav_experience" class="hover:text-brand-400 transition-colors">Experience</a>
-        <a href="#habilidades" data-i18n="nav_skills" class="hover:text-brand-400 transition-colors">Skills</a>
-        <a href="#proyectos" data-i18n="nav_projects" class="hover:text-brand-400 transition-colors">Projects</a>
-        <a href="#ia-agentes" class="hover:text-brand-400 transition-colors flex items-center gap-1.5">
+      <!-- Desktop Navigation Links with Fixed Item Widths & Language Stability -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium text-slate-300">
+        <a href="#sobre-mi" data-i18n="nav_about" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
+        <a href="#experiencia" data-i18n="nav_experience" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
+        <a href="#habilidades" data-i18n="nav_skills" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
+        <a href="#proyectos" data-i18n="nav_projects" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
+        <a href="#ia-agentes" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center inline-flex items-center justify-center gap-1.5">
           <span data-i18n="nav_ai">AI & LLMs</span>
           <span class="px-1.5 py-0.5 text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 rounded border border-cyan-500/30">Skills</span>
         </a>
-        <a href="#mentalidad" data-i18n="nav_mindset" class="hover:text-brand-400 transition-colors">Mindset</a>
-        <a href="#intereses" data-i18n="nav_interests" class="hover:text-brand-400 transition-colors">Beyond the Code</a>
-        <a href="#contacto" data-i18n="nav_contact" class="hover:text-brand-400 transition-colors">Contact</a>
+        <a href="#mentalidad" data-i18n="nav_mindset" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Mindset</a>
+        <a href="#intereses" data-i18n="nav_interests" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Beyond the Code</a>
+        <a href="#contacto" data-i18n="nav_contact" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
       </nav>
 
       <!-- Desktop Actions: Language, Theme & CV Dropdown -->
-      <div class="hidden md:flex items-center gap-3">
+      <div class="hidden lg:flex items-center gap-2.5">
         <!-- Language Switcher Desktop -->
         <div class="inline-flex items-center p-0.5 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono shadow-inner" role="group" aria-label="Language selection">
           <button id="lang-btn-en" type="button" class="lang-switch-btn px-2 py-1 rounded-md font-semibold transition-all bg-brand-600 text-white shadow-sm" aria-label="Switch to English">EN</button>
@@ -295,8 +374,8 @@
         </div>
       </div>
 
-      <!-- Mobile Right Controls (Lang, Theme, Hamburger) -->
-      <div class="flex items-center gap-2 md:hidden">
+      <!-- Mobile / Tablet Right Controls (Lang, Theme, Hamburger) -->
+      <div class="flex items-center gap-2 lg:hidden">
         <!-- Language Switcher Mobile -->
         <div class="inline-flex items-center p-0.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-mono" role="group" aria-label="Mobile language selector">
           <button id="lang-btn-en-m" type="button" class="lang-switch-btn px-1.5 py-0.5 rounded font-semibold transition-all bg-brand-600 text-white" aria-label="Switch to English">EN</button>
@@ -324,7 +403,7 @@
     </div>
 
     <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 border-b border-slate-800 bg-slate-900/95 backdrop-blur-md">
+    <div id="mobile-menu" class="hidden lg:hidden px-4 pt-2 pb-6 border-b border-slate-800 bg-slate-900/95 backdrop-blur-md">
       <div class="flex flex-col space-y-3 font-medium text-slate-300">
         <a href="#sobre-mi" data-i18n="nav_about" class="mobile-nav-link py-2 hover:text-brand-400">About Me</a>
         <a href="#experiencia" data-i18n="nav_experience" class="mobile-nav-link py-2 hover:text-brand-400">Experience</a>
@@ -845,7 +924,7 @@
       </div>
 
       <!-- Spotlight: Currently Working On -->
-      <div class="mb-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border-2 border-brand-500/40 relative overflow-hidden shadow-2xl">
+      <div id="spotlight-project" class="mb-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border-2 border-brand-500/40 relative overflow-hidden shadow-2xl">
         <div class="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16"></div>
         
         <div class="relative z-10">
@@ -1057,7 +1136,7 @@
         <h2 data-i18n="ai_section_tag" class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">05. Applied Artificial Intelligence</h2>
       </div>
 
-      <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 border border-cyan-500/30 relative overflow-hidden shadow-2xl">
+      <div id="ia-agentes-container" class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 border border-cyan-500/30 relative overflow-hidden shadow-2xl">
         <!-- Glow Effect -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
 

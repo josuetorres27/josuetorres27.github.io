@@ -329,6 +329,19 @@
       background-color: #020617 !important;
       border-color: #334155 !important;
     }
+    #image-lightbox-modal #lightbox-location-link {
+      background-color: rgba(225, 29, 72, 0.16) !important;
+      border-color: rgba(244, 63, 94, 0.4) !important;
+      color: #fecdd3 !important;
+    }
+    #image-lightbox-modal #lightbox-location-link:hover {
+      background-color: rgba(225, 29, 72, 0.3) !important;
+      border-color: rgba(244, 63, 94, 0.75) !important;
+      color: #ffffff !important;
+    }
+    #image-lightbox-modal #lightbox-location-link span {
+      color: inherit !important;
+    }
     #lightbox-img {
       max-height: calc(85vh - 70px);
     }
@@ -1450,40 +1463,56 @@
               
               <!-- Slide 1: 1.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa">
+                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc1" data-location-url="https://maps.app.goo.gl/2KUMJyLAawHhcthu5" data-location-name="Parque Naomi, Quepos, Puntarenas, Costa Rica">
                   <img src="./img/photography/1.jpg" alt="Pacific Coast shoreline under blue tropical skies" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img1" class="text-xs font-medium text-slate-200">Tropical Coastline & Marine Horizon</span>
+                    <span class="flex items-center gap-1 text-[11px] text-cyan-300 font-mono mt-1">
+                      <svg class="w-3 h-3 fill-current text-rose-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                      <span class="truncate">Parque Naomi, Quepos</span>
+                    </span>
                   </div>
                 </div>
               </div>
 
               <!-- Slide 2: 3.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa">
+                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc2" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/3.jpeg" alt="Iconic sunflower mural at University of Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img2" class="text-xs font-medium text-slate-200">Campus Art & Sunflower Mural · UCR</span>
+                    <span class="flex items-center gap-1 text-[11px] text-cyan-300 font-mono mt-1">
+                      <svg class="w-3 h-3 fill-current text-rose-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                      <span class="truncate">UCR Rodrigo Facio, San Pedro</span>
+                    </span>
                   </div>
                 </div>
               </div>
 
               <!-- Slide 3: 5.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa">
+                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc3" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/5.jpeg" alt="Sunset sky gradient with violet and amber tones" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img3" class="text-xs font-medium text-slate-200">Evening Sky Gradient & Dusk Horizon</span>
+                    <span class="flex items-center gap-1 text-[11px] text-cyan-300 font-mono mt-1">
+                      <svg class="w-3 h-3 fill-current text-rose-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                      <span class="truncate">UCR Rodrigo Facio, San Pedro</span>
+                    </span>
                   </div>
                 </div>
               </div>
 
               <!-- Slide 4: 6.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa">
+                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc4" data-location-url="https://maps.app.goo.gl/1SERCtZCMmwr2hc18" data-location-name="Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica">
                   <img src="./img/photography/6.jpg" alt="Rustic treehouse in pine trees under clear sky" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img4" class="text-xs font-medium text-slate-200">Rustic Treehouse & Mountain Pines</span>
+                    <span class="flex items-center gap-1 text-[11px] text-cyan-300 font-mono mt-1">
+                      <svg class="w-3 h-3 fill-current text-rose-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                      <span class="truncate">Zarcero, Alajuela</span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -1654,9 +1683,26 @@
   <div id="image-lightbox-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
     <div class="relative max-w-4xl w-full flex flex-col items-center">
       
-      <!-- Top Bar: Caption above image + Close Button -->
-      <div class="w-full flex items-center justify-between gap-4 mb-3 px-1 sm:px-2">
-        <p id="lightbox-caption" class="text-sm sm:text-base font-semibold tracking-wide truncate pr-2"></p>
+      <!-- Top Bar: Caption & Location above image + Close Button -->
+      <div id="lightbox-header-bar" class="w-full flex items-start sm:items-center justify-between gap-3 mb-3 px-1 sm:px-2">
+        <div class="min-w-0 flex-1 pr-2">
+          <p id="lightbox-caption" class="text-sm sm:text-base font-semibold tracking-wide truncate text-white"></p>
+          
+          <!-- Location Link / Google Maps Badge (shown when image has location data) -->
+          <div id="lightbox-location-container" class="hidden mt-1.5 flex items-center">
+            <a id="lightbox-location-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium transition-all active:scale-95 shadow-sm border group/loc" title="Abrir ubicación en Google Maps">
+              <svg class="w-3.5 h-3.5 text-rose-400 group-hover/loc:scale-110 transition-transform fill-current flex-shrink-0" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span id="lightbox-location-text" class="font-sans font-medium truncate max-w-[200px] sm:max-w-md"></span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-mono opacity-90 ml-1">
+                <span data-i18n="lightbox_view_maps">Ver en Google Maps</span>
+                <svg class="w-3 h-3 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
         <button id="lightbox-close-btn" type="button" aria-label="Cerrar imagen" class="flex-shrink-0 p-2 rounded-xl transition-all active:scale-95 shadow-lg border">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
@@ -1937,6 +1983,11 @@
         interests_photo_img2: "Campus Art & Sunflower Mural · UCR",
         interests_photo_img3: "Evening Sky Gradient & Dusk Horizon",
         interests_photo_img4: "Rustic Treehouse & Mountain Pines",
+        interests_photo_loc1: "Parque Naomi, Quepos, Puntarenas, Costa Rica",
+        interests_photo_loc2: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
+        interests_photo_loc3: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
+        interests_photo_loc4: "Near Central Park of Zarcero, Zarcero, Alajuela, Costa Rica",
+        lightbox_view_maps: "View on Google Maps",
         interests_carousel_note: "Manual gallery · Use arrows or dots to navigate",
         interests_more_title: "More Activities That Keep Me Grounded",
         interests_pogo_title: "Pokémon GO Trainer",
@@ -2117,6 +2168,11 @@
         interests_photo_img2: "Murales & Arte del Campus · UCR",
         interests_photo_img3: "Gradiente de Atardecer & Anochecer",
         interests_photo_img4: "Casa en el Árbol & Pinos de Altura",
+        interests_photo_loc1: "Parque Naomi, Quepos, Puntarenas, Costa Rica",
+        interests_photo_loc2: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
+        interests_photo_loc3: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
+        interests_photo_loc4: "Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica",
+        lightbox_view_maps: "Ver en Google Maps",
         interests_carousel_note: "Galería manual · Usa las flechas o puntos para navegar",
         interests_more_title: "Otras Actividades Que Me Mantienen Equilibrado",
         interests_pogo_title: "Entrenador en Pokémon GO",
@@ -2301,13 +2357,41 @@
       const lightboxCaption = document.getElementById('lightbox-caption');
       const closeBtn = document.getElementById('lightbox-close-btn');
       const contentBox = document.getElementById('lightbox-content-box');
+      const headerBar = document.getElementById('lightbox-header-bar');
+      const locContainer = document.getElementById('lightbox-location-container');
+      const locLink = document.getElementById('lightbox-location-link');
+      const locText = document.getElementById('lightbox-location-text');
 
       if (!modal || !lightboxImg || !lightboxCaption) return;
 
-      function openModal(src, caption) {
+      function openModal(src, caption, locUrl, locKey, locFallback) {
         lightboxImg.src = src;
         lightboxImg.alt = caption;
         lightboxCaption.textContent = caption;
+
+        if (locUrl && locContainer && locLink && locText) {
+          const currentLang = document.documentElement.lang || 'en';
+          let locName = locFallback || '';
+          if (locKey && typeof I18N !== 'undefined' && I18N[currentLang] && I18N[currentLang][locKey]) {
+            locName = I18N[currentLang][locKey];
+          }
+          if (locKey) {
+            locText.setAttribute('data-i18n', locKey);
+          } else {
+            locText.removeAttribute('data-i18n');
+          }
+          locText.textContent = locName;
+          locLink.href = locUrl;
+          locContainer.classList.remove('hidden');
+        } else if (locContainer) {
+          locContainer.classList.add('hidden');
+          if (locLink) locLink.href = '#';
+          if (locText) {
+            locText.removeAttribute('data-i18n');
+            locText.textContent = '';
+          }
+        }
+
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
       }
@@ -2320,6 +2404,12 @@
             lightboxImg.src = '';
             lightboxImg.alt = '';
             lightboxCaption.textContent = '';
+            if (locContainer) locContainer.classList.add('hidden');
+            if (locLink) locLink.href = '#';
+            if (locText) {
+              locText.removeAttribute('data-i18n');
+              locText.textContent = '';
+            }
           }
         }, 250);
       }
@@ -2332,7 +2422,10 @@
           const src = img.getAttribute('src');
           const captionEl = trigger.querySelector('span[data-i18n]');
           const caption = captionEl ? captionEl.textContent.trim() : (img.getAttribute('alt') || '');
-          openModal(src, caption);
+          const locUrl = trigger.getAttribute('data-location-url');
+          const locKey = trigger.getAttribute('data-location-key');
+          const locFallback = trigger.getAttribute('data-location-name');
+          openModal(src, caption, locUrl, locKey, locFallback);
         }
 
         trigger.addEventListener('click', handleTrigger);
@@ -2351,9 +2444,15 @@
         });
       }
 
+      if (locLink) {
+        locLink.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      }
+
       // Close when clicking outside image & top bar (on the darkened backdrop)
       modal.addEventListener('click', (e) => {
-        if (e.target === modal || (!e.target.closest('#lightbox-content-box') && !e.target.closest('#lightbox-caption') && !e.target.closest('#lightbox-close-btn'))) {
+        if (e.target === modal || (!e.target.closest('#lightbox-content-box') && !e.target.closest('#lightbox-header-bar') && !e.target.closest('#lightbox-close-btn'))) {
           closeModal();
         }
       });

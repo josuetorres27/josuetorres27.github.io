@@ -292,6 +292,46 @@
       background-color: #e2e8f0 !important;
       color: #0f172a !important;
     }
+
+    /* Lightbox Modal Styles */
+    .lightbox-trigger {
+      cursor: zoom-in;
+    }
+    #image-lightbox-modal {
+      background-color: rgba(2, 6, 23, 0.78) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    #image-lightbox-modal.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #image-lightbox-modal:not(.hidden) {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    #image-lightbox-modal #lightbox-caption {
+      color: #ffffff !important;
+    }
+    #image-lightbox-modal #lightbox-close-btn {
+      background-color: rgba(30, 41, 59, 0.85) !important;
+      color: #e2e8f0 !important;
+      border-color: #475569 !important;
+    }
+    #image-lightbox-modal #lightbox-close-btn:hover {
+      background-color: rgba(51, 65, 85, 1) !important;
+      color: #ffffff !important;
+    }
+    #image-lightbox-modal #lightbox-content-box {
+      background-color: #020617 !important;
+      border-color: #334155 !important;
+    }
+    #lightbox-img {
+      max-height: calc(85vh - 70px);
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
@@ -522,8 +562,8 @@
         <div class="lg:col-span-4 flex justify-center lg:justify-end">
           <div class="relative group">
             <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 via-indigo-500 to-cyan-500 rounded-3xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500"></div>
-            <div class="relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl">
-              <img src="./img/portfolio.jpeg" alt="Josué Torres Sibaja" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="lightbox-trigger relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl transition-all hover:border-brand-500/60" role="button" tabindex="0" aria-label="Ver fotografía de perfil">
+              <img src="./img/portfolio.jpeg" alt="Josué Torres Sibaja · Software Engineer & CS Student" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             </div>
           </div>
         </div>
@@ -763,21 +803,21 @@
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-            <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4]">
+            <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/3.jpeg" alt="Oficina de Orientación - Universidad de Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img1_caption" class="text-xs font-medium text-slate-200">Orientation Office · Universidad de Costa Rica</span>
               </div>
             </div>
 
-            <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4]">
+            <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/1.jpeg" alt="Workstation Teardown and Motherboard Servicing" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img2_caption" class="text-xs font-medium text-slate-200">Hardware Servicing & Internal Diagnostics</span>
               </div>
             </div>
 
-            <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4]">
+            <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/2.jpeg" alt="Storage Component Diagnostic and HDD to SSD Upgrade" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img3_caption" class="text-xs font-medium text-slate-200">Storage Upgrades & SATA Diagnostics</span>
@@ -1358,19 +1398,19 @@
 
         <!-- 1x3 Handicrafts Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-          <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4]">
+          <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/1.jpg" alt="Foamy sculpture: Detailed owl pencil topper" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img1" class="text-xs font-medium text-slate-200">Miniature Sculpting & Pencil Toppers</span>
             </div>
           </div>
-          <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4]">
+          <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/2.jpg" alt="Foamy sculptures: Toothless, Spider-Man and Unicorn" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img2" class="text-xs font-medium text-slate-200">Character Clay Figures</span>
             </div>
           </div>
-          <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4]">
+          <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/3.jpg" alt="Foamy sculptures collection: Stitch, Pikachu, Capybara, Cat, Dragon" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img3" class="text-xs font-medium text-slate-200">Foamy Sculpting Workshop Batch</span>
@@ -1410,7 +1450,7 @@
               
               <!-- Slide 1: 1.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md">
+                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa">
                   <img src="./img/photography/1.jpg" alt="Pacific Coast shoreline under blue tropical skies" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <span data-i18n="interests_photo_img1" class="text-xs font-medium text-slate-200">Tropical Coastline & Marine Horizon</span>
@@ -1420,7 +1460,7 @@
 
               <!-- Slide 2: 3.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md">
+                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa">
                   <img src="./img/photography/3.jpeg" alt="Iconic sunflower mural at University of Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <span data-i18n="interests_photo_img2" class="text-xs font-medium text-slate-200">Campus Art & Sunflower Mural · UCR</span>
@@ -1430,7 +1470,7 @@
 
               <!-- Slide 3: 5.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md">
+                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa">
                   <img src="./img/photography/5.jpeg" alt="Sunset sky gradient with violet and amber tones" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <span data-i18n="interests_photo_img3" class="text-xs font-medium text-slate-200">Evening Sky Gradient & Dusk Horizon</span>
@@ -1440,7 +1480,7 @@
 
               <!-- Slide 4: 6.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md">
+                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa">
                   <img src="./img/photography/6.jpg" alt="Rustic treehouse in pine trees under clear sky" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <span data-i18n="interests_photo_img4" class="text-xs font-medium text-slate-200">Rustic Treehouse & Mountain Pines</span>
@@ -1609,6 +1649,26 @@
       </div>
     </div>
   </footer>
+
+  <!-- ================= IMAGE LIGHTBOX MODAL ================= -->
+  <div id="image-lightbox-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <div class="relative max-w-4xl w-full flex flex-col items-center">
+      
+      <!-- Top Bar: Caption above image + Close Button -->
+      <div class="w-full flex items-center justify-between gap-4 mb-3 px-1 sm:px-2">
+        <p id="lightbox-caption" class="text-sm sm:text-base font-semibold tracking-wide truncate pr-2"></p>
+        <button id="lightbox-close-btn" type="button" aria-label="Cerrar imagen" class="flex-shrink-0 p-2 rounded-xl transition-all active:scale-95 shadow-lg border">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Image Display Container -->
+      <div id="lightbox-content-box" class="relative rounded-2xl overflow-hidden border shadow-2xl max-h-[80vh] flex items-center justify-center">
+        <img id="lightbox-img" src="" alt="" class="w-auto h-auto max-h-[75vh] max-w-full object-contain">
+      </div>
+      
+    </div>
+  </div>
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
@@ -2233,6 +2293,80 @@
     }
 
     initPhotoCarousel();
+
+    // ================= IMAGE LIGHTBOX CONTROLLER =================
+    function initImageLightbox() {
+      const modal = document.getElementById('image-lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const closeBtn = document.getElementById('lightbox-close-btn');
+      const contentBox = document.getElementById('lightbox-content-box');
+
+      if (!modal || !lightboxImg || !lightboxCaption) return;
+
+      function openModal(src, caption) {
+        lightboxImg.src = src;
+        lightboxImg.alt = caption;
+        lightboxCaption.textContent = caption;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          if (modal.classList.contains('hidden')) {
+            lightboxImg.src = '';
+            lightboxImg.alt = '';
+            lightboxCaption.textContent = '';
+          }
+        }, 250);
+      }
+
+      const triggers = document.querySelectorAll('.lightbox-trigger');
+      triggers.forEach(trigger => {
+        function handleTrigger() {
+          const img = trigger.querySelector('img');
+          if (!img) return;
+          const src = img.getAttribute('src');
+          const captionEl = trigger.querySelector('span[data-i18n]');
+          const caption = captionEl ? captionEl.textContent.trim() : (img.getAttribute('alt') || '');
+          openModal(src, caption);
+        }
+
+        trigger.addEventListener('click', handleTrigger);
+        trigger.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleTrigger();
+          }
+        });
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeModal();
+        });
+      }
+
+      // Close when clicking outside image & top bar (on the darkened backdrop)
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal || (!e.target.closest('#lightbox-content-box') && !e.target.closest('#lightbox-caption') && !e.target.closest('#lightbox-close-btn'))) {
+          closeModal();
+        }
+      });
+
+      // Close with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeModal();
+        }
+      });
+    }
+
+    initImageLightbox();
   </script>
 </body>
 </html>

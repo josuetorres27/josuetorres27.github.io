@@ -45,7 +45,7 @@
   </script>
 
   <script>
-    // Theme initialization (default dark)
+    // Theme & Language initialization
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
       document.documentElement.classList.add('light');
@@ -54,6 +54,9 @@
       document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');
     }
+
+    const savedLang = localStorage.getItem('portfolio_lang') || 'en';
+    document.documentElement.lang = savedLang;
   </script>
 
   <style>
@@ -163,19 +166,25 @@
 
       <!-- Desktop Navigation Links -->
       <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
-        <a href="#sobre-mi" class="hover:text-brand-400 transition-colors">Sobre Mí</a>
-        <a href="#habilidades" class="hover:text-brand-400 transition-colors">Habilidades</a>
-        <a href="#proyectos" class="hover:text-brand-400 transition-colors">Proyectos</a>
+        <a href="#sobre-mi" data-i18n="nav_about" class="hover:text-brand-400 transition-colors">About Me</a>
+        <a href="#habilidades" data-i18n="nav_skills" class="hover:text-brand-400 transition-colors">Skills</a>
+        <a href="#proyectos" data-i18n="nav_projects" class="hover:text-brand-400 transition-colors">Projects</a>
         <a href="#ia-agentes" class="hover:text-brand-400 transition-colors flex items-center gap-1.5">
-          <span>IA & LLMs</span>
+          <span data-i18n="nav_ai">AI & LLMs</span>
           <span class="px-1.5 py-0.5 text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 rounded border border-cyan-500/30">Skills</span>
         </a>
-        <a href="#mentalidad" class="hover:text-brand-400 transition-colors">Mentalidad</a>
-        <a href="#contacto" class="hover:text-brand-400 transition-colors">Contacto</a>
+        <a href="#mentalidad" data-i18n="nav_mindset" class="hover:text-brand-400 transition-colors">Mindset</a>
+        <a href="#contacto" data-i18n="nav_contact" class="hover:text-brand-400 transition-colors">Contact</a>
       </nav>
 
-      <!-- Desktop Actions: Theme Toggle & CV Dropdown -->
+      <!-- Desktop Actions: Language, Theme & CV Dropdown -->
       <div class="hidden md:flex items-center gap-3">
+        <!-- Language Switcher Desktop -->
+        <div class="inline-flex items-center p-0.5 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono shadow-inner" role="group" aria-label="Language selection">
+          <button id="lang-btn-en" type="button" class="lang-switch-btn px-2 py-1 rounded-md font-semibold transition-all bg-brand-600 text-white shadow-sm" aria-label="Switch to English">EN</button>
+          <button id="lang-btn-es" type="button" class="lang-switch-btn px-2 py-1 rounded-md font-semibold transition-all text-slate-400 hover:text-white" aria-label="Cambiar a Español">ES</button>
+        </div>
+
         <!-- Theme Toggle Desktop -->
         <button id="theme-toggle-btn" type="button" aria-label="Cambiar tema / Toggle theme" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-700/60 transition-all active:scale-95">
           <svg class="theme-icon-sun w-4 h-4 hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -196,26 +205,32 @@
             <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
           <div id="desktop-cv-dropdown" class="hidden absolute right-0 mt-2 w-52 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl py-1.5 z-50">
-            <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
-              <span class="text-sm">🇪🇸</span>
-              <div>
-                <p class="font-semibold text-white">Curriculum Vitae</p>
-                <p class="text-[10px] text-slate-400 font-mono">Español (PDF)</p>
-              </div>
-            </a>
-            <a href="./Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors border-t border-slate-800/60">
+            <a href="./Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
               <span class="text-sm">🇺🇸</span>
               <div>
                 <p class="font-semibold text-white">Resume</p>
                 <p class="text-[10px] text-slate-400 font-mono">English (PDF)</p>
               </div>
             </a>
+            <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors border-t border-slate-800/60">
+              <span class="text-sm">🇪🇸</span>
+              <div>
+                <p class="font-semibold text-white">Curriculum Vitae</p>
+                <p class="text-[10px] text-slate-400 font-mono">Español (PDF)</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
 
-      <!-- Mobile Right Controls (Theme Toggle + Hamburger) -->
+      <!-- Mobile Right Controls (Lang, Theme, Hamburger) -->
       <div class="flex items-center gap-2 md:hidden">
+        <!-- Language Switcher Mobile -->
+        <div class="inline-flex items-center p-0.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-mono" role="group" aria-label="Mobile language selector">
+          <button id="lang-btn-en-m" type="button" class="lang-switch-btn px-1.5 py-0.5 rounded font-semibold transition-all bg-brand-600 text-white" aria-label="Switch to English">EN</button>
+          <button id="lang-btn-es-m" type="button" class="lang-switch-btn px-1.5 py-0.5 rounded font-semibold transition-all text-slate-400 hover:text-white" aria-label="Cambiar a Español">ES</button>
+        </div>
+
         <button id="theme-toggle-mobile" type="button" aria-label="Cambiar tema / Toggle theme" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800/80 rounded-lg border border-slate-800 transition-colors">
           <svg class="theme-icon-sun w-5 h-5 hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
@@ -239,18 +254,18 @@
     <!-- Mobile Dropdown -->
     <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 border-b border-slate-800 bg-slate-900/95 backdrop-blur-md">
       <div class="flex flex-col space-y-3 font-medium text-slate-300">
-        <a href="#sobre-mi" class="mobile-nav-link py-2 hover:text-brand-400">Sobre Mí</a>
-        <a href="#habilidades" class="mobile-nav-link py-2 hover:text-brand-400">Habilidades</a>
-        <a href="#proyectos" class="mobile-nav-link py-2 hover:text-brand-400">Proyectos</a>
-        <a href="#ia-agentes" class="mobile-nav-link py-2 hover:text-brand-400">IA & LLMs</a>
-        <a href="#mentalidad" class="mobile-nav-link py-2 hover:text-brand-400">Mentalidad</a>
-        <a href="#contacto" class="mobile-nav-link py-2 hover:text-brand-400">Contacto</a>
+        <a href="#sobre-mi" data-i18n="nav_about" class="mobile-nav-link py-2 hover:text-brand-400">About Me</a>
+        <a href="#habilidades" data-i18n="nav_skills" class="mobile-nav-link py-2 hover:text-brand-400">Skills</a>
+        <a href="#proyectos" data-i18n="nav_projects" class="mobile-nav-link py-2 hover:text-brand-400">Projects</a>
+        <a href="#ia-agentes" data-i18n="nav_ai" class="mobile-nav-link py-2 hover:text-brand-400">AI & LLMs</a>
+        <a href="#mentalidad" data-i18n="nav_mindset" class="mobile-nav-link py-2 hover:text-brand-400">Mindset</a>
+        <a href="#contacto" data-i18n="nav_contact" class="mobile-nav-link py-2 hover:text-brand-400">Contact</a>
         <div class="pt-2 grid grid-cols-2 gap-2">
-          <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-colors">
-            <span>🇪🇸</span> CV (Español)
-          </a>
           <a href="./Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-lg transition-colors">
             <span>🇺🇸</span> Resume (EN)
+          </a>
+          <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-colors">
+            <span>🇪🇸</span> CV (Español)
           </a>
         </div>
       </div>
@@ -271,30 +286,30 @@
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Estudiante de Último Semestre · Disponible para Pasantías & Roles Junior
+            <span data-i18n="hero_badge">Final Semester Student · Available for Internships & Junior Roles</span>
           </div>
 
           <!-- Main Headline -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-            Hola, soy <span class="text-white">Josué Torres Sibaja</span> 👋<br>
+          <h1 data-i18n-html="hero_headline" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+            Hi, I'm <span class="text-white">Josué Torres Sibaja</span> 👋<br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">
               Software Engineer & CS Student
             </span>
           </h1>
 
           <!-- Value Proposition / Bio Summary -->
-          <p class="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed mb-8">
-            Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con 
+          <p data-i18n-html="hero_bio" class="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed mb-8">
+            Advanced Computer Science student at <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with 
             <span class="font-mono text-brand-300 bg-brand-950/60 px-1.5 py-0.5 rounded border border-brand-800/50">TypeScript</span>, 
             <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, 
-            <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> y 
+            <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> and 
             <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.
           </p>
 
           <!-- Action Buttons -->
           <div class="flex flex-wrap items-center gap-4">
             <a href="#proyectos" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 active:scale-95">
-              <span>Ver Proyectos Destacados</span>
+              <span data-i18n="hero_btn_projects">View Featured Projects</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
@@ -306,22 +321,22 @@
                 <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
-                <span>Descargar CV / Resume</span>
+                <span data-i18n="hero_btn_cv">Download CV / Resume</span>
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
               <div id="hero-cv-dropdown" class="hidden absolute left-0 mt-2 w-56 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl py-2 z-40">
-                <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
-                  <span class="text-base">🇪🇸</span>
-                  <div>
-                    <p class="font-semibold text-white">Curriculum Vitae</p>
-                    <p class="text-[10px] text-slate-400 font-mono">Español (PDF)</p>
-                  </div>
-                </a>
-                <a href="./Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors border-t border-slate-800/60">
+                <a href="./Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
                   <span class="text-base">🇺🇸</span>
                   <div>
                     <p class="font-semibold text-white">Resume</p>
                     <p class="text-[10px] text-slate-400 font-mono">English (PDF)</p>
+                  </div>
+                </a>
+                <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors border-t border-slate-800/60">
+                  <span class="text-base">🇪🇸</span>
+                  <div>
+                    <p class="font-semibold text-white">Curriculum Vitae</p>
+                    <p class="text-[10px] text-slate-400 font-mono">Español (PDF)</p>
                   </div>
                 </a>
               </div>
@@ -329,19 +344,19 @@
 
             <!-- Quick Links: GitHub & LinkedIn -->
             <div class="flex items-center gap-2 ml-1">
-              <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
+              <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
                 </svg>
               </a>
 
-              <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="Perfil de LinkedIn" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
+              <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
 
-              <a href="mailto:dev.josue.torres@gmail.com" aria-label="Enviar correo" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
+              <a href="mailto:dev.josue.torres@gmail.com" aria-label="Send email" class="p-3 text-slate-400 hover:text-white hover:bg-slate-900 border border-transparent hover:border-slate-800 rounded-xl transition-all">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
@@ -365,24 +380,24 @@
       <!-- Quick Metrics Row -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-800/80">
         <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Estado</p>
-          <p class="text-lg font-bold text-white">Último Semestre</p>
-          <span class="text-xs text-brand-400">Estudiante Avanzado</span>
+          <p data-i18n="metric_status_label" class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Status</p>
+          <p data-i18n="metric_status_val" class="text-lg font-bold text-white">Final Semester</p>
+          <span data-i18n="metric_status_sub" class="text-xs text-brand-400">Advanced Student</span>
         </div>
         <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Core Stack</p>
-          <p class="text-lg font-bold text-white">Python · C++</p>
-          <span class="text-xs text-slate-400">& Java / SQL</span>
+          <p data-i18n="metric_stack_label" class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Core Stack</p>
+          <p data-i18n="metric_stack_val" class="text-lg font-bold text-white">Python · C++</p>
+          <span data-i18n="metric_stack_sub" class="text-xs text-slate-400">& Java / SQL</span>
         </div>
         <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Especialidad</p>
-          <p class="text-lg font-bold text-white">Algoritmos & DSA</p>
-          <span class="text-xs text-emerald-400">Big-O Optimization</span>
+          <p data-i18n="metric_spec_label" class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Specialty</p>
+          <p data-i18n="metric_spec_val" class="text-lg font-bold text-white">Algorithms & DSA</p>
+          <span data-i18n="metric_spec_sub" class="text-xs text-emerald-400">Big-O Optimization</span>
         </div>
         <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-          <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Objetivo</p>
-          <p class="text-lg font-bold text-white">Software Engineer</p>
-          <span class="text-xs text-brand-400">Junior / Intern</span>
+          <p data-i18n="metric_goal_label" class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Target Role</p>
+          <p data-i18n="metric_goal_val" class="text-lg font-bold text-white">Software Engineer</p>
+          <span data-i18n="metric_goal_sub" class="text-xs text-brand-400">Junior / Intern</span>
         </div>
       </div>
 
@@ -395,40 +410,40 @@
       
       <div class="flex items-center gap-3 mb-8">
         <span class="h-px w-8 bg-brand-500"></span>
-        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">01. Perfil Profesional</h2>
+        <h2 data-i18n="about_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">01. Professional Profile</h2>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div class="lg:col-span-7 space-y-4 text-slate-300 leading-relaxed text-base">
-          <p>
-            ¡Hola! Soy estudiante en la etapa final de mi carrera universitaria en <strong class="text-white">Ciencias de la Computación / Ingeniería en Sistemas</strong>. Me apasiona entender cómo funcionan las cosas desde sus cimientos: cómo viajan los datos en memoria, cómo optimizar la complejidad temporal de una función y cómo estructurar código mantenible y testeable.
+          <p data-i18n-html="about_p1">
+            Hello! I am a final-stage Computer Science and Software Engineering student at <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. I love understanding systems from the ground up: how data travels in memory, optimizing algorithm time and space complexity, and designing testable, maintainable codebases.
           </p>
-          <p>
-            Mi formación académica y proyectos personales me han permitido desarrollar sólidas competencias en programación orientada a objetos, diseño modular y algoritmos fundamentales. Recientemente he participado en procesos de evaluación técnica para empresas tecnológicas globales (como <strong class="text-white">Microsoft</strong>), lo que ha fortalecido mi disciplina de estudio en patrones algorítmicos y resolución estructurada de problemas bajo presión.
+          <p data-i18n-html="about_p2">
+            My academic coursework and engineering projects have allowed me to build strong capabilities in object-oriented design, modular architecture, and core algorithms. Recently, I have participated in technical evaluation processes for global tech companies (such as <strong class="text-white">Microsoft</strong>), which reinforced my structured problem-solving discipline and algorithmic patterns under pressure.
           </p>
-          <p>
-            Busco una oportunidad laboral como <strong class="text-white">Ingeniero de Software Junior o Pasante</strong> donde pueda aportar rigor técnico, aprender de ingenieros experimentados y construir soluciones de alto impacto.
+          <p data-i18n-html="about_p3">
+            I am seeking a role as a <strong class="text-white">Junior Software Engineer or Intern</strong> where I can contribute technical rigor, learn from experienced engineers, and build high-impact solutions.
           </p>
 
           <div class="pt-4 flex flex-wrap gap-4 text-sm font-mono text-slate-400">
             <span class="inline-flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              Pensamiento crítico
+              <span data-i18n="about_pill1">Critical thinking</span>
             </span>
             <span class="inline-flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              Autonomía de aprendizaje
+              <span data-i18n="about_pill2">Autonomous learner</span>
             </span>
             <span class="inline-flex items-center gap-2">
               <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              Buenas prácticas & Clean Code
+              <span data-i18n="about_pill3">Best practices & Clean Code</span>
             </span>
           </div>
         </div>
 
         <!-- Academic / Highlights Card -->
         <div class="lg:col-span-5 bg-slate-900/80 rounded-2xl border border-slate-800 p-6 space-y-6">
-          <h3 class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-mono">Resumen Académico</h3>
+          <h3 data-i18n="about_card_title" class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-mono">Academic Summary</h3>
           
           <div class="space-y-4">
             <div class="flex gap-4">
@@ -439,9 +454,9 @@
                 </svg>
               </div>
               <div>
-                <h4 class="text-sm font-semibold text-white">Ingeniería de Software / Computación</h4>
-                <p class="text-xs text-slate-400">Universidad (Último semestre)</p>
-                <p class="text-xs text-brand-300 mt-1">Etapa final de graduación</p>
+                <h4 data-i18n="about_degree_title" class="text-sm font-semibold text-white">Software Engineering / Computer Science</h4>
+                <p data-i18n="about_degree_sub" class="text-xs text-slate-400">Universidad de Costa Rica (Final Semester)</p>
+                <p data-i18n="about_degree_status" class="text-xs text-brand-300 mt-1">Final graduation stage</p>
               </div>
             </div>
 
@@ -452,8 +467,8 @@
                 </svg>
               </div>
               <div>
-                <h4 class="text-sm font-semibold text-white">Cursos Clave Aprobados</h4>
-                <p class="text-xs text-slate-400 mt-0.5">Estructuras de Datos, Algoritmos, Arquitectura de Computadoras, Bases de Datos Relacionales, Sistemas Operativos.</p>
+                <h4 data-i18n="about_courses_title" class="text-sm font-semibold text-white">Core Completed Coursework</h4>
+                <p data-i18n="about_courses_desc" class="text-xs text-slate-400 mt-0.5">Data Structures, Algorithms, Computer Architecture, Relational Databases, Operating Systems.</p>
               </div>
             </div>
 
@@ -465,8 +480,8 @@
                 </svg>
               </div>
               <div>
-                <h4 class="text-sm font-semibold text-white">Modalidad Laboral</h4>
-                <p class="text-xs text-slate-400 mt-0.5">Disponible para trabajo Remoto, Híbrido o Presencial según ubicación.</p>
+                <h4 data-i18n="about_workmode_title" class="text-sm font-semibold text-white">Work Modality</h4>
+                <p data-i18n="about_workmode_desc" class="text-xs text-slate-400 mt-0.5">Available for Remote, Hybrid, or On-site roles based on location.</p>
               </div>
             </div>
           </div>
@@ -482,19 +497,19 @@
       
       <div class="flex items-center gap-3 mb-8">
         <span class="h-px w-8 bg-brand-500"></span>
-        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">02. Stack & Habilidades</h2>
+        <h2 data-i18n="skills_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">02. Stack & Skills</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- Category 1: Lenguajes -->
+        <!-- Category 1: Languages -->
         <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
           <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5 text-indigo-400">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2">Lenguajes de Programación</h3>
-          <p class="text-xs text-slate-400 mb-5 leading-relaxed">
-            Manejo de paradigmas imperativo, orientado a objetos y tipado estático/dinámico.
+          <h3 data-i18n="skills_cat1_title" class="text-base font-bold text-white mb-2">Programming Languages</h3>
+          <p data-i18n="skills_cat1_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
+            Proficiency in imperative, OOP, and static/dynamic typed paradigms.
           </p>
           <ul class="space-y-2.5 text-sm">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
@@ -503,11 +518,11 @@
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span class="font-mono text-slate-200">C++</span>
-              <span class="text-xs text-slate-500 font-mono">Punteros / Memoria</span>
+              <span class="text-xs text-slate-500 font-mono">Pointers / Memory</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span class="font-mono text-slate-200">Java</span>
-              <span class="text-xs text-slate-500 font-mono">OOP / Arquitectura</span>
+              <span class="text-xs text-slate-500 font-mono">OOP / Architecture</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span class="font-mono text-slate-200">SQL</span>
@@ -520,47 +535,47 @@
           </ul>
         </div>
 
-        <!-- Category 2: DSA & Fundamentos CS -->
+        <!-- Category 2: DSA & CS Foundations -->
         <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
           <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-5 text-cyan-400">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2">Fundamentos & DSA</h3>
-          <p class="text-xs text-slate-400 mb-5 leading-relaxed">
-            Bases matemáticas y de computación para escribir código eficiente y escalable.
+          <h3 data-i18n="skills_cat2_title" class="text-base font-bold text-white mb-2">CS Fundamentals & DSA</h3>
+          <p data-i18n="skills_cat2_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
+            Mathematical and algorithmic foundations to craft efficient, scalable code.
           </p>
           <ul class="space-y-2.5 text-sm">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Estructuras de Datos</span>
+              <span class="text-slate-200">Data Structures</span>
               <span class="text-xs text-cyan-400 font-mono">Trees, Graphs, Maps</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Análisis Big-O</span>
+              <span class="text-slate-200">Big-O Analysis</span>
               <span class="text-xs text-cyan-400 font-mono">O(n), O(log n), O(1)</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Algoritmos de Búsqueda</span>
+              <span class="text-slate-200">Search & Traversal</span>
               <span class="text-xs text-cyan-400 font-mono">Binary Search, BFS/DFS</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Patrones de Diseño</span>
+              <span class="text-slate-200">Design Patterns</span>
               <span class="text-xs text-cyan-400 font-mono">Factory, Singleton, etc.</span>
             </li>
             <li class="flex items-center justify-between py-1">
-              <span class="text-slate-200">Principios SOLID</span>
+              <span class="text-slate-200">SOLID Principles</span>
               <span class="text-xs text-cyan-400 font-mono">Clean Architecture</span>
             </li>
           </ul>
         </div>
 
-        <!-- Category 3: Herramientas & Entorno -->
+        <!-- Category 3: Tools & Environment -->
         <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
           <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5 text-emerald-400">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
           </div>
-          <h3 class="text-base font-bold text-white mb-2">Herramientas & Entorno</h3>
-          <p class="text-xs text-slate-400 mb-5 leading-relaxed">
-            Flujo de trabajo para desarrollo colaborativo, control de versiones y despliegue.
+          <h3 data-i18n="skills_cat3_title" class="text-base font-bold text-white mb-2">Tools & Environment</h3>
+          <p data-i18n="skills_cat3_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
+            Collaborative development, version control, and CI/CD deployment pipelines.
           </p>
           <ul class="space-y-2.5 text-sm">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
@@ -572,12 +587,12 @@
               <span class="text-xs text-emerald-400 font-mono">Bash Scripting</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">APIs RESTful</span>
+              <span class="text-slate-200">RESTful APIs</span>
               <span class="text-xs text-emerald-400 font-mono">Postman, HTTP JSON</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Docker (Básico)</span>
-              <span class="text-xs text-emerald-400 font-mono">Contenedores</span>
+              <span class="text-slate-200">Docker (Basics)</span>
+              <span class="text-xs text-emerald-400 font-mono">Containers</span>
             </li>
             <li class="flex items-center justify-between py-1">
               <span class="text-slate-200">VS Code & Debuggers</span>
@@ -598,12 +613,12 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <span class="h-px w-8 bg-brand-500"></span>
-            <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">03. Portafolio de Código</h2>
+            <h2 data-i18n="projects_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">03. Code Portfolio</h2>
           </div>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Proyectos Seleccionados</h3>
+          <h3 data-i18n="projects_heading" class="text-2xl sm:text-3xl font-extrabold text-white">Selected Projects</h3>
         </div>
         <a href="https://github.com/josuetorres27?tab=repositories" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
-          <span>Ver todos en GitHub</span>
+          <span data-i18n="projects_all_gh">View all on GitHub</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </a>
       </div>
@@ -616,33 +631,33 @@
           <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold font-mono">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              <span>Currently Working On · Proyecto Activo</span>
+              <span data-i18n="lasce_badge">Currently Working On · Active Project</span>
             </div>
-            <span class="text-xs font-mono text-slate-400">Universidad de Costa Rica (UCR)</span>
+            <span data-i18n="lasce_univ" class="text-xs font-mono text-slate-400">Universidad de Costa Rica (UCR)</span>
           </div>
 
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
             <div>
-              <h4 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <h4 data-i18n="lasce_title" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                 LASCE — Institutional Scientific Web Platform
               </h4>
-              <p class="text-xs font-mono text-cyan-400 mt-1">Laboratorio de Astrofísica Solar y Clima Espacial · UCR</p>
+              <p data-i18n="lasce_sub" class="text-xs font-mono text-cyan-400 mt-1">Solar Astrophysics and Space Weather Laboratory · UCR</p>
             </div>
             <a href="https://lasce.up.railway.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-md shrink-0">
-              <span>Visitar Producción</span>
+              <span data-i18n="lasce_btn">Visit Production</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
             </a>
           </div>
 
           <div class="space-y-3 text-slate-300 text-sm leading-relaxed mb-6">
-            <p>
-              Plataforma web institucional y de datos científicos desarrollada para el Laboratorio de Astrofísica Solar y Clima Espacial de la Universidad de Costa Rica. Provee un portal público bilingüe para la presentación de líneas de investigación, publicaciones científicas, noticias, colaboraciones, instrumentos espaciales y el observatorio de radio ROSAC.
+            <p data-i18n="lasce_p1">
+              LASCE is a full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory of the University of Costa Rica. The platform provides a bilingual public portal for presenting research areas, scientific publications, news, collaborations, researchers, scientific instruments, space-weather projects, and the ROSAC radio observatory.
             </p>
-            <p>
-              Arquitectura como monorepo pnpm/Turborepo con <strong class="text-white">TypeScript, Next.js 16, React 19, PostgreSQL, Prisma, Redis, BullMQ, MinIO, InfluxDB</strong> y un worker en segundo plano en <strong class="text-white">Python 3.13</strong>.
+            <p data-i18n-html="lasce_p2">
+              Implemented as a pnpm and Turborepo monorepo using <strong class="text-white">TypeScript, Next.js 16, React 19, PostgreSQL, Prisma, Redis, BullMQ, MinIO, InfluxDB</strong>, and a background worker in <strong class="text-white">Python 3.13</strong>.
             </p>
-            <p class="text-xs text-slate-400">
-              <strong class="text-slate-300">Contribuciones clave:</strong> Desarrollo integral de la suite CMS para noticias y observatorio ROSAC (flujos de creación, edición, borrado, transacciones Prisma, subida a MinIO y control de concurrencia optimista), estandarización de componentes modales de gestión, accesibilidad WCAG y cobertura automatizada con Playwright E2E y Vitest.
+            <p data-i18n-html="lasce_p3" class="text-xs text-slate-400">
+              <strong class="text-slate-300">Key Contributions:</strong> Complete CMS suite for news and ROSAC observatory (create, edit, delete workflows, Prisma transactions, MinIO uploads, and optimistic concurrency patterns), standardized management and confirmation modals, accessibility safeguards (axe-core, WCAG), and test automation across Playwright E2E and Vitest.
             </p>
           </div>
 
@@ -661,23 +676,23 @@
 
       <!-- Past Projects Header -->
       <div class="mb-6 flex items-center justify-between">
-        <h4 class="text-sm uppercase tracking-wider font-bold text-slate-400 font-mono">Proyectos Universitarios Anteriores (UCR)</h4>
+        <h4 data-i18n="past_projects_header" class="text-sm uppercase tracking-wider font-bold text-slate-400 font-mono">Previous University Projects (UCR)</h4>
       </div>
 
       <!-- Project Cards Grid -->
       <div class="space-y-8">
 
-        <!-- Proyecto 1: Virtual Microscope -->
+        <!-- Project 1: Virtual Microscope -->
         <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-400 bg-brand-950/60 px-2.5 py-1 rounded border border-brand-800/50">
+                <span data-i18n="p1_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-400 bg-brand-950/60 px-2.5 py-1 rounded border border-brand-800/50">
                   C# / .NET · Desktop Application
                 </span>
-                <span class="text-xs font-mono text-slate-400">Mar 2026 – Jul 2026 · UCR</span>
+                <span data-i18n="p1_date" class="text-xs font-mono text-slate-400">Mar 2026 – Jul 2026 · UCR</span>
               </div>
-              <h4 class="text-xl sm:text-2xl font-bold text-white">
+              <h4 data-i18n="p1_title" class="text-xl sm:text-2xl font-bold text-white">
                 Virtual Microscope Administration Panel
               </h4>
             </div>
@@ -687,8 +702,8 @@
             </div>
           </div>
 
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
-            Desarrollo integral del panel de administración del Microscopio Virtual, una aplicación de escritorio que digitaliza los flujos de trabajo de microscopía del mundo real. Diseñé e implementé un sistema integral de gestión de datos en C# y .NET para organizar colecciones de especímenes en estructuras jerárquicas (Grupos, Cajas y Muestras) asociadas con imágenes microscópicas de alta fidelidad. Desarrollada como una solución de escritorio autocontenida con base de datos embebida para administración segura y local.
+          <p data-i18n="p1_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+            Contributed to the end-to-end development of the Virtual Microscope Administration Panel, a desktop application that digitizes real-world microscopy workflows. Designed and implemented a comprehensive data management system leveraging C# and .NET technologies to organize specimen collections into hierarchical structures (Groups, Boxes, and Slides) and associate them with high-fidelity microscope images. Developed as a self-contained desktop solution with embedded database capabilities for secure local data management on the administrator's workstation.
           </p>
 
           <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
@@ -700,18 +715,18 @@
           </div>
         </article>
 
-        <!-- Proyecto 2: ThemePark UCR -->
+        <!-- Project 2: ThemePark UCR -->
         <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/50">
+                <span data-i18n="p2_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/50">
                   Backend Architecture · Unity & REST APIs
                 </span>
-                <span class="text-xs font-mono text-slate-400">Ago 2025 – Dic 2025 · UCR</span>
+                <span data-i18n="p2_date" class="text-xs font-mono text-slate-400">Aug 2025 – Dec 2025 · UCR</span>
               </div>
-              <h4 class="text-xl sm:text-2xl font-bold text-white">
-                ThemePark UCR — Simulación Virtual Universitaria
+              <h4 data-i18n="p2_title" class="text-xl sm:text-2xl font-bold text-white">
+                ThemePark UCR — Virtual University Simulation
               </h4>
             </div>
             
@@ -720,31 +735,31 @@
             </div>
           </div>
 
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
-            Desarrollo backend de ThemePark UCR, una simulación virtual del campus universitario construida en Unity. Implementación de APIs REST en C# para la gestión de edificios, espacios de aprendizaje y objetos interactivos utilizando .NET y SQL Server. El proyecto se desarrolló siguiendo la metodología Scrum, enfocado en integrar servicios backend desacoplados con el entorno virtual garantizando alta mantenibilidad y escalabilidad.
+          <p data-i18n="p2_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+            Contributed to the backend development of ThemePark UCR, a virtual university simulation built with Unity. Implemented REST APIs in C# for managing buildings, learning spaces, and interactive objects using .NET and SQL Server. Developed following Scrum methodology, focusing on integrating decoupled backend services with the virtual environment while ensuring maintainability and scalability.
           </p>
 
           <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">C#</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">ASP.NET Core</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">APIs RESTful</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">RESTful APIs</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">SQL Server</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Unity Integration</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Scrum</span>
           </div>
         </article>
 
-        <!-- Proyecto 3: Distributed ASCII Art System -->
+        <!-- Project 3: Distributed ASCII Art System -->
         <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded border border-emerald-800/50">
-                  Sistemas Distribuidos & Redes de Bajo Nivel
+                <span data-i18n="p3_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded border border-emerald-800/50">
+                  Distributed Systems & Low-Level Networking
                 </span>
-                <span class="text-xs font-mono text-slate-400">Mar 2025 – Jul 2025 · UCR</span>
+                <span data-i18n="p3_date" class="text-xs font-mono text-slate-400">Mar 2025 – Jul 2025 · UCR</span>
               </div>
-              <h4 class="text-xl sm:text-2xl font-bold text-white">
+              <h4 data-i18n="p3_title" class="text-xl sm:text-2xl font-bold text-white">
                 Distributed ASCII Art System
               </h4>
             </div>
@@ -754,8 +769,8 @@
             </div>
           </div>
 
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
-            Desarrollo de un sistema distribuido en C++ compuesto por un cliente, un servidor intermediario y múltiples servidores de arte ASCII conectados mediante sockets en entorno Linux. Implementación de comunicación entre procesos (IPC), gestión de conexiones concurrentes y un sistema de archivos personalizado para almacenar y recuperar figuras de arte ASCII entre nodos. Enfocado en conceptos de sistemas distribuidos y programación de sistemas de bajo nivel.
+          <p data-i18n="p3_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+            Developed a distributed system in C++ consisting of a client, an intermediary server, and multiple ASCII art servers connected through sockets in a Linux environment. Implemented inter-process communication (IPC), concurrent connection management, and a custom file system for storing and retrieving ASCII art figures across nodes. Focused on distributed systems concepts, network communication, and low-level systems programming.
           </p>
 
           <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
@@ -767,17 +782,17 @@
           </div>
         </article>
 
-        <!-- Proyecto 4: Online Learning Platform -->
+        <!-- Project 4: Online Learning Platform -->
         <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span class="text-xs font-mono font-semibold uppercase tracking-wider text-amber-400 bg-amber-950/60 px-2.5 py-1 rounded border border-amber-800/50">
-                  Web Application · Principios SOLID & CI/CD
+                <span data-i18n="p4_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-amber-400 bg-amber-950/60 px-2.5 py-1 rounded border border-amber-800/50">
+                  Web Application · SOLID Principles & CI/CD
                 </span>
-                <span class="text-xs font-mono text-slate-400">Mar 2025 – Jul 2025 · UCR</span>
+                <span data-i18n="p4_date" class="text-xs font-mono text-slate-400">Mar 2025 – Jul 2025 · UCR</span>
               </div>
-              <h4 class="text-xl sm:text-2xl font-bold text-white">
+              <h4 data-i18n="p4_title" class="text-xl sm:text-2xl font-bold text-white">
                 Online Learning Platform
               </h4>
             </div>
@@ -787,15 +802,15 @@
             </div>
           </div>
 
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
-            Plataforma web de aprendizaje en línea que cuenta con autenticación y gestión de usuarios, publicación de cursos, administración de contenidos, sistema de valoración y reseñas. El proyecto se desarrolló bajo la metodología ágil Scrum, aplicando rigurosamente los principios SOLID y prácticas de colaboración en GitHub, incluyendo la automatización del análisis estático de código mediante pipelines de integración continua (CI/CD).
+          <p data-i18n="p4_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+            Developed a web-based online learning platform featuring user authentication and management, course publishing, content administration, rating systems, and user reviews. Developed following Scrum methodology, applying SOLID principles and collaborative development practices through GitHub, including static code analysis automation using continuous integration pipelines.
           </p>
 
           <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Python</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">HTML / CSS / JavaScript</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">CI/CD Pipelines</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Principios SOLID</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">SOLID Principles</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">GitHub Actions</span>
           </div>
         </article>
@@ -804,7 +819,7 @@
 
       <div class="mt-8 text-center sm:hidden">
         <a href="https://github.com/josuetorres27?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-brand-400 hover:text-brand-300 font-medium">
-          <span>Ver todos los proyectos en GitHub</span>
+          <span data-i18n="projects_all_gh">View all on GitHub</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
         </a>
       </div>
@@ -818,7 +833,7 @@
       
       <div class="flex items-center gap-3 mb-4">
         <span class="h-px w-8 bg-cyan-500"></span>
-        <h2 class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">04. Inteligencia Artificial Aplicada</h2>
+        <h2 data-i18n="ai_section_tag" class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">04. Applied Artificial Intelligence</h2>
       </div>
 
       <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 border border-cyan-500/30 relative overflow-hidden shadow-2xl">
@@ -829,15 +844,15 @@
           
           <div class="max-w-3xl">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/20 text-cyan-300 text-xs font-mono font-semibold mb-3 border border-cyan-500/30">
-              <span>🤖 LLM Engineering & Agentic Systems</span>
+              <span data-i18n="ai_badge">🤖 LLM Engineering & Agentic Systems</span>
             </div>
             
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Desarrollo con Modelos de Lenguaje & Agentes Autónomos
+            <h3 data-i18n="ai_heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              LLM Engineering & Autonomous Agent Architectures
             </h3>
 
-            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mt-3">
-              Experiencia práctica integrando y orquestando modelos fundacionales de IA en pipelines de ingeniería. No solo consumo APIs: diseño flujos estructurados, manejo de contexto sin alucinaciones, ejecución de herramientas (<span class="font-mono text-cyan-300">Tool / Function Calling</span>) y arquitecturas multi-agente para automatizar tareas complejas de software.
+            <p data-i18n-html="ai_intro" class="text-slate-300 text-sm sm:text-base leading-relaxed mt-3">
+              Hands-on experience integrating and orchestrating foundational AI models within software engineering pipelines. Beyond consuming APIs: designing structured workflows, deterministic hallucination control, tool execution (<span class="font-mono text-cyan-300">Tool / Function Calling</span>), and multi-agent coordination to automate complex software tasks.
             </p>
           </div>
 
@@ -849,9 +864,9 @@
               <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
                 01
               </div>
-              <h4 class="text-sm font-bold text-white mb-1.5">Sistemas Multi-Agente</h4>
-              <p class="text-xs text-slate-400 leading-relaxed">
-                Diseño de agentes con bucles ReAct, división jerárquica de subtareas, delegación asíncrona y memoria conversacional.
+              <h4 data-i18n="ai_card1_title" class="text-sm font-bold text-white mb-1.5">Multi-Agent Systems</h4>
+              <p data-i18n="ai_card1_desc" class="text-xs text-slate-400 leading-relaxed">
+                Agent orchestration with ReAct loops, hierarchical subtask division, asynchronous delegation, and conversational state memory.
               </p>
             </div>
 
@@ -860,9 +875,9 @@
               <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
                 02
               </div>
-              <h4 class="text-sm font-bold text-white mb-1.5">Function & Tool Calling</h4>
-              <p class="text-xs text-slate-400 leading-relaxed">
-                Conexión determinística entre LLMs y código ejecutable (APIs REST, CLI scripts, consultas SQL y esquemas JSON tipados).
+              <h4 data-i18n="ai_card2_title" class="text-sm font-bold text-white mb-1.5">Function & Tool Calling</h4>
+              <p data-i18n="ai_card2_desc" class="text-xs text-slate-400 leading-relaxed">
+                Deterministic bridging between LLMs and executable code (REST APIs, CLI scripts, SQL queries, and typed JSON schemas).
               </p>
             </div>
 
@@ -871,9 +886,9 @@
               <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
                 03
               </div>
-              <h4 class="text-sm font-bold text-white mb-1.5">Context & Prompting</h4>
-              <p class="text-xs text-slate-400 leading-relaxed">
-                Ingeniería de contexto, *few-shot prompting*, técnicas de extracción estructurada y mitigación sistemática de desviaciones.
+              <h4 data-i18n="ai_card3_title" class="text-sm font-bold text-white mb-1.5">Context & Prompting</h4>
+              <p data-i18n="ai_card3_desc" class="text-xs text-slate-400 leading-relaxed">
+                Context window management, few-shot prompting, structured JSON schema extraction, and drift prevention techniques.
               </p>
             </div>
 
@@ -882,24 +897,24 @@
               <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
                 04
               </div>
-              <h4 class="text-sm font-bold text-white mb-1.5">Modelos & Ecosistema</h4>
-              <p class="text-xs text-slate-400 leading-relaxed">
-                Manejo de Gemini API, Claude API, OpenAI SDK, modelos locales con Ollama y herramientas modernas de asistencia de código.
+              <h4 data-i18n="ai_card4_title" class="text-sm font-bold text-white mb-1.5">Models & Ecosystem</h4>
+              <p data-i18n="ai_card4_desc" class="text-xs text-slate-400 leading-relaxed">
+                Experience with Gemini API, Claude API, OpenAI SDK, local inference with Ollama, and agentic developer toolchains.
               </p>
             </div>
 
           </div>
 
-          <!-- Bottom Banner: Enfoque Profesional -->
+          <!-- Bottom Banner: Engineering Focus -->
           <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div class="flex items-center gap-3">
               <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              <p class="text-xs text-slate-300 font-mono">
-                <strong class="text-white">Criterio de Ingeniería:</strong> La IA como multiplicador de productividad y automatización robusta, con código probado y verificable.
+              <p data-i18n-html="ai_banner_text" class="text-xs text-slate-300 font-mono">
+                <strong class="text-white">Engineering Criteria:</strong> AI as an engineering force multiplier for robust automation, with strictly tested and verifiable code.
               </p>
             </div>
             <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs text-cyan-400 hover:text-cyan-300 font-semibold font-mono inline-flex items-center gap-1.5">
-              <span>Ver repositorios en GitHub</span>
+              <span data-i18n="ai_banner_btn">View repositories on GitHub</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
           </div>
@@ -916,16 +931,16 @@
       
       <div class="flex items-center gap-3 mb-4">
         <span class="h-px w-8 bg-brand-500"></span>
-        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">05. Filosofía de Ingeniería</h2>
+        <h2 data-i18n="mindset_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">05. Engineering Philosophy</h2>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
         <div>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Mentalidad, Actitud & Cultura de Trabajo
+          <h3 data-i18n="mindset_heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Mindset, Attitude & Engineering Culture
           </h3>
-          <p class="text-slate-300 text-sm sm:text-base max-w-2xl mt-2 leading-relaxed">
-            El dominio sintáctico de un lenguaje se adquiere con práctica, pero la actitud, la resiliencia y el criterio son lo que realmente define a un ingeniero de software de alto impacto.
+          <p data-i18n="mindset_intro" class="text-slate-300 text-sm sm:text-base max-w-2xl mt-2 leading-relaxed">
+            Syntax and framework mastery come with practice, but attitude, resilience, and engineering rigor are what truly define a high-impact software engineer.
           </p>
         </div>
       </div>
@@ -940,12 +955,12 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
             <div>
-              <h4 class="text-base font-bold text-white">Ownership & Responsabilidad de Extremo a Extremo</h4>
-              <p class="text-xs text-brand-300 font-mono">Foco en soluciones, no en excusas</p>
+              <h4 data-i18n="mindset_p1_title" class="text-base font-bold text-white">End-to-End Ownership & Accountability</h4>
+              <p data-i18n="mindset_p1_sub" class="text-xs text-brand-300 font-mono">Solutions over excuses</p>
             </div>
           </div>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            No me desentiendo de un problema diciendo "en mi máquina funciona" o "eso le toca a otra persona". Asumo la responsabilidad total de lo que construyo: desde comprender a fondo los requisitos de negocio hasta verificar su despliegue y estabilidad en producción.
+          <p data-i18n="mindset_p1_desc" class="text-slate-300 text-sm leading-relaxed">
+            I don't walk away with "it works on my machine" or "that's someone else's ticket". I take pride in end-to-end ownership: deeply understanding product requirements, building robust tests, and verifying production stability.
           </p>
         </div>
 
@@ -956,12 +971,12 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
             </div>
             <div>
-              <h4 class="text-base font-bold text-white">Humildad Intelectual & Aprendizaje Acelerado</h4>
-              <p class="text-xs text-cyan-300 font-mono">El feedback como catalizador</p>
+              <h4 data-i18n="mindset_p2_title" class="text-base font-bold text-white">Intellectual Humility & Fast Learning</h4>
+              <p data-i18n="mindset_p2_sub" class="text-xs text-cyan-300 font-mono">Feedback as a catalyst</p>
             </div>
           </div>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Reconozco con honestidad lo que no sé y mantengo una postura abierta para aprender de ingenieros con más experiencia. Valoro profundamente las revisiones de código (Code Reviews): las observaciones rigurosas son la vía más rápida para mejorar la calidad del software.
+          <p data-i18n="mindset_p2_desc" class="text-slate-300 text-sm leading-relaxed">
+            I am honest about what I don't know and always open to learning from experienced engineers. I actively embrace rigorous Code Reviews—they are the fastest vehicle to elevate code quality and personal engineering depth.
           </p>
         </div>
 
@@ -972,12 +987,12 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
             <div>
-              <h4 class="text-base font-bold text-white">Resiliencia & Mentalidad de Crecimiento</h4>
-              <p class="text-xs text-emerald-300 font-mono">Persistencia ante la complejidad</p>
+              <h4 data-i18n="mindset_p3_title" class="text-base font-bold text-white">Resilience & Growth Mindset</h4>
+              <p data-i18n="mindset_p3_sub" class="text-xs text-emerald-300 font-mono">Persistence through complexity</p>
             </div>
           </div>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Cuando un reto técnico o una prueba algorítmica se complica, no me frustro: lo interpreto como información empírica que me señala exactamente dónde debo enfocar mis siguientes horas de estudio. La constancia supera al talento cuando el talento no es constante.
+          <p data-i18n="mindset_p3_desc" class="text-slate-300 text-sm leading-relaxed">
+            When a complex technical bug or algorithmic challenge emerges, I don't get frustrated; I treat it as empirical feedback showing exactly where to focus next. Discipline and consistency consistently outpace talent alone.
           </p>
         </div>
 
@@ -988,12 +1003,12 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
             </div>
             <div>
-              <h4 class="text-base font-bold text-white">Comunicación Proactiva & Trabajo en Equipo</h4>
-              <p class="text-xs text-amber-300 font-mono">El software es una disciplina social</p>
+              <h4 data-i18n="mindset_p4_title" class="text-base font-bold text-white">Proactive Communication & Teamwork</h4>
+              <p data-i18n="mindset_p4_sub" class="text-xs text-amber-300 font-mono">Software is a collaborative craft</p>
             </div>
           </div>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Los mejores sistemas nacen de la empatía y la claridad. Me aseguro de documentar decisiones de diseño, comunicar bloqueos tempranamente antes de que se conviertan en retrasos, y escribir código pensado para la persona que tendrá que mantenerlo en el futuro.
+          <p data-i18n="mindset_p4_desc" class="text-slate-300 text-sm leading-relaxed">
+            Great software comes from clear communication and empathy. I document design decisions, raise blockers early before they cause delays, and write clean code with the next maintainer in mind.
           </p>
         </div>
 
@@ -1002,44 +1017,44 @@
     </div>
   </section>
 
-  <!-- ================= CONTACTO ================= -->
+  <!-- ================= CONTACT ================= -->
   <section id="contacto" class="py-16 md:py-24 border-t border-slate-800/70">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       
       <div class="inline-flex items-center gap-2 mb-4">
         <span class="h-px w-8 bg-brand-500"></span>
-        <h2 class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">06. ¿Conversamos?</h2>
+        <h2 data-i18n="contact_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">06. Get in Touch</h2>
         <span class="h-px w-8 bg-brand-500"></span>
       </div>
 
-      <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-5 tracking-tight">
-        Conectemos y creemos algo extraordinario
+      <h3 data-i18n="contact_heading" class="text-3xl sm:text-4xl font-extrabold text-white mb-5 tracking-tight">
+        Let's connect and build something extraordinary
       </h3>
 
-      <p class="text-slate-300 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-        Estoy activamente en búsqueda de pasantías, oportunidades junior de ingeniería de software o colaboraciones técnicas. Mi bandeja de entrada siempre está abierta.
+      <p data-i18n="contact_sub" class="text-slate-300 text-base leading-relaxed mb-8 max-w-xl mx-auto">
+        I am actively seeking internships, junior software engineer opportunities, and technical collaborations. My inbox is always open.
       </p>
 
       <!-- Contact Interaction Box -->
       <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
         <div class="text-left">
-          <p class="text-xs font-mono uppercase text-slate-400 mb-1">Correo Electrónico</p>
+          <p data-i18n="contact_email_label" class="text-xs font-mono uppercase text-slate-400 mb-1">Email Address</p>
           <p id="email-text" class="text-base sm:text-lg font-mono font-medium text-white">dev.josue.torres@gmail.com</p>
         </div>
         
         <div class="flex items-center gap-3 w-full sm:w-auto">
-          <!-- Botón de Enviar Correo -->
+          <!-- Send Email Button -->
           <a href="mailto:dev.josue.torres@gmail.com" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-md active:scale-95">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            Escribir
+            <span data-i18n="contact_btn_write">Email Me</span>
           </a>
 
-          <!-- Botón de Copiar con Feedback Visual -->
-          <button id="copy-email-btn" type="button" class="inline-flex items-center justify-center p-2.5 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl transition-all active:scale-95" title="Copiar correo">
+          <!-- Copy Button with Visual Toast -->
+          <button id="copy-email-btn" type="button" class="inline-flex items-center justify-center p-2.5 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl transition-all active:scale-95" title="Copy email">
             <svg id="copy-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
             </svg>
-            <span id="copied-toast" class="hidden text-xs font-semibold text-emerald-400 font-mono ml-2">¡Copiado!</span>
+            <span id="copied-toast" data-i18n="contact_toast_copied" class="hidden text-xs font-semibold text-emerald-400 font-mono ml-2">Copied!</span>
           </button>
         </div>
       </div>
@@ -1056,12 +1071,12 @@
           <span>LinkedIn</span>
         </a>
         <span class="text-slate-700">·</span>
-        <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
-          <span>🇪🇸 CV (Español)</span>
-        </a>
-        <span class="text-slate-700">·</span>
         <a href="./Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
           <span>🇺🇸 Resume (English)</span>
+        </a>
+        <span class="text-slate-700">·</span>
+        <a href="./CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
+          <span>🇪🇸 CV (Español)</span>
         </a>
       </div>
 
@@ -1071,11 +1086,11 @@
   <!-- ================= FOOTER ================= -->
   <footer class="py-8 border-t border-slate-900 bg-slate-950 text-slate-500 text-xs">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p>
-        © 2026 Josué · Portafolio de Ingeniería de Software.
+      <p data-i18n="footer_copyright">
+        © 2026 Josué Torres Sibaja · Software Engineering Portfolio.
       </p>
       <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-        <span>Alojado en <strong class="text-slate-200">GitHub Pages</strong></span>
+        <span><span data-i18n="footer_hosted">Hosted on</span> <strong class="text-slate-200">GitHub Pages</strong></span>
         <span>·</span>
         <span>HTML + Tailwind CSS</span>
       </div>
@@ -1186,6 +1201,311 @@
 
     // Initial theme sync for icons
     updateThemeUI(document.documentElement.classList.contains('light') ? 'light' : 'dark');
+
+    // ================= BILINGUAL I18N SYSTEM =================
+    const I18N = {
+      en: {
+        nav_about: "About Me",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_ai: "AI & LLMs",
+        nav_mindset: "Mindset",
+        nav_contact: "Contact",
+
+        hero_badge: "Final Semester Student · Available for Internships & Junior Roles",
+        hero_headline: `Hi, I'm <span class="text-white">Josué Torres Sibaja</span> 👋<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span>`,
+        hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with <span class="font-mono text-brand-300 bg-brand-950/60 px-1.5 py-0.5 rounded border border-brand-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> and <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
+        hero_btn_projects: "View Featured Projects",
+        hero_btn_cv: "Download CV / Resume",
+
+        metric_status_label: "Status",
+        metric_status_val: "Final Semester",
+        metric_status_sub: "Advanced Student",
+        metric_stack_label: "Core Stack",
+        metric_stack_val: "Python · C++",
+        metric_stack_sub: "& Java / SQL",
+        metric_spec_label: "Specialty",
+        metric_spec_val: "Algorithms & DSA",
+        metric_spec_sub: "Big-O Optimization",
+        metric_goal_label: "Target Role",
+        metric_goal_val: "Software Engineer",
+        metric_goal_sub: "Junior / Intern",
+
+        about_section_tag: "01. Professional Profile",
+        about_p1: `Hello! I am a final-stage Computer Science and Software Engineering student at <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. I love understanding systems from the ground up: how data travels in memory, optimizing algorithm time and space complexity, and designing testable, maintainable codebases.`,
+        about_p2: `My academic coursework and engineering projects have allowed me to build strong capabilities in object-oriented design, modular architecture, and core algorithms. Recently, I have participated in technical evaluation processes for global tech companies (such as <strong class="text-white">Microsoft</strong>), which reinforced my structured problem-solving discipline and algorithmic patterns under pressure.`,
+        about_p3: `I am seeking a role as a <strong class="text-white">Junior Software Engineer or Intern</strong> where I can contribute technical rigor, learn from experienced engineers, and build high-impact solutions.`,
+        about_pill1: "Critical thinking",
+        about_pill2: "Autonomous learner",
+        about_pill3: "Best practices & Clean Code",
+        about_card_title: "Academic Summary",
+        about_degree_title: "Software Engineering / Computer Science",
+        about_degree_sub: "Universidad de Costa Rica (Final Semester)",
+        about_degree_status: "Final graduation stage",
+        about_courses_title: "Core Completed Coursework",
+        about_courses_desc: "Data Structures, Algorithms, Computer Architecture, Relational Databases, Operating Systems.",
+        about_workmode_title: "Work Modality",
+        about_workmode_desc: "Available for Remote, Hybrid, or On-site roles based on location.",
+
+        skills_section_tag: "02. Stack & Skills",
+        skills_cat1_title: "Programming Languages",
+        skills_cat1_desc: "Proficiency in imperative, OOP, and static/dynamic typed paradigms.",
+        skills_cat2_title: "CS Fundamentals & DSA",
+        skills_cat2_desc: "Mathematical and algorithmic foundations to craft efficient, scalable code.",
+        skills_cat3_title: "Tools & Environment",
+        skills_cat3_desc: "Collaborative development, version control, and CI/CD deployment pipelines.",
+
+        projects_section_tag: "03. Code Portfolio",
+        projects_heading: "Selected Projects",
+        projects_all_gh: "View all on GitHub",
+        lasce_badge: "Currently Working On · Active Project",
+        lasce_univ: "Universidad de Costa Rica (UCR)",
+        lasce_title: "LASCE — Institutional Scientific Web Platform",
+        lasce_sub: "Solar Astrophysics and Space Weather Laboratory · UCR",
+        lasce_btn: "Visit Production",
+        lasce_p1: "LASCE is a full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory of the University of Costa Rica. The platform provides a bilingual public portal for presenting research areas, scientific publications, news, collaborations, researchers, scientific instruments, space-weather projects, and the ROSAC radio observatory.",
+        lasce_p2: `Implemented as a pnpm and Turborepo monorepo using <strong class="text-white">TypeScript, Next.js 16, React 19, PostgreSQL, Prisma, Redis, BullMQ, MinIO, InfluxDB</strong>, and a background worker in <strong class="text-white">Python 3.13</strong>.`,
+        lasce_p3: `<strong class="text-slate-300">Key Contributions:</strong> Complete CMS suite for news and ROSAC observatory (create, edit, delete workflows, Prisma transactions, MinIO uploads, and optimistic concurrency patterns), standardized management and confirmation modals, accessibility safeguards (axe-core, WCAG), and test automation across Playwright E2E and Vitest.`,
+
+        past_projects_header: "Previous University Projects (UCR)",
+        p1_type: "C# / .NET · Desktop Application",
+        p1_date: "Mar 2026 – Jul 2026 · UCR",
+        p1_title: "Virtual Microscope Administration Panel",
+        p1_desc: "Contributed to the end-to-end development of the Virtual Microscope Administration Panel, a desktop application that digitizes real-world microscopy workflows. Designed and implemented a comprehensive data management system leveraging C# and .NET technologies to organize specimen collections into hierarchical structures (Groups, Boxes, and Slides) and associate them with high-fidelity microscope images. Developed as a self-contained desktop solution with embedded database capabilities for secure local data management on the administrator's workstation.",
+
+        p2_type: "Backend Architecture · Unity & REST APIs",
+        p2_date: "Aug 2025 – Dec 2025 · UCR",
+        p2_title: "ThemePark UCR — Virtual University Simulation",
+        p2_desc: "Contributed to the backend development of ThemePark UCR, a virtual university simulation built with Unity. Implemented REST APIs in C# for managing buildings, learning spaces, and interactive objects using .NET and SQL Server. Developed following Scrum methodology, focusing on integrating decoupled backend services with the virtual environment while ensuring maintainability and scalability.",
+
+        p3_type: "Distributed Systems & Low-Level Networking",
+        p3_date: "Mar 2025 – Jul 2025 · UCR",
+        p3_title: "Distributed ASCII Art System",
+        p3_desc: "Developed a distributed system in C++ consisting of a client, an intermediary server, and multiple ASCII art servers connected through sockets in a Linux environment. Implemented inter-process communication (IPC), concurrent connection management, and a custom file system for storing and retrieving ASCII art figures across nodes. Focused on distributed systems concepts, network communication, and low-level systems programming.",
+
+        p4_type: "Web Application · SOLID Principles & CI/CD",
+        p4_date: "Mar 2025 – Jul 2025 · UCR",
+        p4_title: "Online Learning Platform",
+        p4_desc: "Developed a web-based online learning platform featuring user authentication and management, course publishing, content administration, rating systems, and user reviews. Developed following Scrum methodology, applying SOLID principles and collaborative development practices through GitHub, including static code analysis automation using continuous integration pipelines.",
+
+        ai_section_tag: "04. Applied Artificial Intelligence",
+        ai_badge: "🤖 LLM Engineering & Agentic Systems",
+        ai_heading: "LLM Engineering & Autonomous Agent Architectures",
+        ai_intro: `Hands-on experience integrating and orchestrating foundational AI models within software engineering pipelines. Beyond consuming APIs: designing structured workflows, deterministic hallucination control, tool execution (<span class="font-mono text-cyan-300">Tool / Function Calling</span>), and multi-agent coordination to automate complex software tasks.`,
+        ai_card1_title: "Multi-Agent Systems",
+        ai_card1_desc: "Agent orchestration with ReAct loops, hierarchical subtask division, asynchronous delegation, and conversational state memory.",
+        ai_card2_title: "Function & Tool Calling",
+        ai_card2_desc: "Deterministic bridging between LLMs and executable code (REST APIs, CLI scripts, SQL queries, and typed JSON schemas).",
+        ai_card3_title: "Context & Prompting",
+        ai_card3_desc: "Context window management, few-shot prompting, structured JSON schema extraction, and drift prevention techniques.",
+        ai_card4_title: "Models & Ecosystem",
+        ai_card4_desc: "Experience with Gemini API, Claude API, OpenAI SDK, local inference with Ollama, and agentic developer toolchains.",
+        ai_banner_text: `<strong class="text-white">Engineering Criteria:</strong> AI as an engineering force multiplier for robust automation, with strictly tested and verifiable code.`,
+        ai_banner_btn: "View repositories on GitHub",
+
+        mindset_section_tag: "05. Engineering Philosophy",
+        mindset_heading: "Mindset, Attitude & Engineering Culture",
+        mindset_intro: "Syntax and framework mastery come with practice, but attitude, resilience, and engineering rigor are what truly define a high-impact software engineer.",
+        mindset_p1_title: "End-to-End Ownership & Accountability",
+        mindset_p1_sub: "Solutions over excuses",
+        mindset_p1_desc: `I don't walk away with "it works on my machine" or "that's someone else's ticket". I take pride in end-to-end ownership: deeply understanding product requirements, building robust tests, and verifying production stability.`,
+        mindset_p2_title: "Intellectual Humility & Fast Learning",
+        mindset_p2_sub: "Feedback as a catalyst",
+        mindset_p2_desc: "I am honest about what I don't know and always open to learning from experienced engineers. I actively embrace rigorous Code Reviews—they are the fastest vehicle to elevate code quality and personal engineering depth.",
+        mindset_p3_title: "Resilience & Growth Mindset",
+        mindset_p3_sub: "Persistence through complexity",
+        mindset_p3_desc: "When a complex technical bug or algorithmic challenge emerges, I don't get frustrated; I treat it as empirical feedback showing exactly where to focus next. Discipline and consistency consistently outpace talent alone.",
+        mindset_p4_title: "Proactive Communication & Teamwork",
+        mindset_p4_sub: "Software is a collaborative craft",
+        mindset_p4_desc: "Great software comes from clear communication and empathy. I document design decisions, raise blockers early before they cause delays, and write clean code with the next maintainer in mind.",
+
+        contact_section_tag: "06. Get in Touch",
+        contact_heading: "Let's connect and build something extraordinary",
+        contact_sub: "I am actively seeking internships, junior software engineer opportunities, and technical collaborations. My inbox is always open.",
+        contact_email_label: "Email Address",
+        contact_btn_write: "Email Me",
+        contact_toast_copied: "Copied!",
+        footer_copyright: "© 2026 Josué Torres Sibaja · Software Engineering Portfolio.",
+        footer_hosted: "Hosted on"
+      },
+      es: {
+        nav_about: "Sobre Mí",
+        nav_skills: "Habilidades",
+        nav_projects: "Proyectos",
+        nav_ai: "IA & LLMs",
+        nav_mindset: "Mentalidad",
+        nav_contact: "Contacto",
+
+        hero_badge: "Estudiante de Último Semestre · Disponible para Pasantías & Roles Junior",
+        hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span> 👋<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span>`,
+        hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con <span class="font-mono text-brand-300 bg-brand-950/60 px-1.5 py-0.5 rounded border border-brand-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> y <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
+        hero_btn_projects: "Ver Proyectos Destacados",
+        hero_btn_cv: "Descargar CV / Resume",
+
+        metric_status_label: "Estado",
+        metric_status_val: "Último Semestre",
+        metric_status_sub: "Estudiante Avanzado",
+        metric_stack_label: "Core Stack",
+        metric_stack_val: "Python · C++",
+        metric_stack_sub: "& Java / SQL",
+        metric_spec_label: "Especialidad",
+        metric_spec_val: "Algoritmos & DSA",
+        metric_spec_sub: "Big-O Optimization",
+        metric_goal_label: "Objetivo",
+        metric_goal_val: "Software Engineer",
+        metric_goal_sub: "Junior / Intern",
+
+        about_section_tag: "01. Perfil Profesional",
+        about_p1: `¡Hola! Soy estudiante en la etapa final de mi carrera universitaria en <strong class="text-white">Ciencias de la Computación / Ingeniería en Sistemas</strong> en la <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. Me apasiona entender cómo funcionan las cosas desde sus cimientos: cómo viajan los datos en memoria, cómo optimizar la complejidad temporal de una función y cómo estructurar código mantenible y testeable.`,
+        about_p2: `Mi formación académica y proyectos personales me han permitido desarrollar sólidas competencias en programación orientada a objetos, diseño modular y algoritmos fundamentales. Recientemente he participado en procesos de evaluación técnica para empresas tecnológicas globales (como <strong class="text-white">Microsoft</strong>), lo que ha fortalecido mi disciplina de estudio en patrones algorítmicos y resolución estructurada de problemas bajo presión.`,
+        about_p3: `Busco una oportunidad laboral como <strong class="text-white">Ingeniero de Software Junior o Pasante</strong> donde pueda aportar rigor técnico, aprender de ingenieros experimentados y construir soluciones de alto impacto.`,
+        about_pill1: "Pensamiento crítico",
+        about_pill2: "Autonomía de aprendizaje",
+        about_pill3: "Buenas prácticas & Clean Code",
+        about_card_title: "Resumen Académico",
+        about_degree_title: "Ingeniería de Software / Computación",
+        about_degree_sub: "Universidad de Costa Rica (Último semestre)",
+        about_degree_status: "Etapa final de graduación",
+        about_courses_title: "Cursos Clave Aprobados",
+        about_courses_desc: "Estructuras de Datos, Algoritmos, Arquitectura de Computadoras, Bases de Datos Relacionales, Sistemas Operativos.",
+        about_workmode_title: "Modalidad Laboral",
+        about_workmode_desc: "Disponible para trabajo Remoto, Híbrido o Presencial según ubicación.",
+
+        skills_section_tag: "02. Stack & Habilidades",
+        skills_cat1_title: "Lenguajes de Programación",
+        skills_cat1_desc: "Manejo de paradigmas imperativo, orientado a objetos y tipado estático/dinámico.",
+        skills_cat2_title: "Fundamentos & DSA",
+        skills_cat2_desc: "Bases matemáticas y de computación para escribir código eficiente y escalable.",
+        skills_cat3_title: "Herramientas & Entorno",
+        skills_cat3_desc: "Flujo de trabajo para desarrollo colaborativo, control de versiones y despliegue.",
+
+        projects_section_tag: "03. Portafolio de Código",
+        projects_heading: "Proyectos Seleccionados",
+        projects_all_gh: "Ver todos en GitHub",
+        lasce_badge: "Currently Working On · Proyecto Activo",
+        lasce_univ: "Universidad de Costa Rica (UCR)",
+        lasce_title: "LASCE — Institutional Scientific Web Platform",
+        lasce_sub: "Laboratorio de Astrofísica Solar y Clima Espacial · UCR",
+        lasce_btn: "Visitar Producción",
+        lasce_p1: "Plataforma web institucional y de datos científicos desarrollada para el Laboratorio de Astrofísica Solar y Clima Espacial de la Universidad de Costa Rica. Provee un portal público bilingüe para la presentación de líneas de investigación, publicaciones científicas, noticias, colaboraciones, instrumentos espaciales y el observatorio de radio ROSAC.",
+        lasce_p2: `Arquitectura como monorepo pnpm/Turborepo con <strong class="text-white">TypeScript, Next.js 16, React 19, PostgreSQL, Prisma, Redis, BullMQ, MinIO, InfluxDB</strong> y un worker en segundo plano en <strong class="text-white">Python 3.13</strong>.`,
+        lasce_p3: `<strong class="text-slate-300">Contribuciones clave:</strong> Desarrollo integral de la suite CMS para noticias y observatorio ROSAC (flujos de creación, edición, borrado, transacciones Prisma, subida a MinIO y control de concurrencia optimista), estandarización de componentes modales de gestión, accesibilidad WCAG y cobertura automatizada con Playwright E2E y Vitest.`,
+
+        past_projects_header: "Proyectos Universitarios Anteriores (UCR)",
+        p1_type: "C# / .NET · Desktop Application",
+        p1_date: "Mar 2026 – Jul 2026 · UCR",
+        p1_title: "Virtual Microscope Administration Panel",
+        p1_desc: "Desarrollo integral del panel de administración del Microscopio Virtual, una aplicación de escritorio que digitaliza los flujos de trabajo de microscopía del mundo real. Diseñé e implementé un sistema integral de gestión de datos en C# y .NET para organizar colecciones de especímenes en estructuras jerárquicas (Grupos, Cajas y Muestras) asociadas con imágenes microscópicas de alta fidelidad. Desarrollada como una solución de escritorio autocontenida con base de datos embebida para administración segura y local.",
+
+        p2_type: "Backend Architecture · Unity & REST APIs",
+        p2_date: "Ago 2025 – Dic 2025 · UCR",
+        p2_title: "ThemePark UCR — Simulación Virtual Universitaria",
+        p2_desc: "Desarrollo backend de ThemePark UCR, una simulación virtual del campus universitario construida en Unity. Implementación de APIs REST en C# para la gestión de edificios, espacios de aprendizaje y objetos interactivos utilizando .NET y SQL Server. El proyecto se desarrolló siguiendo la metodología Scrum, enfocado en integrar servicios backend desacoplados con el entorno virtual garantizando alta mantenibilidad y escalabilidad.",
+
+        p3_type: "Sistemas Distribuidos & Redes de Bajo Nivel",
+        p3_date: "Mar 2025 – Jul 2025 · UCR",
+        p3_title: "Distributed ASCII Art System",
+        p3_desc: "Desarrollo de un sistema distribuido en C++ compuesto por un cliente, un servidor intermediario y múltiples servidores de arte ASCII conectados mediante sockets en entorno Linux. Implementación de comunicación entre procesos (IPC), gestión de conexiones concurrentes y un sistema de archivos personalizado para almacenar y recuperar figuras de arte ASCII entre nodos. Enfocado en conceptos de sistemas distribuidos y programación de sistemas de bajo nivel.",
+
+        p4_type: "Web Application · Principios SOLID & CI/CD",
+        p4_date: "Mar 2025 – Jul 2025 · UCR",
+        p4_title: "Online Learning Platform",
+        p4_desc: "Plataforma web de aprendizaje en línea que cuenta con autenticación y gestión de usuarios, publicación de cursos, administración de contenidos, sistema de valoración y reseñas. El proyecto se desarrolló bajo la metodología ágil Scrum, aplicando rigurosamente los principios SOLID y prácticas de colaboración en GitHub, incluyendo la automatización del análisis estático de código mediante pipelines de integración continua (CI/CD).",
+
+        ai_section_tag: "04. Inteligencia Artificial Aplicada",
+        ai_badge: "🤖 LLM Engineering & Agentic Systems",
+        ai_heading: "Desarrollo con Modelos de Lenguaje & Agentes Autónomos",
+        ai_intro: `Experiencia práctica integrando y orquestando modelos fundacionales de IA en pipelines de ingeniería. No solo consumo APIs: diseño flujos estructurados, manejo de contexto sin alucinaciones, ejecución de herramientas (<span class="font-mono text-cyan-300">Tool / Function Calling</span>) y arquitecturas multi-agente para automatizar tareas complejas de software.`,
+        ai_card1_title: "Sistemas Multi-Agente",
+        ai_card1_desc: "Diseño de agentes con bucles ReAct, división jerárquica de subtareas, delegación asíncrona y memoria conversacional.",
+        ai_card2_title: "Function & Tool Calling",
+        ai_card2_desc: "Conexión determinística entre LLMs y código ejecutable (APIs REST, CLI scripts, consultas SQL y esquemas JSON tipados).",
+        ai_card3_title: "Context & Prompting",
+        ai_card3_desc: "Ingeniería de contexto, few-shot prompting, técnicas de extracción estructurada y mitigación sistemática de desviaciones.",
+        ai_card4_title: "Modelos & Ecosistema",
+        ai_card4_desc: "Manejo de Gemini API, Claude API, OpenAI SDK, modelos locales con Ollama y herramientas modernas de asistencia de código.",
+        ai_banner_text: `<strong class="text-white">Criterio de Ingeniería:</strong> La IA como multiplicador de productividad y automatización robusta, con código probado y verificable.`,
+        ai_banner_btn: "Ver repositorios en GitHub",
+
+        mindset_section_tag: "05. Filosofía de Ingeniería",
+        mindset_heading: "Mentalidad, Actitud & Cultura de Trabajo",
+        mindset_intro: "El dominio sintáctico de un lenguaje se adquiere con práctica, pero la actitud, la resiliencia y el criterio son lo que realmente define a un ingeniero de software de alto impacto.",
+        mindset_p1_title: "Ownership & Responsabilidad de Extremo a Extremo",
+        mindset_p1_sub: "Foco en soluciones, no en excusas",
+        mindset_p1_desc: `No me desentiendo de un problema diciendo "en mi máquina funciona" o "eso le toca a otra persona". Asumo la responsabilidad total de lo que construyo: desde comprender a fondo los requisitos de negocio hasta verificar su despliegue y estabilidad en producción.`,
+        mindset_p2_title: "Humildad Intelectual & Aprendizaje Acelerado",
+        mindset_p2_sub: "El feedback como catalizador",
+        mindset_p2_desc: "Reconozco con honestidad lo que no sé y mantengo una postura abierta para aprender de ingenieros con más experiencia. Valoro profundamente las revisiones de código (Code Reviews): las observaciones rigurosas son la vía más rápida para mejorar la calidad del software.",
+        mindset_p3_title: "Resilience & Growth Mindset",
+        mindset_p3_sub: "Persistencia ante la complejidad",
+        mindset_p3_desc: "Cuando un reto técnico o una prueba algorítmica se complica, no me frustro: lo interpreto como información empírica que me señala exactamente dónde debo enfocar mis siguientes horas de estudio. La constancia supera al talento cuando el talento no es constante.",
+        mindset_p4_title: "Comunicación Proactiva & Trabajo en Equipo",
+        mindset_p4_sub: "El software es una disciplina social",
+        mindset_p4_desc: "Los mejores sistemas nacen de la empatía y la claridad. Me aseguro de documentar decisiones de diseño, comunicar bloqueos tempranamente antes de que se conviertan en retrasos, y escribir código pensado para la persona que tendrá que mantenerlo en el futuro.",
+
+        contact_section_tag: "06. ¿Conversamos?",
+        contact_heading: "Conectemos y creemos algo extraordinario",
+        contact_sub: "Estoy activamente en búsqueda de pasantías, oportunidades junior de ingeniería de software o colaboraciones técnicas. Mi bandeja de entrada siempre está abierta.",
+        contact_email_label: "Correo Electrónico",
+        contact_btn_write: "Escribir",
+        contact_toast_copied: "¡Copiado!",
+        footer_copyright: "© 2026 Josué Torres Sibaja · Portafolio de Ingeniería de Software.",
+        footer_hosted: "Alojado en"
+      }
+    };
+
+    function applyLanguage(lang) {
+      const activeLang = lang === 'es' ? 'es' : 'en';
+      const dict = I18N[activeLang];
+      document.documentElement.lang = activeLang;
+
+      // Update text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.textContent = dict[key];
+        }
+      });
+
+      // Update html nodes
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Update toggle button styles
+      document.querySelectorAll('.lang-switch-btn').forEach(btn => {
+        const isMobileBtn = btn.id.endsWith('-m');
+        const isEn = btn.id.includes('-en');
+        const isSelected = (activeLang === 'en' && isEn) || (activeLang === 'es' && !isEn);
+        const padClasses = isMobileBtn ? 'px-1.5 py-0.5 text-[11px]' : 'px-2 py-1 text-xs';
+
+        if (isSelected) {
+          btn.className = `lang-switch-btn ${padClasses} rounded-md font-semibold transition-all bg-brand-600 text-white shadow-sm`;
+        } else {
+          btn.className = `lang-switch-btn ${padClasses} rounded-md font-semibold transition-all text-slate-400 hover:text-white`;
+        }
+      });
+
+      localStorage.setItem('portfolio_lang', activeLang);
+    }
+
+    // Language toggle event listeners
+    const langBtnEn = document.getElementById('lang-btn-en');
+    const langBtnEs = document.getElementById('lang-btn-es');
+    const langBtnEnM = document.getElementById('lang-btn-en-m');
+    const langBtnEsM = document.getElementById('lang-btn-es-m');
+
+    if (langBtnEn) langBtnEn.addEventListener('click', () => applyLanguage('en'));
+    if (langBtnEs) langBtnEs.addEventListener('click', () => applyLanguage('es'));
+    if (langBtnEnM) langBtnEnM.addEventListener('click', () => applyLanguage('en'));
+    if (langBtnEsM) langBtnEsM.addEventListener('click', () => applyLanguage('es'));
+
+    // Initialize Language (Default to 'en' as requested)
+    const initialLang = localStorage.getItem('portfolio_lang') || 'en';
+    applyLanguage(initialLang);
   </script>
 </body>
 </html>

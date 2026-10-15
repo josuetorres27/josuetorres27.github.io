@@ -15,9 +15,9 @@ Welcome to the official repository for my personal software engineering portfoli
 
 I am a final-semester Computer Science and Software Engineering student at the **Universidad de Costa Rica (UCR)**. I have a passion for building scalable, high-performance systems and clean software architectures. My background combines rigorous theoretical foundations (data structures, algorithms, object-oriented design, distributed systems) with practical industry and university project experience.
 
-- 🎓 **Education:** B.Sc. in Computer Science (Software Engineering Emphasis) — Universidad de Costa Rica (UCR)
-- 🗣️ **Languages:** Spanish (Native), English (Professional Working Proficiency, CEFR B2–C1 — Universidad Nacional)
-- 💼 **Current Role:** IT Support & Web Systems Assistant at Universidad de Costa Rica (Oficina de Orientación)
+- 🎓 **Education:** B.Sc. in Computer Science (Software Engineering Emphasis) — Universidad de Costa Rica (UCR) *(2023 – Present / Expected 2027)*
+- 🗣️ **Languages:** Spanish (Native), English (Professional Working Proficiency, CEFR B2–C1 — Universidad Nacional, 2019 – 2021)
+- 💼 **Current Role:** IT Support Assistant at Universidad de Costa Rica (Oficina de Orientación) *(Aug 2026 – Present)*
 - 🎯 **Looking For:** Software Engineering Internships and Junior Roles
 
 ---
@@ -26,29 +26,30 @@ I am a final-semester Computer Science and Software Engineering student at the *
 
 | Category | Technologies & Tools |
 | :--- | :--- |
-| **Languages** | TypeScript, Python, C# / .NET, C++, Java, SQL, HTML5, CSS3, JavaScript (ES6+) |
-| **Frameworks & Libraries** | Next.js, React, Node.js, Tailwind CSS, Prisma ORM |
-| **Databases** | PostgreSQL, SQL Server, MinIO (S3-compatible Object Storage) |
-| **Developer Tools & OS** | Git, GitHub Actions (CI/CD), Linux (Ubuntu/Debian), Windows, Docker, Playwright, Vitest |
-| **Applied AI & LLMs** | Gemini API, Claude API, OpenAI SDK, Tool & Function Calling, Agentic workflows |
+| **Languages** | TypeScript, Python, C#, C++, Java, SQL, HTML5, CSS3, JavaScript (ES6+) |
+| **Frameworks & Libraries** | Next.js, React, ASP.NET Core, Node.js, Tailwind CSS, Prisma ORM |
+| **Databases & Storage** | PostgreSQL, SQL Server, MinIO (S3-compatible Object Storage) |
+| **Developer Tools & OS** | Git, GitHub Actions (CI/CD), Linux (Ubuntu/Debian), Windows, Docker, Playwright, Vitest, Visual Studio, VS Code, Figma |
+| **Applied AI & Agentic Workflows** | Autonomous Coding Agents (Google Antigravity, Claude Code CLI), Gemini API, Claude API, OpenAI SDK, Tool & Function Calling, Context & Prompt Engineering |
 
 ---
 
 ## 🚀 Featured Projects
 
-### 🔭 [LASCE — Institutional Scientific Web Platform](https://github.com/josuetorres27) *(Active Development)*
+### 🔭 [LASCE — Institutional Scientific Web Platform](https://lasce.up.railway.app/) *(Active Development)*
 Full-stack institutional and scientific-data platform developed for the **Solar Astrophysics and Space Weather Laboratory (LASCE)** at the Universidad de Costa Rica.
+- **Live Platform:** [https://lasce.up.railway.app/](https://lasce.up.railway.app/)
 - **Stack:** Next.js (App Router), TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, MinIO, Docker, Playwright, Vitest.
 - **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory, optimistic concurrency control, accessible WCAG UI components, and automated E2E testing pipelines.
 
 ### 🔬 Virtual Microscope Administration Panel *(UCR)*
 Desktop administration platform that digitizes microscopy workflows and manages biological specimen collections.
-- **Stack:** C#, .NET, Desktop Architecture, Embedded Database.
+- **Stack:** C#, .NET, Desktop Architecture, Embedded Database, PostgreSQL, Visual Studio.
 - **Highlights:** Hierarchical data organization (Groups, Boxes, Slides), high-fidelity microscopy imaging, and offline data persistence.
 
 ### 🎢 ThemePark UCR — Virtual University Simulation *(UCR)*
 Virtual campus simulation built in Unity with a decoupled backend architecture.
-- **Stack:** C#, .NET, RESTful APIs, SQL Server, Unity, Scrum.
+- **Stack:** C#, ASP.NET Core, RESTful APIs, SQL Server, Unity, Scrum.
 - **Highlights:** Decoupled REST services for real-time interaction with virtual campus buildings, facilities, and educational objects.
 
 ### 🌐 Distributed ASCII Art System *(UCR)*
@@ -58,6 +59,8 @@ Distributed client-server network architecture for managing and rendering ASCII 
 
 ### 🎙️ ¿Quién controla nuestra atención? *(Vodcast Ético)*
 Audiovisual ethical investigation analyzing algorithmic recommendations, the attention economy, and tech governance.
+- **Episodes:** [Episodio 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episodio 2 (YouTube)](https://youtu.be/MKMLW2HJ6zo)
+- **Co-creators:** [Gabriel Serrano](https://www.linkedin.com/in/gabrielserranor/) & [Rolando Villavicencio González](https://www.linkedin.com/in/rolando-villavicencio-gonzalez/)
 - **Production:** Multi-camera setup, scriptwriting, professional sound engineering, and post-production editing.
 
 ---
@@ -100,9 +103,9 @@ You can view or download my latest resumes directly from the repository:
 
 ## 📬 Contact & Connect
 
-- 💼 **LinkedIn:** [linkedin.com/in/josuetorres27](https://www.linkedin.com/in/josuetorres27/)
+- 💼 **LinkedIn:** [linkedin.com/in/josue-torres-sibaja](https://www.linkedin.com/in/josue-torres-sibaja/)
 - 🐙 **GitHub:** [github.com/josuetorres27](https://github.com/josuetorres27)
-- ✉️ **Email:** [josuetorres27.cr@gmail.com](mailto:josuetorres27.cr@gmail.com)
+- ✉️ **Email:** [dev.josue.torres@gmail.com](mailto:dev.josue.torres@gmail.com)
 
 ---
 

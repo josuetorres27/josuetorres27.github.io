@@ -279,14 +279,15 @@
       flex-shrink: 0;
     }
     @media (min-width: 1024px) {
-      .nav-item-link[data-i18n="nav_about"] { width: 88px; }
-      .nav-item-link[data-i18n="nav_experience"] { width: 98px; }
-      .nav-item-link[data-i18n="nav_skills"] { width: 88px; }
-      .nav-item-link[data-i18n="nav_projects"] { width: 88px; }
-      .nav-item-link:has([data-i18n="nav_ai"]) { width: 116px; }
-      .nav-item-link[data-i18n="nav_mindset"] { width: 90px; }
-      .nav-item-link[data-i18n="nav_interests"] { width: 130px; }
-      .nav-item-link[data-i18n="nav_contact"] { width: 80px; }
+      .nav-item-link[data-i18n="nav_about"] { width: 74px; }
+      .nav-item-link[data-i18n="nav_experience"] { width: 86px; }
+      .nav-item-link[data-i18n="nav_education"] { width: 78px; }
+      .nav-item-link[data-i18n="nav_skills"] { width: 76px; }
+      .nav-item-link[data-i18n="nav_projects"] { width: 76px; }
+      .nav-item-link[data-i18n="nav_ai"] { width: 76px; }
+      .nav-item-link[data-i18n="nav_mindset"] { width: 76px; }
+      .nav-item-link[data-i18n="nav_interests"] { width: 96px; }
+      .nav-item-link[data-i18n="nav_contact"] { width: 68px; }
     }
     html.light .nav-item-link:hover {
       background-color: #e2e8f0 !important;
@@ -368,17 +369,15 @@
 
       <!-- Desktop Navigation Links with Fixed Item Widths & Language Stability -->
       <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium text-slate-300">
-        <a href="#sobre-mi" data-i18n="nav_about" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
-        <a href="#experiencia" data-i18n="nav_experience" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
-        <a href="#habilidades" data-i18n="nav_skills" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
-        <a href="#proyectos" data-i18n="nav_projects" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
-        <a href="#ia-agentes" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center inline-flex items-center justify-center gap-1.5">
-          <span data-i18n="nav_ai">AI & LLMs</span>
-          <span class="px-1.5 py-0.5 text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 rounded border border-cyan-500/30">Skills</span>
-        </a>
-        <a href="#mentalidad" data-i18n="nav_mindset" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Mindset</a>
-        <a href="#intereses" data-i18n="nav_interests" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Beyond the Code</a>
-        <a href="#contacto" data-i18n="nav_contact" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
+        <a href="#sobre-mi" data-i18n="nav_about" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
+        <a href="#experiencia" data-i18n="nav_experience" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
+        <a href="#educacion" data-i18n="nav_education" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Education</a>
+        <a href="#habilidades" data-i18n="nav_skills" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
+        <a href="#proyectos" data-i18n="nav_projects" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
+        <a href="#ia-agentes" data-i18n="nav_ai" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">AI & LLMs</a>
+        <a href="#mentalidad" data-i18n="nav_mindset" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Mindset</a>
+        <a href="#intereses" data-i18n="nav_interests" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Beyond the Code</a>
+        <a href="#contacto" data-i18n="nav_contact" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
       </nav>
 
       <!-- Desktop Actions: Language, Theme & CV Dropdown -->
@@ -460,6 +459,7 @@
       <div class="flex flex-col space-y-3 font-medium text-slate-300">
         <a href="#sobre-mi" data-i18n="nav_about" class="mobile-nav-link py-2 hover:text-brand-400">About Me</a>
         <a href="#experiencia" data-i18n="nav_experience" class="mobile-nav-link py-2 hover:text-brand-400">Experience</a>
+        <a href="#educacion" data-i18n="nav_education" class="mobile-nav-link py-2 hover:text-brand-400">Education</a>
         <a href="#habilidades" data-i18n="nav_skills" class="mobile-nav-link py-2 hover:text-brand-400">Skills</a>
         <a href="#proyectos" data-i18n="nav_projects" class="mobile-nav-link py-2 hover:text-brand-400">Projects</a>
         <a href="#ia-agentes" data-i18n="nav_ai" class="mobile-nav-link py-2 hover:text-brand-400">AI & LLMs</a>
@@ -844,13 +844,162 @@
     </div>
   </section>
 
+  <!-- ================= EDUCACIÓN & ACADÉMICO ================= -->
+  <section id="educacion" class="py-16 md:py-20 border-t border-slate-800/70">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Tag & Header -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="h-px w-8 bg-brand-500"></span>
+        <h2 data-i18n="education_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">
+          03. Education & Academics
+        </h2>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <div>
+          <h3 data-i18n="education_heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Academic Background & Specialized Studies
+          </h3>
+          <p data-i18n="education_sub" class="text-slate-300 text-sm sm:text-base max-w-2xl mt-2 leading-relaxed">
+            Rigorous university formation in computer science and software engineering, complemented by professional conversational English proficiency.
+          </p>
+        </div>
+      </div>
+
+      <!-- Education Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Degree 1: Universidad de Costa Rica (UCR) -->
+        <article class="card-hover p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 font-mono font-bold text-lg">
+                  🎓
+                </div>
+                <div>
+                  <h4 data-i18n="edu_ucr_degree" class="text-base sm:text-lg font-bold text-white">
+                    Bachelor of Science (B.Sc.), Computer Science
+                  </h4>
+                  <p data-i18n="edu_ucr_emphasis" class="text-xs text-brand-400 font-mono font-semibold">
+                    Software Engineering Emphasis
+                  </p>
+                </div>
+              </div>
+              <span data-i18n="edu_ucr_status" class="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                In Progress
+              </span>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80">
+              <span data-i18n="edu_ucr_institution" class="text-slate-200 font-semibold">Universidad de Costa Rica (UCR)</span>
+              <span>·</span>
+              <span data-i18n="edu_ucr_dates">Mar 2023 – Dec 2026</span>
+              <span>·</span>
+              <span data-i18n="edu_ucr_location">San José, Costa Rica</span>
+            </div>
+
+            <p data-i18n="edu_ucr_desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
+              Comprehensive undergraduate program centered on software engineering principles, distributed architectures, databases, operating systems, and object-oriented systems design. Practical experience in collaborative projects using agile methodologies (Scrum).
+            </p>
+          </div>
+
+          <div>
+            <h5 data-i18n="edu_ucr_skills_title" class="text-[11px] uppercase tracking-wider font-mono text-slate-400 font-semibold mb-2">
+              Key Coursework & Competencies
+            </h5>
+            <div class="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Microsoft SQL Server</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Python</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">C++</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Java</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Data Structures & DSA</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Software Architecture</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Distributed Systems</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Scrum</span>
+            </div>
+            
+            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+              <span data-i18n="edu_ucr_level" class="text-[11px] text-slate-400 font-mono">Undergraduate Degree · Advanced</span>
+              <a href="https://www.linkedin.com/in/josue-torres-sibaja/" target="_blank" rel="noopener noreferrer" class="text-xs text-brand-400 hover:text-brand-300 font-mono font-semibold inline-flex items-center gap-1">
+                <span data-i18n="edu_view_linkedin">View Profile</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Degree 2: Universidad Nacional (UNA) -->
+        <article class="card-hover p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-start justify-between gap-4 mb-4">
+              <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 font-mono font-bold text-lg">
+                  🗣️
+                </div>
+                <div>
+                  <h4 data-i18n="edu_una_degree" class="text-base sm:text-lg font-bold text-white">
+                    Conversational English Program
+                  </h4>
+                  <p data-i18n="edu_una_hours" class="text-xs text-cyan-400 font-mono font-semibold">
+                    13 Courses · 520 Hours Completed
+                  </p>
+                </div>
+              </div>
+              <span data-i18n="edu_una_status" class="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                Completed
+              </span>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80">
+              <span data-i18n="edu_una_institution" class="text-slate-200 font-semibold">Universidad Nacional (UNA)</span>
+              <span>·</span>
+              <span data-i18n="edu_una_dates">2019 – 2021</span>
+              <span>·</span>
+              <span data-i18n="edu_una_cefr" class="text-cyan-300 font-semibold">CEFR B2–C1</span>
+            </div>
+
+            <p data-i18n="edu_una_desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
+              University-level conversational English program consisting of 13 courses (520 hours), focused on developing oral communication, listening comprehension, professional reading, and structured writing in technical and workplace settings.
+            </p>
+          </div>
+
+          <div>
+            <h5 data-i18n="edu_una_skills_title" class="text-[11px] uppercase tracking-wider font-mono text-slate-400 font-semibold mb-2">
+              Communication Competencies
+            </h5>
+            <div class="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Oral Communication</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Listening Comprehension</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">English Writing</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">English Grammar</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Technical Reading</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Workplace Collaboration</span>
+            </div>
+            
+            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+              <span data-i18n="edu_una_level" class="text-[11px] text-slate-400 font-mono">Professional Bilingual Working Proficiency</span>
+              <a href="https://www.linkedin.com/in/josue-torres-sibaja/" target="_blank" rel="noopener noreferrer" class="text-xs text-cyan-400 hover:text-cyan-300 font-mono font-semibold inline-flex items-center gap-1">
+                <span data-i18n="edu_view_linkedin">View Profile</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
   <!-- ================= HABILIDADES TÉCNICAS ================= -->
   <section id="habilidades" class="py-16 md:py-20 border-t border-slate-800/70">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex items-center gap-3 mb-8">
         <span class="h-px w-8 bg-brand-500"></span>
-        <h2 data-i18n="skills_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">03. Stack & Skills</h2>
+        <h2 data-i18n="skills_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">04. Stack & Skills</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -966,7 +1115,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <span class="h-px w-8 bg-brand-500"></span>
-            <h2 data-i18n="projects_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">04. Code Portfolio</h2>
+            <h2 data-i18n="projects_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">05. Code Portfolio</h2>
           </div>
           <h3 data-i18n="projects_heading" class="text-2xl sm:text-3xl font-extrabold text-white">Selected Projects</h3>
         </div>
@@ -1034,6 +1183,72 @@
 
       <!-- Project Cards Grid -->
       <div class="space-y-8">
+
+        <!-- Project 0: Ethical Vodcast (Proyecto Podcast Ético) -->
+        <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <span data-i18n="p0_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-rose-400 bg-rose-950/60 px-2.5 py-1 rounded border border-rose-800/50">
+                  Ethical Analysis & Tech Governance · Audiovisual Production
+                </span>
+                <span data-i18n="p0_date" class="text-xs font-mono text-slate-400">Oct 2026 · UCR</span>
+              </div>
+              <h4 data-i18n="p0_title" class="text-xl sm:text-2xl font-bold text-white">
+                ¿Quién controla nuestra atención? — Vodcast Ético
+              </h4>
+              <p data-i18n="p0_subtitle" class="text-xs sm:text-sm text-slate-400 font-mono mt-1">
+                Redes sociales, economía de la atención y la responsabilidad del profesional en computación
+              </p>
+            </div>
+            
+            <div class="flex items-center gap-2 shrink-0">
+              <span data-i18n="project_ucr_tag" class="px-2 py-1 rounded bg-slate-800/80 text-slate-300 font-mono text-xs border border-slate-700">UCR Project</span>
+            </div>
+          </div>
+
+          <!-- YouTube Embed Container -->
+          <div class="my-5 rounded-xl overflow-hidden border border-slate-800 bg-black aspect-video shadow-xl">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube-nocookie.com/embed/ltSKzyDhLzY"
+              title="¿Quién controla nuestra atención? — Vodcast Ético (CI-0133 Computación y Sociedad)"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Description and Key Discussion Pillars -->
+          <div class="space-y-3 text-slate-300 text-sm sm:text-base leading-relaxed mb-5">
+            <p data-i18n="p0_desc1">
+              Audiovisual academic research project developed for CI-0133 Computing and Society at Universidad de Costa Rica. The discussion analyzes how contemporary digital platforms engineer dopamine-driven retention loops — leveraging infinite scrolling, variable rewards, push notifications, and zero friction — to maximize screen time at the expense of psychological well-being.
+            </p>
+            <p data-i18n="p0_desc2" class="text-xs sm:text-sm text-slate-400">
+              <strong class="text-slate-200">Key Themes:</strong> Attention economy mechanics, leaked internal research on adolescent mental health ($17.1B settlement), global regulatory frameworks (Australia under-16 social media ban, European DSA, China curfew), and the ACM Code of Ethics mandate asserting that technical excellence does not equate to social or ethical success.
+            </p>
+          </div>
+
+          <!-- Team and External Links -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs font-mono">
+            <div class="text-slate-400">
+              <span class="text-slate-500">Team:</span>
+              <span class="text-slate-300 font-medium">Gabriel Serrano · Rolando Villavicencio · Josué Torres</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="https://youtu.be/ltSKzyDhLzY" target="_blank" rel="noopener noreferrer" class="text-rose-400 hover:text-rose-300 font-semibold inline-flex items-center gap-1.5 transition-colors">
+                <span>YouTube</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+              <span class="text-slate-700">·</span>
+              <a href="https://youtu.be/MKMLW2HJ6zo" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white inline-flex items-center gap-1 transition-colors">
+                <span data-i18n="p0_bts_btn">Behind the Scenes</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+          </div>
+        </article>
 
         <!-- Project 1: Virtual Microscope -->
         <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
@@ -1186,7 +1401,7 @@
       
       <div class="flex items-center gap-3 mb-4">
         <span class="h-px w-8 bg-cyan-500"></span>
-        <h2 data-i18n="ai_section_tag" class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">05. Applied Artificial Intelligence</h2>
+        <h2 data-i18n="ai_section_tag" class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">06. Applied Artificial Intelligence</h2>
       </div>
 
       <div id="ia-agentes-container" class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 border border-cyan-500/30 relative overflow-hidden shadow-2xl">
@@ -1284,7 +1499,7 @@
       
       <div class="flex items-center gap-3 mb-4">
         <span class="h-px w-8 bg-brand-500"></span>
-        <h2 data-i18n="mindset_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">06. Work Approach</h2>
+        <h2 data-i18n="mindset_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">07. Work Approach</h2>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
@@ -1378,7 +1593,7 @@
       <div class="max-w-3xl mb-12">
         <div class="inline-flex items-center gap-2 mb-3">
           <span class="h-px w-8 bg-brand-500"></span>
-          <h2 data-i18n="interests_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">07. Beyond the Code</h2>
+          <h2 data-i18n="interests_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">08. Beyond the Code</h2>
         </div>
         <h3 data-i18n="interests_heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
           Hobbies & Personal Interests
@@ -1605,7 +1820,7 @@
       
       <div class="inline-flex items-center gap-2 mb-4">
         <span class="h-px w-8 bg-brand-500"></span>
-        <h2 data-i18n="contact_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">08. Get in Touch</h2>
+        <h2 data-i18n="contact_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">09. Get in Touch</h2>
         <span class="h-px w-8 bg-brand-500"></span>
       </div>
 
@@ -1826,6 +2041,7 @@
       en: {
         nav_about: "About Me",
         nav_experience: "Experience",
+        nav_education: "Education",
         nav_skills: "Skills",
         nav_projects: "Projects",
         nav_ai: "AI & LLMs",
@@ -1892,7 +2108,30 @@
         experience_img2_caption: "Hardware Servicing & Internal Diagnostics",
         experience_img3_caption: "Storage Upgrades & SATA Diagnostics",
 
-        skills_section_tag: "03. Stack & Skills",
+        education_section_tag: "03. Education & Academics",
+        education_heading: "Academic Background & Specialized Studies",
+        education_sub: "Rigorous university formation in computer science and software engineering, complemented by professional conversational English proficiency.",
+        edu_ucr_degree: "Bachelor of Science (B.Sc.), Computer Science",
+        edu_ucr_emphasis: "Software Engineering Emphasis",
+        edu_ucr_status: "In Progress",
+        edu_ucr_institution: "Universidad de Costa Rica (UCR)",
+        edu_ucr_dates: "Mar 2023 – Dec 2026",
+        edu_ucr_location: "San José, Costa Rica",
+        edu_ucr_desc: "Comprehensive undergraduate program centered on software engineering principles, distributed architectures, databases, operating systems, and object-oriented systems design. Practical experience in collaborative projects using agile methodologies (Scrum).",
+        edu_ucr_skills_title: "Key Coursework & Competencies",
+        edu_ucr_level: "Undergraduate Degree · Advanced",
+        edu_una_degree: "Conversational English Program",
+        edu_una_hours: "13 Courses · 520 Hours Completed",
+        edu_una_status: "Completed",
+        edu_una_institution: "Universidad Nacional (UNA)",
+        edu_una_dates: "2019 – 2021",
+        edu_una_cefr: "CEFR B2–C1",
+        edu_una_desc: "University-level conversational English program consisting of 13 courses (520 hours), focused on developing oral communication, listening comprehension, professional reading, and structured writing in technical and workplace settings.",
+        edu_una_skills_title: "Communication Competencies",
+        edu_una_level: "Professional Bilingual Working Proficiency",
+        edu_view_linkedin: "View Profile",
+
+        skills_section_tag: "04. Stack & Skills",
         skills_cat1_title: "Programming Languages",
         skills_cat1_desc: "Proficiency in imperative, OOP, and static/dynamic typed paradigms.",
         skills_cat2_title: "CS Fundamentals & DSA",
@@ -1900,7 +2139,7 @@
         skills_cat3_title: "Tools & Environment",
         skills_cat3_desc: "Collaborative development, version control, and CI/CD deployment pipelines.",
 
-        projects_section_tag: "04. Code Portfolio",
+        projects_section_tag: "05. Code Portfolio",
         projects_heading: "Selected Projects",
         projects_all_gh: "View all on GitHub",
         lasce_badge: "Currently Working On · Active Project",
@@ -1914,6 +2153,14 @@
 
         past_projects_header: "Previous University Projects (UCR)",
         project_ucr_tag: "UCR Project",
+        p0_type: "Ethical Analysis & Tech Governance · Audiovisual Production",
+        p0_date: "Oct 2026 · UCR",
+        p0_title: "¿Quién controla nuestra atención? — Vodcast Ético",
+        p0_subtitle: "Redes sociales, economía de la atención y la responsabilidad del profesional en computación",
+        p0_desc1: "Audiovisual academic research project developed for CI-0133 Computing and Society at Universidad de Costa Rica. The discussion analyzes how contemporary digital platforms engineer dopamine-driven retention loops — leveraging infinite scrolling, variable rewards, push notifications, and zero friction — to maximize screen time at the expense of psychological well-being.",
+        p0_desc2: `<strong class="text-slate-200">Key Themes:</strong> Attention economy mechanics, leaked internal research on adolescent mental health ($17.1B settlement), global regulatory frameworks (Australia under-16 social media ban, European DSA, China curfew), and the ACM Code of Ethics mandate asserting that technical excellence does not equate to social or ethical success.`,
+        p0_bts_btn: "Behind the Scenes",
+
         p1_type: "C# / .NET · Desktop Application",
         p1_date: "Mar 2026 – Jul 2026 · UCR",
         p1_title: "Virtual Microscope Administration Panel",
@@ -1934,7 +2181,7 @@
         p4_title: "Online Learning Platform",
         p4_desc: "Developed a web-based online learning platform featuring user authentication and management, course publishing, content administration, rating systems, and user reviews. Developed following Scrum methodology, applying SOLID principles and collaborative development practices through GitHub, including static code analysis automation using continuous integration pipelines.",
 
-        ai_section_tag: "05. Applied Artificial Intelligence",
+        ai_section_tag: "06. Applied Artificial Intelligence",
         ai_badge: "🤖 AI & LLM Tools",
         ai_heading: "Applied AI & Large Language Models",
         ai_intro: `Practical experience integrating and using AI models in software development workflows: connecting APIs, configuring <span class="font-mono text-cyan-300">Tool & Function Calling</span> for structured actions, handling typed schemas, and setting up multi-step agent flows to automate technical tasks.`,
@@ -1949,7 +2196,7 @@
         ai_banner_text: `<strong class="text-white">Practical view:</strong> Using AI as an effective tool to speed up work and automate repetitive tasks, backed by clean and verified code.`,
         ai_banner_btn: "View repositories on GitHub",
 
-        mindset_section_tag: "06. Work Approach",
+        mindset_section_tag: "07. Work Approach",
         mindset_heading: "Attitude & Working Values",
         mindset_intro: "Technical skills grow with practice, but everyday attitude, willingness to learn, and clear communication are just as essential for working well in a team.",
         mindset_p1_title: "Ownership & Responsibility",
@@ -1965,7 +2212,7 @@
         mindset_p4_sub: "Clear and straightforward communication",
         mindset_p4_desc: "I aim to communicate clearly, raise blockers early so they don't hold others back, and write clean, readable code that teammates can easily maintain.",
 
-        interests_section_tag: "07. Beyond the Code",
+        interests_section_tag: "08. Beyond the Code",
         interests_heading: "Hobbies & Personal Interests",
         interests_sub: "A look at things I enjoy doing outside of academic and work routines: crafts, photography, and everyday hobbies.",
         interests_crafts_title: "Manual Crafts & Foamy Clay Sculptures",
@@ -1999,7 +2246,7 @@
         interests_gym_title: "Gym",
         interests_gym_desc: "I like going to the gym regularly. Free time can be tight with classes, but it's an activity I genuinely enjoy to stay active and clear my head.",
 
-        contact_section_tag: "08. Get in Touch",
+        contact_section_tag: "09. Get in Touch",
         contact_heading: "Let's connect and build something extraordinary",
         contact_sub: "I am actively seeking internships, junior software engineer opportunities, and technical collaborations. My inbox is always open.",
         contact_email_label: "Email Address",
@@ -2011,6 +2258,7 @@
       es: {
         nav_about: "Sobre Mí",
         nav_experience: "Experiencia",
+        nav_education: "Educación",
         nav_skills: "Habilidades",
         nav_projects: "Proyectos",
         nav_ai: "IA & LLMs",
@@ -2077,7 +2325,30 @@
         experience_img2_caption: "Mantenimiento y Diagnóstico Interno de Estaciones Dell",
         experience_img3_caption: "Actualización de Almacenamiento & Diagnóstico SATA",
 
-        skills_section_tag: "03. Stack & Habilidades",
+        education_section_tag: "03. Formación Académica",
+        education_heading: "Trayectoria Académica y Estudios Especializados",
+        education_sub: "Formación universitaria en ciencias de la computación e ingeniería de software, complementada con dominio profesional de inglés conversacional.",
+        edu_ucr_degree: "Bachillerato en Computación (B.Sc.)",
+        edu_ucr_emphasis: "Énfasis en Ingeniería de Software",
+        edu_ucr_status: "En Curso",
+        edu_ucr_institution: "Universidad de Costa Rica (UCR)",
+        edu_ucr_dates: "Mar 2023 – Dic 2026",
+        edu_ucr_location: "San José, Costa Rica",
+        edu_ucr_desc: "Programa de grado enfocado en fundamentos rigurosos de computación: arquitectura de software, algoritmos, bases de datos, sistemas distribuidos, sistemas operativos y diseño orientado a objetos. Experiencia práctica en proyectos colaborativos bajo metodologías ágiles (Scrum).",
+        edu_ucr_skills_title: "Cursos y Competencias Clave",
+        edu_ucr_level: "Carrera Universitaria · Nivel Avanzado",
+        edu_una_degree: "Programa de Inglés Conversacional",
+        edu_una_hours: "13 Cursos · 520 Horas Completadas",
+        edu_una_status: "Graduado",
+        edu_una_institution: "Universidad Nacional (UNA)",
+        edu_una_dates: "2019 – 2021",
+        edu_una_cefr: "Nivel MCER B2–C1",
+        edu_una_desc: "Programa universitario de inglés conversacional de 13 cursos (520 horas lectivas), enfocado en desarrollar fluidez oral, comprensión auditiva, lectura técnica y redacción estructurada en contextos profesionales.",
+        edu_una_skills_title: "Competencias de Comunicación",
+        edu_una_level: "Competencia Bilingüe Profesional para Trabajo",
+        edu_view_linkedin: "Ver Perfil",
+
+        skills_section_tag: "04. Stack & Habilidades",
         skills_cat1_title: "Lenguajes de Programación",
         skills_cat1_desc: "Manejo de paradigmas imperativo, orientado a objetos y tipado estático/dinámico.",
         skills_cat2_title: "Fundamentos & DSA",
@@ -2085,7 +2356,7 @@
         skills_cat3_title: "Herramientas & Entorno",
         skills_cat3_desc: "Flujo de trabajo para desarrollo colaborativo, control de versiones y despliegue.",
 
-        projects_section_tag: "04. Portafolio de Código",
+        projects_section_tag: "05. Portafolio de Código",
         projects_heading: "Proyectos Seleccionados",
         projects_all_gh: "Ver todos en GitHub",
         lasce_badge: "Actualmente en Desarrollo · Proyecto Institucional",
@@ -2099,6 +2370,14 @@
 
         past_projects_header: "Proyectos Universitarios Anteriores (UCR)",
         project_ucr_tag: "Proyecto UCR",
+        p0_type: "Análisis Ético & Gobernanza Tecnológica · Producción Audiovisual",
+        p0_date: "Oct 2026 · UCR",
+        p0_title: "¿Quién controla nuestra atención? — Vodcast Ético",
+        p0_subtitle: "Redes sociales, economía de la atención y la responsabilidad del profesional en computación",
+        p0_desc1: "Proyecto de investigación académica y producción audiovisual desarrollado para el curso CI-0133 Computación y Sociedad de la Universidad de Costa Rica. El análisis examina cómo las plataformas digitales diseñan bucles de retención basados en dopamina —scroll infinito, recompensas variables, notificaciones push y cero fricción— para maximizar el tiempo en pantalla a expensas de la salud mental.",
+        p0_desc2: `<strong class="text-slate-200">Ejes Temáticos:</strong> Mecánicas de la economía de la atención, investigaciones internas filtradas sobre salud mental adolescente (acuerdo judicial de $17.1B), marcos regulatorios internacionales (prohibición para menores de 16 años en Australia, DSA europeo, toque de queda digital en China) y el mandato del Código de Ética de la ACM que establece que el éxito técnico no equivale a éxito social o ético.`,
+        p0_bts_btn: "Detrás de Cámaras",
+
         p1_type: "C# / .NET · Aplicación de Escritorio",
         p1_date: "Mar 2026 – Jul 2026 · UCR",
         p1_title: "Panel de Administración del Microscopio Virtual",
@@ -2119,7 +2398,7 @@
         p4_title: "Plataforma de Aprendizaje en Línea",
         p4_desc: "Plataforma web de aprendizaje en línea que cuenta con autenticación y gestión de usuarios, publicación de cursos, administración de contenidos, sistema de valoración y reseñas. El proyecto se desarrolló bajo la metodología ágil Scrum, aplicando rigurosamente los principios SOLID y prácticas de colaboración en GitHub, incluyendo la automatización del análisis estático de código mediante pipelines de integración continua (CI/CD).",
 
-        ai_section_tag: "05. Inteligencia Artificial Aplicada",
+        ai_section_tag: "06. Inteligencia Artificial Aplicada",
         ai_badge: "🤖 Herramientas de IA & LLMs",
         ai_heading: "IA Aplicada & Modelos de Lenguaje",
         ai_intro: `Experiencia práctica integrando y utilizando modelos de lenguaje en flujos de desarrollo: conexión de APIs, configuración de <span class="font-mono text-cyan-300">Tool & Function Calling</span> para acciones estructuradas, manejo de esquemas tipados y exploración de flujos de agentes para automatizar tareas técnicas.`,
@@ -2134,7 +2413,7 @@
         ai_banner_text: `<strong class="text-white">Enfoque práctico:</strong> Aprovechar la IA como una herramienta útil para agilizar el trabajo y automatizar tareas, siempre respaldada con código claro y verificado.`,
         ai_banner_btn: "Ver repositorios en GitHub",
 
-        mindset_section_tag: "06. Forma de Trabajo",
+        mindset_section_tag: "07. Forma de Trabajo",
         mindset_heading: "Actitud y Valores de Trabajo",
         mindset_intro: "El dominio técnico se adquiere con la práctica, pero la actitud en el día a día, la disposición para aprender y una buena comunicación son igual de fundamentales para colaborar en equipo.",
         mindset_p1_title: "Responsabilidad y compromiso",
@@ -2150,7 +2429,7 @@
         mindset_p4_sub: "Comunicación clara y directa",
         mindset_p4_desc: "Procuro comunicarme con claridad, avisar con tiempo si me topo con algún bloqueo para no retrasar al equipo, y escribir código ordenado y legible para los demás.",
 
-        interests_section_tag: "07. Fuera del Código",
+        interests_section_tag: "08. Fuera del Código",
         interests_heading: "Pasatiempos e Intereses Personales",
         interests_sub: "Un vistazo a cosas que disfruto hacer fuera de la rutina académica y laboral: manualidades, fotografía y aficiones del día a día.",
         interests_crafts_title: "Manualidades y Figuras en Foamy Moldeable",
@@ -2184,7 +2463,7 @@
         interests_gym_title: "Gimnasio",
         interests_gym_desc: "Me gusta ir al gimnasio con regularidad. Aunque el tiempo a veces es justo por las materias, es algo que disfruto mucho para mantenerme activo y despejar la mente.",
 
-        contact_section_tag: "08. ¿Conversamos?",
+        contact_section_tag: "09. ¿Conversamos?",
         contact_heading: "Conectemos y creemos algo extraordinario",
         contact_sub: "Estoy activamente en búsqueda de pasantías, oportunidades junior de ingeniería de software o colaboraciones técnicas. Mi bandeja de entrada siempre está abierta.",
         contact_email_label: "Correo Electrónico",

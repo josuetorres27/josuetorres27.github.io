@@ -3,7 +3,7 @@
 [![Live Portfolio](https://img.shields.io/badge/Live_Site-josuetorres27.github.io-3b82f6?style=for-the-badge&logo=google-chrome&logoColor=white)](https://josuetorres27.github.io/)
 [![GitHub Pages](https://img.shields.io/badge/Deployed%20with-GitHub%20Pages-22c55e?style=for-the-badge&logo=github)](https://josuetorres27.github.io/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=for-the-badge)](#features)
+[![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=for-the-badge)](#-portfolio-key-features)
 
 Welcome to the official repository for my personal software engineering portfolio. This website showcases my academic background, featured software engineering projects, production experience in IT support & web administration, and personal interests.
 
@@ -76,16 +76,16 @@ Audiovisual ethical investigation analyzing algorithmic recommendations, the att
 
 ```text
 josuetorres27.github.io/
-├── cv/
-│   ├── Resume_Josue_Torres_Sibaja.pdf   # English Resume
-│   └── CV_Josue_Torres_Sibaja.pdf       # Spanish CV
+├── resume/
+│   ├── Resume_Josue_Torres_Sibaja.pdf   # English Resume (PDF)
+│   └── CV_Josue_Torres_Sibaja.pdf       # Spanish Curriculum Vitae (PDF)
 ├── img/
-│   ├── profile/                         # Professional portrait photos
-│   ├── experience/                      # IT support & hardware evidence
-│   ├── crafts/                          # Foamy clay sculpting & workshop figures
-│   └── photography/                     # Costa Rica landscape photography
-├── index.html                           # Main portfolio application
-└── README.md                            # Repository documentation
+│   ├── portfolio.jpeg                   # Professional profile photograph
+│   ├── experience/                      # Workplace & IT maintenance operational photos
+│   ├── handicrafts/                     # Foamy clay sculpting & TCU workshop creations
+│   └── photography/                     # Costa Rica landscape & nature gallery
+├── index.html                           # Single-page portfolio application
+└── README.md                            # Repository documentation & presentation
 ```
 
 ---
@@ -93,8 +93,8 @@ josuetorres27.github.io/
 ## 📄 Curriculum Vitae / Resume
 
 You can view or download my latest resumes directly from the repository:
-- 🇺🇸 [English Resume (PDF)](./cv/Resume_Josue_Torres_Sibaja.pdf)
-- 🇪🇸 [Curriculum Vitae en Español (PDF)](./cv/CV_Josue_Torres_Sibaja.pdf)
+- 🇺🇸 [English Resume (PDF)](./resume/Resume_Josue_Torres_Sibaja.pdf)
+- 🇪🇸 [Curriculum Vitae en Español (PDF)](./resume/CV_Josue_Torres_Sibaja.pdf)
 
 ---
 

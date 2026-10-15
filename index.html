@@ -246,7 +246,7 @@
 
     /* Fix Dark Island Sections in Light Mode (Selected Projects spotlight & AI LLM section) */
     html.light #spotlight-project,
-    html.light #ia-agentes-container {
+    html.light #ai-container {
       background-image: linear-gradient(to bottom, #ffffff, #f8fafc) !important;
       background-color: #ffffff !important;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03) !important;
@@ -254,14 +254,14 @@
     html.light #spotlight-project {
       border-color: #c7d2fe !important;
     }
-    html.light #ia-agentes-container {
+    html.light #ai-container {
       border-color: #a5f3fc !important;
     }
-    html.light #ia-agentes {
+    html.light #ai {
       background-color: #f1f5f9 !important;
     }
-    html.light #ia-agentes .bg-slate-950\/80,
-    html.light #ia-agentes .bg-slate-950\/60 {
+    html.light #ai .bg-slate-950\/80,
+    html.light #ai .bg-slate-950\/60 {
       background-color: #ffffff !important;
       border-color: #e2e8f0 !important;
     }
@@ -382,14 +382,14 @@
 
       <!-- Desktop Navigation Links with Fixed Item Widths & Language Stability -->
       <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium text-slate-300">
-        <a href="#sobre-mi" data-i18n="nav_about" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
-        <a href="#experiencia" data-i18n="nav_experience" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
-        <a href="#educacion" data-i18n="nav_education" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Education</a>
-        <a href="#habilidades" data-i18n="nav_skills" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
-        <a href="#proyectos" data-i18n="nav_projects" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
-        <a href="#ia-agentes" data-i18n="nav_ai" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">AI & LLMs</a>
-        <a href="#intereses" data-i18n="nav_interests" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">BTC</a>
-        <a href="#contacto" data-i18n="nav_contact" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
+        <a href="#about" data-i18n="nav_about" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
+        <a href="#experience" data-i18n="nav_experience" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
+        <a href="#education" data-i18n="nav_education" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Education</a>
+        <a href="#skills" data-i18n="nav_skills" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
+        <a href="#projects" data-i18n="nav_projects" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
+        <a href="#ai" data-i18n="nav_ai" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">AI & LLMs</a>
+        <a href="#interests" data-i18n="nav_interests" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">BTC</a>
+        <a href="#contact" data-i18n="nav_contact" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
       </nav>
 
       <!-- Desktop Actions: Language, Theme & CV Dropdown -->
@@ -441,19 +441,19 @@
     <!-- Mobile Dropdown -->
     <div id="mobile-menu" class="hidden lg:hidden px-4 pt-2 pb-6 border-b border-slate-800 bg-slate-900/95 backdrop-blur-md">
       <div class="flex flex-col space-y-3 font-medium text-slate-300">
-        <a href="#sobre-mi" data-i18n="nav_about" class="mobile-nav-link py-2 hover:text-brand-400">About Me</a>
-        <a href="#experiencia" data-i18n="nav_experience" class="mobile-nav-link py-2 hover:text-brand-400">Experience</a>
-        <a href="#educacion" data-i18n="nav_education" class="mobile-nav-link py-2 hover:text-brand-400">Education</a>
-        <a href="#habilidades" data-i18n="nav_skills" class="mobile-nav-link py-2 hover:text-brand-400">Skills</a>
-        <a href="#proyectos" data-i18n="nav_projects" class="mobile-nav-link py-2 hover:text-brand-400">Projects</a>
-        <a href="#ia-agentes" data-i18n="nav_ai" class="mobile-nav-link py-2 hover:text-brand-400">AI & LLMs</a>
-        <a href="#intereses" data-i18n="nav_interests" class="mobile-nav-link py-2 hover:text-brand-400">BTC</a>
-        <a href="#contacto" data-i18n="nav_contact" class="mobile-nav-link py-2 hover:text-brand-400">Contact</a>
+        <a href="#about" data-i18n="nav_about" class="mobile-nav-link py-2 hover:text-brand-400">About Me</a>
+        <a href="#experience" data-i18n="nav_experience" class="mobile-nav-link py-2 hover:text-brand-400">Experience</a>
+        <a href="#education" data-i18n="nav_education" class="mobile-nav-link py-2 hover:text-brand-400">Education</a>
+        <a href="#skills" data-i18n="nav_skills" class="mobile-nav-link py-2 hover:text-brand-400">Skills</a>
+        <a href="#projects" data-i18n="nav_projects" class="mobile-nav-link py-2 hover:text-brand-400">Projects</a>
+        <a href="#ai" data-i18n="nav_ai" class="mobile-nav-link py-2 hover:text-brand-400">AI & LLMs</a>
+        <a href="#interests" data-i18n="nav_interests" class="mobile-nav-link py-2 hover:text-brand-400">BTC</a>
+        <a href="#contact" data-i18n="nav_contact" class="mobile-nav-link py-2 hover:text-brand-400">Contact</a>
         <div class="pt-2 grid grid-cols-2 gap-2">
-          <a href="./cv/Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="inline-flex items-center justify-center px-3 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-lg transition-colors">
+          <a href="./resume/Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="inline-flex items-center justify-center px-3 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-lg transition-colors">
             Resume (EN)
           </a>
-          <a href="./cv/CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="inline-flex items-center justify-center px-3 py-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-colors">
+          <a href="./resume/CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="inline-flex items-center justify-center px-3 py-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg transition-colors">
             CV (Español)
           </a>
         </div>
@@ -497,7 +497,7 @@
 
           <!-- Action Buttons -->
           <div class="flex flex-wrap items-center gap-4">
-            <a href="#proyectos" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 active:scale-95">
+            <a href="#projects" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 active:scale-95">
               <span data-i18n="hero_btn_projects">View Featured Projects</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -514,14 +514,14 @@
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
               <div id="hero-cv-dropdown" class="hidden absolute left-0 mt-2 w-56 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl py-2 z-50">
-                <a href="./cv/Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
+                <a href="./resume/Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
                   <span class="w-6 h-6 rounded bg-brand-500/10 border border-brand-500/20 text-brand-400 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">EN</span>
                   <div>
                     <p class="font-semibold text-white">Resume</p>
                     <p class="text-[10px] text-slate-400 font-mono">English (PDF)</p>
                   </div>
                 </a>
-                <a href="./cv/CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors border-t border-slate-800/60">
+                <a href="./resume/CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors border-t border-slate-800/60">
                   <span class="w-6 h-6 rounded bg-brand-500/10 border border-brand-500/20 text-brand-400 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">ES</span>
                   <div>
                     <p class="font-semibold text-white">Curriculum Vitae</p>
@@ -570,7 +570,7 @@
   </section>
 
   <!-- ================= ABOUT ME ================= -->
-  <section id="sobre-mi" class="py-16 md:py-20 border-t border-slate-800/70">
+  <section id="about" class="py-16 md:py-20 border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex items-center gap-3 mb-8">
@@ -606,11 +606,12 @@
           </div>
         </div>
 
-        <!-- General Summary Card (Education, Skills, Experience) -->
-        <div class="lg:col-span-5 bg-slate-900/80 rounded-2xl border border-slate-800 p-6 space-y-6">
+        <!-- General Summary Card (Education, Coursework, Skills, IT Work) -->
+        <div class="lg:col-span-5 bg-slate-900/80 rounded-2xl border border-slate-800 p-6 space-y-5">
           <h3 data-i18n="about_card_title" class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-mono">General Summary</h3>
           
           <div class="space-y-4">
+            <!-- 1. Education -->
             <div class="flex gap-4">
               <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center shrink-0">
                 <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -618,35 +619,52 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
                 </svg>
               </div>
-              <div>
+              <div class="min-w-0 flex-1">
                 <h4 data-i18n="about_degree_title" class="text-sm font-semibold text-white">Software Engineering / Computer Science</h4>
-                <p data-i18n="about_degree_sub" class="text-xs text-slate-400">Universidad de Costa Rica (Final Semester)</p>
-                <p data-i18n="about_degree_status" class="text-xs text-brand-300 mt-1">Final graduation stage</p>
+                <p data-i18n="about_degree_sub" class="text-xs text-slate-300 mt-0.5">Universidad de Costa Rica (Final Semester)</p>
+                <p data-i18n="about_degree_status" class="text-xs text-slate-400 mt-0.5">Undergraduate Degree · Final graduation stage</p>
               </div>
             </div>
 
+            <!-- 2. Coursework -->
             <div class="flex gap-4">
               <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
                 <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                 </svg>
               </div>
-              <div>
-                <h4 data-i18n="about_courses_title" class="text-sm font-semibold text-white">Core Completed Coursework</h4>
-                <p data-i18n="about_courses_desc" class="text-xs text-slate-400 mt-0.5">Data Structures, Algorithms, Computer Architecture, Relational Databases, Operating Systems.</p>
+              <div class="min-w-0 flex-1">
+                <h4 data-i18n="about_courses_title" class="text-sm font-semibold text-white">Core Academic Coursework</h4>
+                <p data-i18n="about_courses_sub" class="text-xs text-slate-300 mt-0.5">Computer Science Foundations & Systems</p>
+                <p data-i18n="about_courses_desc" class="text-xs text-slate-400 mt-0.5">Data Structures, Algorithms, Architecture, Databases & OS.</p>
               </div>
             </div>
 
+            <!-- 3. Skills -->
             <div class="flex gap-4">
               <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
                 <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                 </svg>
               </div>
-              <div>
-                <h4 data-i18n="about_skills_title" class="text-sm font-semibold text-white">Main Technical Skills</h4>
-                <p data-i18n="about_skills_sub" class="text-xs text-indigo-300 font-mono mt-0.5">TypeScript · Python · C# / .NET · C++</p>
-                <p data-i18n="about_skills_desc" class="text-xs text-slate-400 mt-1">SQL Server, PostgreSQL, Next.js, React, Git, Linux.</p>
+              <div class="min-w-0 flex-1">
+                <h4 data-i18n="about_skills_title" class="text-sm font-semibold text-white">Primary Technical Stack</h4>
+                <p data-i18n="about_skills_sub" class="text-xs text-slate-300 mt-0.5">TypeScript · Python · C# / .NET · C++</p>
+                <p data-i18n="about_skills_desc" class="text-xs text-slate-400 mt-0.5">SQL Server, PostgreSQL, Next.js, React, Git, Linux.</p>
+              </div>
+            </div>
+
+            <!-- 4. IT Work (Trabajo en TI) -->
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                </svg>
+              </div>
+              <div class="min-w-0 flex-1">
+                <h4 data-i18n="about_exp_title" class="text-sm font-semibold text-white">Professional IT Support</h4>
+                <p data-i18n="about_exp_sub" class="text-xs text-slate-300 mt-0.5">Universidad de Costa Rica · Orientation Office</p>
+                <p data-i18n="about_exp_desc" class="text-xs text-slate-400 mt-0.5">Hardware maintenance, OS deployments & web administration.</p>
               </div>
             </div>
           </div>
@@ -657,7 +675,7 @@
   </section>
 
   <!-- ================= EXPERIENCIA LABORAL ================= -->
-  <section id="experiencia" class="py-16 md:py-24 border-t border-slate-800/70">
+  <section id="experience" class="py-16 md:py-24 border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
@@ -799,7 +817,7 @@
   </section>
 
   <!-- ================= EDUCACIÓN & ACADÉMICO ================= -->
-  <section id="educacion" class="py-16 md:py-20 border-t border-slate-800/70">
+  <section id="education" class="py-16 md:py-20 border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
@@ -935,7 +953,7 @@
   </section>
 
   <!-- ================= HABILIDADES TÉCNICAS ================= -->
-  <section id="habilidades" class="py-16 md:py-20 border-t border-slate-800/70">
+  <section id="skills" class="py-16 md:py-20 border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex items-center gap-3 mb-8">
@@ -1049,7 +1067,7 @@
   </section>
 
   <!-- ================= PROYECTOS DESTACADOS ================= -->
-  <section id="proyectos" class="py-16 md:py-20 border-t border-slate-800/70">
+  <section id="projects" class="py-16 md:py-20 border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="mb-10">
@@ -1294,7 +1312,7 @@
   </section>
 
   <!-- ================= EXPERIENCIA EN IA & LLMs ================= -->
-  <section id="ia-agentes" class="py-16 md:py-20 border-t border-slate-800/70 bg-slate-900/30">
+  <section id="ai" class="py-16 md:py-20 border-t border-slate-800/70 bg-slate-900/30">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex items-center gap-3 mb-4">
@@ -1302,7 +1320,7 @@
         <h2 data-i18n="ai_section_tag" class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">06. Applied Artificial Intelligence</h2>
       </div>
 
-      <div id="ia-agentes-container" class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 border border-cyan-500/30 relative overflow-hidden shadow-2xl">
+      <div id="ai-container" class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 border border-cyan-500/30 relative overflow-hidden shadow-2xl">
         <!-- Glow Effect -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
 
@@ -1389,7 +1407,7 @@
   </section>
 
   <!-- ================= MENTALIDAD & ACTITUD ================= -->
-  <section id="mentalidad" class="py-16 md:py-20 border-t border-slate-800/70">
+  <section id="mindset" class="py-16 md:py-20 border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
@@ -1479,7 +1497,7 @@
   </section>
 
   <!-- ================= BEYOND THE CODE / INTERESTS ================= -->
-  <section id="intereses" class="py-16 md:py-24 border-t border-slate-800/70">
+  <section id="interests" class="py-16 md:py-24 border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
@@ -1708,7 +1726,7 @@
   </section>
 
   <!-- ================= CONTACT ================= -->
-  <section id="contacto" class="py-16 md:py-24 border-t border-slate-800/70">
+  <section id="contact" class="py-16 md:py-24 border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       
       <div class="inline-flex items-center gap-2 mb-4">
@@ -1761,11 +1779,11 @@
           <span>LinkedIn</span>
         </a>
         <span class="text-slate-700">·</span>
-        <a href="./cv/Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
+        <a href="./resume/Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
           <span>Resume (English)</span>
         </a>
         <span class="text-slate-700">·</span>
-        <a href="./cv/CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
+        <a href="./resume/CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
           <span>CV (Español)</span>
         </a>
       </div>
@@ -1968,13 +1986,17 @@
         about_pill3: "Best practices & Clean Code",
         about_card_title: "General Summary",
         about_degree_title: "Software Engineering / Computer Science",
-        about_degree_sub: "University of Costa Rica (Final Semester)",
-        about_degree_status: "Final graduation stage",
-        about_courses_title: "Core Completed Coursework",
-        about_courses_desc: "Data Structures, Algorithms, Computer Architecture, Relational Databases, Operating Systems.",
-        about_skills_title: "Main Technical Skills",
+        about_degree_sub: "Universidad de Costa Rica (Final Semester)",
+        about_degree_status: "Undergraduate Degree · Final graduation stage",
+        about_courses_title: "Core Academic Coursework",
+        about_courses_sub: "Computer Science Foundations & Systems",
+        about_courses_desc: "Data Structures, Algorithms, Architecture, Databases & OS.",
+        about_skills_title: "Primary Technical Stack",
         about_skills_sub: "TypeScript · Python · C# / .NET · C++",
         about_skills_desc: "SQL Server, PostgreSQL, Next.js, React, Git, Linux.",
+        about_exp_title: "Professional IT Support",
+        about_exp_sub: "Universidad de Costa Rica · Orientation Office",
+        about_exp_desc: "Hardware maintenance, OS deployments & web administration.",
 
         experience_section_tag: "02. Work Experience",
         experience_heading: "Professional IT & Infrastructure Support",
@@ -2185,12 +2207,16 @@
         about_card_title: "Resumen General",
         about_degree_title: "Ingeniería de Software / Computación",
         about_degree_sub: "Universidad de Costa Rica (Último semestre)",
-        about_degree_status: "Etapa final de graduación",
+        about_degree_status: "Bachillerato universitario · Etapa final de graduación",
         about_courses_title: "Cursos Clave Aprobados",
-        about_courses_desc: "Estructuras de Datos, Algoritmos, Arquitectura de Computadoras, Bases de Datos Relacionales, Sistemas Operativos.",
-        about_skills_title: "Skills Principales & Stack",
+        about_courses_sub: "Fundamentos de Ciencias de la Computación",
+        about_courses_desc: "Estructuras de Datos, Algoritmos, Arquitectura, BD y SO.",
+        about_skills_title: "Stack Técnico Principal",
         about_skills_sub: "TypeScript · Python · C# / .NET · C++",
         about_skills_desc: "SQL Server, PostgreSQL, Next.js, React, Git, Linux.",
+        about_exp_title: "Soporte TI e Infraestructura",
+        about_exp_sub: "Universidad de Costa Rica · Oficina de Orientación",
+        about_exp_desc: "Mantenimiento de hardware, despliegue de SO y administración web.",
 
         experience_section_tag: "02. Experiencia Laboral",
         experience_heading: "Soporte de TI e Infraestructura en Producción",

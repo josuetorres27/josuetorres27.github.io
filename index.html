@@ -30,10 +30,15 @@
             brand: {
               50: '#eef2ff',
               100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
               400: '#818cf8',
               500: '#6366f1',
               600: '#4f46e5',
               700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
             },
             accent: {
               cyan: '#06b6d4',
@@ -203,6 +208,14 @@
     html.light .bg-brand-500\/10 {
       background-color: #eef2ff !important;
       border-color: #c7d2fe !important;
+    }
+    html.light .bg-blue-950\/60,
+    html.light .bg-blue-500\/10 {
+      background-color: #eff6ff !important;
+      border-color: #bfdbfe !important;
+    }
+    html.light .text-blue-400 {
+      color: #1d4ed8 !important;
     }
     html.light .bg-cyan-950\/60,
     html.light .bg-cyan-500\/10,
@@ -483,7 +496,7 @@
   <section id="hero" class="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
         <!-- Hero Text & Content -->
         <div class="lg:col-span-8">
@@ -507,7 +520,7 @@
           <!-- Value Proposition / Bio Summary -->
           <p data-i18n-html="hero_bio" class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8">
             Advanced Computer Science student at <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with 
-            <span class="font-mono text-brand-300 bg-brand-950/60 px-1.5 py-0.5 rounded border border-brand-800/50">TypeScript</span>, 
+            <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">TypeScript</span>, 
             <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, 
             <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> and 
             <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.
@@ -582,30 +595,6 @@
           </div>
         </div>
 
-      </div>
-
-      <!-- Quick Metrics Row -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-800/80">
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-          <p data-i18n="metric_status_label" class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Status</p>
-          <p data-i18n="metric_status_val" class="text-lg font-bold text-white">Final Semester</p>
-          <span data-i18n="metric_status_sub" class="text-xs text-brand-400">Advanced Student</span>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-          <p data-i18n="metric_stack_label" class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Core Stack</p>
-          <p data-i18n="metric_stack_val" class="text-lg font-bold text-white">Python · C++</p>
-          <span data-i18n="metric_stack_sub" class="text-xs text-slate-400">& Java / SQL</span>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-          <p data-i18n="metric_spec_label" class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Specialty</p>
-          <p data-i18n="metric_spec_val" class="text-lg font-bold text-white">Algorithms & DSA</p>
-          <span data-i18n="metric_spec_sub" class="text-xs text-emerald-400">Big-O Optimization</span>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-          <p data-i18n="metric_goal_label" class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Target Role</p>
-          <p data-i18n="metric_goal_val" class="text-lg font-bold text-white">Software Engineer</p>
-          <span data-i18n="metric_goal_sub" class="text-xs text-brand-400">Junior / Intern</span>
-        </div>
       </div>
 
     </div>
@@ -1247,7 +1236,7 @@
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span data-i18n="p1_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-400 bg-brand-950/60 px-2.5 py-1 rounded border border-brand-800/50">
+                <span data-i18n="p1_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-950/60 px-2.5 py-1 rounded border border-indigo-800/50">
                   C# / .NET · Desktop Application
                 </span>
                 <span data-i18n="p1_date" class="text-xs font-mono text-slate-400">Mar 2026 – Jul 2026 · UCR</span>
@@ -2041,7 +2030,7 @@
 
         hero_badge: "Final Semester Student · Available for Internships & Junior Roles",
         hero_headline: `Hi, I'm <span class="text-white">Josué Torres Sibaja</span> 👋<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span>`,
-        hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with <span class="font-mono text-brand-300 bg-brand-950/60 px-1.5 py-0.5 rounded border border-brand-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> and <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
+        hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> and <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
         hero_btn_projects: "View Featured Projects",
         hero_btn_cv: "Download CV / Resume",
 
@@ -2256,7 +2245,7 @@
 
         hero_badge: "Estudiante de Último Semestre · Disponible para Pasantías & Roles Junior",
         hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span> 👋<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Ingeniería de Software & Computación</span>`,
-        hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con <span class="font-mono text-brand-300 bg-brand-950/60 px-1.5 py-0.5 rounded border border-brand-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> y <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
+        hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> y <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
         hero_btn_projects: "Ver Proyectos Destacados",
         hero_btn_cv: "Descargar CV / Resume",
 

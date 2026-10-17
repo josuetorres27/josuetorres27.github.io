@@ -299,7 +299,7 @@
       color: #67e8f9 !important;
     }
 
-    /* Navigation Links Fixed Widths for zero layout shifts */
+    /* Navigation Links Fixed Widths for zero layout shifts & comfortable spacing */
     .nav-item-link {
       display: inline-flex;
       align-items: center;
@@ -308,14 +308,24 @@
       flex-shrink: 0;
     }
     @media (min-width: 1024px) {
-      .nav-item-link[data-i18n="nav_about"] { width: 74px; }
-      .nav-item-link[data-i18n="nav_experience"] { width: 86px; }
-      .nav-item-link[data-i18n="nav_education"] { width: 78px; }
-      .nav-item-link[data-i18n="nav_skills"] { width: 76px; }
-      .nav-item-link[data-i18n="nav_projects"] { width: 76px; }
-      .nav-item-link[data-i18n="nav_ai"] { width: 76px; }
-      .nav-item-link[data-i18n="nav_interests"] { width: 48px; }
-      .nav-item-link[data-i18n="nav_contact"] { width: 68px; }
+      .nav-item-link[data-i18n="nav_about"] { min-width: 80px; }
+      .nav-item-link[data-i18n="nav_experience"] { min-width: 98px; }
+      .nav-item-link[data-i18n="nav_education"] { min-width: 88px; }
+      .nav-item-link[data-i18n="nav_skills"] { min-width: 100px; }
+      .nav-item-link[data-i18n="nav_projects"] { min-width: 86px; }
+      .nav-item-link[data-i18n="nav_ai"] { min-width: 82px; }
+      .nav-item-link[data-i18n="nav_interests"] { min-width: 52px; }
+      .nav-item-link[data-i18n="nav_contact"] { min-width: 82px; }
+    }
+    .nav-divider {
+      color: #334155;
+      user-select: none;
+      font-size: 0.75rem;
+      line-height: 1rem;
+      padding: 0 1px;
+    }
+    html.light .nav-divider {
+      color: #cbd5e1 !important;
     }
     html.light .nav-item-link:hover {
       background-color: #e2e8f0 !important;
@@ -402,28 +412,35 @@
 
   <!-- ================= NAVBAR ================= -->
   <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80 transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Logo / Monogram -->
-      <a href="#hero" class="flex items-center gap-2 group">
+      <a href="#hero" class="flex items-center gap-2.5 group shrink-0">
         <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center font-mono font-bold text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform">
           J
         </span>
-        <span class="font-mono font-semibold text-lg tracking-tight text-slate-200 group-hover:text-white transition-colors">
-          josuetorres<span class="text-brand-400">.io</span>
+        <span class="font-mono font-semibold text-base sm:text-lg tracking-tight text-slate-200 group-hover:text-white transition-colors">
+          dev.josue<span class="text-brand-400">.torres</span>
         </span>
       </a>
 
       <!-- Desktop Navigation Links with Fixed Item Widths & Language Stability -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium text-slate-300">
-        <a href="#about" data-i18n="nav_about" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
-        <a href="#experience" data-i18n="nav_experience" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
-        <a href="#education" data-i18n="nav_education" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Education</a>
-        <a href="#skills" data-i18n="nav_skills" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
-        <a href="#projects" data-i18n="nav_projects" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
-        <a href="#ai" data-i18n="nav_ai" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">AI & LLMs</a>
-        <a href="#interests" data-i18n="nav_interests" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">BTC</a>
-        <a href="#contact" data-i18n="nav_contact" class="nav-item-link px-2 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 text-xs xl:text-sm font-medium text-slate-300">
+        <a href="#about" data-i18n="nav_about" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#experience" data-i18n="nav_experience" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#education" data-i18n="nav_education" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Education</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#skills" data-i18n="nav_skills" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#projects" data-i18n="nav_projects" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#ai" data-i18n="nav_ai" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">AI & LLMs</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#interests" data-i18n="nav_interests" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">BTC</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#contact" data-i18n="nav_contact" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
       </nav>
 
       <!-- Desktop Actions: Language, Theme & CV Dropdown -->
@@ -2462,12 +2479,12 @@
         interests_sub: "Un vistazo a cosas que disfruto hacer fuera de la rutina académica y laboral.",
         interests_crafts_title: "Arte y Escultura",
         interests_crafts_desc: `Desde pequeño me ha gustado dibujar, pintar y esculpir en diferentes materiales, y durante mi <strong class="text-amber-400 font-semibold">Trabajo Comunal Universitario (TCU)</strong> impartí talleres sobre estas disciplinas. Disfruto mucho crear figuras desde cero con mis manos, como personajes en miniatura.`,
-        interests_crafts_img1: "Miniature Sculpting & Pencil Toppers",
-        interests_crafts_img2: "Character Clay Figures",
-        interests_crafts_img3: "Foamy Sculpting Workshop Batch",
+        interests_crafts_img1: "Escultura en Miniatura y Figuras para Lápiz",
+        interests_crafts_img2: "Figuras de Personajes en Foamy",
+        interests_crafts_img3: "Colección de Talleres de Escultura",
         interests_photo_title: "Fotografía de Paisajes y Lugares",
         interests_photo_desc: "Me gusta apreciar los pequeños momentos del día a día, atrapándolos en una foto.",
-        interests_photo_img1: "Tropical Coastline & Marine Horizon",
+        interests_photo_img1: "Costa Tropical & Horizonte Marino",
         interests_photo_img2: "El Girasol Cósmico · UCR",
         interests_photo_img3: "Gradiente de Atardecer & Anochecer",
         interests_photo_img4: "Casa en el Árbol",

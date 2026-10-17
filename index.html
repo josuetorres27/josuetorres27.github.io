@@ -2595,7 +2595,7 @@
         const firstWord = firstSpace === -1 ? fullPhrase : fullPhrase.substring(0, firstSpace);
         return '<span class="inline-block whitespace-nowrap">' +
           '<span class="typewriter-cursor" aria-hidden="true">|</span>' +
-          '<span style="opacity:0; user-select:none; pointer-events:none;" aria-hidden="true">' +
+          '<span style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' +
             escapeTypewriterHtml(firstWord) +
           '</span>' +
         '</span>\u200B';
@@ -2620,7 +2620,7 @@
           '<span class="inline-block whitespace-nowrap">' +
             '<span>' + escapeTypewriterHtml(currentWordTyped) + '</span>' +
             '<span class="typewriter-cursor" aria-hidden="true">|</span>' +
-            '<span style="opacity:0; user-select:none; pointer-events:none;" aria-hidden="true">' +
+            '<span style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' +
               escapeTypewriterHtml(currentWordRemaining) +
             '</span>' +
           '</span>';

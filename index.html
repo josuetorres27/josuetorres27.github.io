@@ -66,6 +66,13 @@
   </script>
 
   <style>
+    /* Prevent mobile horizontal drift */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
+    }
+
     /* Suavizado de bordes y selecciones */
     ::selection {
       background-color: #0284c7;
@@ -405,14 +412,14 @@
 
   <!-- ================= NAVBAR ================= -->
   <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Logo / Monogram -->
-      <a href="#hero" class="flex items-center gap-2.5 group shrink-0">
-        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center font-mono font-black text-xs tracking-tighter text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform select-none">
+      <a href="#hero" class="flex items-center gap-2 sm:gap-2.5 group shrink-0">
+        <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center font-mono font-black text-[11px] sm:text-xs tracking-tighter text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform select-none">
           &lt;/&gt;
         </span>
-        <span class="font-mono font-semibold text-base sm:text-lg tracking-tight text-slate-200 group-hover:text-white transition-colors">
+        <span class="font-mono font-semibold text-sm sm:text-lg tracking-tight text-slate-200 group-hover:text-white transition-colors">
           dev.<span class="text-brand-400">josue.torres</span>
         </span>
       </a>
@@ -456,27 +463,27 @@
       </div>
 
       <!-- Mobile / Tablet Right Controls (Lang, Theme, Hamburger) -->
-      <div class="flex items-center gap-2 lg:hidden">
+      <div class="flex items-center gap-1.5 sm:gap-2 lg:hidden">
         <!-- Language Switcher Mobile -->
-        <div class="inline-flex items-center p-0.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-mono" role="group" aria-label="Mobile language selector">
-          <button id="lang-btn-en-m" type="button" class="lang-switch-btn px-1.5 py-0.5 rounded font-semibold transition-all bg-brand-600 text-white" aria-label="Switch to English">EN</button>
-          <button id="lang-btn-es-m" type="button" class="lang-switch-btn px-1.5 py-0.5 rounded font-semibold transition-all text-slate-400 hover:text-white" aria-label="Cambiar a Español">ES</button>
+        <div class="h-8 inline-flex items-center p-0.5 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono shadow-inner box-border" role="group" aria-label="Mobile language selector">
+          <button id="lang-btn-en-m" type="button" class="lang-switch-btn h-full px-2 rounded-md font-semibold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-[11px]" aria-label="Switch to English">EN</button>
+          <button id="lang-btn-es-m" type="button" class="lang-switch-btn h-full px-2 rounded-md font-semibold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-[11px]" aria-label="Cambiar a Español">ES</button>
         </div>
 
-        <button id="theme-toggle-mobile" type="button" aria-label="Cambiar tema / Toggle theme" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800/80 rounded-lg border border-slate-800 transition-colors">
-          <svg class="theme-icon-sun w-5 h-5 hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="theme-toggle-mobile" type="button" aria-label="Cambiar tema / Toggle theme" class="h-8 w-8 flex items-center justify-center p-0 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-700/60 transition-all active:scale-95 box-border">
+          <svg class="theme-icon-sun w-4 h-4 hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
           </svg>
-          <svg class="theme-icon-moon w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="theme-icon-moon w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
           </svg>
         </button>
 
-        <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors">
-          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="h-8 w-8 flex items-center justify-center p-0 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-700/60 transition-all active:scale-95 box-border">
+          <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
-          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
@@ -515,18 +522,18 @@
         <!-- Hero Text & Content -->
         <div class="lg:col-span-8">
           <!-- Availability Badge -->
-          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900 border border-emerald-500/30 text-xs font-medium text-emerald-400 mb-6 shadow-sm">
-            <span class="relative flex h-2 w-2">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-emerald-500/30 text-xs font-medium text-emerald-400 mb-6 shadow-sm max-w-full">
+            <span class="relative flex h-2 w-2 shrink-0">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span data-i18n="hero_badge">Final Semester Student · Available for Internships & Junior Roles</span>
+            <span data-i18n="hero_badge" class="break-words">Final Semester Student · Available for Internships & Junior Roles</span>
           </div>
 
           <!-- Main Headline with Dynamic Typewriter Effect -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
             <span data-i18n-html="hero_greeting">Hi, I'm <span class="text-white">Josue Torres Sibaja</span></span><br>
-            <span class="block min-h-[2.5em] lg:min-h-[2.4em]"><span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor" aria-hidden="true">|</span></span>
+            <span class="block min-h-[3.8em] sm:min-h-[2.5em] lg:min-h-[2.4em]"><span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor" aria-hidden="true">|</span></span>
           </h1>
 
           <!-- Value Proposition / Bio Summary -->
@@ -539,8 +546,8 @@
           </p>
 
           <!-- Action Buttons -->
-          <div class="flex flex-wrap items-center gap-4">
-            <a href="#projects" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 active:scale-95">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+            <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 active:scale-95">
               <span data-i18n="hero_btn_projects">View Featured Projects</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -548,15 +555,15 @@
             </a>
 
             <!-- Dual CV & Resume Dropdown in Hero -->
-            <div class="relative" id="hero-cv-container">
-              <button id="hero-cv-btn" type="button" aria-expanded="false" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl transition-all shadow-sm active:scale-95">
+            <div class="relative w-full sm:w-auto" id="hero-cv-container">
+              <button id="hero-cv-btn" type="button" aria-expanded="false" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl transition-all shadow-sm active:scale-95">
                 <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
                 <span data-i18n="hero_btn_cv">Download CV / Resume</span>
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
-              <div id="hero-cv-dropdown" class="hidden absolute left-0 mt-2 w-56 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl py-2 z-50">
+              <div id="hero-cv-dropdown" class="hidden absolute left-0 right-0 sm:right-auto mt-2 w-full sm:w-56 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl py-2 z-50">
                 <a href="./resume/Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
                   <span class="w-6 h-6 rounded bg-brand-500/10 border border-brand-500/20 text-brand-400 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">EN</span>
                   <div>
@@ -1844,21 +1851,21 @@
       </div>
 
       <!-- Social Links Row -->
-      <div class="flex items-center justify-center gap-6">
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2.5 sm:gap-6">
         <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
           <span>GitHub</span>
         </a>
-        <span class="text-slate-700">·</span>
+        <span class="text-slate-700 hidden sm:inline">·</span>
         <a href="https://www.linkedin.com/in/josue-torres-sibaja/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           <span>LinkedIn</span>
         </a>
-        <span class="text-slate-700">·</span>
+        <span class="text-slate-700 hidden sm:inline">·</span>
         <a href="./resume/Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
           <span>Resume (English)</span>
         </a>
-        <span class="text-slate-700">·</span>
+        <span class="text-slate-700 hidden sm:inline">·</span>
         <a href="./resume/CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
           <span>CV (Español)</span>
         </a>

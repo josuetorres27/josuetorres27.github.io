@@ -366,12 +366,11 @@
       50% { opacity: 0; }
     }
     .typewriter-cursor {
-      display: inline-block;
+      display: inline;
       animation: cursorBlink 0.85s infinite;
       font-weight: 200;
-      line-height: 0.9;
-      vertical-align: baseline;
       color: #38bdf8;
+      user-select: none;
     }
     html.light .typewriter-cursor {
       color: #4338ca !important;
@@ -498,9 +497,7 @@
           <!-- Main Headline with Dynamic Typewriter Effect -->
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
             <span data-i18n-html="hero_greeting">Hi, I'm <span class="text-white">Josué Torres Sibaja</span></span><br>
-            <span class="inline-flex items-baseline flex-wrap min-h-[1.25em]">
-              <span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor ml-1" aria-hidden="true">|</span>
-            </span>
+            <span class="inline"><span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor" aria-hidden="true">|</span></span>
           </h1>
 
           <!-- Value Proposition / Bio Summary -->
@@ -1980,7 +1977,6 @@
         hero_phrases: [
           "Software Engineer & CS Student",
           "Full-Stack Web & Systems Developer",
-          "Algorithms, Distributed Systems & C++",
           "Building Scalable & Reliable Software"
         ],
         hero_headline: `Hi, I'm <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span>`,
@@ -2207,7 +2203,6 @@
         hero_phrases: [
           "Ingeniería de Software & Computación",
           "Desarrollador Full-Stack & Sistemas",
-          "Algoritmos, Sistemas Distribuidos & C++",
           "Construyendo Software Escalable y Confiable"
         ],
         hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Ingeniería de Software & Computación</span>`,
@@ -2524,17 +2519,17 @@
       // Avoid layout collapse when string is empty by maintaining zero-width space
       el.textContent = fullPhrase.substring(0, currentCharIndex) || '\u200B';
 
-      let delta = isDeleting ? 28 : 65;
+      let delta = isDeleting ? 32 : 72;
 
       if (!isDeleting && currentCharIndex === fullPhrase.length) {
-        // Phrase completed: hold for reader
-        delta = 2200;
+        // Phrase completed: hold for reader (relaxed 2.8s)
+        delta = 2800;
         isDeleting = true;
       } else if (isDeleting && currentCharIndex === 0) {
         // Phrase cleared: slight pause before next phrase begins
         isDeleting = false;
         currentPhraseIndex = (currentPhraseIndex + 1) % activePhrases.length;
-        delta = 350;
+        delta = 450;
       }
 
       typewriterTimeout = setTimeout(tickTypewriter, delta);

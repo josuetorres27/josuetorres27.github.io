@@ -28,17 +28,17 @@
           },
           colors: {
             brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              200: '#c7d2fe',
-              300: '#a5b4fc',
-              400: '#818cf8',
-              500: '#6366f1',
-              600: '#4f46e5',
-              700: '#4338ca',
-              800: '#3730a3',
-              900: '#312e81',
-              950: '#1e1b4b',
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              950: '#082f49',
             },
             accent: {
               cyan: '#06b6d4',
@@ -68,7 +68,7 @@
   <style>
     /* Suavizado de bordes y selecciones */
     ::selection {
-      background-color: #4f46e5;
+      background-color: #0284c7;
       color: #ffffff;
     }
     .glass-nav {
@@ -77,7 +77,7 @@
       -webkit-backdrop-filter: blur(12px);
     }
     .radial-bg {
-      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+      background: radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.12) 0%, rgba(15, 23, 42, 0) 70%);
     }
     .card-hover {
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -154,7 +154,7 @@
     html.light .text-brand-300,
     html.light .text-brand-400,
     html.light .text-brand-500 {
-      color: #4338ca !important; /* Deep Indigo 700 */
+      color: #0284c7 !important; /* Tech Blue 600 */
     }
     html.light .text-cyan-200,
     html.light .text-cyan-300,
@@ -194,20 +194,21 @@
     html.light .font-mono.text-cyan-300,
     html.light .font-mono.text-amber-300,
     html.light .font-mono.text-brand-300,
-    html.light .font-mono.text-indigo-300 {
-      font-weight: 600 !important;
+    html.light .font-mono.text-indigo-300,
+    html.light .font-mono.text-blue-400 {
+      font-weight: 700 !important;
     }
 
     /* Light Mode Headline Gradient - higher contrast vibrant tones */
     html.light .bg-clip-text {
-      background-image: linear-gradient(to right, #4338ca, #6366f1, #0891b2) !important;
+      background-image: linear-gradient(to right, #0284c7, #0ea5e9, #0891b2) !important;
     }
 
     /* Badge & Tag Container Contrast in Light Mode */
     html.light .bg-brand-950\/60,
     html.light .bg-brand-500\/10 {
-      background-color: #eef2ff !important;
-      border-color: #c7d2fe !important;
+      background-color: #f0f9ff !important;
+      border-color: #bae6fd !important;
     }
     html.light .bg-blue-950\/60,
     html.light .bg-blue-500\/10 {
@@ -252,7 +253,7 @@
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03) !important;
     }
     html.light #spotlight-project {
-      border-color: #c7d2fe !important;
+      border-color: #bae6fd !important;
     }
     html.light #ai-container {
       border-color: #a5f3fc !important;
@@ -271,17 +272,29 @@
       border-color: #cbd5e1 !important;
     }
 
-    /* Buttons in Light Mode: Vibrant Indigo / Violet */
+    /* Buttons in Light Mode: Modern Vibrant Tech Blue */
     html.light .bg-brand-600 {
-      background-color: #4f46e5 !important;
+      background-color: #0284c7 !important;
       color: #ffffff !important;
     }
     html.light .hover\:bg-brand-500:hover,
     html.light .bg-brand-600:hover {
-      background-color: #4338ca !important;
+      background-color: #0369a1 !important;
     }
     html.light .shadow-brand-600\/30 {
-      box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.25), 0 4px 6px -4px rgba(79, 70, 229, 0.2) !important;
+      box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.25), 0 4px 6px -4px rgba(2, 132, 199, 0.2) !important;
+    }
+
+    /* Ensure Photo Carousel & Handicrafts hover captions stay crisp white on dark gradient in Light Mode */
+    html.light .lightbox-trigger .text-white,
+    html.light .lightbox-trigger [data-i18n^="interests_photo_img"],
+    html.light .lightbox-trigger [data-i18n^="interests_crafts_img"],
+    html.light .lightbox-trigger .truncate,
+    html.light .lightbox-trigger span.drop-shadow {
+      color: #ffffff !important;
+    }
+    html.light .lightbox-trigger .text-cyan-300 {
+      color: #67e8f9 !important;
     }
 
     /* Navigation Links Fixed Widths for zero layout shifts */
@@ -376,7 +389,7 @@
       user-select: none;
     }
     html.light .typewriter-cursor {
-      color: #4338ca !important;
+      color: #0284c7 !important;
     }
   </style>
 </head>
@@ -395,7 +408,7 @@
           J
         </span>
         <span class="font-mono font-semibold text-lg tracking-tight text-slate-200 group-hover:text-white transition-colors">
-          josue<span class="text-brand-400">.dev</span>
+          josuetorres<span class="text-brand-400">.io</span>
         </span>
       </a>
 
@@ -484,7 +497,7 @@
   <section id="hero" class="relative z-20 pt-20 pb-20 md:pt-28 md:pb-28">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         
         <!-- Hero Text & Content -->
         <div class="lg:col-span-8">
@@ -506,10 +519,10 @@
           <!-- Value Proposition / Bio Summary -->
           <p data-i18n-html="hero_bio" class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8">
             Advanced Computer Science student at <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with 
-            <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, 
-            <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>, 
-            <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">JavaScript</span> and 
-            <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">C# / .NET</span>.
+            <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50 whitespace-nowrap">Python</span>, 
+            <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50 whitespace-nowrap">C++</span>, 
+            <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50 whitespace-nowrap">JavaScript</span> and 
+            <span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50 whitespace-nowrap">C# / .NET</span>.
           </p>
 
           <!-- Action Buttons -->
@@ -572,11 +585,11 @@
         </div>
 
         <!-- Hero Profile Photo -->
-        <div class="lg:col-span-4 flex justify-center lg:justify-end">
+        <div class="lg:col-span-4 flex justify-center lg:justify-end lg:pt-1">
           <div class="relative group">
-            <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 via-indigo-500 to-cyan-500 rounded-3xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500"></div>
-            <div class="lightbox-trigger relative w-56 h-56 sm:w-64 sm:h-64 rounded-3xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl transition-all hover:border-brand-500/60" role="button" tabindex="0" aria-label="Ver fotografía de perfil">
-              <img src="./img/portfolio.jpeg" alt="Josué Torres Sibaja · Software Engineer & CS Student" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 via-cyan-500 to-blue-500 rounded-3xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500"></div>
+            <div class="lightbox-trigger relative w-64 sm:w-72 lg:w-80 aspect-[4/5] rounded-3xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl transition-all hover:border-brand-500/60" role="button" tabindex="0" aria-label="Ver fotografía de perfil">
+              <img src="./img/portfolio.jpeg" alt="Josué Torres Sibaja · Software Engineer & CS Student" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
             </div>
           </div>
         </div>
@@ -1041,14 +1054,14 @@
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_patterns_title" class="text-slate-200">Design Patterns</span>
-              <span data-i18n="skill_patterns_sub" class="text-xs text-cyan-400 font-mono">Factory, Singleton, etc.</span>
+              <span data-i18n="skill_patterns_sub" class="text-xs text-cyan-400 font-mono">Factory, Singleton</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_solid_title" class="text-slate-200">SOLID Principles</span>
               <span data-i18n="skill_solid_sub" class="text-xs text-cyan-400 font-mono">Clean Architecture</span>
             </li>
             <li class="flex items-center justify-between py-1">
-              <span data-i18n="skill_algo_title" class="text-slate-200">Algorithms & Optimization</span>
+              <span data-i18n="skill_algo_title" class="text-slate-200">Algorithms</span>
               <span data-i18n="skill_algo_sub" class="text-xs text-cyan-400 font-mono">Recursion, Greedy, DP</span>
             </li>
           </ul>
@@ -1086,7 +1099,7 @@
             </li>
             <li class="flex items-center justify-between py-1">
               <span data-i18n="skill_ci_title" class="text-slate-200">Testing & CI/CD</span>
-              <span data-i18n="skill_ci_sub" class="text-xs text-emerald-400 font-mono">GitHub Actions, Playwright</span>
+              <span data-i18n="skill_ci_sub" class="text-xs text-emerald-400 font-mono">GitHub Actions</span>
             </li>
           </ul>
         </div>
@@ -1539,7 +1552,7 @@
           Hobbies & Personal Interests
         </h3>
         <p data-i18n="interests_sub" class="text-slate-300 text-base leading-relaxed">
-          A look at things I enjoy doing outside of academic and work routines: photography and manual crafts.
+          A look at things I enjoy doing outside of academic and work routines.
         </p>
       </div>
 
@@ -1657,13 +1670,13 @@
               🎨
             </div>
             <div>
-              <h4 data-i18n="interests_crafts_title" class="text-lg font-bold text-white">Manual Crafts & Foamy Clay Sculptures</h4>
+              <h4 data-i18n="interests_crafts_title" class="text-lg font-bold text-white">Art & Sculpture</h4>
             </div>
           </div>
         </div>
 
         <p data-i18n-html="interests_crafts_desc" class="text-slate-300 text-sm leading-relaxed mb-6">
-          For my <strong class="text-amber-400 font-semibold">University Community Service (TCU)</strong> at UCR, I gave painting and moldable foamy clay sculpting workshops. I really enjoy crafting figures with my hands from scratch, such as miniature characters and pencil toppers.
+          Since I was little, I have loved drawing, painting, and sculpting with different materials, and during my <strong class="text-amber-400 font-semibold">University Community Service (TCU)</strong>, I taught workshops on those arts. I really enjoy crafting figures from scratch with my hands, such as miniature characters.
         </p>
 
         <!-- 1x3 Handicrafts Grid -->
@@ -1976,6 +1989,7 @@
         nav_skills: "Skills",
         nav_projects: "Projects",
         nav_ai: "AI & LLMs",
+        nav_mindset: "Mindset",
         nav_interests: "BTC",
         nav_contact: "Contact",
 
@@ -1987,7 +2001,7 @@
           "Building Scalable & Reliable Software"
         ],
         hero_headline: `Hi, I'm <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span>`,
-        hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">University of Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">JavaScript</span> and <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">C# / .NET</span>.`,
+        hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">University of Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50 whitespace-nowrap">Python</span>, <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50 whitespace-nowrap">C++</span>, <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50 whitespace-nowrap">JavaScript</span> and <span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50 whitespace-nowrap">C# / .NET</span>.`,
         hero_btn_projects: "View Featured Projects",
         hero_btn_cv: "Download CV / Resume",
 
@@ -2091,10 +2105,10 @@
         skill_search_title: "Search & Traversal",
         skill_search_sub: "Binary Search, BFS/DFS",
         skill_patterns_title: "Design Patterns",
-        skill_patterns_sub: "Factory, Singleton, etc.",
+        skill_patterns_sub: "Factory, Singleton",
         skill_solid_title: "SOLID Principles",
         skill_solid_sub: "Clean Architecture",
-        skill_algo_title: "Algorithms & Optimization",
+        skill_algo_title: "Algorithms",
         skill_algo_sub: "Recursion, Greedy, DP",
 
         skills_cat3_title: "Tools & Environment",
@@ -2110,7 +2124,7 @@
         skill_vscode_title: "VS Code & Debuggers",
         skill_vscode_sub: "GDB, PyTest",
         skill_ci_title: "Testing & CI/CD",
-        skill_ci_sub: "GitHub Actions, Playwright",
+        skill_ci_sub: "GitHub Actions",
 
         projects_section_tag: "05. Code Portfolio",
         projects_heading: "Current & Featured Projects",
@@ -2156,6 +2170,8 @@
         ai_badge: "AI & LLM Tools",
         ai_heading: "Applied AI & Large Language Models",
         ai_intro: `Practical experience integrating and using AI models in software development workflows: connecting APIs, configuring <span class="font-mono text-cyan-300">Tool & Function Calling</span> for structured actions, handling typed schemas, and setting up multi-step agent flows to automate technical tasks.`,
+        ai_banner_tag: "Practical Approach",
+        ai_banner_text: "Leveraging AI as a useful tool to accelerate workflows and automate tasks, always backed by clear, verified code.",
         ai_banner_btn: "View Portfolio Codebase",
         ai_portfolio_note: "This portfolio was built end-to-end utilizing agentic AI pair-programming workflows.",
         ai_card1_title: "Multi-Agent Systems",
@@ -2185,9 +2201,9 @@
 
         interests_section_tag: "08. Beyond the Code",
         interests_heading: "Hobbies & Personal Interests",
-        interests_sub: "A look at things I enjoy doing outside of academic and work routines: photography and manual crafts.",
-        interests_crafts_title: "Manual Crafts & Foamy Clay Sculptures",
-        interests_crafts_desc: `For my <strong class="text-amber-400 font-semibold">University Community Service (TCU)</strong> at UCR, I gave painting and moldable foamy clay sculpting workshops. I really enjoy crafting figures with my hands from scratch, such as miniature characters and pencil toppers.`,
+        interests_sub: "A look at things I enjoy doing outside of academic and work routines.",
+        interests_crafts_title: "Art & Sculpture",
+        interests_crafts_desc: `Since I was little, I have loved drawing, painting, and sculpting with different materials, and during my <strong class="text-amber-400 font-semibold">University Community Service (TCU)</strong>, I taught workshops on those arts. I really enjoy crafting figures from scratch with my hands, such as miniature characters.`,
         interests_crafts_img1: "Miniature Sculpting & Pencil Toppers",
         interests_crafts_img2: "Character Clay Figures",
         interests_crafts_img3: "Foamy Sculpting Workshop Batch",
@@ -2241,7 +2257,7 @@
           "Construyendo Software Escalable y Confiable"
         ],
         hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Ingeniería de Software & Computación</span>`,
-        hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">JavaScript</span> y <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">C# / .NET</span>.`,
+        hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50 whitespace-nowrap">Python</span>, <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50 whitespace-nowrap">C++</span>, <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50 whitespace-nowrap">JavaScript</span> y <span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50 whitespace-nowrap">C# / .NET</span>.`,
         hero_btn_projects: "Ver Proyectos Destacados",
         hero_btn_cv: "Descargar CV / Resume",
 
@@ -2345,10 +2361,10 @@
         skill_search_title: "Búsqueda y Recorrido",
         skill_search_sub: "Búsqueda Binaria, BFS/DFS",
         skill_patterns_title: "Patrones de Diseño",
-        skill_patterns_sub: "Factory, Singleton, etc.",
+        skill_patterns_sub: "Factory, Singleton",
         skill_solid_title: "Principios SOLID",
         skill_solid_sub: "Arquitectura Limpia",
-        skill_algo_title: "Algoritmos y Optimización",
+        skill_algo_title: "Algoritmos",
         skill_algo_sub: "Recursión, Greedy, DP",
 
         skills_cat3_title: "Herramientas & Entorno",
@@ -2364,7 +2380,7 @@
         skill_vscode_title: "VS Code y Depuración",
         skill_vscode_sub: "GDB, PyTest",
         skill_ci_title: "Testing & CI/CD",
-        skill_ci_sub: "GitHub Actions, Playwright",
+        skill_ci_sub: "GitHub Actions",
 
         projects_section_tag: "05. Portafolio de Código",
         projects_heading: "Proyectos Actuales y Destacados",
@@ -2441,9 +2457,9 @@
 
         interests_section_tag: "08. Fuera del Código",
         interests_heading: "Pasatiempos e Intereses Personales",
-        interests_sub: "Un vistazo a cosas que disfruto hacer fuera de la rutina académica y laboral: fotografía y manualidades.",
-        interests_crafts_title: "Manualidades y Figuras en Foamy Moldeable",
-        interests_crafts_desc: `Durante mi <strong class="text-amber-400 font-semibold">Trabajo Comunal Universitario (TCU)</strong> en la UCR, impartí talleres de pintura y escultura en foamy moldeable. Disfruto mucho crear figuras desde cero con mis manos, como personajes en miniatura y terminales para lápices.`,
+        interests_sub: "Un vistazo a cosas que disfruto hacer fuera de la rutina académica y laboral.",
+        interests_crafts_title: "Arte y Escultura",
+        interests_crafts_desc: `Desde pequeño me ha gustado dibujar, pintar y esculpir en diferentes materiales, y durante mi <strong class="text-amber-400 font-semibold">Trabajo Comunal Universitario (TCU)</strong> impartí talleres sobre estas disciplinas. Disfruto mucho crear figuras desde cero con mis manos, como personajes en miniatura.`,
         interests_crafts_img1: "Miniature Sculpting & Pencil Toppers",
         interests_crafts_img2: "Character Clay Figures",
         interests_crafts_img3: "Foamy Sculpting Workshop Batch",

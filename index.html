@@ -285,10 +285,12 @@
       box-shadow: 0 10px 15px -3px rgba(2, 132, 199, 0.25), 0 4px 6px -4px rgba(2, 132, 199, 0.2) !important;
     }
 
-    /* Ensure Photo Carousel & Handicrafts hover captions stay crisp white on dark gradient in Light Mode */
+    /* Ensure All Lightbox Photo hover captions stay crisp white on dark gradient in Light Mode */
     html.light .lightbox-trigger .text-white,
+    html.light .lightbox-trigger .text-slate-200,
     html.light .lightbox-trigger [data-i18n^="interests_photo_img"],
     html.light .lightbox-trigger [data-i18n^="interests_crafts_img"],
+    html.light .lightbox-trigger [data-i18n^="experience_img"],
     html.light .lightbox-trigger .truncate,
     html.light .lightbox-trigger span.drop-shadow {
       color: #ffffff !important;
@@ -821,21 +823,21 @@
             <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/3.jpeg" alt="Oficina de Orientación - Universidad de Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span data-i18n="experience_img1_caption" class="text-xs font-medium text-slate-200">Orientation Office · Universidad de Costa Rica</span>
+                <span data-i18n="experience_img1_caption" class="text-xs font-semibold text-white drop-shadow">Orientation Office · Universidad de Costa Rica</span>
               </div>
             </div>
 
             <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/1.jpeg" alt="Workstation Teardown and Motherboard Servicing" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span data-i18n="experience_img2_caption" class="text-xs font-medium text-slate-200">Hardware Servicing & Internal Diagnostics</span>
+                <span data-i18n="experience_img2_caption" class="text-xs font-semibold text-white drop-shadow">Hardware Servicing & Internal Diagnostics</span>
               </div>
             </div>
 
             <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/2.jpeg" alt="Storage Component Diagnostic and HDD to SSD Upgrade" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <span data-i18n="experience_img3_caption" class="text-xs font-medium text-slate-200">Storage Upgrades & SATA Diagnostics</span>
+                <span data-i18n="experience_img3_caption" class="text-xs font-semibold text-white drop-shadow">Storage Upgrades & SATA Diagnostics</span>
               </div>
             </div>
           </div>
@@ -1035,7 +1037,7 @@
           <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-5 text-cyan-400">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
           </div>
-          <h3 data-i18n="skills_cat2_title" class="text-base font-bold text-white mb-2">CS Fundamentals & DSA</h3>
+          <h3 data-i18n="skills_cat2_title" class="text-base font-bold text-white mb-2">CS Fundamentals</h3>
           <p data-i18n="skills_cat2_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
             Mathematical and algorithmic foundations to craft efficient, scalable code.
           </p>
@@ -1050,7 +1052,7 @@
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_search_title" class="text-slate-200">Search & Traversal</span>
-              <span data-i18n="skill_search_sub" class="text-xs text-cyan-400 font-mono">Binary Search, BFS/DFS</span>
+              <span data-i18n="skill_search_sub" class="text-xs text-cyan-400 font-mono">BFS / DFS</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_patterns_title" class="text-slate-200">Design Patterns</span>
@@ -1062,7 +1064,7 @@
             </li>
             <li class="flex items-center justify-between py-1">
               <span data-i18n="skill_algo_title" class="text-slate-200">Algorithms</span>
-              <span data-i18n="skill_algo_sub" class="text-xs text-cyan-400 font-mono">Recursion, Greedy, DP</span>
+              <span data-i18n="skill_algo_sub" class="text-xs text-cyan-400 font-mono">Intervals, Two Pointers</span>
             </li>
           </ul>
         </div>
@@ -1087,7 +1089,7 @@
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_api_title" class="text-slate-200">RESTful APIs</span>
-              <span data-i18n="skill_api_sub" class="text-xs text-emerald-400 font-mono">Postman, HTTP JSON</span>
+              <span data-i18n="skill_api_sub" class="text-xs text-emerald-400 font-mono">HTTP & JSON</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_docker_title" class="text-slate-200">Docker (Basics)</span>
@@ -1184,10 +1186,10 @@
                 <span data-i18n="p0_date" class="text-xs font-mono text-slate-400">Oct 2026</span>
               </div>
               <h4 data-i18n="p0_title" class="text-xl sm:text-2xl font-bold text-white">
-                ¿Quién controla nuestra atención? — Vodcast Ético
+                Who Controls Our Attention? — Ethical Vodcast
               </h4>
               <p data-i18n="p0_subtitle" class="text-xs sm:text-sm text-slate-400 font-mono mt-1">
-                Redes sociales, economía de la atención y la responsabilidad del profesional en computación
+                Social media, the attention economy, and the responsibility of computing professionals
               </p>
             </div>
           </div>
@@ -2096,20 +2098,20 @@
         skill_sql_sub: "SQL Server / PostgreSQL",
         skill_java_sub: "OOP / Architecture",
 
-        skills_cat2_title: "CS Fundamentals & DSA",
+        skills_cat2_title: "CS Fundamentals",
         skills_cat2_desc: "Mathematical and algorithmic foundations to craft efficient, scalable code.",
         skill_ds_title: "Data Structures",
         skill_ds_sub: "Trees, Graphs, Maps",
         skill_bigo_title: "Big-O Analysis",
         skill_bigo_sub: "O(n), O(log n), O(1)",
         skill_search_title: "Search & Traversal",
-        skill_search_sub: "Binary Search, BFS/DFS",
+        skill_search_sub: "BFS / DFS",
         skill_patterns_title: "Design Patterns",
         skill_patterns_sub: "Factory, Singleton",
         skill_solid_title: "SOLID Principles",
         skill_solid_sub: "Clean Architecture",
         skill_algo_title: "Algorithms",
-        skill_algo_sub: "Recursion, Greedy, DP",
+        skill_algo_sub: "Intervals, Two Pointers",
 
         skills_cat3_title: "Tools & Environment",
         skills_cat3_desc: "Collaborative development, version control, and CI/CD deployment pipelines.",
@@ -2118,7 +2120,7 @@
         skill_linux_title: "Linux & Shell",
         skill_linux_sub: "Bash Scripting",
         skill_api_title: "RESTful APIs",
-        skill_api_sub: "Postman, HTTP JSON",
+        skill_api_sub: "HTTP & JSON",
         skill_docker_title: "Docker (Basics)",
         skill_docker_sub: "Containers",
         skill_vscode_title: "VS Code & Debuggers",
@@ -2142,8 +2144,8 @@
         project_ucr_tag: "UCR Project",
         p0_type: "Ethical Analysis & Tech Governance · Audiovisual Production",
         p0_date: "Oct 2026",
-        p0_title: "¿Quién controla nuestra atención? — Vodcast Ético",
-        p0_subtitle: "Redes sociales, economía de la atención y la responsabilidad del profesional en computación",
+        p0_title: "Who Controls Our Attention? — Ethical Vodcast",
+        p0_subtitle: "Social media, the attention economy, and the responsibility of computing professionals",
         p0_bts_btn: "Behind the Scenes",
 
         p1_type: "C# / .NET · Desktop Application",
@@ -2352,20 +2354,20 @@
         skill_sql_sub: "SQL Server / PostgreSQL",
         skill_java_sub: "POO / Arquitectura",
 
-        skills_cat2_title: "Fundamentos & DSA",
+        skills_cat2_title: "Fundamentos de CS",
         skills_cat2_desc: "Bases matemáticas y de computación para escribir código eficiente y escalable.",
         skill_ds_title: "Estructuras de Datos",
         skill_ds_sub: "Árboles, Grafos, Tablas",
         skill_bigo_title: "Análisis Asintótico",
         skill_bigo_sub: "O(n), O(log n), O(1)",
         skill_search_title: "Búsqueda y Recorrido",
-        skill_search_sub: "Búsqueda Binaria, BFS/DFS",
+        skill_search_sub: "BFS / DFS",
         skill_patterns_title: "Patrones de Diseño",
         skill_patterns_sub: "Factory, Singleton",
         skill_solid_title: "Principios SOLID",
         skill_solid_sub: "Arquitectura Limpia",
         skill_algo_title: "Algoritmos",
-        skill_algo_sub: "Recursión, Greedy, DP",
+        skill_algo_sub: "Intervalos, Two Pointers",
 
         skills_cat3_title: "Herramientas & Entorno",
         skills_cat3_desc: "Flujo de trabajo para desarrollo colaborativo, control de versiones y despliegue.",
@@ -2374,7 +2376,7 @@
         skill_linux_title: "Linux & Terminal",
         skill_linux_sub: "Scripts de Bash",
         skill_api_title: "APIs REST",
-        skill_api_sub: "Postman, JSON HTTP",
+        skill_api_sub: "HTTP & JSON",
         skill_docker_title: "Docker (Fundamentos)",
         skill_docker_sub: "Contenedores",
         skill_vscode_title: "VS Code y Depuración",

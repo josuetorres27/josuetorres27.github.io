@@ -391,10 +391,13 @@
       animation: cursorBlink 0.85s infinite;
       font-weight: 200;
       color: #38bdf8;
+      -webkit-text-fill-color: #38bdf8 !important;
+      background: none !important;
       user-select: none;
     }
     html.light .typewriter-cursor {
       color: #0284c7 !important;
+      -webkit-text-fill-color: #0284c7 !important;
     }
   </style>
 </head>
@@ -2570,6 +2573,57 @@
     let isDeleting = false;
     let activePhrases = [];
 
+    function escapeTypewriterHtml(str) {
+      return (str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function renderTypewriter(fullPhrase, charCount) {
+      if (charCount <= 0) {
+        const firstSpace = fullPhrase.indexOf(' ');
+        const firstWord = firstSpace === -1 ? fullPhrase : fullPhrase.substring(0, firstSpace);
+        return '<span class="inline-block whitespace-nowrap">' +
+          '<span class="typewriter-cursor" aria-hidden="true">|</span>' +
+          '<span style="opacity:0; user-select:none; pointer-events:none;" aria-hidden="true">' +
+            escapeTypewriterHtml(firstWord) +
+          '</span>' +
+        '</span>\u200B';
+      }
+
+      if (charCount >= fullPhrase.length) {
+        return escapeTypewriterHtml(fullPhrase) + '<span class="typewriter-cursor" aria-hidden="true">|</span>';
+      }
+
+      // Find boundaries of the current word being typed
+      const lastSpaceBefore = fullPhrase.lastIndexOf(' ', charCount - 1);
+      const wordStart = lastSpaceBefore === -1 ? 0 : lastSpaceBefore + 1;
+      const nextSpaceAfter = fullPhrase.indexOf(' ', charCount);
+      const wordEnd = nextSpaceAfter === -1 ? fullPhrase.length : nextSpaceAfter;
+
+      const completedPrefix = fullPhrase.substring(0, wordStart);
+      const currentWordTyped = fullPhrase.substring(wordStart, charCount);
+      const currentWordRemaining = fullPhrase.substring(charCount, wordEnd);
+
+      if (currentWordRemaining.length > 0) {
+        return escapeTypewriterHtml(completedPrefix) +
+          '<span class="inline-block whitespace-nowrap">' +
+            '<span>' + escapeTypewriterHtml(currentWordTyped) + '</span>' +
+            '<span class="typewriter-cursor" aria-hidden="true">|</span>' +
+            '<span style="opacity:0; user-select:none; pointer-events:none;" aria-hidden="true">' +
+              escapeTypewriterHtml(currentWordRemaining) +
+            '</span>' +
+          '</span>';
+      } else {
+        return escapeTypewriterHtml(completedPrefix) +
+          '<span class="inline-block whitespace-nowrap">' +
+            '<span>' + escapeTypewriterHtml(currentWordTyped) + '</span>' +
+            '<span class="typewriter-cursor" aria-hidden="true">|</span>' +
+          '</span>';
+      }
+    }
+
     function initTypewriter(phrases) {
       if (typewriterTimeout) {
         clearTimeout(typewriterTimeout);
@@ -2586,10 +2640,12 @@
       const cursor = document.getElementById('hero-typewriter-cursor');
       if (!el) return;
 
+      // Standalone cursor hidden because renderTypewriter manages its own smart inline cursor
+      if (cursor) cursor.style.display = 'none';
+
       // Accessibility: respect user preference for reduced motion
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         el.textContent = activePhrases[0];
-        if (cursor) cursor.style.display = 'none';
         return;
       }
 
@@ -2608,8 +2664,7 @@
         currentCharIndex++;
       }
 
-      // Avoid layout collapse when string is empty by maintaining zero-width space
-      el.textContent = fullPhrase.substring(0, currentCharIndex) || '\u200B';
+      el.innerHTML = renderTypewriter(fullPhrase, currentCharIndex);
 
       let delta = isDeleting ? 38 : 82;
 

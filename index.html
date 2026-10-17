@@ -366,7 +366,10 @@
       50% { opacity: 0; }
     }
     .typewriter-cursor {
-      display: inline;
+      display: inline-block;
+      width: 0;
+      margin-left: 2px;
+      overflow: visible;
       animation: cursorBlink 0.85s infinite;
       font-weight: 200;
       color: #38bdf8;
@@ -497,16 +500,16 @@
           <!-- Main Headline with Dynamic Typewriter Effect -->
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
             <span data-i18n-html="hero_greeting">Hi, I'm <span class="text-white">Josué Torres Sibaja</span></span><br>
-            <span class="inline"><span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor" aria-hidden="true">|</span></span>
+            <span class="block min-h-[2.5em] lg:min-h-[2.4em]"><span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor" aria-hidden="true">|</span></span>
           </h1>
 
           <!-- Value Proposition / Bio Summary -->
           <p data-i18n-html="hero_bio" class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8">
             Advanced Computer Science student at <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with 
-            <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">TypeScript</span>, 
             <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, 
-            <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> and 
-            <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.
+            <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>, 
+            <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">JavaScript</span> and 
+            <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">C# / .NET</span>.
           </p>
 
           <!-- Action Buttons -->
@@ -989,23 +992,27 @@
           <ul class="space-y-2.5 text-sm">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span class="font-mono text-slate-200">Python</span>
-              <span class="text-xs text-slate-500 font-mono">Scripting / DSA</span>
+              <span data-i18n="skill_py_sub" class="text-xs text-slate-400 font-mono">Scripting / DSA</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span class="font-mono text-slate-200">C++</span>
-              <span class="text-xs text-slate-500 font-mono">Pointers / Memory</span>
+              <span data-i18n="skill_cpp_sub" class="text-xs text-slate-400 font-mono">Pointers / Memory</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="font-mono text-slate-200">Java</span>
-              <span class="text-xs text-slate-500 font-mono">OOP / Architecture</span>
+              <span class="font-mono text-slate-200">JavaScript</span>
+              <span data-i18n="skill_js_sub" class="text-xs text-slate-400 font-mono">Frontend / Async</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span class="font-mono text-slate-200">TypeScript</span>
+              <span data-i18n="skill_ts_sub" class="text-xs text-slate-400 font-mono">Typed JS / Full-Stack</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span class="font-mono text-slate-200">SQL</span>
-              <span class="text-xs text-slate-500 font-mono">PostgreSQL / MySQL</span>
+              <span data-i18n="skill_sql_sub" class="text-xs text-slate-400 font-mono">SQL Server / PostgreSQL</span>
             </li>
             <li class="flex items-center justify-between py-1">
-              <span class="font-mono text-slate-200">JavaScript</span>
-              <span class="text-xs text-slate-500 font-mono">Frontend / Async</span>
+              <span class="font-mono text-slate-200">Java</span>
+              <span data-i18n="skill_java_sub" class="text-xs text-slate-400 font-mono">OOP / Architecture</span>
             </li>
           </ul>
         </div>
@@ -1021,24 +1028,28 @@
           </p>
           <ul class="space-y-2.5 text-sm">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Data Structures</span>
-              <span class="text-xs text-cyan-400 font-mono">Trees, Graphs, Maps</span>
+              <span data-i18n="skill_ds_title" class="text-slate-200">Data Structures</span>
+              <span data-i18n="skill_ds_sub" class="text-xs text-cyan-400 font-mono">Trees, Graphs, Maps</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Big-O Analysis</span>
-              <span class="text-xs text-cyan-400 font-mono">O(n), O(log n), O(1)</span>
+              <span data-i18n="skill_bigo_title" class="text-slate-200">Big-O Analysis</span>
+              <span data-i18n="skill_bigo_sub" class="text-xs text-cyan-400 font-mono">O(n), O(log n), O(1)</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Search & Traversal</span>
-              <span class="text-xs text-cyan-400 font-mono">Binary Search, BFS/DFS</span>
+              <span data-i18n="skill_search_title" class="text-slate-200">Search & Traversal</span>
+              <span data-i18n="skill_search_sub" class="text-xs text-cyan-400 font-mono">Binary Search, BFS/DFS</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Design Patterns</span>
-              <span class="text-xs text-cyan-400 font-mono">Factory, Singleton, etc.</span>
+              <span data-i18n="skill_patterns_title" class="text-slate-200">Design Patterns</span>
+              <span data-i18n="skill_patterns_sub" class="text-xs text-cyan-400 font-mono">Factory, Singleton, etc.</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_solid_title" class="text-slate-200">SOLID Principles</span>
+              <span data-i18n="skill_solid_sub" class="text-xs text-cyan-400 font-mono">Clean Architecture</span>
             </li>
             <li class="flex items-center justify-between py-1">
-              <span class="text-slate-200">SOLID Principles</span>
-              <span class="text-xs text-cyan-400 font-mono">Clean Architecture</span>
+              <span data-i18n="skill_algo_title" class="text-slate-200">Algorithms & Optimization</span>
+              <span data-i18n="skill_algo_sub" class="text-xs text-cyan-400 font-mono">Recursion, Greedy, DP</span>
             </li>
           </ul>
         </div>
@@ -1054,24 +1065,28 @@
           </p>
           <ul class="space-y-2.5 text-sm">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Git & GitHub</span>
-              <span class="text-xs text-emerald-400 font-mono">Branching, PRs, CI</span>
+              <span data-i18n="skill_git_title" class="text-slate-200">Git & GitHub</span>
+              <span data-i18n="skill_git_sub" class="text-xs text-emerald-400 font-mono">Branching, PRs, CI</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Linux & Shell</span>
-              <span class="text-xs text-emerald-400 font-mono">Bash Scripting</span>
+              <span data-i18n="skill_linux_title" class="text-slate-200">Linux & Shell</span>
+              <span data-i18n="skill_linux_sub" class="text-xs text-emerald-400 font-mono">Bash Scripting</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">RESTful APIs</span>
-              <span class="text-xs text-emerald-400 font-mono">Postman, HTTP JSON</span>
+              <span data-i18n="skill_api_title" class="text-slate-200">RESTful APIs</span>
+              <span data-i18n="skill_api_sub" class="text-xs text-emerald-400 font-mono">Postman, HTTP JSON</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
-              <span class="text-slate-200">Docker (Basics)</span>
-              <span class="text-xs text-emerald-400 font-mono">Containers</span>
+              <span data-i18n="skill_docker_title" class="text-slate-200">Docker (Basics)</span>
+              <span data-i18n="skill_docker_sub" class="text-xs text-emerald-400 font-mono">Containers</span>
+            </li>
+            <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
+              <span data-i18n="skill_vscode_title" class="text-slate-200">VS Code & Debuggers</span>
+              <span data-i18n="skill_vscode_sub" class="text-xs text-emerald-400 font-mono">GDB, PyTest</span>
             </li>
             <li class="flex items-center justify-between py-1">
-              <span class="text-slate-200">VS Code & Debuggers</span>
-              <span class="text-xs text-emerald-400 font-mono">GDB, PyTest</span>
+              <span data-i18n="skill_ci_title" class="text-slate-200">Testing & CI/CD</span>
+              <span data-i18n="skill_ci_sub" class="text-xs text-emerald-400 font-mono">GitHub Actions, Playwright</span>
             </li>
           </ul>
         </div>
@@ -1089,7 +1104,7 @@
           <span class="h-px w-8 bg-brand-500"></span>
           <h2 data-i18n="projects_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">05. Code Portfolio</h2>
         </div>
-        <h3 data-i18n="projects_heading" class="text-2xl sm:text-3xl font-extrabold text-white">Selected Projects</h3>
+        <h3 data-i18n="projects_heading" class="text-2xl sm:text-3xl font-extrabold text-white">Current & Featured Projects</h3>
       </div>
 
       <!-- Spotlight: Currently Working On -->
@@ -1120,7 +1135,7 @@
               LASCE is a full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory of the University of Costa Rica. The platform provides a bilingual public portal for presenting research areas, scientific publications, news, collaborations, researchers, scientific instruments, space-weather projects, and the ROSAC radio observatory.
             </p>
             <p data-i18n-html="lasce_p3" class="text-xs text-slate-400">
-              <strong class="text-slate-300">Key Contributions:</strong> Complete CMS suite for news and ROSAC observatory (create, edit, delete workflows, Prisma transactions, MinIO uploads, and optimistic concurrency patterns), standardized management and confirmation modals, accessibility safeguards (axe-core, WCAG), and test automation across Playwright E2E and Vitest.
+              <strong class="text-amber-400 font-semibold">Key Contributions:</strong> Complete CMS suite for news and ROSAC observatory (create, edit, delete workflows, Prisma transactions, MinIO uploads, and optimistic concurrency patterns), standardized management and confirmation modals, accessibility safeguards (axe-core, WCAG), and test automation across Playwright E2E and Vitest.
             </p>
           </div>
 
@@ -1524,7 +1539,7 @@
           Hobbies & Personal Interests
         </h3>
         <p data-i18n="interests_sub" class="text-slate-300 text-base leading-relaxed">
-          A look at things I enjoy doing outside of academic and work routines: photography, crafts, and everyday hobbies.
+          A look at things I enjoy doing outside of academic and work routines: photography and manual crafts.
         </p>
       </div>
 
@@ -1537,16 +1552,12 @@
             </div>
             <div>
               <h4 data-i18n="interests_photo_title" class="text-lg font-bold text-white">Landscape & Scenery Photography</h4>
-              <p data-i18n="interests_photo_sub" class="text-xs text-cyan-400 font-mono">Amateur · Sceneries across Costa Rica</p>
             </div>
           </div>
-          <span data-i18n="interests_photo_badge" class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 w-fit">
-            Amateur Photography
-          </span>
         </div>
 
         <p data-i18n="interests_photo_desc" class="text-slate-300 text-sm leading-relaxed mb-6">
-          I enjoy taking photos of landscapes, sunsets, and places I visit. I haven't taken formal photography lessons, but it's something I genuinely like doing, and I have far more photos of places than of myself.
+          I like appreciating the small moments of everyday life, capturing them in a photograph.
         </p>
 
         <!-- Responsive 6-Photo Carousel with Auto-sliding and Grid Styling -->
@@ -1562,9 +1573,9 @@
                 <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc1" data-location-url="https://maps.app.goo.gl/2KUMJyLAawHhcthu5" data-location-name="Parque Naomi, Quepos, Puntarenas, Costa Rica">
                   <img src="./img/photography/1.jpg" alt="Pacific Coast shoreline under blue tropical skies" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <span data-i18n="interests_photo_img1" class="text-xs font-medium text-slate-200">Tropical Coastline & Marine Horizon</span>
-                    <span class="flex items-center gap-1 text-[11px] text-cyan-300 font-mono mt-1">
-                      <svg class="w-3 h-3 fill-current text-cyan-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="interests_photo_img1" class="text-xs font-semibold text-white drop-shadow">Tropical Coastline & Marine Horizon</span>
+                    <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
+                      <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                       <span class="truncate">Parque Naomi, Quepos</span>
                     </span>
                   </div>
@@ -1576,9 +1587,9 @@
                 <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc2" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/3.jpeg" alt="Iconic sunflower mural at University of Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <span data-i18n="interests_photo_img2" class="text-xs font-medium text-slate-200">Campus Art & Sunflower Mural · UCR</span>
-                    <span class="flex items-center gap-1 text-[11px] text-cyan-300 font-mono mt-1">
-                      <svg class="w-3 h-3 fill-current text-cyan-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="interests_photo_img2" class="text-xs font-semibold text-white drop-shadow">The Cosmic Sunflower · UCR</span>
+                    <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
+                      <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                       <span class="truncate">UCR Rodrigo Facio, San Pedro</span>
                     </span>
                   </div>
@@ -1590,9 +1601,9 @@
                 <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc3" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/5.jpeg" alt="Sunset sky gradient with violet and amber tones" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <span data-i18n="interests_photo_img3" class="text-xs font-medium text-slate-200">Evening Sky Gradient & Dusk Horizon</span>
-                    <span class="flex items-center gap-1 text-[11px] text-cyan-300 font-mono mt-1">
-                      <svg class="w-3 h-3 fill-current text-cyan-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="interests_photo_img3" class="text-xs font-semibold text-white drop-shadow">Evening Sky Gradient & Dusk Horizon</span>
+                    <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
+                      <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                       <span class="truncate">UCR Rodrigo Facio, San Pedro</span>
                     </span>
                   </div>
@@ -1604,9 +1615,9 @@
                 <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc4" data-location-url="https://maps.app.goo.gl/1SERCtZCMmwr2hc18" data-location-name="Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica">
                   <img src="./img/photography/6.jpg" alt="Rustic treehouse in pine trees under clear sky" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <span data-i18n="interests_photo_img4" class="text-xs font-medium text-slate-200">Rustic Treehouse & Mountain Pines</span>
-                    <span class="flex items-center gap-1 text-[11px] text-cyan-300 font-mono mt-1">
-                      <svg class="w-3 h-3 fill-current text-cyan-400 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span data-i18n="interests_photo_img4" class="text-xs font-semibold text-white drop-shadow">Rustic Treehouse</span>
+                    <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
+                      <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                       <span class="truncate">Zarcero, Alajuela</span>
                     </span>
                   </div>
@@ -1627,7 +1638,7 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
               </button>
               <span class="text-[11px] font-mono text-slate-400 ml-1.5 hidden sm:inline">
-                <span data-i18n="interests_carousel_note">Manual gallery · Use arrows or dots to navigate</span>
+                <span data-i18n="interests_carousel_note">Use arrows or dots to navigate</span>
               </span>
             </div>
 
@@ -1647,16 +1658,12 @@
             </div>
             <div>
               <h4 data-i18n="interests_crafts_title" class="text-lg font-bold text-white">Manual Crafts & Foamy Clay Sculptures</h4>
-              <p data-i18n="interests_crafts_sub" class="text-xs text-amber-400 font-mono">Workshops & Crafting · TCU (University Community Service)</p>
             </div>
           </div>
-          <span data-i18n="interests_crafts_badge" class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/30 w-fit">
-            Foamy Clay Sculpting
-          </span>
         </div>
 
-        <p data-i18n="interests_crafts_desc" class="text-slate-300 text-sm leading-relaxed mb-6">
-          For my University Community Service (TCU) at UCR, I gave painting and moldable foamy clay sculpting workshops. I really enjoy crafting figures with my hands from scratch, such as miniature characters and pencil toppers.
+        <p data-i18n-html="interests_crafts_desc" class="text-slate-300 text-sm leading-relaxed mb-6">
+          For my <strong class="text-amber-400 font-semibold">University Community Service (TCU)</strong> at UCR, I gave painting and moldable foamy clay sculpting workshops. I really enjoy crafting figures with my hands from scratch, such as miniature characters and pencil toppers.
         </p>
 
         <!-- 1x3 Handicrafts Grid -->
@@ -1664,19 +1671,19 @@
           <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/1.jpg" alt="Foamy sculpture: Detailed owl pencil topper" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <span data-i18n="interests_crafts_img1" class="text-xs font-medium text-slate-200">Miniature Sculpting & Pencil Toppers</span>
+              <span data-i18n="interests_crafts_img1" class="text-xs font-semibold text-white drop-shadow">Miniature Sculpting & Pencil Toppers</span>
             </div>
           </div>
           <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/2.jpg" alt="Foamy sculptures: Toothless, Spider-Man and Unicorn" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <span data-i18n="interests_crafts_img2" class="text-xs font-medium text-slate-200">Character Clay Figures</span>
+              <span data-i18n="interests_crafts_img2" class="text-xs font-semibold text-white drop-shadow">Character Clay Figures</span>
             </div>
           </div>
           <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/3.jpg" alt="Foamy sculptures collection: Stitch, Pikachu, Capybara, Cat, Dragon" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <span data-i18n="interests_crafts_img3" class="text-xs font-medium text-slate-200">Foamy Sculpting Workshop Batch</span>
+              <span data-i18n="interests_crafts_img3" class="text-xs font-semibold text-white drop-shadow">Foamy Sculpting Workshop Batch</span>
             </div>
           </div>
         </div>
@@ -1717,7 +1724,7 @@
             <div class="w-9 h-9 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 text-lg mb-3">
               🎸
             </div>
-            <h5 data-i18n="interests_guitar_title" class="text-sm font-bold text-white mb-1.5">Playing Guitar</h5>
+            <h5 data-i18n="interests_guitar_title" class="text-sm font-bold text-white mb-1.5">Acoustic Guitar</h5>
             <p data-i18n="interests_guitar_desc" class="text-xs text-slate-300 leading-relaxed">
               I've been playing guitar for years. It's a creative outlet I enjoy whenever I pick it up, learning songs and exploring chords and melodies.
             </p>
@@ -1980,7 +1987,7 @@
           "Building Scalable & Reliable Software"
         ],
         hero_headline: `Hi, I'm <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span>`,
-        hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">University of Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> and <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
+        hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">University of Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">JavaScript</span> and <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">C# / .NET</span>.`,
         hero_btn_projects: "View Featured Projects",
         hero_btn_cv: "Download CV / Resume",
 
@@ -2068,13 +2075,45 @@
         skills_section_tag: "04. Stack & Skills",
         skills_cat1_title: "Programming Languages",
         skills_cat1_desc: "Proficiency in imperative, OOP, and static/dynamic typed paradigms.",
+        skill_py_sub: "Scripting / DSA",
+        skill_cpp_sub: "Pointers / Memory",
+        skill_js_sub: "Frontend / Async",
+        skill_ts_sub: "Typed JS / Full-Stack",
+        skill_sql_sub: "SQL Server / PostgreSQL",
+        skill_java_sub: "OOP / Architecture",
+
         skills_cat2_title: "CS Fundamentals & DSA",
         skills_cat2_desc: "Mathematical and algorithmic foundations to craft efficient, scalable code.",
+        skill_ds_title: "Data Structures",
+        skill_ds_sub: "Trees, Graphs, Maps",
+        skill_bigo_title: "Big-O Analysis",
+        skill_bigo_sub: "O(n), O(log n), O(1)",
+        skill_search_title: "Search & Traversal",
+        skill_search_sub: "Binary Search, BFS/DFS",
+        skill_patterns_title: "Design Patterns",
+        skill_patterns_sub: "Factory, Singleton, etc.",
+        skill_solid_title: "SOLID Principles",
+        skill_solid_sub: "Clean Architecture",
+        skill_algo_title: "Algorithms & Optimization",
+        skill_algo_sub: "Recursion, Greedy, DP",
+
         skills_cat3_title: "Tools & Environment",
         skills_cat3_desc: "Collaborative development, version control, and CI/CD deployment pipelines.",
+        skill_git_title: "Git & GitHub",
+        skill_git_sub: "Branching, PRs, CI",
+        skill_linux_title: "Linux & Shell",
+        skill_linux_sub: "Bash Scripting",
+        skill_api_title: "RESTful APIs",
+        skill_api_sub: "Postman, HTTP JSON",
+        skill_docker_title: "Docker (Basics)",
+        skill_docker_sub: "Containers",
+        skill_vscode_title: "VS Code & Debuggers",
+        skill_vscode_sub: "GDB, PyTest",
+        skill_ci_title: "Testing & CI/CD",
+        skill_ci_sub: "GitHub Actions, Playwright",
 
         projects_section_tag: "05. Code Portfolio",
-        projects_heading: "Selected Projects",
+        projects_heading: "Current & Featured Projects",
         projects_all_gh: "View all on GitHub",
         lasce_badge: "Currently Working On · Active Project",
         lasce_univ: "University of Costa Rica (UCR)",
@@ -2083,7 +2122,7 @@
         lasce_btn: "Visit Production",
         lasce_p1: "LASCE is a full-stack institutional and scientific-data platform developed for the Solar Astrophysics and Space Weather Laboratory of the University of Costa Rica. The platform provides a bilingual public portal for presenting research areas, scientific publications, news, collaborations, researchers, scientific instruments, space-weather projects, and the ROSAC radio observatory.",
         lasce_p2: ``,
-        lasce_p3: `<strong class="text-slate-300">Key Contributions:</strong> Complete CMS suite for news and ROSAC observatory (create, edit, delete workflows, Prisma transactions, MinIO uploads, and optimistic concurrency patterns), standardized management and confirmation modals, accessibility safeguards (axe-core, WCAG), and test automation across Playwright E2E and Vitest.`,
+        lasce_p3: `<strong class="text-amber-400 font-semibold">Key Contributions:</strong> Complete CMS suite for news and ROSAC observatory (create, edit, delete workflows, Prisma transactions, MinIO uploads, and optimistic concurrency patterns), standardized management and confirmation modals, accessibility safeguards (axe-core, WCAG), and test automation across Playwright E2E and Vitest.`,
 
         past_projects_header: "Previous University Projects (UCR)",
         project_ucr_tag: "UCR Project",
@@ -2146,34 +2185,30 @@
 
         interests_section_tag: "08. Beyond the Code",
         interests_heading: "Hobbies & Personal Interests",
-        interests_sub: "A look at things I enjoy doing outside of academic and work routines: photography, crafts, and everyday hobbies.",
+        interests_sub: "A look at things I enjoy doing outside of academic and work routines: photography and manual crafts.",
         interests_crafts_title: "Manual Crafts & Foamy Clay Sculptures",
-        interests_crafts_sub: "Workshops & Crafting · TCU (University Community Service)",
-        interests_crafts_badge: "Foamy Clay Sculpting",
-        interests_crafts_desc: "For my University Community Service (TCU) at UCR, I gave painting and moldable foamy clay sculpting workshops. I really enjoy crafting figures with my hands from scratch, such as miniature characters and pencil toppers.",
+        interests_crafts_desc: `For my <strong class="text-amber-400 font-semibold">University Community Service (TCU)</strong> at UCR, I gave painting and moldable foamy clay sculpting workshops. I really enjoy crafting figures with my hands from scratch, such as miniature characters and pencil toppers.`,
         interests_crafts_img1: "Miniature Sculpting & Pencil Toppers",
         interests_crafts_img2: "Character Clay Figures",
         interests_crafts_img3: "Foamy Sculpting Workshop Batch",
         interests_photo_title: "Landscape & Scenery Photography",
-        interests_photo_sub: "Amateur · Sceneries across Costa Rica",
-        interests_photo_badge: "Amateur Photography",
-        interests_photo_desc: "I enjoy taking photos of landscapes, sunsets, and places I visit. I haven't taken formal photography lessons, but it's something I genuinely like doing, and I have far more photos of places than of myself.",
+        interests_photo_desc: "I like appreciating the small moments of everyday life, capturing them in a photograph.",
         interests_photo_img1: "Tropical Coastline & Marine Horizon",
-        interests_photo_img2: "Campus Art & Sunflower Mural · UCR",
+        interests_photo_img2: "The Cosmic Sunflower · UCR",
         interests_photo_img3: "Evening Sky Gradient & Dusk Horizon",
-        interests_photo_img4: "Rustic Treehouse & Mountain Pines",
+        interests_photo_img4: "Rustic Treehouse",
         interests_photo_loc1: "Parque Naomi, Quepos, Puntarenas, Costa Rica",
         interests_photo_loc2: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
         interests_photo_loc3: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
         interests_photo_loc4: "Near Central Park of Zarcero, Zarcero, Alajuela, Costa Rica",
         lightbox_view_maps: "View on Google Maps",
-        interests_carousel_note: "Manual gallery · Use arrows or dots to navigate",
+        interests_carousel_note: "Use arrows or dots to navigate",
         interests_more_title: "A Few More Things I Like",
         interests_pogo_title: "Gamer & Pokémon Trainer",
         interests_pogo_desc: "I enjoy video games in general across platforms. I am also an active Pokémon GO trainer with substantial progress and a collection I'm truly proud of, playing consistently over the years.",
         interests_marvel_title: "Spider-Man & Marvel",
         interests_marvel_desc: `Huge fan of Spider-Man and Marvel movies and series.<br><span class="text-slate-400 italic font-mono text-[11px] mt-1 inline-block">"With great power comes great responsibility."</span>`,
-        interests_guitar_title: "Playing Guitar",
+        interests_guitar_title: "Acoustic Guitar",
         interests_guitar_desc: "I've been playing guitar for years. It's a creative outlet I enjoy whenever I pick it up, learning songs and exploring chords and melodies.",
         interests_gym_title: "Gym",
         interests_gym_desc: "I like going to the gym regularly. It is an activity I genuinely enjoy to stay healthy, active, and keep my mind refreshed.",
@@ -2206,7 +2241,7 @@
           "Construyendo Software Escalable y Confiable"
         ],
         hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Ingeniería de Software & Computación</span>`,
-        hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> y <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
+        hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">JavaScript</span> y <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">C# / .NET</span>.`,
         hero_btn_projects: "Ver Proyectos Destacados",
         hero_btn_cv: "Descargar CV / Resume",
 
@@ -2225,7 +2260,7 @@
 
         about_section_tag: "01. Perfil Profesional",
         about_p1: `¡Hola! Soy estudiante avanzado de Computación e Ingeniería de Software en la <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. Me gusta entender cómo funcionan los sistemas a bajo nivel, escribir código ordenado y resolver problemas algorítmicos.`,
-        about_p2: `A lo largo de mis cursos y proyectos universitarios he consolidado bases sólidas en programación orientada a objetos, fundamentos de computación y desarrollo colaborativo. También practico con regularidad resolución de problemas algorítmicos por mi cuenta en plataformas como <strong class="text-white">LeetCode</strong> y <strong class="text-white">HackerRank</strong> para fortalecer continuamente mi capacidad analítica y la claridad de mi código.`,
+        about_p2: `A lo largo de mis cursos y proyectos universitarios he desarrollado bases sólidas en programación orientada a objetos, fundamentos de computación y desarrollo colaborativo. También practico con regularidad resolución de problemas algorítmicos por mi cuenta en plataformas como <strong class="text-white">LeetCode</strong> y <strong class="text-white">HackerRank</strong> para fortalecer continuamente mi capacidad analítica y la claridad de mi código.`,
         about_p3: `Actualmente busco una oportunidad como <strong class="text-white">Ingeniero de Software Junior o Pasante</strong> donde pueda aportar, aprender de ingenieros con experiencia y continuar creciendo profesionalmente.`,
         about_pill1: "Pensamiento crítico",
         about_pill2: "Autonomía de aprendizaje",
@@ -2294,13 +2329,45 @@
         skills_section_tag: "04. Stack & Habilidades",
         skills_cat1_title: "Lenguajes de Programación",
         skills_cat1_desc: "Manejo de paradigmas imperativo, orientado a objetos y tipado estático/dinámico.",
+        skill_py_sub: "Scripting / Algoritmos",
+        skill_cpp_sub: "Punteros / Memoria",
+        skill_js_sub: "Frontend / Asíncrono",
+        skill_ts_sub: "Tipado Estricto / Full-Stack",
+        skill_sql_sub: "SQL Server / PostgreSQL",
+        skill_java_sub: "POO / Arquitectura",
+
         skills_cat2_title: "Fundamentos & DSA",
         skills_cat2_desc: "Bases matemáticas y de computación para escribir código eficiente y escalable.",
+        skill_ds_title: "Estructuras de Datos",
+        skill_ds_sub: "Árboles, Grafos, Tablas",
+        skill_bigo_title: "Análisis Asintótico",
+        skill_bigo_sub: "O(n), O(log n), O(1)",
+        skill_search_title: "Búsqueda y Recorrido",
+        skill_search_sub: "Búsqueda Binaria, BFS/DFS",
+        skill_patterns_title: "Patrones de Diseño",
+        skill_patterns_sub: "Factory, Singleton, etc.",
+        skill_solid_title: "Principios SOLID",
+        skill_solid_sub: "Arquitectura Limpia",
+        skill_algo_title: "Algoritmos y Optimización",
+        skill_algo_sub: "Recursión, Greedy, DP",
+
         skills_cat3_title: "Herramientas & Entorno",
         skills_cat3_desc: "Flujo de trabajo para desarrollo colaborativo, control de versiones y despliegue.",
+        skill_git_title: "Git & GitHub",
+        skill_git_sub: "Ramas, Pull Requests, CI",
+        skill_linux_title: "Linux & Terminal",
+        skill_linux_sub: "Scripts de Bash",
+        skill_api_title: "APIs REST",
+        skill_api_sub: "Postman, JSON HTTP",
+        skill_docker_title: "Docker (Fundamentos)",
+        skill_docker_sub: "Contenedores",
+        skill_vscode_title: "VS Code y Depuración",
+        skill_vscode_sub: "GDB, PyTest",
+        skill_ci_title: "Testing & CI/CD",
+        skill_ci_sub: "GitHub Actions, Playwright",
 
         projects_section_tag: "05. Portafolio de Código",
-        projects_heading: "Proyectos Seleccionados",
+        projects_heading: "Proyectos Actuales y Destacados",
         projects_all_gh: "Ver todos en GitHub",
         lasce_badge: "Actualmente en Desarrollo · Proyecto Institucional",
         lasce_univ: "Universidad de Costa Rica (UCR)",
@@ -2309,7 +2376,7 @@
         lasce_btn: "Visitar Producción",
         lasce_p1: "Plataforma web institucional y de datos científicos desarrollada para el Laboratorio de Astrofísica Solar y Clima Espacial de la Universidad de Costa Rica. Provee un portal público bilingüe para la presentación de líneas de investigación, publicaciones científicas, noticias, colaboraciones, instrumentos espaciales y el observatorio de radio ROSAC.",
         lasce_p2: ``,
-        lasce_p3: `<strong class="text-slate-300">Contribuciones clave:</strong> Desarrollo integral de la suite CMS para noticias y observatorio ROSAC (flujos de creación, edición, borrado, transacciones Prisma, subida a MinIO y control de concurrencia optimista), estandarización de componentes modales de gestión, accesibilidad WCAG y cobertura automatizada con Playwright E2E y Vitest.`,
+        lasce_p3: `<strong class="text-amber-400 font-semibold">Contribuciones clave:</strong> Desarrollo integral de la suite CMS para noticias y observatorio ROSAC (flujos de creación, edición, borrado, transacciones Prisma, subida a MinIO y control de concurrencia optimista), estandarización de componentes modales de gestión, accesibilidad WCAG y cobertura automatizada con Playwright E2E y Vitest.`,
 
         past_projects_header: "Proyectos Universitarios Anteriores (UCR)",
         project_ucr_tag: "Proyecto UCR",
@@ -2374,34 +2441,30 @@
 
         interests_section_tag: "08. Fuera del Código",
         interests_heading: "Pasatiempos e Intereses Personales",
-        interests_sub: "Un vistazo a cosas que disfruto hacer fuera de la rutina académica y laboral: fotografía, manualidades y aficiones del día a día.",
+        interests_sub: "Un vistazo a cosas que disfruto hacer fuera de la rutina académica y laboral: fotografía y manualidades.",
         interests_crafts_title: "Manualidades y Figuras en Foamy Moldeable",
-        interests_crafts_sub: "Talleres y Escultura · TCU (Trabajo Comunal Universitario)",
-        interests_crafts_badge: "Figuras en Foamy",
-        interests_crafts_desc: "Para mi Trabajo Comunal Universitario (TCU) en la UCR di talleres de pintura y escultura con foamy moldeable. Se me dan muy bien las manualidades y disfruto moldear figuras desde cero, como personajes y decoraciones para lápices.",
-        interests_crafts_img1: "Escultura en Miniatura & Punteros de Lápiz",
-        interests_crafts_img2: "Figuras de Personajes en Foamy",
-        interests_crafts_img3: "Lote de Creaciones del Taller",
+        interests_crafts_desc: `Durante mi <strong class="text-amber-400 font-semibold">Trabajo Comunal Universitario (TCU)</strong> en la UCR, impartí talleres de pintura y escultura en foamy moldeable. Disfruto mucho crear figuras desde cero con mis manos, como personajes en miniatura y terminales para lápices.`,
+        interests_crafts_img1: "Miniature Sculpting & Pencil Toppers",
+        interests_crafts_img2: "Character Clay Figures",
+        interests_crafts_img3: "Foamy Sculpting Workshop Batch",
         interests_photo_title: "Fotografía de Paisajes y Lugares",
-        interests_photo_sub: "Aficionado · Rincones y Paisajes de Costa Rica",
-        interests_photo_badge: "Fotografía Aficionada",
-        interests_photo_desc: "Me gusta mucho tomar fotos de paisajes, atardeceres y lugares que visito. No he llevado cursos formales de fotografía, pero es algo que disfruto bastante y tengo cientos de fotos de lugares, muchas más de las que tengo de mí mismo.",
-        interests_photo_img1: "Litoral Costero & Horizonte Marino",
-        interests_photo_img2: "Murales & Arte del Campus · UCR",
+        interests_photo_desc: "Me gusta apreciar los pequeños momentos del día a día, atrapándolos en una foto.",
+        interests_photo_img1: "Tropical Coastline & Marine Horizon",
+        interests_photo_img2: "El Girasol Cósmico · UCR",
         interests_photo_img3: "Gradiente de Atardecer & Anochecer",
-        interests_photo_img4: "Casa en el Árbol & Pinos de Altura",
+        interests_photo_img4: "Casa en el Árbol",
         interests_photo_loc1: "Parque Naomi, Quepos, Puntarenas, Costa Rica",
         interests_photo_loc2: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
         interests_photo_loc3: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
         interests_photo_loc4: "Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica",
         lightbox_view_maps: "Ver en Google Maps",
-        interests_carousel_note: "Galería manual · Usa las flechas o puntos para navegar",
+        interests_carousel_note: "Usa las flechas o puntos para navegar",
         interests_more_title: "Otras cosas que me gustan",
         interests_pogo_title: "Gamer & Entrenador Pokémon",
         interests_pogo_desc: "Me apasionan los videojuegos en general en distintas plataformas y géneros. Además, soy un jugador activo de Pokémon GO con un progreso bastante grande y una colección de la que me siento muy orgulloso, jugando de forma constante.",
         interests_marvel_title: "Spider-Man & Marvel",
         interests_marvel_desc: `Gran aficionado de Spider-Man y del universo de Marvel.<br><span class="text-slate-400 italic font-mono text-[11px] mt-1 inline-block">"Un gran poder conlleva una gran responsabilidad."</span>`,
-        interests_guitar_title: "Tocar Guitarra",
+        interests_guitar_title: "Guitarra Acústica",
         interests_guitar_desc: "Llevo años tocando guitarra. Es una afición que disfruto cada vez que la tomo para aprender canciones, acordes y melodías.",
         interests_gym_title: "Gimnasio",
         interests_gym_desc: "Me gusta ir al gimnasio con regularidad. Es una actividad que disfruto mucho para mantenerme saludable, activo y despejar la mente.",
@@ -2519,17 +2582,17 @@
       // Avoid layout collapse when string is empty by maintaining zero-width space
       el.textContent = fullPhrase.substring(0, currentCharIndex) || '\u200B';
 
-      let delta = isDeleting ? 32 : 72;
+      let delta = isDeleting ? 38 : 82;
 
       if (!isDeleting && currentCharIndex === fullPhrase.length) {
-        // Phrase completed: hold for reader (relaxed 2.8s)
-        delta = 2800;
+        // Phrase completed: hold for reader (relaxed 3.1s)
+        delta = 3100;
         isDeleting = true;
       } else if (isDeleting && currentCharIndex === 0) {
         // Phrase cleared: slight pause before next phrase begins
         isDeleting = false;
         currentPhraseIndex = (currentPhraseIndex + 1) % activePhrases.length;
-        delta = 450;
+        delta = 500;
       }
 
       typewriterTimeout = setTimeout(tickTypewriter, delta);

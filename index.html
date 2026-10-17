@@ -299,33 +299,26 @@
       color: #67e8f9 !important;
     }
 
-    /* Navigation Links Fixed Widths for zero layout shifts & comfortable spacing */
+    /* Navigation Links & Dividers: Clean, snug, proportional spacing */
     .nav-item-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       white-space: nowrap;
       flex-shrink: 0;
-    }
-    @media (min-width: 1024px) {
-      .nav-item-link[data-i18n="nav_about"] { min-width: 80px; }
-      .nav-item-link[data-i18n="nav_experience"] { min-width: 98px; }
-      .nav-item-link[data-i18n="nav_education"] { min-width: 88px; }
-      .nav-item-link[data-i18n="nav_skills"] { min-width: 100px; }
-      .nav-item-link[data-i18n="nav_projects"] { min-width: 86px; }
-      .nav-item-link[data-i18n="nav_ai"] { min-width: 82px; }
-      .nav-item-link[data-i18n="nav_interests"] { min-width: 52px; }
-      .nav-item-link[data-i18n="nav_contact"] { min-width: 82px; }
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
     }
     .nav-divider {
       color: #334155;
       user-select: none;
       font-size: 0.75rem;
       line-height: 1rem;
-      padding: 0 1px;
+      padding: 0;
+      opacity: 0.7;
     }
     html.light .nav-divider {
-      color: #cbd5e1 !important;
+      color: #94a3b8 !important;
     }
     html.light .nav-item-link:hover {
       background-color: #e2e8f0 !important;
@@ -416,49 +409,50 @@
       
       <!-- Logo / Monogram -->
       <a href="#hero" class="flex items-center gap-2.5 group shrink-0">
-        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center font-mono font-bold text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform">
-          J
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-cyan-500 flex items-center justify-center font-mono font-black text-xs tracking-tighter text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform select-none">
+          &lt;/&gt;
         </span>
         <span class="font-mono font-semibold text-base sm:text-lg tracking-tight text-slate-200 group-hover:text-white transition-colors">
-          dev.josue<span class="text-brand-400">.torres</span>
+          dev.<span class="text-brand-400">josue.torres</span>
         </span>
       </a>
 
-      <!-- Desktop Navigation Links with Fixed Item Widths & Language Stability -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 text-xs xl:text-sm font-medium text-slate-300">
-        <a href="#about" data-i18n="nav_about" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
+      <!-- Desktop Navigation Links with Clean Snug Spacing -->
+      <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 text-xs xl:text-sm font-medium text-slate-300">
+        <a href="#about" data-i18n="nav_about" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#experience" data-i18n="nav_experience" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
+        <a href="#experience" data-i18n="nav_experience" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#education" data-i18n="nav_education" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Education</a>
+        <a href="#education" data-i18n="nav_education" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Education</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#skills" data-i18n="nav_skills" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
+        <a href="#skills" data-i18n="nav_skills" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#projects" data-i18n="nav_projects" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
+        <a href="#projects" data-i18n="nav_projects" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#ai" data-i18n="nav_ai" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">AI & LLMs</a>
+        <a href="#ai" data-i18n="nav_ai" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">AI & LLMs</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#interests" data-i18n="nav_interests" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">BTC</a>
+        <a href="#interests" data-i18n="nav_interests" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">BTC</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#contact" data-i18n="nav_contact" class="nav-item-link px-2.5 py-1.5 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
+        <a href="#contact" data-i18n="nav_contact" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
       </nav>
 
       <!-- Desktop Actions: Language, Theme & CV Dropdown -->
-      <div class="hidden lg:flex items-center gap-2.5">
+      <div class="hidden lg:flex items-center gap-2">
         <!-- Language Switcher Desktop -->
-        <div class="inline-flex items-center p-0.5 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono shadow-inner" role="group" aria-label="Language selection">
-          <button id="lang-btn-en" type="button" class="lang-switch-btn px-2 py-1 rounded-md font-semibold transition-all bg-brand-600 text-white shadow-sm" aria-label="Switch to English">EN</button>
-          <button id="lang-btn-es" type="button" class="lang-switch-btn px-2 py-1 rounded-md font-semibold transition-all text-slate-400 hover:text-white" aria-label="Cambiar a Español">ES</button>
+        <div class="h-8 inline-flex items-center p-0.5 rounded-lg bg-slate-900 border border-slate-700/60 text-xs font-mono shadow-inner box-border" role="group" aria-label="Language selection">
+          <button id="lang-btn-en" type="button" class="lang-switch-btn h-full px-2 rounded-md font-semibold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none" aria-label="Switch to English">EN</button>
+          <button id="lang-btn-es" type="button" class="lang-switch-btn h-full px-2 rounded-md font-semibold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none" aria-label="Cambiar a Español">ES</button>
         </div>
 
         <!-- Theme Toggle Desktop -->
-        <button id="theme-toggle-btn" type="button" aria-label="Cambiar tema / Toggle theme" class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-700/60 transition-all active:scale-95">
+        <button id="theme-toggle-btn" type="button" aria-label="Cambiar tema / Toggle theme" class="h-8 w-8 flex items-center justify-center p-0 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-700/60 transition-all active:scale-95 box-border">
           <svg class="theme-icon-sun w-4 h-4 hidden text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
           </svg>
           <svg class="theme-icon-moon w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
           </svg>
+        </button>
       </div>
 
       <!-- Mobile / Tablet Right Controls (Lang, Theme, Hamburger) -->
@@ -1061,11 +1055,11 @@
           <ul class="space-y-2.5 text-sm">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_ds_title" class="text-slate-200">Data Structures</span>
-              <span data-i18n="skill_ds_sub" class="text-xs text-cyan-400 font-mono">Trees, Graphs, Maps</span>
+              <span data-i18n="skill_ds_sub" class="text-xs text-cyan-400 font-mono">Trees, Maps</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_bigo_title" class="text-slate-200">Big-O Analysis</span>
-              <span data-i18n="skill_bigo_sub" class="text-xs text-cyan-400 font-mono">O(n), O(log n), O(1)</span>
+              <span data-i18n="skill_bigo_sub" class="text-xs text-cyan-400 font-mono">O(n), O(log n)</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_search_title" class="text-slate-200">Search & Traversal</span>
@@ -1701,7 +1695,7 @@
         <!-- 1x3 Handicrafts Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
           <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
-            <img src="./img/handicrafts/1.jpg" alt="Foamy sculpture: Detailed owl pencil topper" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <img src="./img/handicrafts/1.jpg" alt="Foamy sculptures collection: Stitch, Pikachu, Capybara, Cat, Dragon pencil toppers" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img1" class="text-xs font-semibold text-white drop-shadow">Miniature Sculpting & Pencil Toppers</span>
             </div>
@@ -1713,9 +1707,9 @@
             </div>
           </div>
           <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
-            <img src="./img/handicrafts/3.jpg" alt="Foamy sculptures collection: Stitch, Pikachu, Capybara, Cat, Dragon" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <img src="./img/handicrafts/3.jpg" alt="Foamy sculpture: Commemorative anniversary reading owl on a pencil for library celebration" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <span data-i18n="interests_crafts_img3" class="text-xs font-semibold text-white drop-shadow">Foamy Sculpting Workshop Batch</span>
+              <span data-i18n="interests_crafts_img3" class="text-xs font-semibold text-white drop-shadow">Commemorative Reading Owl · Library Anniversary</span>
             </div>
           </div>
         </div>
@@ -2118,9 +2112,9 @@
         skills_cat2_title: "CS Fundamentals",
         skills_cat2_desc: "Mathematical and algorithmic foundations to craft efficient, scalable code.",
         skill_ds_title: "Data Structures",
-        skill_ds_sub: "Trees, Graphs, Maps",
+        skill_ds_sub: "Trees, Maps",
         skill_bigo_title: "Big-O Analysis",
-        skill_bigo_sub: "O(n), O(log n), O(1)",
+        skill_bigo_sub: "O(n), O(log n)",
         skill_search_title: "Search & Traversal",
         skill_search_sub: "BFS / DFS",
         skill_patterns_title: "Design Patterns",
@@ -2225,7 +2219,7 @@
         interests_crafts_desc: `Since I was little, I have loved drawing, painting, and sculpting with different materials, and during my <strong class="text-amber-400 font-semibold">University Community Service (TCU)</strong>, I taught workshops on those arts. I really enjoy crafting figures from scratch with my hands, such as miniature characters.`,
         interests_crafts_img1: "Miniature Sculpting & Pencil Toppers",
         interests_crafts_img2: "Character Clay Figures",
-        interests_crafts_img3: "Foamy Sculpting Workshop Batch",
+        interests_crafts_img3: "Commemorative Reading Owl · Library Anniversary",
         interests_photo_title: "Landscape & Scenery Photography",
         interests_photo_desc: "I like appreciating the small moments of everyday life, capturing them in a photograph.",
         interests_photo_img1: "Tropical Coastline & Marine Horizon",
@@ -2374,9 +2368,9 @@
         skills_cat2_title: "Fundamentos de CS",
         skills_cat2_desc: "Bases matemáticas y de computación para escribir código eficiente y escalable.",
         skill_ds_title: "Estructuras de Datos",
-        skill_ds_sub: "Árboles, Grafos, Tablas",
+        skill_ds_sub: "Árboles, Mapas",
         skill_bigo_title: "Análisis Asintótico",
-        skill_bigo_sub: "O(n), O(log n), O(1)",
+        skill_bigo_sub: "O(n), O(log n)",
         skill_search_title: "Búsqueda y Recorrido",
         skill_search_sub: "BFS / DFS",
         skill_patterns_title: "Patrones de Diseño",
@@ -2481,7 +2475,7 @@
         interests_crafts_desc: `Desde pequeño me ha gustado dibujar, pintar y esculpir en diferentes materiales, y durante mi <strong class="text-amber-400 font-semibold">Trabajo Comunal Universitario (TCU)</strong> impartí talleres sobre estas disciplinas. Disfruto mucho crear figuras desde cero con mis manos, como personajes en miniatura.`,
         interests_crafts_img1: "Escultura en Miniatura y Figuras para Lápiz",
         interests_crafts_img2: "Figuras de Personajes en Foamy",
-        interests_crafts_img3: "Colección de Talleres de Escultura",
+        interests_crafts_img3: "Búho Lector Conmemorativo · Aniversario de Biblioteca",
         interests_photo_title: "Fotografía de Paisajes y Lugares",
         interests_photo_desc: "Me gusta apreciar los pequeños momentos del día a día, atrapándolos en una foto.",
         interests_photo_img1: "Costa Tropical & Horizonte Marino",

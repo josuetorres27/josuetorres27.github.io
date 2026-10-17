@@ -359,6 +359,23 @@
     #lightbox-img {
       max-height: calc(85vh - 70px);
     }
+
+    /* ================= TYPEWRITER CURSOR ================= */
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .typewriter-cursor {
+      display: inline-block;
+      animation: cursorBlink 0.85s infinite;
+      font-weight: 200;
+      line-height: 0.9;
+      vertical-align: baseline;
+      color: #38bdf8;
+    }
+    html.light .typewriter-cursor {
+      color: #4338ca !important;
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
@@ -478,11 +495,11 @@
             <span data-i18n="hero_badge">Final Semester Student · Available for Internships & Junior Roles</span>
           </div>
 
-          <!-- Main Headline -->
-          <h1 data-i18n-html="hero_headline" class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-            Hi, I'm <span class="text-white">Josué Torres Sibaja</span><br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">
-              Software Engineer & CS Student
+          <!-- Main Headline with Dynamic Typewriter Effect -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+            <span data-i18n-html="hero_greeting">Hi, I'm <span class="text-white">Josué Torres Sibaja</span></span><br>
+            <span class="inline-flex items-baseline flex-wrap min-h-[1.25em]">
+              <span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor ml-1" aria-hidden="true">|</span>
             </span>
           </h1>
 
@@ -1959,6 +1976,13 @@
         nav_contact: "Contact",
 
         hero_badge: "Final Semester Student · Available for Internships & Junior Roles",
+        hero_greeting: `Hi, I'm <span class="text-white">Josué Torres Sibaja</span>`,
+        hero_phrases: [
+          "Software Engineer & CS Student",
+          "Full-Stack Web & Systems Developer",
+          "Algorithms, Distributed Systems & C++",
+          "Building Scalable & Reliable Software"
+        ],
         hero_headline: `Hi, I'm <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span>`,
         hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">University of Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> and <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
         hero_btn_projects: "View Featured Projects",
@@ -2179,6 +2203,13 @@
         nav_contact: "Contacto",
 
         hero_badge: "Estudiante de Último Semestre · Disponible para Pasantías & Roles Junior",
+        hero_greeting: `Hola, soy <span class="text-white">Josué Torres Sibaja</span>`,
+        hero_phrases: [
+          "Ingeniería de Software & Computación",
+          "Desarrollador Full-Stack & Sistemas",
+          "Algoritmos, Sistemas Distribuidos & C++",
+          "Construyendo Software Escalable y Confiable"
+        ],
         hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Ingeniería de Software & Computación</span>`,
         hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir sistemas escalables, software de alto rendimiento y arquitecturas modernas con <span class="font-mono text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50">TypeScript</span>, <span class="font-mono text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50">Python</span>, <span class="font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50">C# / .NET</span> y <span class="font-mono text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50">C++</span>.`,
         hero_btn_projects: "Ver Proyectos Destacados",
@@ -2427,6 +2458,11 @@
       });
 
       localStorage.setItem('portfolio_lang', activeLang);
+
+      // Re-trigger typewriter with active language phrases
+      if (dict.hero_phrases) {
+        initTypewriter(dict.hero_phrases);
+      }
     }
 
     // Language toggle event listeners
@@ -2439,6 +2475,70 @@
     if (langBtnEs) langBtnEs.addEventListener('click', () => applyLanguage('es'));
     if (langBtnEnM) langBtnEnM.addEventListener('click', () => applyLanguage('en'));
     if (langBtnEsM) langBtnEsM.addEventListener('click', () => applyLanguage('es'));
+
+    // ================= DYNAMIC TYPEWRITER EFFECT (HERO) =================
+    let typewriterTimeout = null;
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let activePhrases = [];
+
+    function initTypewriter(phrases) {
+      if (typewriterTimeout) {
+        clearTimeout(typewriterTimeout);
+        typewriterTimeout = null;
+      }
+      activePhrases = Array.isArray(phrases) && phrases.length ? phrases : [
+        "Software Engineer & CS Student"
+      ];
+      currentPhraseIndex = 0;
+      currentCharIndex = 0;
+      isDeleting = false;
+
+      const el = document.getElementById('hero-typewriter');
+      const cursor = document.getElementById('hero-typewriter-cursor');
+      if (!el) return;
+
+      // Accessibility: respect user preference for reduced motion
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        el.textContent = activePhrases[0];
+        if (cursor) cursor.style.display = 'none';
+        return;
+      }
+
+      tickTypewriter();
+    }
+
+    function tickTypewriter() {
+      const el = document.getElementById('hero-typewriter');
+      if (!el || !activePhrases.length) return;
+
+      const fullPhrase = activePhrases[currentPhraseIndex % activePhrases.length];
+
+      if (isDeleting) {
+        currentCharIndex--;
+      } else {
+        currentCharIndex++;
+      }
+
+      // Avoid layout collapse when string is empty by maintaining zero-width space
+      el.textContent = fullPhrase.substring(0, currentCharIndex) || '\u200B';
+
+      let delta = isDeleting ? 28 : 65;
+
+      if (!isDeleting && currentCharIndex === fullPhrase.length) {
+        // Phrase completed: hold for reader
+        delta = 2200;
+        isDeleting = true;
+      } else if (isDeleting && currentCharIndex === 0) {
+        // Phrase cleared: slight pause before next phrase begins
+        isDeleting = false;
+        currentPhraseIndex = (currentPhraseIndex + 1) % activePhrases.length;
+        delta = 350;
+      }
+
+      typewriterTimeout = setTimeout(tickTypewriter, delta);
+    }
 
     // Initialize Language (Default to 'en' as requested)
     const initialLang = localStorage.getItem('portfolio_lang') || 'en';

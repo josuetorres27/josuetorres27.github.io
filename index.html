@@ -733,14 +733,14 @@
         <!-- Hero Profile Photo -->
         <div class="lg:col-span-4 flex justify-center lg:justify-end lg:pt-1">
           <div class="relative group" id="hero-photo-wrapper">
-            <div id="hero-photo-glow" class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 via-cyan-500 to-blue-500 rounded-3xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500"></div>
+            <div id="hero-photo-glow" class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 via-cyan-500 to-blue-500 rounded-3xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500 pointer-events-none"></div>
             <div id="hero-photo-card" class="lightbox-trigger relative w-64 sm:w-72 lg:w-80 aspect-[4/5] rounded-3xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl transition-all hover:border-brand-500/60" role="button" tabindex="0" aria-label="Ver fotografía de perfil">
               <img id="hero-profile-img" src="./img/portfolio.jpeg" alt="Josue Torres Sibaja | Software Engineer & CS Student" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
               <span data-i18n="hero_photo_caption" class="sr-only">Josue Torres Sibaja | Software Engineer & CS Student</span>
             </div>
 
             <!-- Adventure Mode Trigger Badge / Button on the Photo -->
-            <button id="start-adventure-btn" type="button" aria-label="Activar Modo Aventura / Adventure Mode" class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 z-30 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/95 hover:bg-brand-600 border border-brand-500/40 hover:border-brand-400 text-xs font-mono font-semibold text-brand-300 hover:text-white shadow-xl shadow-brand-500/20 hover:shadow-brand-500/40 transition-all hover:scale-105 active:scale-95 whitespace-nowrap cursor-pointer">
+            <button id="start-adventure-btn" type="button" aria-label="Activar Modo Aventura / Adventure Mode" class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 z-40 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/95 hover:bg-brand-600 border border-brand-500/50 hover:border-brand-400 text-xs font-mono font-semibold text-brand-300 hover:text-white shadow-xl shadow-brand-500/25 hover:shadow-brand-500/50 transition-all hover:scale-105 active:scale-95 whitespace-nowrap cursor-pointer">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
               <span class="text-sm">🎮</span>
               <span data-i18n="adventure_badge">Modo Aventura</span>
@@ -2059,8 +2059,8 @@
   
   <!-- Flying / Leaping Sprite (Used during pop-out animation) -->
   <div id="flying-pixel-sprite" class="fixed pointer-events-none z-[100] hidden">
-    <svg class="w-16 h-16 drop-shadow-[0_12px_24px_rgba(2,132,199,0.7)]" style="image-rendering: pixelated; shape-rendering: crispEdges;">
-      <use href="#pixel-josue-jump"></use>
+    <svg class="w-16 h-16 drop-shadow-[0_12px_24px_rgba(2,132,199,0.7)]" viewBox="0 0 20 26" style="image-rendering: pixelated; shape-rendering: crispEdges;">
+      <use href="#pixel-josue-jump" xlink:href="#pixel-josue-jump"></use>
     </svg>
   </div>
 
@@ -2080,8 +2080,8 @@
         
         <!-- Animated Walking Sprite on the Rail -->
         <div id="rail-character-walker" class="absolute -left-9 sm:-left-11 transition-all duration-500 ease-out flex items-center pointer-events-none" style="top: 0px;">
-          <svg class="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-md" style="image-rendering: pixelated; shape-rendering: crispEdges;">
-            <use id="rail-character-sprite" href="#pixel-josue-idle"></use>
+          <svg class="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-md" viewBox="0 0 20 26" style="image-rendering: pixelated; shape-rendering: crispEdges;">
+            <use id="rail-character-sprite" href="#pixel-josue-idle" xlink:href="#pixel-josue-idle"></use>
           </svg>
           <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 ml-1 animate-ping"></span>
         </div>
@@ -2137,8 +2137,8 @@
     <div class="flex items-start gap-3">
       <!-- Avatar with Live Animations -->
       <button id="dialogue-avatar-btn" type="button" class="w-12 h-12 rounded-xl bg-slate-900 border border-brand-500/30 flex items-center justify-center shrink-0 p-1 group hover:border-brand-400 transition-all active:scale-95 relative cursor-pointer" title="¡Hazme clic para saltar!">
-        <svg class="w-9 h-9" style="image-rendering: pixelated; shape-rendering: crispEdges;">
-          <use id="dialogue-avatar-sprite" href="#pixel-josue-idle"></use>
+        <svg class="w-9 h-9" viewBox="0 0 20 26" style="image-rendering: pixelated; shape-rendering: crispEdges;">
+          <use id="dialogue-avatar-sprite" href="#pixel-josue-idle" xlink:href="#pixel-josue-idle"></use>
         </svg>
         <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-950"></span>
       </button>
@@ -3375,9 +3375,13 @@
       const walkerSprite = document.getElementById('rail-character-sprite');
       if (walker && targetNode && walkerSprite) {
         walkerSprite.setAttribute('href', '#pixel-josue-walk1');
+        walkerSprite.setAttribute('xlink:href', '#pixel-josue-walk1');
         walker.style.top = targetNode.offsetTop + 'px';
         setTimeout(() => {
-          if (walkerSprite) walkerSprite.setAttribute('href', '#pixel-josue-idle');
+          if (walkerSprite) {
+            walkerSprite.setAttribute('href', '#pixel-josue-idle');
+            walkerSprite.setAttribute('xlink:href', '#pixel-josue-idle');
+          }
         }, 450);
       }
     }
@@ -3397,7 +3401,12 @@
 
       if (!startBtn || !rail || !dialogueBox || !photoCard) return;
 
-      function startAdventure() {
+      function startAdventure(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+
         if (isAdventureActive) {
           const heroSec = document.querySelector('#hero');
           if (heroSec) heroSec.scrollIntoView({ behavior: 'smooth' });
@@ -3424,6 +3433,13 @@
         const deltaX = targetX - startX;
         const deltaY = targetY - startY;
 
+        // Open rail and dialogue box immediately into DOM
+        rail.classList.remove('hidden', 'pointer-events-none');
+        rail.classList.add('flex');
+
+        dialogueBox.classList.remove('hidden');
+        dialogueBox.classList.add('flex');
+
         if (flyingSprite) {
           flyingSprite.style.left = startX + 'px';
           flyingSprite.style.top = startY + 'px';
@@ -3436,33 +3452,41 @@
             flyingSprite.classList.add('hidden');
             flyingSprite.classList.remove('anim-pop-out-arc');
 
-            // Open rail and dialogue box
-            rail.classList.remove('hidden', 'pointer-events-none');
             rail.classList.remove('opacity-0');
             rail.classList.add('opacity-100');
 
-            dialogueBox.classList.remove('hidden');
-            setTimeout(() => {
-              dialogueBox.classList.remove('opacity-0', 'translate-y-4');
-              dialogueBox.classList.add('opacity-100', 'translate-y-0');
-            }, 50);
+            dialogueBox.classList.remove('opacity-0', 'translate-y-4');
+            dialogueBox.classList.add('opacity-100', 'translate-y-0');
 
             // Greet user
             playRetroSound('coin');
             if (avatarSprite) {
               avatarSprite.setAttribute('href', '#pixel-josue-wave');
+              avatarSprite.setAttribute('xlink:href', '#pixel-josue-wave');
               setTimeout(() => {
                 avatarSprite.setAttribute('href', '#pixel-josue-idle');
+                avatarSprite.setAttribute('xlink:href', '#pixel-josue-idle');
               }, 1600);
             }
 
             currentAdvLevel = 0;
             updateAdventureUI();
           }, 850);
+        } else {
+          rail.classList.remove('opacity-0');
+          rail.classList.add('opacity-100');
+          dialogueBox.classList.remove('opacity-0', 'translate-y-4');
+          dialogueBox.classList.add('opacity-100', 'translate-y-0');
+          currentAdvLevel = 0;
+          updateAdventureUI();
         }
       }
 
-      function closeAdventure() {
+      function closeAdventure(e) {
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
         if (!isAdventureActive) return;
         isAdventureActive = false;
         playRetroSound('exit');
@@ -3472,7 +3496,9 @@
 
         setTimeout(() => {
           rail.classList.add('hidden');
+          rail.classList.remove('flex');
           dialogueBox.classList.add('hidden');
+          dialogueBox.classList.remove('flex');
           if (advDialogueTimer) {
             clearTimeout(advDialogueTimer);
             advDialogueTimer = null;
@@ -3481,13 +3507,18 @@
       }
 
       startBtn.addEventListener('click', startAdventure);
+      startBtn.addEventListener('touchend', startAdventure);
 
       exitBtns.forEach(btn => {
-        if (btn) btn.addEventListener('click', closeAdventure);
+        if (btn) {
+          btn.addEventListener('click', closeAdventure);
+          btn.addEventListener('touchend', closeAdventure);
+        }
       });
 
       // Sound toggle
-      function toggleSound() {
+      function toggleSound(e) {
+        if (e) e.stopPropagation();
         soundEnabled = !soundEnabled;
         const icon = soundEnabled ? '🔊' : '🔇';
         muteBtns.forEach(btn => {
@@ -3502,12 +3533,15 @@
 
       // Interactive avatar click (Jump & Emote)
       if (avatarBtn) {
-        avatarBtn.addEventListener('click', () => {
+        avatarBtn.addEventListener('click', (e) => {
+          if (e) e.stopPropagation();
           playRetroSound('jump');
           if (avatarSprite) {
             avatarSprite.setAttribute('href', '#pixel-josue-jump');
+            avatarSprite.setAttribute('xlink:href', '#pixel-josue-jump');
             setTimeout(() => {
               avatarSprite.setAttribute('href', '#pixel-josue-idle');
+              avatarSprite.setAttribute('xlink:href', '#pixel-josue-idle');
             }, 450);
           }
         });

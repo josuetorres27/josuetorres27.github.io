@@ -2059,9 +2059,7 @@
   
   <!-- Flying / Leaping Sprite (Used during pop-out animation) -->
   <div id="flying-pixel-sprite" class="fixed pointer-events-none z-[100] hidden">
-    <svg class="w-16 h-16 drop-shadow-[0_12px_24px_rgba(2,132,199,0.7)]" viewBox="0 0 20 26" style="image-rendering: pixelated; shape-rendering: crispEdges;">
-      <use href="#pixel-josue-jump" xlink:href="#pixel-josue-jump"></use>
-    </svg>
+    <img id="flying-pixel-sprite-img" src="./img/pixel-josue-idle.png" class="w-16 h-16 pixelated drop-shadow-[0_12px_24px_rgba(2,132,199,0.7)]" alt="Mini Josué" />
   </div>
 
   <!-- Side Quest Level Rail (Right Sidebar on Desktop / Tablet) -->
@@ -2080,9 +2078,7 @@
         
         <!-- Animated Walking Sprite on the Rail -->
         <div id="rail-character-walker" class="absolute -left-9 sm:-left-11 transition-all duration-500 ease-out flex items-center pointer-events-none" style="top: 0px;">
-          <svg class="w-7 h-7 sm:w-8 sm:h-8 drop-shadow-md" viewBox="0 0 20 26" style="image-rendering: pixelated; shape-rendering: crispEdges;">
-            <use id="rail-character-sprite" href="#pixel-josue-idle" xlink:href="#pixel-josue-idle"></use>
-          </svg>
+          <img id="rail-character-sprite" src="./img/pixel-josue-idle.png" class="w-7 h-7 sm:w-8 sm:h-8 pixelated drop-shadow-md" alt="Walker" />
           <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 ml-1 animate-ping"></span>
         </div>
 
@@ -2137,9 +2133,7 @@
     <div class="flex items-start gap-3">
       <!-- Avatar with Live Animations -->
       <button id="dialogue-avatar-btn" type="button" class="w-12 h-12 rounded-xl bg-slate-900 border border-brand-500/30 flex items-center justify-center shrink-0 p-1 group hover:border-brand-400 transition-all active:scale-95 relative cursor-pointer" title="¡Hazme clic para saltar!">
-        <svg class="w-9 h-9" viewBox="0 0 20 26" style="image-rendering: pixelated; shape-rendering: crispEdges;">
-          <use id="dialogue-avatar-sprite" href="#pixel-josue-idle" xlink:href="#pixel-josue-idle"></use>
-        </svg>
+        <img id="dialogue-avatar-sprite" src="./img/pixel-josue-idle.png" class="w-9 h-9 pixelated transition-transform duration-200" alt="Mini Josué" />
         <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-950"></span>
       </button>
 
@@ -3345,6 +3339,8 @@
       tick();
     }
 
+    let walkerAnimInterval = null;
+
     function updateAdventureUI() {
       const activeLang = document.documentElement.lang === 'es' ? 'es' : 'en';
       const dict = I18N[activeLang];
@@ -3374,15 +3370,28 @@
       const walker = document.getElementById('rail-character-walker');
       const walkerSprite = document.getElementById('rail-character-sprite');
       if (walker && targetNode && walkerSprite) {
-        walkerSprite.setAttribute('href', '#pixel-josue-walk1');
-        walkerSprite.setAttribute('xlink:href', '#pixel-josue-walk1');
+        if (walkerAnimInterval) {
+          clearInterval(walkerAnimInterval);
+          walkerAnimInterval = null;
+        }
+
         walker.style.top = targetNode.offsetTop + 'px';
+        
+        let step = 0;
+        walkerAnimInterval = setInterval(() => {
+          step++;
+          walkerSprite.src = (step % 2 === 1) ? './img/pixel-josue-walk1.png' : './img/pixel-josue-walk2.png';
+        }, 120);
+
         setTimeout(() => {
-          if (walkerSprite) {
-            walkerSprite.setAttribute('href', '#pixel-josue-idle');
-            walkerSprite.setAttribute('xlink:href', '#pixel-josue-idle');
+          if (walkerAnimInterval) {
+            clearInterval(walkerAnimInterval);
+            walkerAnimInterval = null;
           }
-        }, 450);
+          if (walkerSprite) {
+            walkerSprite.src = './img/pixel-josue-idle.png';
+          }
+        }, 460);
       }
     }
 
@@ -3461,12 +3470,15 @@
             // Greet user
             playRetroSound('coin');
             if (avatarSprite) {
-              avatarSprite.setAttribute('href', '#pixel-josue-wave');
-              avatarSprite.setAttribute('xlink:href', '#pixel-josue-wave');
+              avatarSprite.classList.add('-translate-y-2');
+              avatarSprite.src = './img/pixel-josue-walk1.png';
               setTimeout(() => {
-                avatarSprite.setAttribute('href', '#pixel-josue-idle');
-                avatarSprite.setAttribute('xlink:href', '#pixel-josue-idle');
-              }, 1600);
+                avatarSprite.src = './img/pixel-josue-walk2.png';
+              }, 180);
+              setTimeout(() => {
+                avatarSprite.classList.remove('-translate-y-2');
+                avatarSprite.src = './img/pixel-josue-idle.png';
+              }, 400);
             }
 
             currentAdvLevel = 0;
@@ -3537,12 +3549,15 @@
           if (e) e.stopPropagation();
           playRetroSound('jump');
           if (avatarSprite) {
-            avatarSprite.setAttribute('href', '#pixel-josue-jump');
-            avatarSprite.setAttribute('xlink:href', '#pixel-josue-jump');
+            avatarSprite.classList.add('-translate-y-2');
+            avatarSprite.src = './img/pixel-josue-walk1.png';
             setTimeout(() => {
-              avatarSprite.setAttribute('href', '#pixel-josue-idle');
-              avatarSprite.setAttribute('xlink:href', '#pixel-josue-idle');
-            }, 450);
+              avatarSprite.src = './img/pixel-josue-walk2.png';
+            }, 160);
+            setTimeout(() => {
+              avatarSprite.classList.remove('-translate-y-2');
+              avatarSprite.src = './img/pixel-josue-idle.png';
+            }, 360);
           }
         });
       }

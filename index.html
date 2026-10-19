@@ -2538,6 +2538,7 @@
         adv_lvl_6: "Engineering intelligent workflows with Google Gemini, multi-agent frameworks, and prompt engineering.",
         adv_lvl_7: "Balance is essential! 📸 Costa Rican nature photography, handcrafted foamy sculptures, gaming, and the gym.",
         adv_lvl_8: "Reached the finish line! 🎉 Send me an email or download my CV—I'd love to connect and build together!",
+        adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep exploring!",
         adv_stage_labels: [
           "STAGE 1/9 · HERO",
           "STAGE 2/9 · ABOUT ME",
@@ -2822,6 +2823,7 @@
         adv_lvl_6: "Desarrollando flujos inteligentes con Google Gemini, frameworks de multi-agentes e ingeniería de prompts.",
         adv_lvl_7: "¡El balance es clave! 📸 Fotografía de Costa Rica, esculturas en foamy, videojuegos y entrenamiento en el gym.",
         adv_lvl_8: "¡Llegamos a la meta! 🎉 Envíame un correo o descárgate mi CV. ¡Será un gusto conectar y crear juntos!",
+        adv_afk: "¿Sigues ahí, aventurero? 👀 ¡Haz clic en cualquier nivel o desliza para seguir explorando!",
         adv_stage_labels: [
           "NIVEL 1/9 · INICIO",
           "NIVEL 2/9 · SOBRE MÍ",
@@ -3316,10 +3318,14 @@
 
     function typeAdventureDialogue(text, onComplete) {
       const dialogueTextEl = document.getElementById('dialogue-text');
+      const avatarSprite = document.getElementById('dialogue-avatar-sprite');
       if (!dialogueTextEl) return;
       if (advDialogueTimer) {
         clearTimeout(advDialogueTimer);
         advDialogueTimer = null;
+      }
+      if (avatarSprite) {
+        avatarSprite.src = './img/pixel-josue-front.png';
       }
       dialogueTextEl.textContent = '';
       let idx = 0;
@@ -3410,6 +3416,25 @@
 
       if (!startBtn || !rail || !dialogueBox || !photoCard) return;
 
+      let afkTimer = null;
+      function resetAfkTimer() {
+        if (afkTimer) clearTimeout(afkTimer);
+        if (!isAdventureActive) return;
+        afkTimer = setTimeout(() => {
+          if (!isAdventureActive) return;
+          const activeLang = document.documentElement.lang === 'es' ? 'es' : 'en';
+          const dict = I18N[activeLang];
+          const afkText = dict.adv_afk || '';
+          if (avatarSprite) {
+            avatarSprite.src = './img/pixel-josue-front.png';
+            avatarSprite.classList.add('-translate-y-2');
+            setTimeout(() => avatarSprite.classList.remove('-translate-y-2'), 400);
+          }
+          playRetroSound('blip');
+          typeAdventureDialogue(afkText);
+        }, 25000);
+      }
+
       function startAdventure(e) {
         if (e) {
           e.preventDefault();
@@ -3483,6 +3508,7 @@
 
             currentAdvLevel = 0;
             updateAdventureUI();
+            resetAfkTimer();
           }, 850);
         } else {
           rail.classList.remove('opacity-0');
@@ -3491,6 +3517,7 @@
           dialogueBox.classList.add('opacity-100', 'translate-y-0');
           currentAdvLevel = 0;
           updateAdventureUI();
+          resetAfkTimer();
         }
       }
 
@@ -3502,6 +3529,10 @@
         if (!isAdventureActive) return;
         isAdventureActive = false;
         playRetroSound('exit');
+        if (afkTimer) {
+          clearTimeout(afkTimer);
+          afkTimer = null;
+        }
 
         rail.classList.add('opacity-0', 'pointer-events-none');
         dialogueBox.classList.add('opacity-0', 'translate-y-4');
@@ -3547,6 +3578,7 @@
       if (avatarBtn) {
         avatarBtn.addEventListener('click', (e) => {
           if (e) e.stopPropagation();
+          resetAfkTimer();
           playRetroSound('jump');
           if (avatarSprite) {
             avatarSprite.classList.add('-translate-y-2');
@@ -3556,7 +3588,7 @@
             }, 160);
             setTimeout(() => {
               avatarSprite.classList.remove('-translate-y-2');
-              avatarSprite.src = './img/pixel-josue-idle.png';
+              avatarSprite.src = './img/pixel-josue-front.png';
             }, 360);
           }
         });
@@ -3565,6 +3597,7 @@
       // Rail nodes click
       railNodes.forEach((node, idx) => {
         node.addEventListener('click', () => {
+          resetAfkTimer();
           const targetId = sectionIds[idx];
           const targetEl = document.querySelector(targetId);
           if (targetEl) {
@@ -3578,6 +3611,7 @@
       let isScrollingThrottle = false;
       window.addEventListener('scroll', () => {
         if (!isAdventureActive) return;
+        resetAfkTimer();
         if (isScrollingThrottle) return;
         isScrollingThrottle = true;
 

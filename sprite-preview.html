@@ -58,7 +58,10 @@
       <!-- Animation Controls -->
       <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
         <button onclick="setPose('idle')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-brand-600 border border-slate-700 text-xs font-mono font-semibold transition-all">
-          Idle (Quieto)
+          Idle (3/4)
+        </button>
+        <button onclick="setPose('front')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-emerald-600 border border-slate-700 text-xs font-mono font-semibold transition-all">
+          💬 Frontal (Habla / AFK)
         </button>
         <button onclick="toggleWalk()" id="walk-btn" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 border border-brand-400 text-xs font-mono font-semibold transition-all shadow-lg shadow-brand-600/30">
           ▶ Caminar (Walk Cycle)
@@ -76,32 +79,40 @@
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <h2 class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">Tus Sprites Creados en Piskel (32x32 píxeles)</h2>
-        <span class="text-xs font-mono text-emerald-400 font-semibold">✓ 3 Frames Activos</span>
+        <span class="text-xs font-mono text-emerald-400 font-semibold">✓ 4 Frames Activos</span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         
         <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
-          <div class="w-24 h-24 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
-            <img src="img/pixel-josue-idle.png" alt="Idle" class="w-16 h-16 pixelated">
+          <div class="w-20 h-20 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
+            <img src="img/pixel-josue-idle.png" alt="Idle" class="w-14 h-14 pixelated">
           </div>
-          <p class="text-xs font-mono font-bold text-white mt-3">pixel-josue-idle.png</p>
-          <p class="text-[10px] text-slate-400 font-mono">Posición de reposo / frente</p>
+          <p class="text-[11px] font-mono font-bold text-white mt-2 truncate">pixel-josue-idle.png</p>
+          <p class="text-[10px] text-slate-400 font-mono">Reposo / 3/4</p>
         </div>
 
         <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
-          <div class="w-24 h-24 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
-            <img src="img/pixel-josue-walk1.png" alt="Walk 1" class="w-16 h-16 pixelated">
+          <div class="w-20 h-20 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
+            <img src="img/pixel-josue-front.png" alt="Frontal" class="w-14 h-14 pixelated">
           </div>
-          <p class="text-xs font-mono font-bold text-white mt-3">pixel-josue-walk1.png</p>
+          <p class="text-[11px] font-mono font-bold text-emerald-400 mt-2 truncate">pixel-josue-front.png</p>
+          <p class="text-[10px] text-slate-400 font-mono">Primer plano / Habla / AFK</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="w-20 h-20 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
+            <img src="img/pixel-josue-walk1.png" alt="Walk 1" class="w-14 h-14 pixelated">
+          </div>
+          <p class="text-[11px] font-mono font-bold text-white mt-2 truncate">pixel-josue-walk1.png</p>
           <p class="text-[10px] text-slate-400 font-mono">Paso izquierdo adelante</p>
         </div>
 
         <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
-          <div class="w-24 h-24 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
-            <img src="img/pixel-josue-walk2.png" alt="Walk 2" class="w-16 h-16 pixelated">
+          <div class="w-20 h-20 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
+            <img src="img/pixel-josue-walk2.png" alt="Walk 2" class="w-14 h-14 pixelated">
           </div>
-          <p class="text-xs font-mono font-bold text-white mt-3">pixel-josue-walk2.png</p>
+          <p class="text-[11px] font-mono font-bold text-white mt-2 truncate">pixel-josue-walk2.png</p>
           <p class="text-[10px] text-slate-400 font-mono">Paso derecho adelante</p>
         </div>
 
@@ -158,7 +169,10 @@
       }
       if (pose === 'idle') {
         stageImg.src = 'img/pixel-josue-idle.png';
-        label.textContent = 'IDLE (pixel-josue-idle.png)';
+        label.textContent = 'IDLE 3/4 (pixel-josue-idle.png)';
+      } else if (pose === 'front') {
+        stageImg.src = 'img/pixel-josue-front.png';
+        label.textContent = 'FRONTAL / HABLA (pixel-josue-front.png)';
       } else if (pose === 'walk1') {
         stageImg.src = 'img/pixel-josue-walk1.png';
         label.textContent = 'WALK 1 (pixel-josue-walk1.png)';

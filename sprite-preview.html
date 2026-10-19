@@ -63,6 +63,9 @@
         <button onclick="setPose('front')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-emerald-600 border border-slate-700 text-xs font-mono font-semibold transition-all">
           💬 Frontal (Habla / AFK)
         </button>
+        <button onclick="setPose('jump')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-indigo-600 border border-slate-700 text-xs font-mono font-semibold transition-all">
+          🚀 Salto (Jump)
+        </button>
         <button onclick="toggleWalk()" id="walk-btn" class="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 border border-brand-400 text-xs font-mono font-semibold transition-all shadow-lg shadow-brand-600/30">
           ▶ Caminar (Walk Cycle)
         </button>
@@ -79,37 +82,45 @@
     <section class="space-y-4">
       <div class="flex items-center justify-between">
         <h2 class="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold">Tus Sprites Creados en Piskel (32x32 píxeles)</h2>
-        <span class="text-xs font-mono text-emerald-400 font-semibold">✓ 4 Frames Activos</span>
+        <span class="text-xs font-mono text-emerald-400 font-semibold">✓ 5 Frames Activos</span>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4">
         
-        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
-          <div class="w-20 h-20 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="w-18 h-18 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
             <img src="img/pixel-josue-idle.png" alt="Idle" class="w-14 h-14 pixelated">
           </div>
           <p class="text-[11px] font-mono font-bold text-white mt-2 truncate">pixel-josue-idle.png</p>
           <p class="text-[10px] text-slate-400 font-mono">Reposo / 3/4</p>
         </div>
 
-        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
-          <div class="w-20 h-20 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="w-18 h-18 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
             <img src="img/pixel-josue-front.png" alt="Frontal" class="w-14 h-14 pixelated">
           </div>
           <p class="text-[11px] font-mono font-bold text-emerald-400 mt-2 truncate">pixel-josue-front.png</p>
           <p class="text-[10px] text-slate-400 font-mono">Primer plano / Habla / AFK</p>
         </div>
 
-        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
-          <div class="w-20 h-20 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="w-18 h-18 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
+            <img src="img/pixel-josue-jump.png" alt="Jump" class="w-14 h-14 pixelated">
+          </div>
+          <p class="text-[11px] font-mono font-bold text-indigo-400 mt-2 truncate">pixel-josue-jump.png</p>
+          <p class="text-[10px] text-slate-400 font-mono">Salto / Salida de foto</p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="w-18 h-18 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
             <img src="img/pixel-josue-walk1.png" alt="Walk 1" class="w-14 h-14 pixelated">
           </div>
           <p class="text-[11px] font-mono font-bold text-white mt-2 truncate">pixel-josue-walk1.png</p>
           <p class="text-[10px] text-slate-400 font-mono">Paso izquierdo adelante</p>
         </div>
 
-        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
-          <div class="w-20 h-20 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-center">
+          <div class="w-18 h-18 mx-auto bg-slate-950 rounded-lg p-2 flex items-center justify-center border border-slate-800">
             <img src="img/pixel-josue-walk2.png" alt="Walk 2" class="w-14 h-14 pixelated">
           </div>
           <p class="text-[11px] font-mono font-bold text-white mt-2 truncate">pixel-josue-walk2.png</p>
@@ -173,6 +184,9 @@
       } else if (pose === 'front') {
         stageImg.src = 'img/pixel-josue-front.png';
         label.textContent = 'FRONTAL / HABLA (pixel-josue-front.png)';
+      } else if (pose === 'jump') {
+        stageImg.src = 'img/pixel-josue-jump.png';
+        label.textContent = 'JUMP / VUELO (pixel-josue-jump.png)';
       } else if (pose === 'walk1') {
         stageImg.src = 'img/pixel-josue-walk1.png';
         label.textContent = 'WALK 1 (pixel-josue-walk1.png)';

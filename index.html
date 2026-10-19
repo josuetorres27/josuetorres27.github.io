@@ -2059,7 +2059,7 @@
   
   <!-- Flying / Leaping Sprite (Used during pop-out animation) -->
   <div id="flying-pixel-sprite" class="fixed pointer-events-none z-[100] hidden">
-    <img id="flying-pixel-sprite-img" src="./img/pixel-josue-idle.png" class="w-16 h-16 pixelated drop-shadow-[0_12px_24px_rgba(2,132,199,0.7)]" alt="Mini Josué" />
+    <img id="flying-pixel-sprite-img" src="./img/pixel-josue-jump.png" class="w-16 h-16 pixelated drop-shadow-[0_12px_24px_rgba(2,132,199,0.7)]" alt="Mini Josué" />
   </div>
 
   <!-- Side Quest Level Rail (Right Sidebar on Desktop / Tablet) -->
@@ -3495,15 +3495,12 @@
             // Greet user
             playRetroSound('coin');
             if (avatarSprite) {
-              avatarSprite.classList.add('-translate-y-2');
-              avatarSprite.src = './img/pixel-josue-walk1.png';
+              avatarSprite.classList.add('-translate-y-3');
+              avatarSprite.src = './img/pixel-josue-jump.png';
               setTimeout(() => {
-                avatarSprite.src = './img/pixel-josue-walk2.png';
-              }, 180);
-              setTimeout(() => {
-                avatarSprite.classList.remove('-translate-y-2');
-                avatarSprite.src = './img/pixel-josue-idle.png';
-              }, 400);
+                avatarSprite.classList.remove('-translate-y-3');
+                avatarSprite.src = './img/pixel-josue-front.png';
+              }, 450);
             }
 
             currentAdvLevel = 0;
@@ -3581,15 +3578,12 @@
           resetAfkTimer();
           playRetroSound('jump');
           if (avatarSprite) {
-            avatarSprite.classList.add('-translate-y-2');
-            avatarSprite.src = './img/pixel-josue-walk1.png';
+            avatarSprite.classList.add('-translate-y-3');
+            avatarSprite.src = './img/pixel-josue-jump.png';
             setTimeout(() => {
-              avatarSprite.src = './img/pixel-josue-walk2.png';
-            }, 160);
-            setTimeout(() => {
-              avatarSprite.classList.remove('-translate-y-2');
+              avatarSprite.classList.remove('-translate-y-3');
               avatarSprite.src = './img/pixel-josue-front.png';
-            }, 360);
+            }, 450);
           }
         });
       }

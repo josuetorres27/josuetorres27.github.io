@@ -554,6 +554,18 @@
       color: #67e8f9 !important;
     }
 
+    /* Ensure Adventure button and primary quest buttons stay crisp white in Light Mode */
+    html.light .pixel-quest-btn,
+    html.light .pixel-quest-btn span,
+    html.light #start-adventure-btn,
+    html.light #start-adventure-btn span {
+      color: #ffffff !important;
+    }
+    html.light .pixel-quest-btn:hover span,
+    html.light #start-adventure-btn:hover span {
+      color: #6ee7b7 !important;
+    }
+
     /* Navigation Links & Dividers: Clean, snug, proportional spacing */
     .nav-item-link {
       display: inline-flex;
@@ -999,10 +1011,10 @@
           <!-- Value Proposition / Bio Summary -->
           <p data-i18n-html="hero_bio" class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8">
             Advanced Computer Science student at <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Passionate about building scalable systems, high-performance software, and modern architectures with 
-            <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-800/50 whitespace-nowrap">Python</span>, 
-            <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-1.5 py-0.5 rounded border border-indigo-800/50 whitespace-nowrap">C++</span>, 
-            <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-800/50 whitespace-nowrap">JavaScript</span> and 
-            <span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-1.5 py-0.5 rounded border border-blue-800/50 whitespace-nowrap">C# / .NET</span>.
+            <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 pixel-corners-btn border border-cyan-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(6,182,212,0.25)]">Python</span>, 
+            <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 pixel-corners-btn border border-indigo-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(99,102,241,0.25)]">C++</span>, 
+            <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 pixel-corners-btn border border-amber-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(245,158,11,0.25)]">JavaScript</span> and 
+            <span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-2 py-0.5 pixel-corners-btn border border-blue-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(59,130,246,0.25)]">C# / .NET</span>.
           </p>
 
           <!-- Action Buttons -->
@@ -1023,16 +1035,16 @@
                 <span data-i18n="hero_btn_cv">Download CV / Resume</span>
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
-              <div id="hero-cv-dropdown" class="hidden absolute left-0 right-0 sm:right-auto mt-2 w-full sm:w-56 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl py-2 z-50">
+              <div id="hero-cv-dropdown" class="hidden absolute left-0 right-0 sm:right-auto mt-2 w-full sm:w-56 pixel-corners-card bg-slate-900 border border-slate-700/80 shadow-2xl py-2 z-50">
                 <a href="./resume/Resume_Josue_Torres_Sibaja.pdf" target="_blank" download="Resume_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
-                  <span class="w-6 h-6 rounded bg-brand-500/10 border border-brand-500/20 text-brand-400 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">EN</span>
+                  <span class="w-6 h-6 pixel-corners-btn bg-brand-500/15 border border-brand-500/40 text-brand-400 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">EN</span>
                   <div>
                     <p class="font-semibold text-white">Resume</p>
                     <p class="text-[10px] text-slate-400 font-mono">English (PDF)</p>
                   </div>
                 </a>
                 <a href="./resume/CV_Josue_Torres_Sibaja.pdf" target="_blank" download="CV_Josue_Torres_Sibaja.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors border-t border-slate-800/60">
-                  <span class="w-6 h-6 rounded bg-brand-500/10 border border-brand-500/20 text-brand-400 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">ES</span>
+                  <span class="w-6 h-6 pixel-corners-btn bg-brand-500/15 border border-brand-500/40 text-brand-400 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">ES</span>
                   <div>
                     <p class="font-semibold text-white">Curriculum Vitae</p>
                     <p class="text-[10px] text-slate-400 font-mono">Español (PDF)</p>
@@ -1090,14 +1102,12 @@
 
             <!-- Adventure Mode Trigger: Interactive Quest Module (Positioned in dedicated centering wrapper to eliminate hover jump) -->
             <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 z-40">
-              <button id="start-adventure-btn" type="button" aria-label="¡Presióname! / Press me!" class="pixel-quest-btn pixel-corners-btn inline-flex items-center gap-2 px-3.5 py-2 text-xs font-mono font-semibold text-white cursor-pointer group select-none whitespace-nowrap shadow-2xl">
-                <div class="w-6 h-6 rounded-md bg-slate-950 border border-brand-500/50 flex items-center justify-center p-0.5 shrink-0 group-hover:scale-110 transition-transform">
-                  <img src="./img/pixel-josue-idle.png" alt="Mini Josué" class="w-5 h-5 pixelated" />
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <span class="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-ping"></span>
-                  <span class="font-pixel text-[11px] text-white group-hover:text-emerald-300 transition-colors" data-i18n="adventure_badge">¡Presióname! 🎮</span>
-                </div>
+              <button id="start-adventure-btn" type="button" aria-label="¡Presióname! / Press me!" class="pixel-quest-btn pixel-corners-btn inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold text-white cursor-pointer group select-none whitespace-nowrap shadow-2xl">
+                <span class="relative flex h-2 w-2 shrink-0">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-none bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-none h-2 w-2 bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)]"></span>
+                </span>
+                <span class="font-pixel text-[11px] text-white group-hover:text-emerald-300 transition-colors" data-i18n="adventure_badge">¡Presióname!</span>
               </button>
             </div>
           </div>
@@ -1117,10 +1127,10 @@
         <h2 data-i18n="about_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">01. Professional Profile</h2>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         <!-- Narrative Box (Profile Statement) -->
-        <div class="card-hover lg:col-span-7 pixel-frame-outer pixel-corners-card">
-          <div class="pixel-frame-inner pixel-corners-card">
+        <div class="card-hover lg:col-span-7 pixel-frame-outer pixel-corners-card flex flex-col">
+          <div class="pixel-frame-inner pixel-corners-card flex flex-col h-full">
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
                 <span class="text-brand-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
@@ -1128,7 +1138,7 @@
               </div>
               <span class="font-pixel text-[8px] text-brand-400 shrink-0 ml-2">[PROFILE]</span>
             </div>
-            <div class="p-6 sm:p-7 space-y-4 text-slate-300 leading-relaxed text-base">
+            <div class="p-6 sm:p-7 space-y-4 text-slate-300 leading-relaxed text-base flex-1 flex flex-col justify-center">
               <p data-i18n-html="about_p1">
                 Hello! I am an advanced Computer Science and Software Engineering student at <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. I enjoy understanding how software works under the hood, writing structured code, and working through algorithmic and data structure problems.
               </p>
@@ -1138,36 +1148,21 @@
               <p data-i18n-html="about_p3">
                 I am currently seeking an opportunity as a <strong class="text-white">Junior Software Engineer or Intern</strong> where I can contribute, learn from experienced teams, and continue developing professionally.
               </p>
-
-              <div class="pt-4 flex flex-wrap gap-4 text-sm font-mono text-slate-400">
-                <span class="inline-flex items-center gap-2">
-                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span data-i18n="about_pill1">Critical thinking</span>
-                </span>
-                <span class="inline-flex items-center gap-2">
-                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span data-i18n="about_pill2">Autonomous learner</span>
-                </span>
-                <span class="inline-flex items-center gap-2">
-                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                  <span data-i18n="about_pill3">Best practices & Clean Code</span>
-                </span>
-              </div>
             </div>
           </div>
         </div>
 
         <!-- General Summary Card (Education, Coursework, Skills, IT Work) -->
-        <div class="card-hover lg:col-span-5 pixel-frame-outer pixel-corners-card">
-          <div class="pixel-frame-inner pixel-corners-card">
+        <div class="card-hover lg:col-span-5 pixel-frame-outer pixel-corners-card flex flex-col">
+          <div class="pixel-frame-inner pixel-corners-card flex flex-col h-full">
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
                 <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-                <span class="font-mono text-slate-400 text-[11px] truncate">~/profile/summary.stats</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/profile/overview.md</span>
               </div>
               <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[STATS]</span>
             </div>
-            <div class="p-6 space-y-5">
+            <div class="p-6 space-y-5 flex-1 flex flex-col justify-between">
               <h3 data-i18n="about_card_title" class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-mono">General Summary</h3>
               
               <div class="space-y-4">
@@ -1427,7 +1422,7 @@
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
                 <span class="text-brand-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-                <span class="font-mono text-slate-400 text-[11px] truncate">~/academics/ucr_bachelor.edu</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/academics/ucr_computer_science.md</span>
               </div>
               <span class="font-pixel text-[8px] text-brand-400 shrink-0 ml-2">[CS DEGREE]</span>
             </div>
@@ -1497,7 +1492,7 @@
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
                 <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-                <span class="font-mono text-slate-400 text-[11px] truncate">~/academics/una_english.cert</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/academics/una_english.md</span>
               </div>
               <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[LANG CERT]</span>
             </div>
@@ -1685,7 +1680,7 @@
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
                 <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-                <span class="font-mono text-slate-400 text-[11px] truncate">~/skills/stack_devops.sql</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/skills/devops_ci.yml</span>
               </div>
               <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[DEV TOOLS]</span>
             </div>
@@ -1752,7 +1747,7 @@
           <div class="terminal-header">
             <div class="flex items-center min-w-0">
               <span class="text-amber-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-              <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/lasce_scientific_cms.app</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/lasce_platform.tsx</span>
             </div>
             <span class="font-pixel text-[8px] text-amber-400 shrink-0 ml-2">[BOSS PROJECT]</span>
           </div>
@@ -1926,7 +1921,7 @@
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
                 <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-                <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/themepark_backend.api</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/themepark_backend.cs</span>
               </div>
               <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[REST API]</span>
             </div>
@@ -2011,7 +2006,7 @@
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
                 <span class="text-amber-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-                <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/online_learning_sys.ts</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/online_learning.py</span>
               </div>
               <span class="font-pixel text-[8px] text-amber-400 shrink-0 ml-2">[WEB APP]</span>
             </div>
@@ -2068,9 +2063,9 @@
           <div class="terminal-header">
             <div class="flex items-center min-w-0">
               <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-              <span class="font-mono text-slate-400 text-[11px] truncate">~/ai_labs/gemini_neural_mesh.py</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/ai_labs/agent_workflows.py</span>
             </div>
-            <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[NEURAL AGENT]</span>
+            <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[APPLIED AI]</span>
           </div>
           <div class="p-8 sm:p-10 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
@@ -2660,9 +2655,9 @@
           <div class="terminal-header">
             <div class="flex items-center min-w-0">
               <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-              <span class="font-mono text-slate-400 text-[11px] truncate">~/comms/direct_channel.sh</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/contact/get_in_touch.sh</span>
             </div>
-            <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[CONNECT]</span>
+            <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[INBOX]</span>
           </div>
           <div class="p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
 
@@ -3246,7 +3241,7 @@
         footer_hosted: "Hosted on",
         page_title: "Josue Torres Sibaja | Software Engineer & CS Student",
         hero_photo_caption: "Josue Torres Sibaja | Software Engineer & CS Student",
-        adventure_badge: "Press me! 🎮",
+        adventure_badge: "Press me!",
         adv_lvl_0: "Hey there! 👋 I'm Pixel Josué. Welcome to my portfolio! Let's explore my software journey together.",
         adv_lvl_1: "Final semester CS student at UCR. I love architecting robust, scalable systems that solve real problems.",
         adv_lvl_2: "My professional journey: practical engineering, collaborating in tech teams, and building reliable features.",
@@ -3532,7 +3527,7 @@
         footer_hosted: "Alojado en",
         page_title: "Josué Torres Sibaja | Ingeniero de Software & Estudiante de CS",
         hero_photo_caption: "Josué Torres Sibaja | Ingeniero de Software & Estudiante de CS",
-        adventure_badge: "¡Presióname! 🎮",
+        adventure_badge: "¡Presióname!",
         adv_lvl_0: "¡Hola! 👋 Soy Josué Pixel. ¡Te doy la bienvenida a mi portafolio! Acompáñame a explorar mi trayectoria.",
         adv_lvl_1: "Estudiante de último semestre en la UCR. Me apasiona diseñar sistemas escalables y resolver problemas complejos.",
         adv_lvl_2: "Mi camino profesional: ingeniería práctica, trabajo en equipo y desarrollo de funciones confiables en producción.",

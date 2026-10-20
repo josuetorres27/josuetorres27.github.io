@@ -159,7 +159,8 @@
     }
 
     /* Stepped Pixel Corners Frame (8-bit / 16-bit) */
-    .pixel-corners-photo {
+    .pixel-corners-photo,
+    .pixel-corners-card {
       clip-path: polygon(
         0 12px,
         4px 12px,
@@ -191,12 +192,57 @@
         0 calc(100% - 12px)
       );
     }
-    .pixel-photo-frame {
-      filter: drop-shadow(4px 4px 0px rgba(15, 23, 42, 0.95)) drop-shadow(0 0 15px rgba(56, 189, 248, 0.3));
-      transition: filter 0.3s ease;
+    .pixel-corners-sm {
+      clip-path: polygon(
+        0 8px,
+        3px 8px,
+        3px 5px,
+        5px 5px,
+        5px 3px,
+        8px 3px,
+        8px 0,
+        calc(100% - 8px) 0,
+        calc(100% - 8px) 3px,
+        calc(100% - 5px) 3px,
+        calc(100% - 5px) 5px,
+        calc(100% - 3px) 5px,
+        calc(100% - 3px) 8px,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 3px) calc(100% - 8px),
+        calc(100% - 3px) calc(100% - 5px),
+        calc(100% - 5px) calc(100% - 5px),
+        calc(100% - 5px) calc(100% - 3px),
+        calc(100% - 8px) calc(100% - 3px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        8px calc(100% - 3px),
+        5px calc(100% - 3px),
+        5px calc(100% - 5px),
+        3px calc(100% - 5px),
+        3px calc(100% - 8px),
+        0 calc(100% - 8px)
+      );
     }
-    .pixel-photo-frame:hover {
-      filter: drop-shadow(6px 6px 0px rgba(2, 132, 199, 0.4)) drop-shadow(0 0 25px rgba(56, 189, 248, 0.5));
+    .pixel-photo-frame,
+    .pixel-frame-outer {
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.45), rgba(51, 65, 85, 0.95) 45%, rgba(15, 23, 42, 0.95));
+      filter: drop-shadow(4px 4px 0px rgba(15, 23, 42, 0.95));
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pixel-photo-frame:hover,
+    .pixel-frame-outer:hover {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.8), rgba(14, 165, 233, 0.6) 45%, rgba(51, 65, 85, 0.95));
+      filter: drop-shadow(6px 6px 0px rgba(2, 132, 199, 0.35)) drop-shadow(0 0 18px rgba(56, 189, 248, 0.25));
+      transform: translateY(-2px);
+    }
+    .pixel-frame-inner {
+      background: rgba(15, 23, 42, 0.92);
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     @keyframes quest-beacon {
       0%, 100% { transform: scale(1); opacity: 1; }
@@ -342,8 +388,18 @@
       border-color: #0284c7 !important;
       box-shadow: 5px 5px 0px 0px rgba(2, 132, 199, 0.25) !important;
     }
-    html.light .pixel-photo-frame {
-      filter: drop-shadow(4px 4px 0px #cbd5e1) drop-shadow(0 0 10px rgba(2, 132, 199, 0.15));
+    html.light .pixel-photo-frame,
+    html.light .pixel-frame-outer {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.4), #cbd5e1 50%, #94a3b8) !important;
+      filter: drop-shadow(4px 4px 0px #cbd5e1) !important;
+    }
+    html.light .pixel-photo-frame:hover,
+    html.light .pixel-frame-outer:hover {
+      background: linear-gradient(135deg, #0284c7, #38bdf8 50%, #cbd5e1) !important;
+      filter: drop-shadow(5px 5px 0px rgba(2, 132, 199, 0.25)) !important;
+    }
+    html.light .pixel-frame-inner {
+      background: #ffffff !important;
     }
     html.light .terminal-header {
       background: #f8fafc !important;
@@ -949,92 +1005,119 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-7 space-y-4 text-slate-300 leading-relaxed text-base">
-          <p data-i18n-html="about_p1">
-            Hello! I am an advanced Computer Science and Software Engineering student at <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. I enjoy understanding how software works under the hood, writing structured code, and working through algorithmic and data structure problems.
-          </p>
-          <p data-i18n-html="about_p2">
-            Throughout my university courses and projects, I have built solid foundations in object-oriented programming, systems fundamentals, and teamwork. I also regularly practice algorithmic problem-solving on my own through platforms like <strong class="text-white">LeetCode</strong> and <strong class="text-white">HackerRank</strong> to continually strengthen my analytical skills and code clarity.
-          </p>
-          <p data-i18n-html="about_p3">
-            I am currently seeking an opportunity as a <strong class="text-white">Junior Software Engineer or Intern</strong> where I can contribute, learn from experienced teams, and continue developing professionally.
-          </p>
+        <!-- Narrative Box (Profile Statement) -->
+        <div class="lg:col-span-7 pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/profile/bio_statement.md</span>
+              </div>
+              <span class="font-pixel text-[8px] text-brand-400">[PROFILE]</span>
+            </div>
+            <div class="p-6 sm:p-7 space-y-4 text-slate-300 leading-relaxed text-base">
+              <p data-i18n-html="about_p1">
+                Hello! I am an advanced Computer Science and Software Engineering student at <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. I enjoy understanding how software works under the hood, writing structured code, and working through algorithmic and data structure problems.
+              </p>
+              <p data-i18n-html="about_p2">
+                Throughout my university courses and projects, I have built solid foundations in object-oriented programming, systems fundamentals, and teamwork. I also regularly practice algorithmic problem-solving on my own through platforms like <strong class="text-white">LeetCode</strong> and <strong class="text-white">HackerRank</strong> to continually strengthen my analytical skills and code clarity.
+              </p>
+              <p data-i18n-html="about_p3">
+                I am currently seeking an opportunity as a <strong class="text-white">Junior Software Engineer or Intern</strong> where I can contribute, learn from experienced teams, and continue developing professionally.
+              </p>
 
-          <div class="pt-4 flex flex-wrap gap-4 text-sm font-mono text-slate-400">
-            <span class="inline-flex items-center gap-2">
-              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span data-i18n="about_pill1">Critical thinking</span>
-            </span>
-            <span class="inline-flex items-center gap-2">
-              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span data-i18n="about_pill2">Autonomous learner</span>
-            </span>
-            <span class="inline-flex items-center gap-2">
-              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              <span data-i18n="about_pill3">Best practices & Clean Code</span>
-            </span>
+              <div class="pt-4 flex flex-wrap gap-4 text-sm font-mono text-slate-400">
+                <span class="inline-flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span data-i18n="about_pill1">Critical thinking</span>
+                </span>
+                <span class="inline-flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span data-i18n="about_pill2">Autonomous learner</span>
+                </span>
+                <span class="inline-flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <span data-i18n="about_pill3">Best practices & Clean Code</span>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- General Summary Card (Education, Coursework, Skills, IT Work) -->
-        <div class="lg:col-span-5 bg-slate-900/80 rounded-2xl border border-slate-800 p-6 space-y-5">
-          <h3 data-i18n="about_card_title" class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-mono">General Summary</h3>
-          
-          <div class="space-y-4">
-            <!-- 1. Education -->
-            <div class="flex gap-4">
-              <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
-                </svg>
+        <div class="lg:col-span-5 pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/profile/summary.stats</span>
               </div>
-              <div class="min-w-0 flex-1">
-                <h4 data-i18n="about_degree_title" class="text-sm font-semibold text-white">Software Engineering / Computer Science</h4>
-                <p data-i18n="about_degree_sub" class="text-xs text-slate-300 mt-0.5">Universidad de Costa Rica (Final Semester)</p>
-                <p data-i18n="about_degree_status" class="text-xs text-slate-400 mt-0.5">Undergraduate Degree · Final graduation stage</p>
-              </div>
+              <span class="font-pixel text-[8px] text-brand-400">[STATS]</span>
             </div>
+            <div class="p-6 space-y-5">
+              <h3 data-i18n="about_card_title" class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-mono">General Summary</h3>
+              
+              <div class="space-y-4">
+                <!-- 1. Education -->
+                <div class="flex gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                    </svg>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <h4 data-i18n="about_degree_title" class="text-sm font-semibold text-white">Software Engineering / Computer Science</h4>
+                    <p data-i18n="about_degree_sub" class="text-xs text-slate-300 mt-0.5">Universidad de Costa Rica (Final Semester)</p>
+                    <p data-i18n="about_degree_status" class="text-xs text-slate-400 mt-0.5">Undergraduate Degree · Final graduation stage</p>
+                  </div>
+                </div>
 
-            <!-- 2. Coursework -->
-            <div class="flex gap-4">
-              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
-              </div>
-              <div class="min-w-0 flex-1">
-                <h4 data-i18n="about_courses_title" class="text-sm font-semibold text-white">Core Academic Coursework</h4>
-                <p data-i18n="about_courses_sub" class="text-xs text-slate-300 mt-0.5">Computer Science Foundations & Systems</p>
-                <p data-i18n="about_courses_desc" class="text-xs text-slate-400 mt-0.5">Data Structures, Algorithms, Architecture, Databases & OS.</p>
-              </div>
-            </div>
+                <!-- 2. Coursework -->
+                <div class="flex gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <h4 data-i18n="about_courses_title" class="text-sm font-semibold text-white">Core Academic Coursework</h4>
+                    <p data-i18n="about_courses_sub" class="text-xs text-slate-300 mt-0.5">Computer Science Foundations & Systems</p>
+                    <p data-i18n="about_courses_desc" class="text-xs text-slate-400 mt-0.5">Data Structures, Algorithms, Architecture, Databases & OS.</p>
+                  </div>
+                </div>
 
-            <!-- 3. Skills -->
-            <div class="flex gap-4">
-              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                </svg>
-              </div>
-              <div class="min-w-0 flex-1">
-                <h4 data-i18n="about_skills_title" class="text-sm font-semibold text-white">Primary Technical Stack</h4>
-                <p data-i18n="about_skills_sub" class="text-xs text-slate-300 mt-0.5">TypeScript · Python · C# / .NET · C++</p>
-                <p data-i18n="about_skills_desc" class="text-xs text-slate-400 mt-0.5">SQL Server, PostgreSQL, Next.js, React, Git, Linux.</p>
-              </div>
-            </div>
+                <!-- 3. Skills -->
+                <div class="flex gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <h4 data-i18n="about_skills_title" class="text-sm font-semibold text-white">Primary Technical Stack</h4>
+                    <p data-i18n="about_skills_sub" class="text-xs text-slate-300 mt-0.5">TypeScript · Python · C# / .NET · C++</p>
+                    <p data-i18n="about_skills_desc" class="text-xs text-slate-400 mt-0.5">SQL Server, PostgreSQL, Next.js, React, Git, Linux.</p>
+                  </div>
+                </div>
 
-            <!-- 4. IT Work (Trabajo en TI) -->
-            <div class="flex gap-4">
-              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
-                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
-                </svg>
-              </div>
-              <div class="min-w-0 flex-1">
-                <h4 data-i18n="about_exp_title" class="text-sm font-semibold text-white">Professional IT Support</h4>
-                <p data-i18n="about_exp_sub" class="text-xs text-slate-300 mt-0.5">Universidad de Costa Rica · Orientation Office</p>
-                <p data-i18n="about_exp_desc" class="text-xs text-slate-400 mt-0.5">Hardware maintenance, OS deployments & web administration.</p>
+                <!-- 4. IT Work (Trabajo en TI) -->
+                <div class="flex gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                    </svg>
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <h4 data-i18n="about_exp_title" class="text-sm font-semibold text-white">Professional IT Support</h4>
+                    <p data-i18n="about_exp_sub" class="text-xs text-slate-300 mt-0.5">Universidad de Costa Rica · Orientation Office</p>
+                    <p data-i18n="about_exp_desc" class="text-xs text-slate-400 mt-0.5">Hardware maintenance, OS deployments & web administration.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1063,7 +1146,19 @@
       </div>
 
       <!-- Experience Main Card -->
-      <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/70 border border-slate-800/90 shadow-xl relative overflow-hidden mb-8">
+      <div class="pixel-frame-outer pixel-corners-card mb-8">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/career/ucr_it_support.log</span>
+            </div>
+            <span class="font-pixel text-[8px] text-emerald-400">[ACTIVE QUEST]</span>
+          </div>
+          <div class="p-6 sm:p-8 relative overflow-hidden">
+
         <!-- Glow accent -->
         <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -1158,21 +1253,21 @@
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-            <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
+            <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/3.jpeg" alt="Oficina de Orientación - Universidad de Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img1_caption" class="text-xs font-semibold text-white drop-shadow">Orientation Office · Universidad de Costa Rica</span>
               </div>
             </div>
 
-            <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
+            <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/1.jpeg" alt="Workstation Teardown and Motherboard Servicing" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img2_caption" class="text-xs font-semibold text-white drop-shadow">Hardware Servicing & Internal Diagnostics</span>
               </div>
             </div>
 
-            <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
+            <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/2.jpeg" alt="Storage Component Diagnostic and HDD to SSD Upgrade" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img3_caption" class="text-xs font-semibold text-white drop-shadow">Storage Upgrades & SATA Diagnostics</span>
@@ -1181,6 +1276,9 @@
           </div>
         </div>
 
+      
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1210,7 +1308,20 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Degree 1: Universidad de Costa Rica (UCR) -->
-        <article class="card-hover retro-card p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+        <article class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card flex flex-col justify-between">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/academics/ucr_bachelor.edu</span>
+              </div>
+              <span class="font-pixel text-[8px] text-brand-400">[CS DEGREE]</span>
+            </div>
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+
+        
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="flex items-center gap-3">
@@ -1261,10 +1372,26 @@
               <span data-i18n="edu_ucr_level" class="text-[11px] text-slate-400 font-mono">Undergraduate Degree · Advanced</span>
             </div>
           </div>
+        
+            </div>
+          </div>
         </article>
 
         <!-- Degree 2: Universidad Nacional (UNA) -->
-        <article class="card-hover retro-card p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+        <article class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card flex flex-col justify-between">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/academics/una_english.cert</span>
+              </div>
+              <span class="font-pixel text-[8px] text-cyan-400">[LANG CERT]</span>
+            </div>
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+
+        
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="flex items-center gap-3">
@@ -1315,8 +1442,10 @@
               <span data-i18n="edu_una_level" class="text-[11px] text-slate-400 font-mono">Professional Bilingual Working Proficiency</span>
             </div>
           </div>
+        
+            </div>
+          </div>
         </article>
-
       </div>
 
     </div>
@@ -1332,10 +1461,21 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
         <!-- Category 1: Languages -->
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-          <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5 text-indigo-400">
+        <div class="pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/skills/languages.sh</span>
+              </div>
+              <span class="font-pixel text-[8px] text-indigo-400">[LANGUAGES]</span>
+            </div>
+            <div class="p-6">
+
+                  <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5 text-indigo-400">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
           </div>
           <h3 data-i18n="skills_cat1_title" class="text-base font-bold text-white mb-2">Programming Languages</h3>
@@ -1368,11 +1508,26 @@
               <span data-i18n="skill_java_sub" class="text-xs text-slate-400 font-mono text-right">OOP / Architecture</span>
             </li>
           </ul>
+        
+            </div>
+          </div>
         </div>
 
-        <!-- Category 2: DSA & CS Foundations -->
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-          <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-5 text-cyan-400">
+        <!-- Category 2: CS Foundations -->
+        <div class="pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/skills/algorithms.py</span>
+              </div>
+              <span class="font-pixel text-[8px] text-cyan-400">[DSA & ARCH]</span>
+            </div>
+            <div class="p-6">
+
+                  <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-5 text-cyan-400">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
           </div>
           <h3 data-i18n="skills_cat2_title" class="text-base font-bold text-white mb-2">CS Fundamentals</h3>
@@ -1405,11 +1560,26 @@
               <span data-i18n="skill_algo_sub" class="text-xs text-cyan-400 font-mono">Intervals, Two Pointers</span>
             </li>
           </ul>
+        
+            </div>
+          </div>
         </div>
 
         <!-- Category 3: Tools & Environment -->
-        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
-          <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5 text-emerald-400">
+        <div class="pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/skills/stack_devops.sql</span>
+              </div>
+              <span class="font-pixel text-[8px] text-emerald-400">[DEV TOOLS]</span>
+            </div>
+            <div class="p-6">
+
+                  <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5 text-emerald-400">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
           </div>
           <h3 data-i18n="skills_cat3_title" class="text-base font-bold text-white mb-2">Tools & Environment</h3>
@@ -1442,8 +1612,10 @@
               <span data-i18n="skill_ci_sub" class="text-xs text-emerald-400 font-mono">GitHub Actions</span>
             </li>
           </ul>
+        
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -1461,10 +1633,20 @@
       </div>
 
       <!-- Spotlight: Currently Working On -->
-      <div id="spotlight-project" class="mb-14 p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border border-slate-800 relative overflow-hidden shadow-2xl">
-        <div class="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16"></div>
-        
-        <div class="relative z-10">
+      <div id="spotlight-project" class="mb-14 pixel-frame-outer pixel-corners-card">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/lasce_scientific_cms.app</span>
+            </div>
+            <span class="font-pixel text-[8px] text-amber-400">[BOSS PROJECT]</span>
+          </div>
+          <div class="p-6 sm:p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16"></div>
+<div class="relative z-10">
           <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold font-mono">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -1503,6 +1685,10 @@
             <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-slate-800 text-slate-200 border border-slate-700 whitespace-nowrap">WCAG Accessibility</span>
           </div>
         </div>
+      
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Past Projects Header -->
@@ -1514,7 +1700,19 @@
       <div class="space-y-8">
 
         <!-- Project 0: Ethical Vodcast (Proyecto Podcast Ético) -->
-        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/ethical_vodcast.mp4</span>
+              </div>
+              <span class="font-pixel text-[8px] text-cyan-400">[MEDIA QUEST]</span>
+            </div>
+            <div class="p-6 sm:p-8">
+
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -1567,10 +1765,25 @@
               </a>
             </div>
           </div>
+        
+            </div>
+          </div>
         </article>
 
         <!-- Project 1: Virtual Microscope -->
-        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/virtual_microscope.cpp</span>
+              </div>
+              <span class="font-pixel text-[8px] text-indigo-400">[C# / .NET]</span>
+            </div>
+            <div class="p-6 sm:p-8">
+
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -1596,10 +1809,25 @@
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Desktop Architecture</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Visual Studio</span>
           </div>
+        
+            </div>
+          </div>
         </article>
 
         <!-- Project 2: ThemePark UCR -->
-        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/themepark_simulation.java</span>
+              </div>
+              <span class="font-pixel text-[8px] text-emerald-400">[JAVA SIM]</span>
+            </div>
+            <div class="p-6 sm:p-8">
+
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -1626,10 +1854,25 @@
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Unity Integration</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Scrum</span>
           </div>
+        
+            </div>
+          </div>
         </article>
 
         <!-- Project 3: Distributed ASCII Art System -->
-        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/distributed_ascii.net</span>
+              </div>
+              <span class="font-pixel text-[8px] text-cyan-400">[C++ SOCKETS]</span>
+            </div>
+            <div class="p-6 sm:p-8">
+
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -1655,10 +1898,25 @@
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Linux Environment</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Low-Level Networking</span>
           </div>
+        
+            </div>
+          </div>
         </article>
 
         <!-- Project 4: Online Learning Platform -->
-        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/learning_portal.py</span>
+              </div>
+              <span class="font-pixel text-[8px] text-amber-400">[WEB APP]</span>
+            </div>
+            <div class="p-6 sm:p-8">
+
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -1684,6 +1942,9 @@
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">SOLID Principles</span>
             <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">GitHub Actions</span>
           </div>
+        
+            </div>
+          </div>
         </article>
 
       </div>
@@ -1702,11 +1963,20 @@
         <h2 data-i18n="ai_section_tag" class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">06. Applied Artificial Intelligence</h2>
       </div>
 
-      <div id="ai-container" class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/95 to-slate-950 border border-slate-800 relative overflow-hidden shadow-2xl">
-        <!-- Glow Effect -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
-
-        <div class="relative z-10 space-y-8">
+      <div id="ai-container" class="pixel-frame-outer pixel-corners-card">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/ai_labs/gemini_neural_mesh.py</span>
+            </div>
+            <span class="font-pixel text-[8px] text-cyan-400">[NEURAL AGENT]</span>
+          </div>
+          <div class="p-8 sm:p-10 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+<div class="relative z-10 space-y-8">
           
           <div class="w-full">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/20 text-cyan-300 text-xs font-mono font-semibold mb-3 border border-cyan-500/30">
@@ -1726,7 +1996,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
             <!-- Card 1 -->
-            <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
+            <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
               <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
                 01
               </div>
@@ -1737,7 +2007,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
+            <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
               <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
                 02
               </div>
@@ -1748,7 +2018,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
+            <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
               <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
                 03
               </div>
@@ -1759,7 +2029,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
+            <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
               <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
                 04
               </div>
@@ -1782,6 +2052,10 @@
             </a>
           </div>
 
+        </div>
+      
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1808,10 +2082,22 @@
 
       <!-- 4 Pillars Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
+
         <!-- Pillar 1: Ownership -->
-        <div class="card-hover p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800">
-          <div class="flex items-center gap-3.5 mb-4">
+        <div class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/mindset/ownership.log</span>
+              </div>
+              <span class="font-pixel text-[8px] text-brand-400">[PASSIVE]</span>
+            </div>
+            <div class="p-6 sm:p-7">
+
+                  <div class="flex items-center gap-3.5 mb-4">
             <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
@@ -1823,11 +2109,26 @@
           <p data-i18n="mindset_p1_desc" class="text-slate-300 text-sm leading-relaxed">
             I take responsibility for the tasks I take on: understanding requirements clearly, testing my code carefully, and making sure solutions actually work reliably in practice.
           </p>
+        
+            </div>
+          </div>
         </div>
 
         <!-- Pillar 2: Intellectual Humility -->
-        <div class="card-hover p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800">
-          <div class="flex items-center gap-3.5 mb-4">
+        <div class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/mindset/continuous_learning.log</span>
+              </div>
+              <span class="font-pixel text-[8px] text-cyan-400">[PASSIVE]</span>
+            </div>
+            <div class="p-6 sm:p-7">
+
+                  <div class="flex items-center gap-3.5 mb-4">
             <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
             </div>
@@ -1839,11 +2140,26 @@
           <p data-i18n="mindset_p2_desc" class="text-slate-300 text-sm leading-relaxed">
             I recognize that I am early in my career and have plenty to learn. I welcome constructive feedback and code reviews as genuine opportunities to improve and learn from experienced teammates.
           </p>
+        
+            </div>
+          </div>
         </div>
 
         <!-- Pillar 3: Resilience -->
-        <div class="card-hover p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800">
-          <div class="flex items-center gap-3.5 mb-4">
+        <div class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/mindset/persistence.log</span>
+              </div>
+              <span class="font-pixel text-[8px] text-emerald-400">[PASSIVE]</span>
+            </div>
+            <div class="p-6 sm:p-7">
+
+                  <div class="flex items-center gap-3.5 mb-4">
             <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
@@ -1855,11 +2171,26 @@
           <p data-i18n="mindset_p3_desc" class="text-slate-300 text-sm leading-relaxed">
             When a bug or concept proves tricky, I stay patient, research thoroughly, read the documentation, and keep testing until I understand the cause and resolve it.
           </p>
+        
+            </div>
+          </div>
         </div>
 
         <!-- Pillar 4: Proactive Communication -->
-        <div class="card-hover p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800">
-          <div class="flex items-center gap-3.5 mb-4">
+        <div class="card-hover pixel-frame-outer pixel-corners-card">
+          <div class="pixel-frame-inner pixel-corners-card">
+            <div class="terminal-header">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/mindset/communication.log</span>
+              </div>
+              <span class="font-pixel text-[8px] text-amber-400">[PASSIVE]</span>
+            </div>
+            <div class="p-6 sm:p-7">
+
+                  <div class="flex items-center gap-3.5 mb-4">
             <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
             </div>
@@ -1871,6 +2202,9 @@
           <p data-i18n="mindset_p4_desc" class="text-slate-300 text-sm leading-relaxed">
             I aim to communicate clearly, raise blockers early so they don't hold others back, and write clean, readable code that teammates can easily maintain.
           </p>
+        
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1897,7 +2231,19 @@
       </div>
 
       <!-- Subsection 1: Landscape & Scenery Photography -->
-      <div class="mb-14 p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800">
+      <div class="mb-14 pixel-frame-outer pixel-corners-card">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/interests/nature_photography.raw</span>
+            </div>
+            <span class="font-pixel text-[8px] text-cyan-400">[ALBUM]</span>
+          </div>
+          <div class="p-6 sm:p-8">
+
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div class="flex items-center gap-3.5">
             <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl">
@@ -1923,7 +2269,7 @@
               
               <!-- Slide 1: 1.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc1" data-location-url="https://maps.app.goo.gl/2KUMJyLAawHhcthu5" data-location-name="Parque Naomi, Quepos, Puntarenas, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc1" data-location-url="https://maps.app.goo.gl/2KUMJyLAawHhcthu5" data-location-name="Parque Naomi, Quepos, Puntarenas, Costa Rica">
                   <img src="./img/photography/1.jpg" alt="Pacific Coast shoreline under blue tropical skies" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img1" class="text-xs font-semibold text-white drop-shadow">Tropical Coastline & Marine Horizon</span>
@@ -1937,7 +2283,7 @@
 
               <!-- Slide 2: 2.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc2" data-location-url="https://maps.app.goo.gl/a6MjnM6DAJu7bmFT6" data-location-name="Playa Bejuco, Parrita, Puntarenas, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc2" data-location-url="https://maps.app.goo.gl/a6MjnM6DAJu7bmFT6" data-location-name="Playa Bejuco, Parrita, Puntarenas, Costa Rica">
                   <img src="./img/photography/2.jpg" alt="Golden sunset reflections along the beach horizon" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img2" class="text-xs font-semibold text-white drop-shadow">Golden Sunset Reflections</span>
@@ -1951,7 +2297,7 @@
 
               <!-- Slide 3: 3.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc3" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc3" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/3.jpeg" alt="Iconic sunflower mural at University of Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img3" class="text-xs font-semibold text-white drop-shadow">The Cosmic Sunflower · UCR</span>
@@ -1965,7 +2311,7 @@
 
               <!-- Slide 4: 4.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc4" data-location-url="https://maps.app.goo.gl/3M5YRM2zduhpCBvY7" data-location-name="Marina Pez Vela, Quepos, Puntarenas, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc4" data-location-url="https://maps.app.goo.gl/3M5YRM2zduhpCBvY7" data-location-name="Marina Pez Vela, Quepos, Puntarenas, Costa Rica">
                   <img src="./img/photography/4.jpg" alt="Marina pier with boats and ocean view under tropical sky" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img4" class="text-xs font-semibold text-white drop-shadow">Marina Pier & Sailboats</span>
@@ -1979,7 +2325,7 @@
 
               <!-- Slide 5: 5.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc5" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc5" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/5.jpeg" alt="Sunset sky gradient with violet and amber tones" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img5" class="text-xs font-semibold text-white drop-shadow">Evening Sky Gradient & Dusk Horizon</span>
@@ -1993,7 +2339,7 @@
 
               <!-- Slide 6: 6.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc6" data-location-url="https://maps.app.goo.gl/1SERCtZCMmwr2hc18" data-location-name="Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc6" data-location-url="https://maps.app.goo.gl/1SERCtZCMmwr2hc18" data-location-name="Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica">
                   <img src="./img/photography/6.jpg" alt="Rustic treehouse in pine trees under clear sky" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img6" class="text-xs font-semibold text-white drop-shadow">Rustic Treehouse</span>
@@ -2028,10 +2374,25 @@
           </div>
 
         </div>
+      
+          </div>
+        </div>
       </div>
 
       <!-- Subsection 2: Handicrafts & Foamy Sculpting (TCU) -->
-      <div class="mb-14 p-6 sm:p-8 rounded-2xl bg-slate-900/60 border border-slate-800">
+      <div class="mb-14 pixel-frame-outer pixel-corners-card">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/interests/foamy_sculptures.art</span>
+            </div>
+            <span class="font-pixel text-[8px] text-amber-400">[HANDICRAFTS]</span>
+          </div>
+          <div class="p-6 sm:p-8">
+
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div class="flex items-center gap-3.5">
             <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-xl">
@@ -2049,23 +2410,26 @@
 
         <!-- 1x3 Handicrafts Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-          <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
+          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/1.jpg" alt="Foamy sculptures collection: Stitch, Pikachu, Capybara, Cat, Dragon pencil toppers" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img1" class="text-xs font-semibold text-white drop-shadow">Miniature Sculpting & Pencil Toppers</span>
             </div>
           </div>
-          <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
+          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/2.jpg" alt="Foamy sculptures: Toothless, Spider-Man and Unicorn" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img2" class="text-xs font-semibold text-white drop-shadow">Character Clay Figures</span>
             </div>
           </div>
-          <div class="lightbox-trigger group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
+          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/3.jpg" alt="Foamy sculpture: Commemorative anniversary reading owl on a pencil for library celebration" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img3" class="text-xs font-semibold text-white drop-shadow">Commemorative Reading Owl</span>
             </div>
+          </div>
+        </div>
+      
           </div>
         </div>
       </div>
@@ -2146,7 +2510,19 @@
       </p>
 
       <!-- Contact Interaction Box -->
-      <div class="max-w-2xl mx-auto p-6 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+      <div class="max-w-2xl mx-auto mb-8 pixel-frame-outer pixel-corners-card text-left">
+        <div class="pixel-frame-inner pixel-corners-card">
+          <div class="terminal-header">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/comms/direct_channel.sh</span>
+            </div>
+            <span class="font-pixel text-[8px] text-emerald-400">[CONNECT]</span>
+          </div>
+          <div class="p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+
         <div class="text-left">
           <p data-i18n="contact_email_label" class="text-xs font-mono uppercase text-slate-400 mb-1">Email Address</p>
           <p id="email-text" class="text-base sm:text-lg font-mono font-medium text-white">dev.josue.torres@gmail.com</p>
@@ -2166,6 +2542,9 @@
             </svg>
             <span id="copied-toast" data-i18n="contact_toast_copied" class="hidden text-xs font-semibold text-emerald-400 font-mono ml-2">Copied!</span>
           </button>
+        </div>
+      
+          </div>
         </div>
       </div>
 

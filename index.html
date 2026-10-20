@@ -13,7 +13,7 @@
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -25,6 +25,7 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
+            pixel: ['Silkscreen', 'monospace'],
           },
           colors: {
             brand: {
@@ -92,6 +93,73 @@
     .card-hover:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 102, 241, 0.35);
+    }
+
+    /* Retro Gaming & Code Aesthetics */
+    .font-pixel {
+      font-family: 'Silkscreen', monospace;
+      letter-spacing: -0.01em;
+    }
+    .pixel-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-family: 'Silkscreen', monospace;
+      font-size: 0.625rem;
+      line-height: 1;
+      background: rgba(14, 165, 233, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+      box-shadow: 2px 2px 0px 0px rgba(15, 23, 42, 0.9);
+    }
+    .retro-hud-box {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(51, 65, 85, 0.85);
+      box-shadow: 3px 3px 0px 0px rgba(15, 23, 42, 0.9), 0 0 15px -4px rgba(2, 132, 199, 0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .retro-card {
+      border: 1px solid rgba(51, 65, 85, 0.85);
+      box-shadow: 3px 3px 0px 0px rgba(15, 23, 42, 0.9);
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .retro-card:hover {
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 5px 5px 0px 0px rgba(2, 132, 199, 0.28), 0 0 20px -3px rgba(14, 165, 233, 0.15);
+      transform: translateY(-2px);
+    }
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 0.75rem;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.7);
+      background: rgba(15, 23, 42, 0.75);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: #94a3b8;
+    }
+    .pixel-quest-btn {
+      position: relative;
+      border: 2px solid #38bdf8;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(8, 47, 73, 0.95));
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.35), 3px 3px 0px 0px rgba(2, 132, 199, 0.6);
+      transition: all 0.2s ease;
+    }
+    .pixel-quest-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      border-color: #34d399;
+      box-shadow: 0 0 25px rgba(52, 211, 153, 0.5), 4px 4px 0px 0px rgba(16, 185, 129, 0.6);
+    }
+    @keyframes quest-beacon {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.12); opacity: 0.75; }
+    }
+    .animate-quest-beacon {
+      animation: quest-beacon 1.8s ease-in-out infinite;
     }
 
     /* Adventure Mode & Pixel Art Styles */
@@ -212,6 +280,33 @@
     }
     html.light .card-hover:hover {
       box-shadow: 0 16px 32px -8px rgba(99, 102, 241, 0.12), 0 0 0 1px rgba(99, 102, 241, 0.35) !important;
+    }
+
+    /* Light Mode Retro & Gaming Styles */
+    html.light .retro-hud-box {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 2px 2px 0px 0px #cbd5e1 !important;
+    }
+    html.light .retro-card {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 3px 3px 0px 0px #cbd5e1 !important;
+    }
+    html.light .retro-card:hover {
+      border-color: #0284c7 !important;
+      box-shadow: 4px 4px 0px 0px rgba(2, 132, 199, 0.25) !important;
+    }
+    html.light .terminal-header {
+      background: #f8fafc !important;
+      border-bottom-color: #e2e8f0 !important;
+      color: #64748b !important;
+    }
+    html.light .pixel-badge {
+      background: rgba(2, 132, 199, 0.08) !important;
+      border-color: rgba(2, 132, 199, 0.35) !important;
+      color: #0284c7 !important;
+      box-shadow: 2px 2px 0px 0px #cbd5e1 !important;
     }
 
     /* High contrast color overrides for Light Mode */
@@ -647,6 +742,28 @@
         
         <!-- Hero Text & Content -->
         <div class="lg:col-span-8">
+          <!-- Retro Gamer & Engineer HUD Bar -->
+          <div class="mb-5 flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg retro-hud-box text-brand-300">
+              <span class="text-xs">⚔️</span>
+              <span class="font-pixel text-[9px] text-brand-400 tracking-tight">LVL.24</span>
+              <span class="text-slate-600">|</span>
+              <span class="font-semibold text-slate-200" data-i18n="hero_hud_role">Software Engineer</span>
+            </div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg retro-hud-box text-emerald-400">
+              <span class="text-xs">💚</span>
+              <span class="font-pixel text-[9px] text-emerald-400">HP</span>
+              <div class="w-14 sm:w-16 h-2 rounded bg-slate-950 overflow-hidden border border-slate-700/80 p-0.5">
+                <div class="w-full h-full bg-gradient-to-r from-emerald-500 to-cyan-400 rounded-sm"></div>
+              </div>
+              <span class="font-pixel text-[8px] text-emerald-300">100%</span>
+            </div>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg retro-hud-box text-slate-300">
+              <span class="text-xs">📍</span>
+              <span class="text-slate-300 font-mono text-[11px]">Costa Rica</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            </div>
+          </div>
           <!-- Availability Badge -->
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-emerald-500/30 text-xs font-medium text-emerald-400 mb-6 shadow-sm max-w-full">
             <span class="relative flex h-2 w-2 shrink-0">
@@ -739,11 +856,19 @@
               <span data-i18n="hero_photo_caption" class="sr-only">Josue Torres Sibaja | Software Engineer & CS Student</span>
             </div>
 
-            <!-- Adventure Mode Trigger Badge / Button on the Photo -->
-            <button id="start-adventure-btn" type="button" aria-label="Activar Modo Aventura / Adventure Mode" class="absolute -bottom-3.5 left-1/2 -translate-x-1/2 z-40 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/95 hover:bg-brand-600 border border-brand-500/50 hover:border-brand-400 text-xs font-mono font-semibold text-brand-300 hover:text-white shadow-xl shadow-brand-500/25 hover:shadow-brand-500/50 transition-all hover:scale-105 active:scale-95 whitespace-nowrap cursor-pointer">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-              <span class="text-sm">🎮</span>
-              <span data-i18n="adventure_badge">Modo Aventura</span>
+            <!-- Adventure Mode Trigger: Interactive Quest Module -->
+            <button id="start-adventure-btn" type="button" aria-label="Activar Modo Aventura / Adventure Mode" class="pixel-quest-btn absolute -bottom-5 left-1/2 -translate-x-1/2 z-40 inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl text-xs font-mono font-semibold text-white cursor-pointer group select-none whitespace-nowrap shadow-2xl">
+              <div class="w-7 h-7 rounded-lg bg-slate-950 border border-brand-500/50 flex items-center justify-center p-0.5 shrink-0 group-hover:scale-110 transition-transform">
+                <img src="./img/pixel-josue-idle.png" alt="Mini Josué" class="w-6 h-6 pixelated" />
+              </div>
+              <div class="text-left leading-tight">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span class="font-pixel text-[8px] text-brand-300 group-hover:text-emerald-300 transition-colors tracking-tight">▶ PRESS START</span>
+                </div>
+                <p class="font-bold text-white text-[11px] group-hover:text-brand-300 transition-colors" data-i18n="adventure_badge">Modo Aventura</p>
+              </div>
+              <span class="text-xs px-1.5 py-0.5 rounded bg-brand-500/20 text-brand-300 font-pixel text-[8px] border border-brand-400/30 group-hover:bg-emerald-500/20 group-hover:text-emerald-300 group-hover:border-emerald-400/30 transition-colors">8-BIT</span>
             </button>
           </div>
         </div>
@@ -1024,7 +1149,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Degree 1: Universidad de Costa Rica (UCR) -->
-        <article class="card-hover p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+        <article class="card-hover retro-card p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="flex items-center gap-3">
@@ -1078,7 +1203,7 @@
         </article>
 
         <!-- Degree 2: Universidad Nacional (UNA) -->
-        <article class="card-hover p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+        <article class="card-hover retro-card p-6 sm:p-7 rounded-2xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="flex items-center gap-3">
@@ -1328,7 +1453,7 @@
       <div class="space-y-8">
 
         <!-- Project 0: Ethical Vodcast (Proyecto Podcast Ético) -->
-        <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -1384,7 +1509,7 @@
         </article>
 
         <!-- Project 1: Virtual Microscope -->
-        <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -1413,7 +1538,7 @@
         </article>
 
         <!-- Project 2: ThemePark UCR -->
-        <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -1443,7 +1568,7 @@
         </article>
 
         <!-- Project 3: Distributed ASCII Art System -->
-        <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -1472,7 +1597,7 @@
         </article>
 
         <!-- Project 4: Online Learning Platform -->
-        <article class="card-hover p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
+        <article class="card-hover retro-card p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 relative">
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
@@ -2277,6 +2402,7 @@
         nav_interests: "BTC",
         nav_contact: "Contact",
 
+        hero_hud_role: "Software Engineer",
         hero_badge: "Final Semester Student · Available for Internships & Junior Roles",
         hero_greeting: `Hi, I'm <span class="text-white">Josue Torres Sibaja</span>`,
         hero_phrases: [
@@ -2562,6 +2688,7 @@
         nav_interests: "FDC",
         nav_contact: "Contacto",
 
+        hero_hud_role: "Ingeniero de Software",
         hero_badge: "Estudiante de Último Semestre · Disponible para Pasantías & Roles Junior",
         hero_greeting: `Hola, soy <span class="text-white">Josué Torres Sibaja</span>`,
         hero_phrases: [

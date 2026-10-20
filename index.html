@@ -509,12 +509,9 @@
     }
 
     /* Fix Dark Island Sections in Light Mode (Selected Projects spotlight & AI LLM section) */
-    html.light #spotlight-project,
-    html.light #ai-container {
-      background-image: linear-gradient(to bottom, #ffffff, #f8fafc) !important;
-      background-color: #ffffff !important;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03) !important;
-      border-color: #e2e8f0 !important;
+    html.light #spotlight-project .pixel-frame-inner,
+    html.light #ai-container .pixel-frame-inner {
+      background: #ffffff !important;
     }
     html.light #ai {
       background-color: #f1f5f9 !important;
@@ -1081,7 +1078,7 @@
                 <div class="absolute top-0 inset-x-0 z-20 bg-slate-950/85 backdrop-blur-sm border-b border-slate-700/80 px-3 py-1 flex items-center justify-between text-[9px] font-pixel text-slate-300">
                   <span class="text-brand-400">[PLAYER_1: JOSUE]</span>
                   <span class="inline-flex items-center gap-1 text-emerald-400">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-pulse"></span>
                     <span>LVL.24</span>
                   </span>
                 </div>
@@ -1098,7 +1095,7 @@
                   <img src="./img/pixel-josue-idle.png" alt="Mini Josué" class="w-5 h-5 pixelated" />
                 </div>
                 <div class="flex items-center gap-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span class="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-ping"></span>
                   <span class="font-pixel text-[11px] text-white group-hover:text-emerald-300 transition-colors" data-i18n="adventure_badge">¡Presióname! 🎮</span>
                 </div>
               </button>
@@ -1122,16 +1119,14 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <!-- Narrative Box (Profile Statement) -->
-        <div class="lg:col-span-7 pixel-frame-outer pixel-corners-card">
+        <div class="card-hover lg:col-span-7 pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/profile/bio_statement.md</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-brand-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/profile/bio_statement.md</span>
               </div>
-              <span class="font-pixel text-[8px] text-brand-400">[PROFILE]</span>
+              <span class="font-pixel text-[8px] text-brand-400 shrink-0 ml-2">[PROFILE]</span>
             </div>
             <div class="p-6 sm:p-7 space-y-4 text-slate-300 leading-relaxed text-base">
               <p data-i18n-html="about_p1">
@@ -1163,16 +1158,14 @@
         </div>
 
         <!-- General Summary Card (Education, Coursework, Skills, IT Work) -->
-        <div class="lg:col-span-5 pixel-frame-outer pixel-corners-card">
+        <div class="card-hover lg:col-span-5 pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/profile/summary.stats</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/profile/summary.stats</span>
               </div>
-              <span class="font-pixel text-[8px] text-brand-400">[STATS]</span>
+              <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[STATS]</span>
             </div>
             <div class="p-6 space-y-5">
               <h3 data-i18n="about_card_title" class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-mono">General Summary</h3>
@@ -1261,16 +1254,14 @@
       </div>
 
       <!-- Experience Main Card -->
-      <div class="pixel-frame-outer pixel-corners-card mb-8">
+      <div class="card-hover pixel-frame-outer pixel-corners-card mb-8">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/career/ucr_it_support.log</span>
+            <div class="flex items-center min-w-0">
+              <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/career/ucr_it_support.log</span>
             </div>
-            <span class="font-pixel text-[8px] text-emerald-400">[ACTIVE QUEST]</span>
+            <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[ACTIVE QUEST]</span>
           </div>
           <div class="p-6 sm:p-8 relative overflow-hidden">
 
@@ -1281,10 +1272,10 @@
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
           <div>
             <div class="flex flex-wrap items-center gap-2.5 mb-2">
-              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 pixel-corners-btn bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-semibold font-mono" style="filter: drop-shadow(2px 2px 0px rgba(16, 185, 129, 0.25));">
+                <span class="w-2 h-2 rounded-none bg-emerald-400 animate-pulse"></span>
                 <span data-i18n="experience_badge_active">Active Contract</span>
-              </span>
+              </div>
               <span data-i18n="experience_timeframe" class="text-xs font-mono text-slate-400">Aug 2026 – Present · 3 mos</span>
               <span class="text-slate-600 hidden sm:inline">·</span>
               <span data-i18n="experience_location" class="text-xs font-mono text-slate-400">San Pedro, San José</span>
@@ -1434,13 +1425,11 @@
         <article class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card flex flex-col justify-between">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/academics/ucr_bachelor.edu</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-brand-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/academics/ucr_bachelor.edu</span>
               </div>
-              <span class="font-pixel text-[8px] text-brand-400">[CS DEGREE]</span>
+              <span class="font-pixel text-[8px] text-brand-400 shrink-0 ml-2">[CS DEGREE]</span>
             </div>
             <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
 
@@ -1448,8 +1437,10 @@
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 font-mono font-bold text-lg">
-                  🎓
+                <div class="w-11 h-11 pixel-corners-btn bg-brand-500/15 border border-brand-500/40 flex items-center justify-center text-brand-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(56,189,248,0.3)]">
+                  <svg class="w-6 h-6 text-brand-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
+                    <path d="M7 2h2v1H7zM5 3h6v1H5zM3 4h10v1H3zM1 5h14v1H1zM3 6h10v1H3zM5 7h6v1H5zM5 8h6v3H5zM13 6h1v4h-1zM12 10h2v2h-2z"/>
+                  </svg>
                 </div>
                 <div>
                   <h4 data-i18n="edu_ucr_degree" class="text-base sm:text-lg font-bold text-white">
@@ -1481,14 +1472,14 @@
               Key Coursework & Competencies
             </h5>
             <div class="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Microsoft SQL Server</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Python</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">C++</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Java</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Data Structures & DSA</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Software Architecture</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Distributed Systems</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Scrum</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Microsoft SQL Server</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Python</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">C++</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Java</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Data Structures & DSA</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Software Architecture</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Distributed Systems</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Scrum</span>
             </div>
             
             <div class="mt-4 pt-3 border-t border-slate-800/80">
@@ -1504,13 +1495,11 @@
         <article class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card flex flex-col justify-between">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/academics/una_english.cert</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/academics/una_english.cert</span>
               </div>
-              <span class="font-pixel text-[8px] text-cyan-400">[LANG CERT]</span>
+              <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[LANG CERT]</span>
             </div>
             <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
 
@@ -1555,12 +1544,12 @@
               Communication Competencies
             </h5>
             <div class="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Oral Communication</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Listening Comprehension</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">English Writing</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">English Grammar</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Technical Reading</span>
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700/60">Workplace Collaboration</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Oral Communication</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Listening Comprehension</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">English Writing</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">English Grammar</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Technical Reading</span>
+              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Workplace Collaboration</span>
             </div>
             
             <div class="mt-4 pt-3 border-t border-slate-800/80">
@@ -1587,23 +1576,23 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Category 1: Languages -->
-        <div class="pixel-frame-outer pixel-corners-card">
+        <div class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/skills/languages.sh</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-indigo-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/skills/languages.sh</span>
               </div>
-              <span class="font-pixel text-[8px] text-indigo-400">[LANGUAGES]</span>
+              <span class="font-pixel text-[8px] text-indigo-400 shrink-0 ml-2">[LANGUAGES]</span>
             </div>
             <div class="p-6">
 
-                  <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5 text-indigo-400">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-          </div>
-          <h3 data-i18n="skills_cat1_title" class="text-base font-bold text-white mb-2">Programming Languages</h3>
+              <div class="w-10 h-10 pixel-corners-btn bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center mb-5 text-indigo-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(99,102,241,0.25)]">
+                <svg class="w-5 h-5 text-indigo-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
+                  <path d="M4 3h2v1H4zm-1 1h1v2H3zm-1 2h1v2H2zm-1 2h1v2H1zm1 2h1v2H2zm1 2h1v1H3zm1 1h2v1H4zm7-12h2v1h-2zm1 1h1v2h-1zm1 2h1v2h-1zm1 2h1v2h-1zm-1 2h1v2h-1zm-1 2h1v1h-1zm-1 1h-2v1h2zm-2-10h2v2H9zm-1 3h2v2H8zm-1 3h2v2H7zm-1 3h2v2H6z"/>
+                </svg>
+              </div>
+              <h3 data-i18n="skills_cat1_title" class="text-base font-bold text-white mb-2">Programming Languages</h3>
           <p data-i18n="skills_cat1_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
             Proficiency in imperative, OOP, and static/dynamic typed paradigms.
           </p>
@@ -1639,23 +1628,23 @@
         </div>
 
         <!-- Category 2: CS Foundations -->
-        <div class="pixel-frame-outer pixel-corners-card">
+        <div class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/skills/algorithms.py</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/skills/algorithms.py</span>
               </div>
-              <span class="font-pixel text-[8px] text-cyan-400">[DSA & ARCH]</span>
+              <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[DSA & ARCH]</span>
             </div>
             <div class="p-6">
 
-                  <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-5 text-cyan-400">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-          </div>
-          <h3 data-i18n="skills_cat2_title" class="text-base font-bold text-white mb-2">CS Fundamentals</h3>
+              <div class="w-10 h-10 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center mb-5 text-cyan-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]">
+                <svg class="w-5 h-5 text-cyan-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
+                  <path d="M7 1h2v3H7zM3 4h2v1H3zm8 0h2v1h-2zM2 5h1v2H2zm11 0h1v2h-1zm-6 2h4v1H7zm-5 1h3v3H2zm9 0h3v3h-3zm-4 1h2v3H7zm0 4h2v2H7z"/>
+                </svg>
+              </div>
+              <h3 data-i18n="skills_cat2_title" class="text-base font-bold text-white mb-2">CS Fundamentals</h3>
           <p data-i18n="skills_cat2_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
             Mathematical and algorithmic foundations to craft efficient, scalable code.
           </p>
@@ -1691,23 +1680,23 @@
         </div>
 
         <!-- Category 3: Tools & Environment -->
-        <div class="pixel-frame-outer pixel-corners-card">
+        <div class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/skills/stack_devops.sql</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/skills/stack_devops.sql</span>
               </div>
-              <span class="font-pixel text-[8px] text-emerald-400">[DEV TOOLS]</span>
+              <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[DEV TOOLS]</span>
             </div>
             <div class="p-6">
 
-                  <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5 text-emerald-400">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-          </div>
-          <h3 data-i18n="skills_cat3_title" class="text-base font-bold text-white mb-2">Tools & Environment</h3>
+              <div class="w-10 h-10 pixel-corners-btn bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center mb-5 text-emerald-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(16,185,129,0.25)]">
+                <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
+                  <path d="M1 2h14v1H1zM1 3h1v10H1zm13 0h1v10h-1zM1 13h14v1H1zM3 5h2v1H3zm2 1h2v1H5zm-2 1h2v1H3zm5 2h5v1H8z"/>
+                </svg>
+              </div>
+              <h3 data-i18n="skills_cat3_title" class="text-base font-bold text-white mb-2">Tools & Environment</h3>
           <p data-i18n="skills_cat3_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
             Collaborative development, version control, and CI/CD deployment pipelines.
           </p>
@@ -1758,23 +1747,21 @@
       </div>
 
       <!-- Spotlight: Currently Working On -->
-      <div id="spotlight-project" class="mb-14 pixel-frame-outer pixel-corners-card">
+      <div id="spotlight-project" class="card-hover mb-14 pixel-frame-outer pixel-corners-card">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/lasce_scientific_cms.app</span>
+            <div class="flex items-center min-w-0">
+              <span class="text-amber-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/lasce_scientific_cms.app</span>
             </div>
-            <span class="font-pixel text-[8px] text-amber-400">[BOSS PROJECT]</span>
+            <span class="font-pixel text-[8px] text-amber-400 shrink-0 ml-2">[BOSS PROJECT]</span>
           </div>
           <div class="p-6 sm:p-8 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16"></div>
 <div class="relative z-10">
           <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 pixel-corners-btn bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-semibold font-mono" style="filter: drop-shadow(2px 2px 0px rgba(16, 185, 129, 0.25));">
-              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span class="w-2 h-2 rounded-none bg-emerald-400 animate-ping"></span>
               <span data-i18n="lasce_badge">Currently Working On · Active Project</span>
             </div>
             <a href="https://lasce.up.railway.app/" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-primary pixel-corners-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider shrink-0">
@@ -1800,14 +1787,14 @@
           </div>
 
           <div class="flex flex-wrap lg:flex-nowrap items-center gap-1.5 sm:gap-2 pt-4 border-t border-slate-800/80 font-mono text-[11px] sm:text-xs">
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-slate-800 text-brand-300 border border-slate-700 whitespace-nowrap">Next.js 16</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-slate-800 text-brand-300 border border-slate-700 whitespace-nowrap">React 19</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700 whitespace-nowrap">TypeScript</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-slate-800 text-slate-200 border border-slate-700 whitespace-nowrap">PostgreSQL / Prisma</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-slate-800 text-slate-200 border border-slate-700 whitespace-nowrap">Redis / BullMQ</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-slate-800 text-emerald-300 border border-slate-700 whitespace-nowrap">Python 3.13 Worker</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-slate-800 text-slate-200 border border-slate-700 whitespace-nowrap">Playwright E2E</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded bg-slate-800 text-slate-200 border border-slate-700 whitespace-nowrap">WCAG Accessibility</span>
+            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-brand-300 border border-slate-700 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Next.js 16</span>
+            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-brand-300 border border-slate-700 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">React 19</span>
+            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-cyan-300 border border-slate-700 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">TypeScript</span>
+            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">PostgreSQL / Prisma</span>
+            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Redis / BullMQ</span>
+            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-emerald-300 border border-slate-700 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Python 3.13 Worker</span>
+            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Playwright E2E</span>
+            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">WCAG Accessibility</span>
           </div>
         </div>
       </div>
@@ -1826,20 +1813,18 @@
         <article class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/ethical_vodcast.mp4</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/ethical_vodcast.mp4</span>
               </div>
-              <span class="font-pixel text-[8px] text-cyan-400">[MEDIA QUEST]</span>
+              <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[MEDIA QUEST]</span>
             </div>
             <div class="p-6 sm:p-8">
 
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span data-i18n="p0_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/50">
+                <span data-i18n="p0_type" class="inline-flex items-center px-3 py-1.5 pixel-corners-btn text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-500/15 border border-cyan-500/40 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]">
                   Ethical Analysis & Tech Governance · Audiovisual Production
                 </span>
                 <span data-i18n="p0_date" class="text-xs font-mono text-slate-400">Oct 2026</span>
@@ -1897,20 +1882,18 @@
         <article class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/virtual_microscope.cpp</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-indigo-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/virtual_microscope.cs</span>
               </div>
-              <span class="font-pixel text-[8px] text-indigo-400">[C# / .NET]</span>
+              <span class="font-pixel text-[8px] text-indigo-400 shrink-0 ml-2">[C# / .NET]</span>
             </div>
             <div class="p-6 sm:p-8">
 
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span data-i18n="p1_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-950/60 px-2.5 py-1 rounded border border-indigo-800/50">
+                <span data-i18n="p1_type" class="inline-flex items-center px-3 py-1.5 pixel-corners-btn text-xs font-mono font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-500/15 border border-indigo-500/40 shadow-[2px_2px_0px_0px_rgba(99,102,241,0.25)]">
                   C# / .NET · Desktop Application
                 </span>
                 <span data-i18n="p1_date" class="text-xs font-mono text-slate-400">Mar 2026 – Jul 2026</span>
@@ -1926,11 +1909,11 @@
           </p>
 
           <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">C#</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">ASP.NET Core</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">PostgreSQL</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Desktop Architecture</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Visual Studio</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">C#</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">ASP.NET Core</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">PostgreSQL</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Desktop Architecture</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Visual Studio</span>
           </div>
         
             </div>
@@ -1941,20 +1924,18 @@
         <article class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/themepark_simulation.java</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/themepark_backend.api</span>
               </div>
-              <span class="font-pixel text-[8px] text-emerald-400">[JAVA SIM]</span>
+              <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[REST API]</span>
             </div>
             <div class="p-6 sm:p-8">
 
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span data-i18n="p2_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800/50">
+                <span data-i18n="p2_type" class="inline-flex items-center px-3 py-1.5 pixel-corners-btn text-xs font-mono font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-500/15 border border-cyan-500/40 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]">
                   Backend Architecture · Unity & REST APIs
                 </span>
                 <span data-i18n="p2_date" class="text-xs font-mono text-slate-400">Aug 2025 – Dec 2025</span>
@@ -1970,12 +1951,12 @@
           </p>
 
           <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">C#</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">ASP.NET Core</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">RESTful APIs</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">SQL Server</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Unity Integration</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Scrum</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">C#</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">ASP.NET Core</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">RESTful APIs</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">SQL Server</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Unity Integration</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Scrum</span>
           </div>
         
             </div>
@@ -1986,20 +1967,18 @@
         <article class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/distributed_ascii.net</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/ascii_art_sockets.cpp</span>
               </div>
-              <span class="font-pixel text-[8px] text-cyan-400">[C++ SOCKETS]</span>
+              <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[C++ SOCKETS]</span>
             </div>
             <div class="p-6 sm:p-8">
 
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span data-i18n="p3_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded border border-emerald-800/50">
+                <span data-i18n="p3_type" class="inline-flex items-center px-3 py-1.5 pixel-corners-btn text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/15 border border-emerald-500/40 shadow-[2px_2px_0px_0px_rgba(16,185,129,0.25)]">
                   Distributed Systems & Low-Level Networking
                 </span>
                 <span data-i18n="p3_date" class="text-xs font-mono text-slate-400">Mar 2025 – Jul 2025</span>
@@ -2015,11 +1994,11 @@
           </p>
 
           <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">C++</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Sockets TCP/IP</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">HTTP Protocol</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Linux Environment</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Low-Level Networking</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">C++</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Sockets TCP/IP</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">HTTP Protocol</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Linux Environment</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Low-Level Networking</span>
           </div>
         
             </div>
@@ -2030,20 +2009,18 @@
         <article class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/projects/learning_portal.py</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-amber-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/projects/online_learning_sys.ts</span>
               </div>
-              <span class="font-pixel text-[8px] text-amber-400">[WEB APP]</span>
+              <span class="font-pixel text-[8px] text-amber-400 shrink-0 ml-2">[WEB APP]</span>
             </div>
             <div class="p-6 sm:p-8">
 
           <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
             <div>
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span data-i18n="p4_type" class="text-xs font-mono font-semibold uppercase tracking-wider text-amber-400 bg-amber-950/60 px-2.5 py-1 rounded border border-amber-800/50">
+                <span data-i18n="p4_type" class="inline-flex items-center px-3 py-1.5 pixel-corners-btn text-xs font-mono font-semibold uppercase tracking-wider text-amber-400 bg-amber-500/15 border border-amber-500/40 shadow-[2px_2px_0px_0px_rgba(245,158,11,0.25)]">
                   Web Application · SOLID Principles & CI/CD
                 </span>
                 <span data-i18n="p4_date" class="text-xs font-mono text-slate-400">Mar 2025 – Jul 2025</span>
@@ -2059,11 +2036,11 @@
           </p>
 
           <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">Python</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">HTML / CSS / JavaScript</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">CI/CD Pipelines</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">SOLID Principles</span>
-            <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-200">GitHub Actions</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Python</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">HTML / CSS / JavaScript</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">CI/CD Pipelines</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">SOLID Principles</span>
+            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">GitHub Actions</span>
           </div>
         
             </div>
@@ -2086,16 +2063,14 @@
         <h2 data-i18n="ai_section_tag" class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">06. Applied Artificial Intelligence</h2>
       </div>
 
-      <div id="ai-container" class="pixel-frame-outer pixel-corners-card">
+      <div id="ai-container" class="card-hover pixel-frame-outer pixel-corners-card">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/ai_labs/gemini_neural_mesh.py</span>
+            <div class="flex items-center min-w-0">
+              <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/ai_labs/gemini_neural_mesh.py</span>
             </div>
-            <span class="font-pixel text-[8px] text-cyan-400">[NEURAL AGENT]</span>
+            <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[NEURAL AGENT]</span>
           </div>
           <div class="p-8 sm:p-10 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
@@ -2120,7 +2095,7 @@
             
             <!-- Card 1 -->
             <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
+              <div class="w-8 h-8 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3 font-pixel text-xs font-bold shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]">
                 01
               </div>
               <h4 data-i18n="ai_card1_title" class="text-sm font-bold text-white mb-1.5">Multi-Agent Systems</h4>
@@ -2131,7 +2106,7 @@
 
             <!-- Card 2 -->
             <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
+              <div class="w-8 h-8 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3 font-pixel text-xs font-bold shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]">
                 02
               </div>
               <h4 data-i18n="ai_card2_title" class="text-sm font-bold text-white mb-1.5">Function & Tool Calling</h4>
@@ -2142,7 +2117,7 @@
 
             <!-- Card 3 -->
             <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
+              <div class="w-8 h-8 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3 font-pixel text-xs font-bold shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]">
                 03
               </div>
               <h4 data-i18n="ai_card3_title" class="text-sm font-bold text-white mb-1.5">Context & Prompting</h4>
@@ -2153,7 +2128,7 @@
 
             <!-- Card 4 -->
             <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-3 font-mono text-sm font-bold">
+              <div class="w-8 h-8 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3 font-pixel text-xs font-bold shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]">
                 04
               </div>
               <h4 data-i18n="ai_card4_title" class="text-sm font-bold text-white mb-1.5">Models & Ecosystem</h4>
@@ -2207,29 +2182,28 @@
         <div class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/mindset/ownership.log</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-brand-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/mindset/ownership.log</span>
               </div>
-              <span class="font-pixel text-[8px] text-brand-400">[PASSIVE]</span>
+              <span class="font-pixel text-[8px] text-brand-400 shrink-0 ml-2">[PASSIVE]</span>
             </div>
             <div class="p-6 sm:p-7">
 
-                  <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-            </div>
-            <div>
-              <h4 data-i18n="mindset_p1_title" class="text-base font-bold text-white">Ownership & Responsibility</h4>
-              <p data-i18n="mindset_p1_sub" class="text-xs text-brand-300 font-mono">Doing things thoroughly</p>
-            </div>
-          </div>
-          <p data-i18n="mindset_p1_desc" class="text-slate-300 text-sm leading-relaxed">
-            I take responsibility for the tasks I take on: understanding requirements clearly, testing my code carefully, and making sure solutions actually work reliably in practice.
-          </p>
-        
+              <div class="flex items-center gap-3.5 mb-4">
+                <div class="w-10 h-10 pixel-corners-btn bg-brand-500/15 border border-brand-500/40 flex items-center justify-center text-brand-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(56,189,248,0.25)]">
+                  <svg class="w-5 h-5 text-brand-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
+                    <path d="M2 2h12v1H2zM2 3h1v6h-1zm12 0h1v6h-1zM3 9h1v2H3zm9 0h1v2h-1zM4 11h1v2H4zm7 0h1v2h-1zM5 13h2v1H5zm4 0h2v1H9zm2-2h1v1h-1zM7 14h2v1H7zm4-7h1v1h-1zm-1 1h1v1h-1zm-1 1h1v1H9zm-1 1h1v1H8zm-1-1h1v1H7zm-1-1h1v1H6z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 data-i18n="mindset_p1_title" class="text-base font-bold text-white">Ownership & Responsibility</h4>
+                  <p data-i18n="mindset_p1_sub" class="text-xs text-brand-300 font-mono">Doing things thoroughly</p>
+                </div>
+              </div>
+              <p data-i18n="mindset_p1_desc" class="text-slate-300 text-sm leading-relaxed">
+                I take responsibility for the tasks I take on: understanding requirements clearly, testing my code carefully, and making sure solutions actually work reliably in practice.
+              </p>
             </div>
           </div>
         </div>
@@ -2238,29 +2212,28 @@
         <div class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/mindset/continuous_learning.log</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/mindset/continuous_learning.log</span>
               </div>
-              <span class="font-pixel text-[8px] text-cyan-400">[PASSIVE]</span>
+              <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[PASSIVE]</span>
             </div>
             <div class="p-6 sm:p-7">
 
-                  <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-            </div>
-            <div>
-              <h4 data-i18n="mindset_p2_title" class="text-base font-bold text-white">Willingness to Learn</h4>
-              <p data-i18n="mindset_p2_sub" class="text-xs text-cyan-300 font-mono">Learning from feedback and peers</p>
-            </div>
-          </div>
-          <p data-i18n="mindset_p2_desc" class="text-slate-300 text-sm leading-relaxed">
-            I recognize that I am early in my career and have plenty to learn. I welcome constructive feedback and code reviews as genuine opportunities to improve and learn from experienced teammates.
-          </p>
-        
+              <div class="flex items-center gap-3.5 mb-4">
+                <div class="w-10 h-10 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]">
+                  <svg class="w-5 h-5 text-cyan-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
+                    <path d="M1 3h6v1H1zm8 0h6v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-1 1h1v2H1zm13 0h1v2h-1zm-12 2h5v1H2zm7 0h5v1H9zm-1-8h2v9H8zm-6 9h5v1H1zm8 0h6v1H9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 data-i18n="mindset_p2_title" class="text-base font-bold text-white">Willingness to Learn</h4>
+                  <p data-i18n="mindset_p2_sub" class="text-xs text-cyan-300 font-mono">Learning from feedback and peers</p>
+                </div>
+              </div>
+              <p data-i18n="mindset_p2_desc" class="text-slate-300 text-sm leading-relaxed">
+                I recognize that I am early in my career and have plenty to learn. I welcome constructive feedback and code reviews as genuine opportunities to improve and learn from experienced teammates.
+              </p>
             </div>
           </div>
         </div>
@@ -2269,29 +2242,28 @@
         <div class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/mindset/persistence.log</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/mindset/persistence.log</span>
               </div>
-              <span class="font-pixel text-[8px] text-emerald-400">[PASSIVE]</span>
+              <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[PASSIVE]</span>
             </div>
             <div class="p-6 sm:p-7">
 
-                  <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-            </div>
-            <div>
-              <h4 data-i18n="mindset_p3_title" class="text-base font-bold text-white">Patience & Persistence</h4>
-              <p data-i18n="mindset_p3_sub" class="text-xs text-emerald-300 font-mono">Working through tough problems</p>
-            </div>
-          </div>
-          <p data-i18n="mindset_p3_desc" class="text-slate-300 text-sm leading-relaxed">
-            When a bug or concept proves tricky, I stay patient, research thoroughly, read the documentation, and keep testing until I understand the cause and resolve it.
-          </p>
-        
+              <div class="flex items-center gap-3.5 mb-4">
+                <div class="w-10 h-10 pixel-corners-btn bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(16,185,129,0.25)]">
+                  <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
+                    <path d="M8 1h3v2H8zm-1 2h3v2H7zm-1 2h3v2H6zm-2 2h5v2H4zm3 2h3v2H7zm-3 2h3v2H4zm-2 2h2v2H2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 data-i18n="mindset_p3_title" class="text-base font-bold text-white">Patience & Persistence</h4>
+                  <p data-i18n="mindset_p3_sub" class="text-xs text-emerald-300 font-mono">Working through tough problems</p>
+                </div>
+              </div>
+              <p data-i18n="mindset_p3_desc" class="text-slate-300 text-sm leading-relaxed">
+                When a bug or concept proves tricky, I stay patient, research thoroughly, read the documentation, and keep testing until I understand the cause and resolve it.
+              </p>
             </div>
           </div>
         </div>
@@ -2300,29 +2272,28 @@
         <div class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                <span class="ml-2 font-mono text-slate-400 text-[11px]">~/mindset/communication.log</span>
+              <div class="flex items-center min-w-0">
+                <span class="text-amber-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/mindset/communication.log</span>
               </div>
-              <span class="font-pixel text-[8px] text-amber-400">[PASSIVE]</span>
+              <span class="font-pixel text-[8px] text-amber-400 shrink-0 ml-2">[PASSIVE]</span>
             </div>
             <div class="p-6 sm:p-7">
 
-                  <div class="flex items-center gap-3.5 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
-            </div>
-            <div>
-              <h4 data-i18n="mindset_p4_title" class="text-base font-bold text-white">Communication & Teamwork</h4>
-              <p data-i18n="mindset_p4_sub" class="text-xs text-amber-300 font-mono">Clear and straightforward communication</p>
-            </div>
-          </div>
-          <p data-i18n="mindset_p4_desc" class="text-slate-300 text-sm leading-relaxed">
-            I aim to communicate clearly, raise blockers early so they don't hold others back, and write clean, readable code that teammates can easily maintain.
-          </p>
-        
+              <div class="flex items-center gap-3.5 mb-4">
+                <div class="w-10 h-10 pixel-corners-btn bg-amber-500/15 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(245,158,11,0.25)]">
+                  <svg class="w-5 h-5 text-amber-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
+                    <path d="M2 2h10v1H2zM1 3h1v7H1zm12 0h1v7h-1zM2 10h3v1H2zm8 0h2v1h-2zM4 11h2v1H4zm-1 1h2v1H3zm-1 1h2v1H2zm4-7h2v2H5zm3 0h2v2H8z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 data-i18n="mindset_p4_title" class="text-base font-bold text-white">Communication & Teamwork</h4>
+                  <p data-i18n="mindset_p4_sub" class="text-xs text-amber-300 font-mono">Clear and straightforward communication</p>
+                </div>
+              </div>
+              <p data-i18n="mindset_p4_desc" class="text-slate-300 text-sm leading-relaxed">
+                I aim to communicate clearly, raise blockers early so they don't hold others back, and write clean, readable code that teammates can easily maintain.
+              </p>
             </div>
           </div>
         </div>
@@ -2351,16 +2322,14 @@
       </div>
 
       <!-- Subsection 1: Landscape & Scenery Photography -->
-      <div class="mb-14 pixel-frame-outer pixel-corners-card">
+      <div class="card-hover mb-14 pixel-frame-outer pixel-corners-card">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/interests/nature_photography.raw</span>
+            <div class="flex items-center min-w-0">
+              <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/interests/nature_photography.raw</span>
             </div>
-            <span class="font-pixel text-[8px] text-cyan-400">[ALBUM]</span>
+            <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[ALBUM]</span>
           </div>
           <div class="p-6 sm:p-8">
 
@@ -2502,16 +2471,14 @@
       </div>
 
       <!-- Subsection 2: Handicrafts & Foamy Sculpting (TCU) -->
-      <div class="mb-14 pixel-frame-outer pixel-corners-card">
+      <div class="card-hover mb-14 pixel-frame-outer pixel-corners-card">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/interests/foamy_sculptures.art</span>
+            <div class="flex items-center min-w-0">
+              <span class="text-amber-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/interests/foamy_sculptures.art</span>
             </div>
-            <span class="font-pixel text-[8px] text-amber-400">[HANDICRAFTS]</span>
+            <span class="font-pixel text-[8px] text-amber-400 shrink-0 ml-2">[HANDICRAFTS]</span>
           </div>
           <div class="p-6 sm:p-8">
 
@@ -2571,13 +2538,11 @@
           <div class="card-hover pixel-frame-outer pixel-corners-card flex flex-col">
             <div class="pixel-frame-inner pixel-corners-card flex flex-col h-full">
               <div class="terminal-header">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                  <span class="ml-2 font-mono text-slate-400 text-[11px] truncate">~/passions/pokemon.sav</span>
+                <div class="flex items-center min-w-0">
+                  <span class="text-red-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                  <span class="font-mono text-slate-400 text-[11px] truncate">~/pokemon.sav</span>
                 </div>
-                <span class="font-pixel text-[8px] text-red-400 shrink-0">[GAMING]</span>
+                <span class="font-pixel text-[8px] text-red-400 shrink-0 ml-1.5">[GAMING]</span>
               </div>
               <div class="p-5 flex-1 flex flex-col">
                 <div class="w-9 h-9 pixel-corners-btn bg-red-500/15 border border-red-500/40 flex items-center justify-center text-red-400 mb-3 shadow-[2px_2px_0px_0px_rgba(239,68,68,0.3)]">
@@ -2597,13 +2562,11 @@
           <div class="card-hover pixel-frame-outer pixel-corners-card flex flex-col">
             <div class="pixel-frame-inner pixel-corners-card flex flex-col h-full">
               <div class="terminal-header">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                  <span class="ml-2 font-mono text-slate-400 text-[11px] truncate">~/passions/spiderman.lore</span>
+                <div class="flex items-center min-w-0">
+                  <span class="text-rose-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                  <span class="font-mono text-slate-400 text-[11px] truncate">~/spiderman.lore</span>
                 </div>
-                <span class="font-pixel text-[8px] text-rose-400 shrink-0">[HERO]</span>
+                <span class="font-pixel text-[8px] text-rose-400 shrink-0 ml-1.5">[HERO]</span>
               </div>
               <div class="p-5 flex-1 flex flex-col">
                 <div class="w-9 h-9 pixel-corners-btn bg-rose-500/15 border border-rose-500/40 flex items-center justify-center text-rose-400 mb-3 shadow-[2px_2px_0px_0px_rgba(244,63,94,0.3)]">
@@ -2623,13 +2586,11 @@
           <div class="card-hover pixel-frame-outer pixel-corners-card flex flex-col">
             <div class="pixel-frame-inner pixel-corners-card flex flex-col h-full">
               <div class="terminal-header">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                  <span class="ml-2 font-mono text-slate-400 text-[11px] truncate">~/passions/acoustic.tab</span>
+                <div class="flex items-center min-w-0">
+                  <span class="text-indigo-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                  <span class="font-mono text-slate-400 text-[11px] truncate">~/guitar.tab</span>
                 </div>
-                <span class="font-pixel text-[8px] text-indigo-400 shrink-0">[MUSIC]</span>
+                <span class="font-pixel text-[8px] text-indigo-400 shrink-0 ml-1.5">[MUSIC]</span>
               </div>
               <div class="p-5 flex-1 flex flex-col">
                 <div class="w-9 h-9 pixel-corners-btn bg-indigo-500/15 border border-indigo-500/40 flex items-center justify-center text-indigo-400 mb-3 shadow-[2px_2px_0px_0px_rgba(99,102,241,0.3)]">
@@ -2649,13 +2610,11 @@
           <div class="card-hover pixel-frame-outer pixel-corners-card flex flex-col">
             <div class="pixel-frame-inner pixel-corners-card flex flex-col h-full">
               <div class="terminal-header">
-                <div class="flex items-center gap-1.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-                  <span class="ml-2 font-mono text-slate-400 text-[11px] truncate">~/passions/fitness.fit</span>
+                <div class="flex items-center min-w-0">
+                  <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                  <span class="font-mono text-slate-400 text-[11px] truncate">~/fitness.fit</span>
                 </div>
-                <span class="font-pixel text-[8px] text-emerald-400 shrink-0">[BUFF]</span>
+                <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-1.5">[BUFF]</span>
               </div>
               <div class="p-5 flex-1 flex flex-col">
                 <div class="w-9 h-9 pixel-corners-btn bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-3 shadow-[2px_2px_0px_0px_rgba(16,185,129,0.3)]">
@@ -2696,16 +2655,14 @@
       </p>
 
       <!-- Contact Interaction Box -->
-      <div class="max-w-2xl mx-auto mb-8 pixel-frame-outer pixel-corners-card text-left">
+      <div class="card-hover max-w-2xl mx-auto mb-8 pixel-frame-outer pixel-corners-card text-left">
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block"></span>
-              <span class="ml-2 font-mono text-slate-400 text-[11px]">~/comms/direct_channel.sh</span>
+            <div class="flex items-center min-w-0">
+              <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/comms/direct_channel.sh</span>
             </div>
-            <span class="font-pixel text-[8px] text-emerald-400">[CONNECT]</span>
+            <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[CONNECT]</span>
           </div>
           <div class="p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
 

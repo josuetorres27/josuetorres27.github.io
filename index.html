@@ -596,7 +596,7 @@
       justify-content: center;
       white-space: nowrap;
       flex-shrink: 0;
-      padding: 0.25rem 0.5rem;
+      padding: 0.25rem 0.25rem;
       border-radius: 0.25rem;
       font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       letter-spacing: -0.01em;
@@ -938,21 +938,21 @@
 
       <!-- Desktop Navigation Links with Clean Snug Spacing & JetBrains Mono -->
       <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 text-xs font-mono font-semibold tracking-tight text-slate-300">
-        <a href="#about" data-i18n="nav_about" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">About Me</a>
+        <a href="#about" data-i18n="nav_about" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">About Me</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#experience" data-i18n="nav_experience" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Experience</a>
+        <a href="#experience" data-i18n="nav_experience" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Experience</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#education" data-i18n="nav_education" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Education</a>
+        <a href="#education" data-i18n="nav_education" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Education</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#skills" data-i18n="nav_skills" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Skills</a>
+        <a href="#skills" data-i18n="nav_skills" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Skills</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#projects" data-i18n="nav_projects" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Projects</a>
+        <a href="#projects" data-i18n="nav_projects" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Projects</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#ai" data-i18n="nav_ai" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">AI & LLMs</a>
+        <a href="#ai" data-i18n="nav_ai" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">AI & LLMs</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#interests" data-i18n="nav_interests" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">BTC</a>
+        <a href="#interests" data-i18n="nav_interests" class="nav-item-link w-[44px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">BTC</a>
         <span class="nav-divider" aria-hidden="true">|</span>
-        <a href="#contact" data-i18n="nav_contact" class="nav-item-link hover:text-white hover:bg-slate-800/60 transition-all text-center">Contact</a>
+        <a href="#contact" data-i18n="nav_contact" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Contact</a>
       </nav>
 
       <!-- Desktop Actions: Language, Theme & CV Dropdown -->
@@ -1126,13 +1126,7 @@
             <!-- Pixel Art Stepped Photo Frame -->
             <div class="pixel-photo-frame p-1 bg-gradient-to-b from-brand-400 via-slate-600 to-slate-800 pixel-corners-photo transition-all group-hover:from-emerald-400 group-hover:via-brand-500">
               <div id="hero-photo-card" class="lightbox-trigger relative w-64 sm:w-72 lg:w-80 aspect-[4/5] bg-slate-950 overflow-hidden pixel-corners-photo cursor-pointer" role="button" tabindex="0" aria-label="Ver fotografía de perfil">
-                
-                <!-- Retro Game Top Bezel -->
-                <div class="absolute top-0 inset-x-0 z-20 bg-slate-950/90 backdrop-blur-sm border-b border-slate-700/80 px-3 py-1.5 flex items-center justify-center">
-                  <span class="font-pixel text-[10px] sm:text-[11px] tracking-widest text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] select-none">PLAYER 1: JOSUE</span>
-                </div>
-
-                <img id="hero-profile-img" src="./img/portfolio.jpeg" alt="Josue Torres Sibaja | Software Engineer & CS Student" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 pt-5">
+                <img id="hero-profile-img" src="./img/portfolio.jpeg" alt="Josue Torres Sibaja | Software Engineer & CS Student" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                 <span data-i18n="hero_photo_caption" class="sr-only">Josue Torres Sibaja | Software Engineer & CS Student</span>
               </div>
             </div>
@@ -1390,16 +1384,16 @@
 
         
           <div>
-            <div class="flex items-start justify-between gap-4 mb-4">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 pixel-corners-btn overflow-hidden shrink-0 drop-shadow-[2px_2px_0px_rgba(56,189,248,0.35)]">
+            <div class="flex items-start justify-between gap-4 mb-4 md:min-h-[4.75rem]">
+              <div class="flex items-start gap-3 flex-1 min-w-0">
+                <div class="w-11 h-11 pixel-corners-btn overflow-hidden shrink-0 drop-shadow-[2px_2px_0px_rgba(56,189,248,0.35)] mt-0.5">
                   <img src="./img/icons/graduation-cap.png" alt="Graduation Cap" class="w-full h-full object-cover pixelated select-none" />
                 </div>
-                <div>
-                  <h4 data-i18n="edu_ucr_degree" class="text-base sm:text-lg font-bold text-white">
+                <div class="min-w-0 flex-1">
+                  <h4 data-i18n="edu_ucr_degree" class="text-base sm:text-lg font-bold text-white leading-snug">
                     Bachelor of Science (B.Sc.), Computer Science
                   </h4>
-                  <p data-i18n="edu_ucr_emphasis" class="text-xs text-brand-400 font-mono font-semibold">
+                  <p data-i18n="edu_ucr_emphasis" class="text-xs text-brand-400 font-mono font-semibold mt-0.5">
                     Software Engineering Emphasis
                   </p>
                 </div>
@@ -1409,13 +1403,13 @@
               </span>
             </div>
 
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
               <span data-i18n="edu_ucr_institution" class="text-slate-200 font-semibold">Universidad de Costa Rica (UCR)</span>
               <span>·</span>
               <span data-i18n="edu_ucr_dates">Mar 2023 – Dec 2026</span>
             </div>
 
-            <p data-i18n="edu_ucr_desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
+            <p data-i18n="edu_ucr_desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 md:min-h-[5.75rem]">
               Comprehensive undergraduate program centered on software engineering principles, distributed architectures, databases, operating systems, and object-oriented systems design. Practical experience in collaborative projects using agile methodologies (Scrum).
             </p>
           </div>
@@ -1458,16 +1452,16 @@
 
         
           <div>
-            <div class="flex items-start justify-between gap-4 mb-4">
-              <div class="flex items-center gap-3">
-                <div class="w-11 h-11 pixel-corners-btn overflow-hidden shrink-0 drop-shadow-[2px_2px_0px_rgba(6,182,212,0.35)]">
+            <div class="flex items-start justify-between gap-4 mb-4 md:min-h-[4.75rem]">
+              <div class="flex items-start gap-3 flex-1 min-w-0">
+                <div class="w-11 h-11 pixel-corners-btn overflow-hidden shrink-0 drop-shadow-[2px_2px_0px_rgba(6,182,212,0.35)] mt-0.5">
                   <img src="./img/icons/chat-cyan.png" alt="Conversational English" class="w-full h-full object-cover pixelated select-none" />
                 </div>
-                <div>
-                  <h4 data-i18n="edu_una_degree" class="text-base sm:text-lg font-bold text-white">
+                <div class="min-w-0 flex-1">
+                  <h4 data-i18n="edu_una_degree" class="text-base sm:text-lg font-bold text-white leading-snug">
                     Conversational English Program
                   </h4>
-                  <p data-i18n="edu_una_hours" class="text-xs text-cyan-400 font-mono font-semibold">
+                  <p data-i18n="edu_una_hours" class="text-xs text-cyan-400 font-mono font-semibold mt-0.5">
                     13 Courses · 520 Hours Completed
                   </p>
                 </div>
@@ -1477,7 +1471,7 @@
               </span>
             </div>
 
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
               <span data-i18n="edu_una_institution" class="text-slate-200 font-semibold">Universidad Nacional (UNA)</span>
               <span>·</span>
               <span data-i18n="edu_una_dates">2019 – 2021</span>
@@ -1485,7 +1479,7 @@
               <span data-i18n="edu_una_cefr" class="text-cyan-300 font-semibold">CEFR B2–C1</span>
             </div>
 
-            <p data-i18n="edu_una_desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">
+            <p data-i18n="edu_una_desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 md:min-h-[5.75rem]">
               University-level conversational English program consisting of 13 courses (520 hours), focused on developing oral communication, listening comprehension, professional reading, and structured writing in technical and workplace settings.
             </p>
           </div>
@@ -1706,7 +1700,10 @@
 <div class="relative z-10">
           <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 pixel-corners-btn bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-semibold font-mono" style="filter: drop-shadow(2px 2px 0px rgba(16, 185, 129, 0.25));">
-              <span class="w-2 h-2 rounded-none bg-emerald-400 animate-ping"></span>
+              <span class="relative flex h-2 w-2 shrink-0">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-none bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-none h-2 w-2 bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)]"></span>
+              </span>
               <span data-i18n="lasce_badge">Currently Working On · Active Project</span>
             </div>
             <a href="https://lasce.up.railway.app/" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-primary pixel-corners-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider shrink-0">
@@ -2172,10 +2169,8 @@
             <div class="p-6 sm:p-7">
 
               <div class="flex items-center gap-3.5 mb-4">
-                <div class="w-10 h-10 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]">
-                  <svg class="w-5 h-5 text-cyan-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
-                    <path d="M1 3h6v1H1zm8 0h6v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-7 1h5v1H2zm7 0h5v1H9zm-1 1h1v2H1zm13 0h1v2h-1zm-12 2h5v1H2zm7 0h5v1H9zm-1-8h2v9H8zm-6 9h5v1H1zm8 0h6v1H9z"/>
-                  </svg>
+                <div class="w-10 h-10 pixel-corners-btn overflow-hidden shrink-0 drop-shadow-[2px_2px_0px_rgba(6,182,212,0.35)]">
+                  <img src="./img/icons/book.png" alt="Willingness to Learn" class="w-full h-full object-cover pixelated select-none" />
                 </div>
                 <div>
                   <h4 data-i18n="mindset_p2_title" class="text-base font-bold text-white">Willingness to Learn</h4>
@@ -2202,10 +2197,8 @@
             <div class="p-6 sm:p-7">
 
               <div class="flex items-center gap-3.5 mb-4">
-                <div class="w-10 h-10 pixel-corners-btn bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0 shadow-[2px_2px_0px_0px_rgba(16,185,129,0.25)]">
-                  <svg class="w-5 h-5 text-emerald-400" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges">
-                    <path d="M8 1h3v2H8zm-1 2h3v2H7zm-1 2h3v2H6zm-2 2h5v2H4zm3 2h3v2H7zm-3 2h3v2H4zm-2 2h2v2H2z"/>
-                  </svg>
+                <div class="w-10 h-10 pixel-corners-btn overflow-hidden shrink-0 drop-shadow-[2px_2px_0px_rgba(16,185,129,0.35)]">
+                  <img src="./img/icons/dumbbell-mint.png" alt="Patience & Persistence" class="w-full h-full object-cover pixelated select-none" />
                 </div>
                 <div>
                   <h4 data-i18n="mindset_p3_title" class="text-base font-bold text-white">Patience & Persistence</h4>

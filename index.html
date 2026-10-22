@@ -150,12 +150,10 @@
       border: 2px solid #38bdf8;
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(8, 47, 73, 0.95));
       box-shadow: 0 0 15px rgba(56, 189, 248, 0.35), 3px 3px 0px 0px rgba(2, 132, 199, 0.6);
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
-    .pixel-quest-btn:hover {
-      transform: translateY(-2px);
-      border-color: #34d399;
-      box-shadow: 0 0 25px rgba(52, 211, 153, 0.5), 4px 4px 0px 0px rgba(16, 185, 129, 0.6);
+    .pixel-quest-btn:active {
+      transform: translateY(1px);
     }
 
     /* Stepped Pixel Corners Frame (8-bit / 16-bit) */
@@ -224,18 +222,33 @@
         0 calc(100% - 8px)
       );
     }
-    .pixel-photo-frame,
     .pixel-frame-outer {
       padding: 2px;
       background: linear-gradient(135deg, rgba(56, 189, 248, 0.45), rgba(51, 65, 85, 0.95) 45%, rgba(15, 23, 42, 0.95));
       filter: drop-shadow(4px 4px 0px rgba(15, 23, 42, 0.95));
       transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .pixel-photo-frame:hover,
     .pixel-frame-outer:hover {
       background: linear-gradient(135deg, rgba(56, 189, 248, 0.8), rgba(14, 165, 233, 0.6) 45%, rgba(51, 65, 85, 0.95));
       filter: drop-shadow(6px 6px 0px rgba(2, 132, 199, 0.35)) drop-shadow(0 0 18px rgba(56, 189, 248, 0.25));
       transform: translateY(-2px);
+    }
+    .pixel-photo-frame {
+      padding: 4px;
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 35%, #0f172a 70%, #38bdf8 100%);
+      filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.35)) drop-shadow(4px 4px 0px rgba(15, 23, 42, 0.95));
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #hero-photo-wrapper:hover .pixel-photo-frame {
+      background: linear-gradient(135deg, #34d399 0%, #38bdf8 50%, #34d399 100%);
+      filter: drop-shadow(0 0 28px rgba(56, 189, 248, 0.55)) drop-shadow(5px 5px 0px rgba(2, 132, 199, 0.4));
+    }
+    #hero-photo-wrapper:hover .pixel-quest-btn {
+      border-color: #34d399;
+      box-shadow: 0 0 25px rgba(52, 211, 153, 0.55), 3px 3px 0px 0px rgba(16, 185, 129, 0.6);
+    }
+    #hero-photo-wrapper:hover .pixel-quest-btn span[data-i18n="adventure_badge"] {
+      color: #6ee7b7;
     }
     .pixel-frame-inner {
       background: rgba(15, 23, 42, 0.92);
@@ -388,15 +401,21 @@
       border-color: #0284c7 !important;
       box-shadow: 5px 5px 0px 0px rgba(2, 132, 199, 0.25) !important;
     }
-    html.light .pixel-photo-frame,
     html.light .pixel-frame-outer {
       background: linear-gradient(135deg, rgba(2, 132, 199, 0.4), #cbd5e1 50%, #94a3b8) !important;
       filter: drop-shadow(4px 4px 0px #cbd5e1) !important;
     }
-    html.light .pixel-photo-frame:hover,
     html.light .pixel-frame-outer:hover {
       background: linear-gradient(135deg, #0284c7, #38bdf8 50%, #cbd5e1) !important;
       filter: drop-shadow(5px 5px 0px rgba(2, 132, 199, 0.25)) !important;
+    }
+    html.light .pixel-photo-frame {
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 45%, #cbd5e1 100%) !important;
+      filter: drop-shadow(0 0 16px rgba(2, 132, 199, 0.3)) drop-shadow(4px 4px 0px #cbd5e1) !important;
+    }
+    html.light #hero-photo-wrapper:hover .pixel-photo-frame {
+      background: linear-gradient(135deg, #059669 0%, #0284c7 50%, #059669 100%) !important;
+      filter: drop-shadow(0 0 24px rgba(2, 132, 199, 0.4)) drop-shadow(5px 5px 0px rgba(2, 132, 199, 0.3)) !important;
     }
     html.light .pixel-frame-inner {
       background: #ffffff !important;
@@ -1108,21 +1127,21 @@
 
         <!-- Hero Profile Photo -->
         <div class="lg:col-span-4 flex justify-center lg:justify-end lg:pt-1">
-          <div class="relative group" id="hero-photo-wrapper">
+          <div class="relative group transition-transform duration-300 hover:-translate-y-1.5" id="hero-photo-wrapper">
             <!-- Glow background behind stepped frame -->
-            <div id="hero-photo-glow" class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 via-cyan-500 to-blue-500 rounded-lg blur-lg opacity-40 group-hover:opacity-75 transition duration-500 pointer-events-none"></div>
+            <div id="hero-photo-glow" class="absolute -inset-2 bg-gradient-to-r from-brand-500 via-cyan-500 to-blue-500 rounded-lg blur-xl opacity-35 group-hover:opacity-65 transition duration-500 pointer-events-none"></div>
 
             <!-- Pixel Art Stepped Photo Frame -->
-            <div class="pixel-photo-frame p-1 bg-gradient-to-b from-brand-400 via-slate-600 to-slate-800 pixel-corners-photo transition-all group-hover:from-emerald-400 group-hover:via-brand-500">
+            <div class="pixel-photo-frame p-1 pixel-corners-photo">
               <div id="hero-photo-card" class="lightbox-trigger relative w-64 sm:w-72 lg:w-80 aspect-[4/5] bg-slate-950 overflow-hidden pixel-corners-photo cursor-pointer" role="button" tabindex="0" aria-label="Ver fotografía de perfil">
                 <img id="hero-profile-img" src="./img/portfolio.jpeg" alt="Josue Torres Sibaja | Software Engineer & CS Student" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                 <span data-i18n="hero_photo_caption" class="sr-only">Josue Torres Sibaja | Software Engineer & CS Student</span>
               </div>
             </div>
 
-            <!-- Adventure Mode Trigger: Interactive Quest Module (Positioned in dedicated centering wrapper to eliminate hover jump) -->
-            <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 z-40">
-              <button id="start-adventure-btn" type="button" aria-label="¡Presióname! / Press me!" class="pixel-quest-btn pixel-corners-btn inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold text-white cursor-pointer group select-none whitespace-nowrap shadow-2xl">
+            <!-- Adventure Mode Trigger: Interactive Quest Module (Docked to bottom edge of frame) -->
+            <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 z-40">
+              <button id="start-adventure-btn" type="button" aria-label="¡Presióname! / Press me!" class="pixel-quest-btn pixel-corners-btn inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold text-white cursor-pointer select-none whitespace-nowrap shadow-2xl">
                 <span class="w-2 h-2 rounded-none bg-emerald-400 animate-pulse shrink-0"></span>
                 <span class="font-pixel text-[11px] text-white group-hover:text-emerald-300 transition-colors" data-i18n="adventure_badge">¡Presióname!</span>
               </button>

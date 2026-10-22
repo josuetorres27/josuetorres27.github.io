@@ -251,6 +251,19 @@
     #hero-photo-wrapper:hover .pixel-photo-chassis {
       box-shadow: inset 0 0 22px rgba(2, 132, 199, 0.25);
     }
+    .pixel-player-badge {
+      border: 1.5px solid #38bdf8;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(8, 47, 73, 0.95));
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.3), 2px 2px 0px 0px rgba(2, 132, 199, 0.6);
+      transition: all 0.25s ease;
+    }
+    #hero-photo-wrapper:hover .pixel-player-badge {
+      border-color: #34d399;
+      box-shadow: 0 0 18px rgba(52, 211, 153, 0.5), 2px 2px 0px 0px rgba(16, 185, 129, 0.6);
+    }
+    #hero-photo-wrapper:hover .pixel-player-badge span[data-i18n="hero_player_tag"] {
+      color: #6ee7b7;
+    }
     #hero-photo-wrapper:hover .pixel-quest-btn {
       border-color: #34d399;
       box-shadow: 0 0 25px rgba(52, 211, 153, 0.55), 3px 3px 0px 0px rgba(16, 185, 129, 0.6);
@@ -427,6 +440,10 @@
     }
     html.light .pixel-photo-chassis {
       background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(8, 47, 73, 0.95)) !important;
+    }
+    html.light .pixel-player-badge {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(8, 47, 73, 0.95)) !important;
+      border-color: #0284c7 !important;
     }
     html.light .pixel-frame-inner {
       background: #ffffff !important;
@@ -1142,10 +1159,18 @@
             <!-- Glow background behind stepped frame -->
             <div id="hero-photo-glow" class="absolute -inset-2 bg-gradient-to-r from-brand-500 via-cyan-500 to-blue-500 rounded-lg blur-xl opacity-35 group-hover:opacity-65 transition duration-500 pointer-events-none"></div>
 
+            <!-- Player 1 Arcade Header Badge (Docked to top edge of frame) -->
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 z-40">
+              <div class="pixel-player-badge pixel-corners-btn inline-flex items-center gap-1.5 px-3 py-1 select-none whitespace-nowrap">
+                <span class="w-1.5 h-1.5 rounded-none bg-cyan-400 shrink-0"></span>
+                <span class="font-pixel text-[10px] sm:text-[11px] text-cyan-300 tracking-wider" data-i18n="hero_player_tag">[ JUGADOR 1: JOSUÉ ]</span>
+              </div>
+            </div>
+
             <!-- Pixel Art Stepped Photo Frame (Outer Cyan Border) -->
             <div class="pixel-photo-frame p-1 pixel-corners-photo w-64 sm:w-72 lg:w-80">
-              <!-- Dark Console Chassis (Matching Quest Button Tone & Texture) -->
-              <div class="pixel-photo-chassis p-2.5 sm:p-3 pixel-corners-photo">
+              <!-- Dark Console Chassis (Matching Quest Button Tone & Texture, extended bottom for button dock) -->
+              <div class="pixel-photo-chassis p-2.5 sm:p-3 pb-6 sm:pb-7 pixel-corners-photo">
                 <div id="hero-photo-card" class="lightbox-trigger relative w-full aspect-[4/5] bg-slate-950 overflow-hidden pixel-corners-sm cursor-pointer border border-cyan-500/20 shadow-inner" role="button" tabindex="0" aria-label="Ver fotografía de perfil">
                   <img id="hero-profile-img" src="./img/portfolio.jpeg" alt="Josue Torres Sibaja | Software Engineer & CS Student" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
                   <span data-i18n="hero_photo_caption" class="sr-only">Josue Torres Sibaja | Software Engineer & CS Student</span>
@@ -1155,9 +1180,9 @@
 
             <!-- Adventure Mode Trigger: Interactive Quest Module (Docked to bottom edge of frame) -->
             <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 z-40">
-              <button id="start-adventure-btn" type="button" aria-label="¡Presióname! / Press me!" class="pixel-quest-btn pixel-corners-btn inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold text-white cursor-pointer select-none whitespace-nowrap shadow-2xl">
+              <button id="start-adventure-btn" type="button" aria-label="INICIAR AVENTURA / PRESS START" class="pixel-quest-btn pixel-corners-btn inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold text-white cursor-pointer select-none whitespace-nowrap shadow-2xl">
                 <span class="w-2 h-2 rounded-none bg-emerald-400 animate-pulse shrink-0"></span>
-                <span class="font-pixel text-[11px] text-white group-hover:text-emerald-300 transition-colors" data-i18n="adventure_badge">¡Presióname!</span>
+                <span class="font-pixel text-[11px] text-white group-hover:text-emerald-300 transition-colors" data-i18n="adventure_badge">INICIAR AVENTURA</span>
               </button>
             </div>
           </div>
@@ -3182,7 +3207,8 @@
         footer_hosted: "Hosted on",
         page_title: "Josue Torres Sibaja | Software Engineer & CS Student",
         hero_photo_caption: "Josue Torres Sibaja | Software Engineer & CS Student",
-        adventure_badge: "Press me!",
+        hero_player_tag: "[ PLAYER 1: JOSUE ]",
+        adventure_badge: "PRESS START",
         adv_lvl_0: "Hey there! 👋 I'm Pixel Josué. Welcome to my portfolio! Let's explore my software journey together.",
         adv_lvl_1: "Final semester CS student at UCR. I love architecting robust, scalable systems that solve real problems.",
         adv_lvl_2: "My professional journey: practical engineering, collaborating in tech teams, and building reliable features.",
@@ -3467,7 +3493,8 @@
         footer_hosted: "Alojado en",
         page_title: "Josué Torres Sibaja | Ingeniero de Software & Estudiante de CS",
         hero_photo_caption: "Josué Torres Sibaja | Ingeniero de Software & Estudiante de CS",
-        adventure_badge: "¡Presióname!",
+        hero_player_tag: "[ JUGADOR 1: JOSUÉ ]",
+        adventure_badge: "INICIAR AVENTURA",
         adv_lvl_0: "¡Hola! 👋 Soy Josué Pixel. ¡Te doy la bienvenida a mi portafolio! Acompáñame a explorar mi trayectoria.",
         adv_lvl_1: "Estudiante de último semestre en la UCR. Me apasiona diseñar sistemas escalables y resolver problemas complejos.",
         adv_lvl_2: "Mi camino profesional: ingeniería práctica, trabajo en equipo y desarrollo de funciones confiables en producción.",

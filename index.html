@@ -1202,28 +1202,102 @@
         <h2 data-i18n="about_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">01. Professional Profile</h2>
       </div>
 
-      <!-- Narrative Box (Profile Statement) -->
-      <div class="card-hover w-full pixel-frame-outer pixel-corners-card flex flex-col">
-        <div class="pixel-frame-inner pixel-corners-card flex flex-col h-full">
-          <div class="terminal-header">
-            <div class="flex items-center min-w-0">
-              <span class="text-brand-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-              <span class="font-mono text-slate-400 text-[11px] truncate">~/profile/bio_statement.md</span>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <!-- Narrative Box (Profile Statement) -->
+        <div class="lg:col-span-7 card-hover pixel-frame-outer pixel-corners-card flex flex-col">
+          <div class="pixel-frame-inner pixel-corners-card flex flex-col h-full">
+            <div class="terminal-header">
+              <div class="flex items-center min-w-0">
+                <span class="text-brand-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/profile/bio_statement.md</span>
+              </div>
+              <span class="font-pixel text-[8px] text-brand-400 shrink-0 ml-2">[BIO]</span>
             </div>
-            <span class="font-pixel text-[8px] text-brand-400 shrink-0 ml-2">[PROFILE]</span>
-          </div>
-          <div class="p-6 sm:p-8 md:p-10 space-y-4 sm:space-y-5 text-slate-300 leading-relaxed text-base sm:text-lg flex-1 flex flex-col justify-center">
-            <p data-i18n-html="about_p1">
-              Hello! I am an advanced Computer Science and Software Engineering student at <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. I enjoy understanding how software works under the hood, writing structured code, and working through algorithmic and data structure problems.
-            </p>
-            <p data-i18n-html="about_p2">
-              Throughout my university courses and projects, I have built solid foundations in object-oriented programming, systems fundamentals, and teamwork. I also regularly practice algorithmic problem-solving on my own through platforms like <strong class="text-white">LeetCode</strong> and <strong class="text-white">HackerRank</strong> to continually strengthen my analytical skills and code clarity.
-            </p>
-            <p data-i18n-html="about_p3">
-              I am currently seeking an opportunity as a <strong class="text-white">Junior Software Engineer or Intern</strong> where I can contribute, learn from experienced teams, and continue developing professionally.
-            </p>
+            <div class="p-6 sm:p-7 md:p-8 space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base flex-1 flex flex-col justify-center">
+              <p data-i18n-html="about_p1">
+                Hello! I am an advanced Computer Science and Software Engineering student at <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. I enjoy understanding how software works under the hood, writing structured code, and working through algorithmic and data structure problems.
+              </p>
+              <p data-i18n-html="about_p2">
+                Throughout my university courses and projects, I have built solid foundations in object-oriented programming, systems fundamentals, and teamwork. I also regularly practice algorithmic problem-solving on my own through platforms like <strong class="text-white">LeetCode</strong> and <strong class="text-white">HackerRank</strong> to continually strengthen my analytical skills and code clarity.
+              </p>
+              <p data-i18n-html="about_p3">
+                I am currently seeking an opportunity as a <strong class="text-white">Junior Software Engineer or Intern</strong> where I can contribute, learn from experienced teams, and continue developing professionally.
+              </p>
+            </div>
           </div>
         </div>
+
+        <!-- Quick Reference / Developer Attributes (HUD) -->
+        <div class="lg:col-span-5 card-hover pixel-frame-outer pixel-corners-card flex flex-col">
+          <div class="pixel-frame-inner pixel-corners-card flex flex-col h-full justify-between">
+            <div class="terminal-header">
+              <div class="flex items-center min-w-0">
+                <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+                <span class="font-mono text-slate-400 text-[11px] truncate">~/profile/quick_reference.cfg</span>
+              </div>
+              <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[ATTRIBUTES]</span>
+            </div>
+            
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+              
+              <!-- Status / Availability -->
+              <div class="p-3 pixel-corners-sm bg-slate-950/70 border border-slate-800 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-2 min-w-0">
+                  <span class="w-2.5 h-2.5 rounded-none bg-emerald-400 animate-pulse shrink-0"></span>
+                  <span data-i18n="about_status_label" class="text-xs font-mono font-bold text-slate-400 uppercase">Status</span>
+                </div>
+                <span data-i18n="about_status_val" class="text-xs font-mono font-bold text-emerald-400 truncate">Available · Internship / Junior</span>
+              </div>
+
+              <!-- Key Specs List -->
+              <div class="space-y-3.5 text-xs">
+                
+                <!-- Education / Formation -->
+                <div class="pb-3 border-b border-slate-800/80">
+                  <span data-i18n="about_edu_label" class="text-[10px] font-mono uppercase text-slate-400 tracking-wider block mb-1">Education</span>
+                  <p class="font-medium text-white flex items-center gap-1.5">
+                    <span>UCR</span>
+                    <span class="text-cyan-400">·</span>
+                    <span data-i18n="about_edu_val" class="text-slate-200">Software Engineering</span>
+                  </p>
+                </div>
+
+                <!-- Languages -->
+                <div class="pb-3 border-b border-slate-800/80">
+                  <span data-i18n="about_lang_label" class="text-[10px] font-mono uppercase text-slate-400 tracking-wider block mb-1">Languages</span>
+                  <p data-i18n="about_lang_val" class="font-medium text-white">
+                    Spanish (Native) · English (B2–C1)
+                  </p>
+                </div>
+
+                <!-- Focus Areas -->
+                <div class="pb-3 border-b border-slate-800/80">
+                  <span data-i18n="about_focus_label" class="text-[10px] font-mono uppercase text-slate-400 tracking-wider block mb-2">Focus Areas</span>
+                  <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                    <span data-i18n="about_focus_1" class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-cyan-300 border border-cyan-500/30">Data Structures & DSA</span>
+                    <span data-i18n="about_focus_2" class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-cyan-300 border border-cyan-500/30">OOP & Clean Code</span>
+                    <span data-i18n="about_focus_3" class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-cyan-300 border border-cyan-500/30">Hardware & IT Support</span>
+                    <span data-i18n="about_focus_4" class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-cyan-300 border border-cyan-500/30">UX / UI Design</span>
+                  </div>
+                </div>
+
+                <!-- Strengths / Fortalezas -->
+                <div>
+                  <span data-i18n="about_traits_label" class="text-[10px] font-mono uppercase text-slate-400 tracking-wider block mb-2">Core Strengths</span>
+                  <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                    <span data-i18n="about_trait_1" class="px-2 py-0.5 pixel-corners-btn bg-slate-800/60 text-slate-200 border border-slate-700/60">Self-Taught</span>
+                    <span data-i18n="about_trait_2" class="px-2 py-0.5 pixel-corners-btn bg-slate-800/60 text-slate-200 border border-slate-700/60">Critical Thinking</span>
+                    <span data-i18n="about_trait_3" class="px-2 py-0.5 pixel-corners-btn bg-slate-800/60 text-slate-200 border border-slate-700/60">Teamwork (Scrum)</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -1508,7 +1582,7 @@
             </div>
 
             <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
-              <span data-i18n="edu_una_institution" class="text-slate-200 font-semibold">Universidad Nacional (UNA)</span>
+              <span data-i18n="edu_una_institution" class="text-slate-200 font-semibold">National University of CR (UNA)</span>
               <span>·</span>
               <span data-i18n="edu_una_dates">2019 – 2021</span>
               <span>·</span>
@@ -1533,8 +1607,12 @@
               <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Workplace Collaboration</span>
             </div>
             
-            <div class="mt-4 pt-3 border-t border-slate-800/80">
+            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3 flex-wrap">
               <span data-i18n="edu_una_level" class="text-[11px] text-cyan-400 font-mono font-semibold">Professional Bilingual Working Proficiency</span>
+              <a id="una-cert-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 pixel-corners-btn bg-cyan-950/50 hover:bg-cyan-900/60 border border-cyan-500/40 text-cyan-300 hover:text-white text-[11px] font-mono font-semibold transition-all shadow-[1px_1px_0px_0px_rgba(6,182,212,0.3)] hover:shadow-[2px_2px_0px_0px_rgba(6,182,212,0.5)] active:translate-y-0.5" title="Ver certificado oficial / View certificate">
+                <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <span data-i18n="edu_una_cert_btn">View Certificate</span>
+              </a>
             </div>
           </div>
         
@@ -1577,28 +1655,28 @@
           </p>
           <ul class="space-y-2.5 text-sm">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
-              <span class="font-mono font-semibold tracking-wide text-slate-100">Python</span>
-              <span data-i18n="skill_py_sub" class="text-xs text-slate-400 font-mono text-right">Scripting / DSA</span>
+              <span class="text-slate-200">Python</span>
+              <span data-i18n="skill_py_sub" class="text-xs text-indigo-400 font-mono text-right">Scripting / DSA</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
-              <span class="font-mono font-semibold tracking-wide text-slate-100">C++</span>
-              <span data-i18n="skill_cpp_sub" class="text-xs text-slate-400 font-mono text-right">Pointers / Memory</span>
+              <span class="text-slate-200">C++</span>
+              <span data-i18n="skill_cpp_sub" class="text-xs text-indigo-400 font-mono text-right">Pointers / Memory</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
-              <span class="font-mono font-semibold tracking-wide text-slate-100">JavaScript</span>
-              <span data-i18n="skill_js_sub" class="text-xs text-slate-400 font-mono text-right">Frontend / Async</span>
+              <span class="text-slate-200">JavaScript</span>
+              <span data-i18n="skill_js_sub" class="text-xs text-indigo-400 font-mono text-right">Frontend / Async</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
-              <span class="font-mono font-semibold tracking-wide text-slate-100">TypeScript</span>
-              <span data-i18n="skill_ts_sub" class="text-xs text-slate-400 font-mono text-right">Full-Stack / Types</span>
+              <span class="text-slate-200">TypeScript</span>
+              <span data-i18n="skill_ts_sub" class="text-xs text-indigo-400 font-mono text-right">Full-Stack / Types</span>
             </li>
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60 gap-4">
-              <span class="font-mono font-semibold tracking-wide text-slate-100">SQL</span>
-              <span data-i18n="skill_sql_sub" class="text-xs text-slate-400 font-mono text-right">SQL Server / PostgreSQL</span>
+              <span class="text-slate-200">SQL</span>
+              <span data-i18n="skill_sql_sub" class="text-xs text-indigo-400 font-mono text-right">SQL Server / PostgreSQL</span>
             </li>
             <li class="flex items-center justify-between py-1 gap-4">
-              <span class="font-mono font-semibold tracking-wide text-slate-100">Java</span>
-              <span data-i18n="skill_java_sub" class="text-xs text-slate-400 font-mono text-right">OOP / Architecture</span>
+              <span class="text-slate-200">Java</span>
+              <span data-i18n="skill_java_sub" class="text-xs text-indigo-400 font-mono text-right">OOP / Architecture</span>
             </li>
           </ul>
         
@@ -2621,10 +2699,13 @@
         <div class="pixel-frame-inner pixel-corners-card">
           <div class="terminal-header">
             <div class="flex items-center min-w-0">
-              <span class="text-emerald-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-              <span class="font-mono text-slate-400 text-[11px] truncate">~/contact/get_in_touch.sh</span>
+              <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
+              <span class="font-mono text-slate-400 text-[11px] truncate">~/contact/save_point.sh</span>
             </div>
-            <span class="font-pixel text-[8px] text-emerald-400 shrink-0 ml-2">[INBOX]</span>
+            <div class="flex items-center gap-1.5 shrink-0 ml-2">
+              <span class="w-1.5 h-1.5 rounded-none bg-cyan-400 animate-pulse"></span>
+              <span class="font-pixel text-[8px] text-cyan-400 tracking-wider">[FINAL CHECKPOINT · SAVE POINT]</span>
+            </div>
           </div>
           <div class="p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
 
@@ -2986,6 +3067,21 @@
         about_p1: `Hello! I am an advanced Computer Science and Software Engineering student at <strong class="text-white">University of Costa Rica (UCR)</strong>. I enjoy understanding how software works under the hood, writing structured code, and working through algorithmic and data structure problems.`,
         about_p2: `Throughout my university courses and projects, I have built solid foundations in object-oriented programming, systems fundamentals, and teamwork. I also regularly practice algorithmic problem-solving on my own through platforms like <strong class="text-white">LeetCode</strong> and <strong class="text-white">HackerRank</strong> to continually strengthen my analytical skills and code clarity.`,
         about_p3: `I am currently seeking an opportunity as a <strong class="text-white">Junior Software Engineer or Intern</strong> where I can contribute, learn from experienced teams, and continue developing professionally.`,
+        about_status_label: "Status",
+        about_status_val: "Available · Internship / Junior",
+        about_edu_label: "Education",
+        about_edu_val: "Software Engineering",
+        about_lang_label: "Languages",
+        about_lang_val: "Spanish (Native) · English (B2–C1)",
+        about_focus_label: "Focus Areas",
+        about_focus_1: "Data Structures & DSA",
+        about_focus_2: "OOP & Clean Code",
+        about_focus_3: "Hardware & IT Support",
+        about_focus_4: "UX / UI Design",
+        about_traits_label: "Core Strengths",
+        about_trait_1: "Self-Taught",
+        about_trait_2: "Critical Thinking",
+        about_trait_3: "Teamwork (Scrum)",
         about_pill1: "Critical thinking",
         about_pill2: "Autonomous learner",
         about_pill3: "Best practices & Clean Code",
@@ -3042,12 +3138,13 @@
         edu_una_degree: "Conversational English Program",
         edu_una_hours: "13 Courses · 520 Hours Completed",
         edu_una_status: "Completed",
-        edu_una_institution: "Universidad Nacional (UNA)",
+        edu_una_institution: "National University of CR (UNA)",
         edu_una_dates: "2019 – 2021",
         edu_una_cefr: "CEFR B2–C1",
         edu_una_desc: "University-level conversational English program consisting of 13 courses (520 hours), focused on developing oral communication, listening comprehension, professional reading, and structured writing in technical and workplace settings.",
         edu_una_skills_title: "Communication Competencies",
         edu_una_level: "Professional Bilingual Working Proficiency",
+        edu_una_cert_btn: "View Certificate",
         edu_view_linkedin: "View Profile",
 
         skills_section_tag: "04. Stack & Skills",
@@ -3272,6 +3369,21 @@
         about_p1: `¡Hola! Soy estudiante avanzado de Computación e Ingeniería de Software en la <strong class="text-white">Universidad de Costa Rica (UCR)</strong>. Me gusta entender cómo funcionan los sistemas a bajo nivel, escribir código ordenado y resolver problemas algorítmicos.`,
         about_p2: `A lo largo de mis cursos y proyectos universitarios he desarrollado bases sólidas en programación orientada a objetos, fundamentos de computación y desarrollo colaborativo. También practico con regularidad resolución de problemas algorítmicos por mi cuenta en plataformas como <strong class="text-white">LeetCode</strong> y <strong class="text-white">HackerRank</strong> para fortalecer continuamente mi capacidad analítica y la claridad de mi código.`,
         about_p3: `Actualmente busco una oportunidad como <strong class="text-white">Ingeniero de Software Junior o Pasante</strong> donde pueda aportar, aprender de ingenieros con experiencia y continuar creciendo profesionalmente.`,
+        about_status_label: "Estado",
+        about_status_val: "Disponible · Pasantía / Junior",
+        about_edu_label: "Formación",
+        about_edu_val: "Ingeniería de Software",
+        about_lang_label: "Idiomas",
+        about_lang_val: "Español (Nativo) · Inglés (B2–C1)",
+        about_focus_label: "Áreas de Enfoque",
+        about_focus_1: "Estructuras de Datos & Algoritmos",
+        about_focus_2: "POO & Código Limpio",
+        about_focus_3: "Soporte de Hardware & TI",
+        about_focus_4: "Diseño UX / UI",
+        about_traits_label: "Fortalezas Principales",
+        about_trait_1: "Autodidacta",
+        about_trait_2: "Pensamiento Crítico",
+        about_trait_3: "Trabajo en Equipo (Scrum)",
         about_pill1: "Pensamiento crítico",
         about_pill2: "Autonomía de aprendizaje",
         about_pill3: "Buenas prácticas & Clean Code",
@@ -3334,6 +3446,7 @@
         edu_una_desc: "Programa universitario de inglés conversacional de 13 cursos (520 horas lectivas), enfocado en desarrollar fluidez oral, comprensión auditiva, lectura técnica y redacción estructurada en contextos profesionales.",
         edu_una_skills_title: "Competencias de Comunicación",
         edu_una_level: "Competencia Bilingüe Profesional para Trabajo",
+        edu_una_cert_btn: "Ver Certificado",
         edu_view_linkedin: "Ver Perfil",
 
         skills_section_tag: "04. Stack & Habilidades",

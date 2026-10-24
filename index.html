@@ -1578,7 +1578,7 @@
         <h2 data-i18n="skills_section_tag" class="text-xs uppercase tracking-widest font-bold text-brand-400 font-mono">04. Stack & Skills</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Category 1: Languages -->
         <div class="card-hover pixel-frame-outer pixel-corners-card">
           <div class="pixel-frame-inner pixel-corners-card">
@@ -1680,7 +1680,7 @@
         </div>
 
         <!-- Category 3: Tools & Environment -->
-        <div class="card-hover pixel-frame-outer pixel-corners-card">
+        <div class="card-hover pixel-frame-outer pixel-corners-card md:col-span-2 lg:col-span-1">
           <div class="pixel-frame-inner pixel-corners-card">
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
@@ -1698,7 +1698,7 @@
           <p data-i18n="skills_cat3_desc" class="text-xs text-slate-400 mb-5 leading-relaxed">
             Collaborative development, version control, and CI/CD deployment pipelines.
           </p>
-          <ul class="space-y-2.5 text-sm">
+          <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-2.5 text-sm">
             <li class="flex items-center justify-between py-1 border-b border-slate-800/60">
               <span data-i18n="skill_git_title" class="text-slate-200">Git & GitHub</span>
               <span data-i18n="skill_git_sub" class="text-xs text-emerald-400 font-mono">Branching, PRs, CI</span>
@@ -1719,7 +1719,7 @@
               <span data-i18n="skill_vscode_title" class="text-slate-200">VS Code & Debuggers</span>
               <span data-i18n="skill_vscode_sub" class="text-xs text-emerald-400 font-mono">GDB, PyTest</span>
             </li>
-            <li class="flex items-center justify-between py-1">
+            <li class="flex items-center justify-between py-1 border-b md:border-b border-slate-800/60">
               <span data-i18n="skill_ci_title" class="text-slate-200">Testing & CI/CD</span>
               <span data-i18n="skill_ci_sub" class="text-xs text-emerald-400 font-mono">GitHub Actions</span>
             </li>
@@ -1787,7 +1787,7 @@
             </p>
           </div>
 
-          <div class="flex flex-wrap lg:flex-nowrap items-center gap-1.5 sm:gap-2 pt-4 border-t border-slate-800/80 font-mono text-[11px] sm:text-xs">
+          <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-4 border-t border-slate-800/80 font-mono text-[11px] sm:text-xs">
             <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Next.js 16</span>
             <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">React 19</span>
             <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">TypeScript</span>
@@ -2649,11 +2649,11 @@
             </div>
             <span class="font-pixel text-[8px] text-cyan-400 tracking-wider shrink-0 ml-2">[FINAL CHECKPOINT]</span>
           </div>
-          <div class="p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
 
         <div class="text-left">
           <p data-i18n="contact_email_label" class="text-xs font-mono uppercase text-slate-400 mb-1">Email Address</p>
-          <p id="email-text" class="text-base sm:text-lg font-mono font-medium text-white">dev.josue.torres@gmail.com</p>
+          <p id="email-text" class="text-base sm:text-lg font-mono font-medium text-white break-all sm:break-normal">dev.josue.torres@gmail.com</p>
         </div>
         
         <div class="flex items-center gap-3 w-full sm:w-auto">
@@ -4173,9 +4173,11 @@
         const deltaX = targetX - startX;
         const deltaY = targetY - startY;
 
-        // Open rail and dialogue box immediately into DOM
-        rail.classList.remove('hidden', 'pointer-events-none');
-        rail.classList.add('flex');
+        // Open rail on tablet & desktop (>= 640px) and dialogue box immediately into DOM
+        if (!isMobile) {
+          rail.classList.remove('hidden', 'pointer-events-none');
+          rail.classList.add('flex');
+        }
 
         dialogueBox.classList.remove('hidden');
         dialogueBox.classList.add('flex');
@@ -4192,8 +4194,10 @@
             flyingSprite.classList.add('hidden');
             flyingSprite.classList.remove('anim-pop-out-arc');
 
-            rail.classList.remove('opacity-0');
-            rail.classList.add('opacity-100');
+            if (!isMobile) {
+              rail.classList.remove('opacity-0');
+              rail.classList.add('opacity-100');
+            }
 
             dialogueBox.classList.remove('opacity-0', 'translate-y-4');
             dialogueBox.classList.add('opacity-100', 'translate-y-0');
@@ -4214,8 +4218,10 @@
             resetAfkTimer();
           }, 850);
         } else {
-          rail.classList.remove('opacity-0');
-          rail.classList.add('opacity-100');
+          if (!isMobile) {
+            rail.classList.remove('opacity-0');
+            rail.classList.add('opacity-100');
+          }
           dialogueBox.classList.remove('opacity-0', 'translate-y-4');
           dialogueBox.classList.add('opacity-100', 'translate-y-0');
           currentAdvLevel = 0;
@@ -4339,6 +4345,19 @@
 
           isScrollingThrottle = false;
         });
+      }, { passive: true });
+
+      // Responsive rail toggle on window resize
+      window.addEventListener('resize', () => {
+        if (!isAdventureActive) return;
+        const mobileNow = window.innerWidth < 640;
+        if (mobileNow) {
+          rail.classList.add('hidden', 'opacity-0', 'pointer-events-none');
+          rail.classList.remove('flex', 'opacity-100');
+        } else {
+          rail.classList.remove('hidden', 'pointer-events-none');
+          rail.classList.add('flex', 'opacity-100');
+        }
       }, { passive: true });
     }
 

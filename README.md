@@ -17,7 +17,7 @@ Welcome to the official repository for my personal software engineering portfoli
 I am a final-semester Computer Science and Software Engineering student at the **Universidad de Costa Rica (UCR)**. I have a passion for building high-performance software, scalable systems, and clean architectural patterns. My background combines rigorous theoretical foundations (data structures, algorithms, object-oriented design, distributed systems) with practical industry and university engineering experience.
 
 - 🎓 **Education:** B.Sc. in Computer Science (Software Engineering Emphasis) — Universidad de Costa Rica (UCR) *(Mar 2023 – Dec 2026 · Final Graduation Stage)*
-- 🗣️ **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency — Universidad Nacional, 2019 – 2021)
+- 🗣️ **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency — Universidad Nacional, 2019 – 2021 · 13 Levels / 520 Hours)
 - 💼 **Current Role:** IT Support Assistant at Universidad de Costa Rica (Oficina de Orientación) *(Aug 2026 – Present · Active Contract)*
 - 🎯 **Target Role:** Junior Software Engineer / Software Engineering Intern
 

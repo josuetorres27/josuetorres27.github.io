@@ -4,8 +4,9 @@
 [![GitHub Pages](https://img.shields.io/badge/Deployed%20with-GitHub%20Pages-22c55e?style=for-the-badge&logo=github)](https://josuetorres27.github.io/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=for-the-badge)](#-portfolio-key-features)
+[![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=for-the-badge)](#-portfolio-key-features)
 
-Welcome to the official repository for my personal software engineering portfolio. This website showcases my academic background, featured software engineering projects, production experience in IT support & web administration, and personal interests.
+Welcome to the official repository for my personal software engineering portfolio. This website showcases my academic background, featured software engineering projects, production experience in IT infrastructure & web administration, applied AI workflows, and personal interests — wrapped in a custom retro gaming and terminal aesthetic.
 
 🌐 **Live Website:** [https://josuetorres27.github.io](https://josuetorres27.github.io)
 
@@ -13,12 +14,12 @@ Welcome to the official repository for my personal software engineering portfoli
 
 ## 👨‍💻 About Me
 
-I am a final-semester Computer Science and Software Engineering student at the **Universidad de Costa Rica (UCR)**. I have a passion for building scalable, high-performance systems and clean software architectures. My background combines rigorous theoretical foundations (data structures, algorithms, object-oriented design, distributed systems) with practical industry and university project experience.
+I am a final-semester Computer Science and Software Engineering student at the **Universidad de Costa Rica (UCR)**. I have a passion for building high-performance software, scalable systems, and clean architectural patterns. My background combines rigorous theoretical foundations (data structures, algorithms, object-oriented design, distributed systems) with practical industry and university engineering experience.
 
-- 🎓 **Education:** B.Sc. in Computer Science (Software Engineering Emphasis) — Universidad de Costa Rica (UCR) *(2023 – Present / Expected 2027)*
-- 🗣️ **Languages:** Spanish (Native), English (Professional Working Proficiency, CEFR B2–C1 — Universidad Nacional, 2019 – 2021)
-- 💼 **Current Role:** IT Support Assistant at Universidad de Costa Rica (Oficina de Orientación) *(Aug 2026 – Present)*
-- 🎯 **Looking For:** Software Engineering Internships and Junior Roles
+- 🎓 **Education:** B.Sc. in Computer Science (Software Engineering Emphasis) — Universidad de Costa Rica (UCR) *(Mar 2023 – Dec 2026 · Final Graduation Stage)*
+- 🗣️ **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency — Universidad Nacional, 2019 – 2021)
+- 💼 **Current Role:** IT Support Assistant at Universidad de Costa Rica (Oficina de Orientación) *(Aug 2026 – Present · Active Contract)*
+- 🎯 **Target Role:** Junior Software Engineer / Software Engineering Intern
 
 ---
 
@@ -26,11 +27,11 @@ I am a final-semester Computer Science and Software Engineering student at the *
 
 | Category | Technologies & Tools |
 | :--- | :--- |
-| **Languages** | TypeScript, Python, C#, C++, Java, SQL, HTML5, CSS3, JavaScript (ES6+) |
-| **Frameworks & Libraries** | Next.js, React, ASP.NET Core, Node.js, Tailwind CSS, Prisma ORM |
-| **Databases & Storage** | PostgreSQL, SQL Server, MinIO (S3-compatible Object Storage) |
-| **Developer Tools & OS** | Git, GitHub Actions (CI/CD), Linux (Ubuntu/Debian), Windows, Docker, Playwright, Vitest, Visual Studio, VS Code, Figma |
-| **Applied AI & Agentic Workflows** | Autonomous Coding Agents (Google Antigravity, Claude Code CLI), Gemini API, Claude API, OpenAI SDK, Tool & Function Calling, Context & Prompt Engineering |
+| **Languages** | Python, C++, TypeScript, JavaScript (ES6+), C#, Java, SQL, HTML5, CSS3 |
+| **Frameworks & Libraries** | Next.js 16, React 19, ASP.NET Core, Node.js, Tailwind CSS, Prisma ORM |
+| **Databases & Messaging** | PostgreSQL, Microsoft SQL Server, Redis, BullMQ, MinIO (S3-compatible Object Storage) |
+| **Developer Tools & OS** | Git, GitHub Actions (CI/CD), Linux (Ubuntu/Debian), Windows, Docker, Playwright, Vitest, Visual Studio, VS Code |
+| **Applied AI & Agentic Workflows** | Autonomous Coding Agents (Google Antigravity, Claude Code), Gemini API, Claude API, OpenAI SDK, Tool & Function Calling, Context & Prompt Engineering |
 
 ---
 
@@ -39,27 +40,28 @@ I am a final-semester Computer Science and Software Engineering student at the *
 ### 🔭 [LASCE — Institutional Scientific Web Platform](https://lasce.up.railway.app/) *(Active Development)*
 Full-stack institutional and scientific-data platform developed for the **Solar Astrophysics and Space Weather Laboratory (LASCE)** at the Universidad de Costa Rica.
 - **Live Platform:** [https://lasce.up.railway.app/](https://lasce.up.railway.app/)
-- **Stack:** Next.js (App Router), TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, MinIO, Docker, Playwright, Vitest.
-- **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory, optimistic concurrency control, accessible WCAG UI components, and automated E2E testing pipelines.
+- **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
+- **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
 
-### 🔬 Virtual Microscope Administration Panel *(UCR)*
+### 🔬 [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel) *(UCR)*
 Desktop administration platform that digitizes microscopy workflows and manages biological specimen collections.
-- **Stack:** C#, .NET, Desktop Architecture, Embedded Database, PostgreSQL, Visual Studio.
-- **Highlights:** Hierarchical data organization (Groups, Boxes, Slides), high-fidelity microscopy imaging, and offline data persistence.
+- **Repository:** [RolandoVillavicencio013/biological-microscope-administration-panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel)
+- **Stack:** C#, ASP.NET Core, .NET, PostgreSQL, Desktop Architecture, Visual Studio.
+- **Highlights:** Hierarchical data organization (Groups, Boxes, Slides), high-fidelity microscopy imaging, and offline-capable workstation data persistence.
 
 ### 🎢 ThemePark UCR — Virtual University Simulation *(UCR)*
 Virtual campus simulation built in Unity with a decoupled backend architecture.
-- **Stack:** C#, ASP.NET Core, RESTful APIs, SQL Server, Unity, Scrum.
-- **Highlights:** Decoupled REST services for real-time interaction with virtual campus buildings, facilities, and educational objects.
+- **Stack:** C#, ASP.NET Core, RESTful APIs, SQL Server, Unity Integration, Scrum.
+- **Highlights:** Decoupled REST services for real-time interaction with virtual campus buildings, facilities, and interactive learning objects.
 
 ### 🌐 Distributed ASCII Art System *(UCR)*
 Distributed client-server network architecture for managing and rendering ASCII art figures across nodes.
-- **Stack:** C++, Linux Sockets, Inter-Process Communication (IPC), Custom File System.
+- **Stack:** C++, Linux Sockets (TCP/IP), HTTP Protocol, Inter-Process Communication (IPC), Custom File System.
 - **Highlights:** Concurrent connection handling, network protocol design, and multi-node communication in a Linux environment.
 
-### 🎙️ ¿Quién controla nuestra atención? *(Vodcast Ético)*
-Audiovisual ethical investigation analyzing algorithmic recommendations, the attention economy, and tech governance.
-- **Episodes:** [Episodio 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episodio 2 (YouTube)](https://youtu.be/MKMLW2HJ6zo)
+### 🎙️ ¿Quién controla nuestra atención? *(Ethical Vodcast)*
+Audiovisual ethical investigation analyzing algorithmic recommendation engines, the attention economy, and the professional responsibilities of computing engineers.
+- **Episodes:** [Episodio 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episodio 2 — Detrás de Cámaras (YouTube)](https://youtu.be/MKMLW2HJ6zo)
 - **Co-creators:** [Gabriel Serrano](https://www.linkedin.com/in/gabrielserranor/) & [Rolando Villavicencio González](https://www.linkedin.com/in/rolando-villavicencio-gonzalez/)
 - **Production:** Multi-camera setup, scriptwriting, professional sound engineering, and post-production editing.
 
@@ -67,11 +69,13 @@ Audiovisual ethical investigation analyzing algorithmic recommendations, the att
 
 ## ✨ Portfolio Key Features
 
-- **⚡ Zero-Build Static Performance:** Built with clean HTML5, Tailwind CSS, and vanilla ES6+ JavaScript. Fast load times, zero client-side framework overhead.
-- **🌐 Dual-Language Support (EN / ES):** Complete client-side internationalization system with URL parameter and localStorage persistence.
-- **🌓 Theme Engine:** Seamless Dark and Light theme switching with system preference detection and smooth color transitions.
-- **📱 Responsive & Accessible:** Built mobile-first with keyboard accessibility, clean focus states, and semantic HTML structure.
-- **📸 Interactive Galleries & Lightbox:** Custom interactive carousels with modal image inspection and location metadata.
+- **🎮 Retro Gaming Aesthetic & Interactive Adventure Mode:** Custom stepped pixel-art frames, arcade CRT/terminal window headers, quest tags, and an interactive pixel companion with quest navigation.
+- **🔊 Procedural 8-Bit Audio Synthesis:** Real-time retro sound effects (blip, coin, jump, level-up, exit) synthesized on-the-fly using the native **Web Audio API** oscillators — zero external audio files or dependencies.
+- **⚡ Zero-Build Static Performance:** Built with clean HTML5, Tailwind CSS, and vanilla ES6+ JavaScript. Blazing-fast load times with zero framework bundle overhead.
+- **🌐 Dual-Language Support (EN / ES):** Complete client-side internationalization system (`I18N`) with automatic locale detection, persistent language preference, and URL parameter support.
+- **🌓 Adaptive Theme Engine:** Seamless Dark and Light theme switching with custom retro color palettes, system preference detection, and smooth color transitions.
+- **📱 Fully Responsive & Accessible:** Optimized for devices ranging from mobile (393px) and tablet (834px) to widescreen desktop, adhering to semantic HTML, keyboard navigation, and WCAG contrast guidelines.
+- **📸 Interactive Galleries & Lightbox:** Custom carousels and full-screen image inspection modal with geolocation metadata and Google Maps integration.
 
 ---
 
@@ -84,7 +88,9 @@ josuetorres27.github.io/
 │   └── CV_Josue_Torres_Sibaja.pdf       # Spanish Curriculum Vitae (PDF)
 ├── img/
 │   ├── portfolio.jpeg                   # Professional profile photograph
-│   ├── experience/                      # Workplace & IT maintenance operational photos
+│   ├── icons/                           # Custom retro pixel-art icon suite
+│   ├── character-sprites/               # Pixel companion animation sprite sheets
+│   ├── experience/                      # Workplace & IT operations photographic evidence
 │   ├── handicrafts/                     # Foamy clay sculpting & TCU workshop creations
 │   └── photography/                     # Costa Rica landscape & nature gallery
 ├── index.html                           # Single-page portfolio application

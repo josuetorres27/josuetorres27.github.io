@@ -516,6 +516,11 @@
       background-image: linear-gradient(to right, #0284c7, #0ea5e9, #0891b2) !important;
     }
 
+    /* Disable glow blobs in Light Mode to prevent foggy artifacts */
+    html.light .glow-blob {
+      display: none !important;
+    }
+
     /* Badge & Tag Container Contrast in Light Mode */
     html.light .bg-brand-950\/60,
     html.light .bg-brand-500\/10 {
@@ -1101,9 +1106,9 @@
           </div>
 
           <!-- Main Headline with Dynamic Typewriter Effect -->
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-4 sm:mb-6">
             <span data-i18n-html="hero_greeting">Hi, I'm <span class="text-white">Josue Torres Sibaja</span></span><br>
-            <span class="block min-h-[3.8em] sm:min-h-[2.5em] lg:min-h-[2.4em]"><span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor" aria-hidden="true">|</span></span>
+            <span class="block min-h-[2.4em] sm:min-h-[2.5em] lg:min-h-[2.4em]"><span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Software Engineer & CS Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor" aria-hidden="true">|</span></span>
           </h1>
 
           <!-- Value Proposition / Bio Summary -->
@@ -1152,7 +1157,7 @@
             </div>
 
             <!-- Quick Links: GitHub & LinkedIn -->
-            <div class="flex items-center gap-2 ml-1">
+            <div class="flex items-center justify-center sm:justify-start gap-2.5 sm:gap-2 w-full sm:w-auto mt-1 sm:mt-0">
               <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="pixel-btn pixel-btn-icon pixel-corners-btn p-3 text-slate-400 hover:text-white">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
@@ -1279,8 +1284,9 @@
           <div class="p-6 sm:p-8 relative overflow-hidden">
 
         <!-- Glow accent -->
-        <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="glow-blob absolute -right-20 -top-20 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
+        <div class="relative z-10">
         <!-- Role Header Row -->
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
           <div>
@@ -1296,10 +1302,8 @@
             <h4 data-i18n="experience_role_title" class="text-xl sm:text-2xl font-bold text-white tracking-tight">
               Information Technology Support Assistant
             </h4>
-            <p class="text-sm sm:text-base text-brand-300 font-medium mt-1 flex items-center gap-2">
-              <span data-i18n="experience_company">Universidad de Costa Rica (UCR)</span>
-              <span class="text-slate-600">·</span>
-              <span data-i18n="experience_department" class="text-slate-300">Oficina de Orientación</span>
+            <p class="text-sm sm:text-base font-medium mt-1">
+              <span data-i18n="experience_company" class="text-brand-300">Universidad de Costa Rica (UCR)</span> <span class="text-slate-500 mx-1.5 select-none font-bold">·</span> <span data-i18n="experience_department" class="text-slate-300">Oficina de Orientación</span>
             </p>
           </div>
         </div>
@@ -1394,7 +1398,7 @@
           </div>
         </div>
 
-      
+        </div>
           </div>
         </div>
       </div>
@@ -1458,9 +1462,8 @@
               </span>
             </div>
 
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
+            <div class="flex flex-col gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80">
               <span data-i18n="edu_ucr_institution" class="text-slate-200 font-semibold">Universidad de Costa Rica (UCR)</span>
-              <span>·</span>
               <span data-i18n="edu_ucr_dates">Mar 2023 – Dec 2026</span>
             </div>
 
@@ -1473,15 +1476,15 @@
             <h5 data-i18n="edu_ucr_skills_title" class="text-[11px] uppercase tracking-wider font-mono text-brand-400 font-bold mb-2">
               Key Coursework & Competencies
             </h5>
-            <div class="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Microsoft SQL Server</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Python</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">C++</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Java</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Data Structures & DSA</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Software Architecture</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Distributed Systems</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Scrum</span>
+            <div class="grid grid-cols-2 gap-1.5 sm:gap-2 font-mono text-[11px]">
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Microsoft SQL Server</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Python</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">C++</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Java</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Data Structures & DSA</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Software Architecture</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Distributed Systems</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Scrum</span>
             </div>
             
             <div class="mt-4 pt-3 border-t border-slate-800/80">
@@ -1526,11 +1529,9 @@
               </span>
             </div>
 
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
+            <div class="flex flex-col gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80">
               <span data-i18n="edu_una_institution" class="text-slate-200 font-semibold">National University of CR (UNA)</span>
-              <span>·</span>
               <span data-i18n="edu_una_dates">2019 – 2021</span>
-              <span>·</span>
               <span data-i18n="edu_una_cefr" class="text-cyan-300 font-semibold">CEFR B2–C1</span>
             </div>
 
@@ -1543,13 +1544,13 @@
             <h5 data-i18n="edu_una_skills_title" class="text-[11px] uppercase tracking-wider font-mono text-cyan-400 font-bold mb-2">
               Communication Competencies
             </h5>
-            <div class="flex flex-wrap items-center gap-1.5 font-mono text-[11px]">
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Oral Communication</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Listening Comprehension</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">English Writing</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">English Grammar</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Technical Reading</span>
-              <span class="px-2 py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Workplace Collaboration</span>
+            <div class="grid grid-cols-2 gap-1.5 sm:gap-2 font-mono text-[11px]">
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Oral Communication</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Listening Comprehension</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">English Writing</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">English Grammar</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Technical Reading</span>
+              <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Workplace Collaboration</span>
             </div>
             
             <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3 flex-wrap">
@@ -1883,23 +1884,24 @@
             </div>
             <div class="p-6 sm:p-8">
 
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
-            <div>
-              <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span data-i18n="p1_type" class="inline-flex items-center px-3 py-1.5 pixel-corners-btn text-xs font-mono font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-500/15 border border-indigo-500/40 shadow-[2px_2px_0px_0px_rgba(99,102,241,0.25)]">
-                  C# / .NET · Desktop Application
-                </span>
-                <span data-i18n="p1_date" class="text-xs font-mono text-slate-400">Mar 2026 – Jul 2026</span>
-              </div>
-              <h4 data-i18n="p1_title" class="text-xl sm:text-2xl font-bold text-white">
-                Virtual Microscope Administration Panel
-              </h4>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span data-i18n="p1_type" class="inline-flex items-center px-3 py-1.5 pixel-corners-btn text-xs font-mono font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-500/15 border border-indigo-500/40 shadow-[2px_2px_0px_0px_rgba(99,102,241,0.25)]">
+                C# / .NET · Desktop Application
+              </span>
+              <span data-i18n="p1_date" class="text-xs font-mono text-slate-400">Mar 2026 – Jul 2026</span>
             </div>
-            <a href="https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center gap-2 self-start" aria-label="Ver repositorio de Virtual Microscope en GitHub">
+            <a href="https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center gap-2" aria-label="Ver repositorio de Virtual Microscope en GitHub">
               <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
               <span>GitHub</span>
               <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
             </a>
+          </div>
+
+          <div class="mb-4">
+            <h4 data-i18n="p1_title" class="text-xl sm:text-2xl font-bold text-white">
+              Virtual Microscope Administration Panel
+            </h4>
           </div>
 
           <p data-i18n="p1_desc" class="text-slate-300 text-sm sm:text-base leading-relaxed mb-5">

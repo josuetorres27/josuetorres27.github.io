@@ -83,9 +83,10 @@ Audiovisual ethical investigation analyzing algorithmic recommendation engines, 
 
 ```text
 josuetorres27.github.io/
-├── resume/
-│   ├── Resume_Josue_Torres_Sibaja.pdf   # English Resume (PDF)
-│   └── CV_Josue_Torres_Sibaja.pdf       # Spanish Curriculum Vitae (PDF)
+├── docs/
+│   ├── Josue_Torres_Resume.pdf                  # English Resume (PDF)
+│   ├── Josue_Torres_CV.pdf                      # Spanish Curriculum Vitae (PDF)
+│   └── Josue_Torres_English_Certificate_UNA.pdf # UNA Conversational English Certificate (PDF)
 ├── img/
 │   ├── portfolio.jpeg                   # Professional profile photograph
 │   ├── icons/                           # Custom retro pixel-art icon suite
@@ -99,11 +100,12 @@ josuetorres27.github.io/
 
 ---
 
-## 📄 Curriculum Vitae / Resume
+## 📄 Curriculum Vitae, Resume & Certifications
 
-You can view or download my latest resumes directly from the repository:
-- 🇺🇸 [English Resume (PDF)](./resume/Resume_Josue_Torres_Sibaja.pdf)
-- 🇪🇸 [Curriculum Vitae en Español (PDF)](./resume/CV_Josue_Torres_Sibaja.pdf)
+You can view or download my latest resumes and official certifications directly from the repository:
+- 🇺🇸 [English Resume (PDF)](./docs/Josue_Torres_Resume.pdf)
+- 🇪🇸 [Curriculum Vitae en Español (PDF)](./docs/Josue_Torres_CV.pdf)
+- 📜 [UNA Conversational English Certificate (PDF)](./docs/Josue_Torres_English_Certificate_UNA.pdf)
 
 ---
 

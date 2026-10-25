@@ -95,9 +95,29 @@
       box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 102, 241, 0.35);
     }
 
-    /* Education Card Header: in Spanish desktop, titles are concise 1-liners, so collapse artificial min-height to maintain tight, crisp spacing */
+    /* Education Card alignment across breakpoints */
     html[lang="es"] .edu-header-container {
-      min-height: auto !important;
+      min-height: auto;
+    }
+
+    /* On tablet (768px to 1279px), 2-column cards wrap titles & meta: synchronize section heights for perfect symmetry */
+    @media (min-width: 768px) and (max-width: 1279px) {
+      .edu-header-container,
+      html[lang="es"] .edu-header-container {
+        min-height: 7.75rem !important;
+      }
+      .edu-meta-container {
+        min-height: 3.25rem !important;
+      }
+      .edu-desc-container {
+        min-height: 10.5rem !important;
+      }
+      .edu-skills-container {
+        min-height: 6.25rem !important;
+      }
+      .edu-bottom-container {
+        min-height: 4.5rem !important;
+      }
     }
 
     /* Retro Gaming & Code Aesthetics */
@@ -1434,11 +1454,11 @@
       </div>
 
       <!-- Education Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
 
         <!-- Degree 1: Universidad de Costa Rica (UCR) -->
-        <article class="card-hover pixel-frame-outer pixel-corners-card">
-          <div class="pixel-frame-inner pixel-corners-card flex flex-col justify-between">
+        <article class="card-hover pixel-frame-outer pixel-corners-card h-full flex flex-col">
+          <div class="pixel-frame-inner pixel-corners-card flex-1 flex flex-col justify-between h-full">
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
                 <span class="text-brand-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
@@ -1469,13 +1489,13 @@
               </span>
             </div>
 
-            <div class="flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
+            <div class="edu-meta-container flex flex-col sm:flex-row sm:items-center sm:gap-x-2.5 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
               <span data-i18n="edu_ucr_institution" class="text-slate-200 font-semibold">Universidad de Costa Rica (UCR)</span>
-              <span class="hidden sm:inline-flex items-center justify-center text-slate-600 self-center select-none font-bold">·</span>
+              <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-500 self-center shrink-0" aria-hidden="true"></span>
               <span data-i18n-html="edu_ucr_dates"><span class="whitespace-nowrap">Mar 2023 –</span> <span class="whitespace-nowrap">Dec 2026</span></span>
             </div>
 
-            <p data-i18n="edu_ucr_desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 md:min-h-[5.75rem]">
+            <p data-i18n="edu_ucr_desc" class="edu-desc-container text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 md:min-h-[5.75rem]">
               Comprehensive undergraduate program centered on software engineering principles, distributed architectures, databases, operating systems, and object-oriented systems design. Practical experience in collaborative projects using agile methodologies (Scrum).
             </p>
           </div>
@@ -1484,7 +1504,7 @@
             <h5 data-i18n="edu_ucr_skills_title" class="text-[11px] uppercase tracking-wider font-mono text-brand-400 font-bold mb-2">
               Key Coursework & Competencies
             </h5>
-            <div class="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 font-mono text-[11px]">
+            <div class="edu-skills-container grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 font-mono text-[11px]">
               <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Microsoft SQL Server</span>
               <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Python</span>
               <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">C++</span>
@@ -1495,7 +1515,7 @@
               <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Scrum</span>
             </div>
             
-            <div class="mt-4 pt-3 border-t border-slate-800/80">
+            <div class="edu-bottom-container mt-4 pt-3 border-t border-slate-800/80 flex items-center">
               <span data-i18n="edu_ucr_level" class="text-[11px] text-brand-400 font-mono font-semibold">Undergraduate Degree · Last Semester</span>
             </div>
           </div>
@@ -1505,8 +1525,8 @@
         </article>
 
         <!-- Degree 2: Universidad Nacional (UNA) -->
-        <article class="card-hover pixel-frame-outer pixel-corners-card">
-          <div class="pixel-frame-inner pixel-corners-card flex flex-col justify-between">
+        <article class="card-hover pixel-frame-outer pixel-corners-card h-full flex flex-col">
+          <div class="pixel-frame-inner pixel-corners-card flex-1 flex flex-col justify-between h-full">
             <div class="terminal-header">
               <div class="flex items-center min-w-0">
                 <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
@@ -1537,15 +1557,15 @@
               </span>
             </div>
 
-            <div class="flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
+            <div class="edu-meta-container flex flex-col sm:flex-row sm:items-center sm:gap-x-2.5 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
               <span data-i18n="edu_una_institution" class="text-slate-200 font-semibold">National University of CR (UNA)</span>
-              <span class="hidden sm:inline-flex items-center justify-center text-slate-600 self-center select-none font-bold">·</span>
+              <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-500 self-center shrink-0" aria-hidden="true"></span>
               <span data-i18n-html="edu_una_dates"><span class="whitespace-nowrap">2019 –</span> <span class="whitespace-nowrap">2021</span></span>
-              <span class="hidden sm:inline-flex items-center justify-center text-slate-600 self-center select-none font-bold">·</span>
+              <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-500 self-center shrink-0" aria-hidden="true"></span>
               <span data-i18n-html="edu_una_cefr" class="text-cyan-300 font-semibold"><span class="whitespace-nowrap">CEFR</span> <span class="whitespace-nowrap">B2–C1</span></span>
             </div>
 
-            <p data-i18n="edu_una_desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 md:min-h-[5.75rem]">
+            <p data-i18n="edu_una_desc" class="edu-desc-container text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 md:min-h-[5.75rem]">
               University-level conversational English program consisting of 13 levels (520 hours), focused on developing oral communication, listening comprehension, professional reading, and structured writing in technical and workplace settings.
             </p>
           </div>
@@ -1554,7 +1574,7 @@
             <h5 data-i18n="edu_una_skills_title" class="text-[11px] uppercase tracking-wider font-mono text-cyan-400 font-bold mb-2">
               Communication Competencies
             </h5>
-            <div class="grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 font-mono text-[11px]">
+            <div class="edu-skills-container grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-1.5 font-mono text-[11px]">
               <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Oral Communication</span>
               <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Listening Comprehension</span>
               <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">English Writing</span>
@@ -1563,7 +1583,7 @@
               <span class="px-2 py-1 sm:py-0.5 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center sm:inline sm:text-left text-center leading-tight">Workplace Collaboration</span>
             </div>
             
-            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3 flex-wrap">
+            <div class="edu-bottom-container mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between gap-3 flex-wrap">
               <span data-i18n="edu_una_level" class="text-[11px] text-cyan-400 font-mono font-semibold">Professional Bilingual Working Proficiency</span>
               <a id="una-cert-link" href="./docs/Josue_Torres_English_Certificate_UNA.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 pixel-corners-btn bg-cyan-950/50 hover:bg-cyan-900/60 border border-cyan-500/40 text-white hover:text-cyan-300 text-[11px] font-mono font-semibold transition-all shadow-[1px_1px_0px_0px_rgba(6,182,212,0.3)] hover:shadow-[2px_2px_0px_0px_rgba(6,182,212,0.5)] active:translate-y-0.5 shrink-0" title="Ver certificado oficial / View certificate">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>

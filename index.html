@@ -1302,9 +1302,10 @@
             <h4 data-i18n="experience_role_title" class="text-xl sm:text-2xl font-bold text-white tracking-tight">
               Information Technology Support Assistant
             </h4>
-            <p class="text-sm sm:text-base font-medium mt-1">
-              <span data-i18n="experience_company" class="text-brand-300">Universidad de Costa Rica (UCR)</span> <span class="text-slate-500 mx-1.5 select-none font-bold">·</span> <span data-i18n="experience_department" class="text-slate-300">Oficina de Orientación</span>
-            </p>
+            <div class="flex flex-col gap-0.5 text-sm sm:text-base font-medium mt-1">
+              <span data-i18n="experience_company" class="text-brand-300 font-semibold">Universidad de Costa Rica (UCR)</span>
+              <span data-i18n="experience_department" class="text-slate-300">Oficina de Orientación</span>
+            </div>
           </div>
         </div>
 
@@ -1788,15 +1789,15 @@
             </p>
           </div>
 
-          <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-4 border-t border-slate-800/80 font-mono text-[11px] sm:text-xs">
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Next.js 16</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">React 19</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">TypeScript</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">PostgreSQL / Prisma</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Redis / BullMQ</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Python 3.13 Worker</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Playwright E2E</span>
-            <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">WCAG Accessibility</span>
+          <div class="grid grid-cols-2 gap-1.5 sm:gap-2 pt-4 border-t border-slate-800/80 font-mono text-[11px]">
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Next.js 16</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">React 19</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">TypeScript</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">PostgreSQL / Prisma</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Redis / BullMQ</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Python 3.13 Worker</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Playwright E2E</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">WCAG Accessibility</span>
           </div>
         </div>
       </div>
@@ -1846,13 +1847,13 @@
           </div>
 
           <!-- Team and External Links -->
-          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs font-mono">
-            <div class="flex flex-wrap items-center gap-1.5 text-slate-400">
-              <span class="text-slate-500">Team:</span>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pt-3 border-t border-slate-800/80 text-xs font-mono">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-slate-400">
+              <span class="text-slate-500 font-semibold">Team:</span>
               <a href="https://www.linkedin.com/in/gabrielserranor/" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-cyan-400 underline underline-offset-2 transition-colors">Gabriel Serrano</a>
-              <span>·</span>
+              <span class="text-slate-600">·</span>
               <a href="https://www.linkedin.com/in/rolando-villavicencio-gonzalez/" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-cyan-400 underline underline-offset-2 transition-colors">Rolando Villavicencio</a>
-              <span>·</span>
+              <span class="text-slate-600">·</span>
               <span data-i18n="p0_team_author" class="text-slate-300 font-medium">Josue Torres</span>
             </div>
             <div class="flex items-center gap-3">
@@ -1860,7 +1861,7 @@
                 <span>YouTube</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
               </a>
-              <span class="text-slate-700">·</span>
+              <span class="text-slate-600">·</span>
               <a href="https://youtu.be/MKMLW2HJ6zo" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white inline-flex items-center gap-1 transition-colors">
                 <span data-i18n="p0_bts_btn">Behind the Scenes</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -1908,12 +1909,11 @@
             Contributed to the end-to-end development of the Virtual Microscope Administration Panel, a desktop application that digitizes real-world microscopy workflows. Designed and implemented a comprehensive data management system leveraging C# and .NET technologies to organize specimen collections into hierarchical structures (Groups, Boxes, and Slides) and associate them with high-fidelity microscope images. Developed as a self-contained desktop solution with embedded database capabilities for secure local data management on the administrator's workstation.
           </p>
 
-          <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">C#</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">ASP.NET Core</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">PostgreSQL</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Desktop Architecture</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Visual Studio</span>
+          <div class="grid grid-cols-2 gap-1.5 sm:gap-2 pt-3 border-t border-slate-800/80 font-mono text-[11px]">
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">C#</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">ASP.NET Core</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">PostgreSQL</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Desktop Architecture</span>
           </div>
         
             </div>
@@ -1950,13 +1950,13 @@
             Contributed to the backend development of ThemePark UCR, a virtual university simulation built with Unity. Implemented REST APIs in C# for managing buildings, learning spaces, and interactive objects using .NET and SQL Server. Developed following Scrum methodology, focusing on integrating decoupled backend services with the virtual environment while ensuring maintainability and scalability.
           </p>
 
-          <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">C#</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">ASP.NET Core</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">RESTful APIs</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">SQL Server</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Unity Integration</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Scrum</span>
+          <div class="grid grid-cols-2 gap-1.5 sm:gap-2 pt-3 border-t border-slate-800/80 font-mono text-[11px]">
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">C#</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">ASP.NET Core</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">RESTful APIs</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">SQL Server</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Unity Integration</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Scrum</span>
           </div>
         
             </div>
@@ -1993,12 +1993,11 @@
             Developed a distributed system in C++ consisting of a client, an intermediary server, and multiple ASCII art servers connected through sockets in a Linux environment. Implemented inter-process communication (IPC), concurrent connection management, and a custom file system for storing and retrieving ASCII art figures across nodes. Focused on distributed systems concepts, network communication, and low-level systems programming.
           </p>
 
-          <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">C++</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Sockets TCP/IP</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">HTTP Protocol</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Linux Environment</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Low-Level Networking</span>
+          <div class="grid grid-cols-2 gap-1.5 sm:gap-2 pt-3 border-t border-slate-800/80 font-mono text-[11px]">
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">C++</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Sockets TCP/IP</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">HTTP Protocol</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Linux Environment</span>
           </div>
         
             </div>
@@ -2035,12 +2034,11 @@
             Developed a web-based online learning platform featuring user authentication and management, course publishing, content administration, rating systems, and user reviews. Developed following Scrum methodology, applying SOLID principles and collaborative development practices through GitHub, including static code analysis automation using continuous integration pipelines.
           </p>
 
-          <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800/80 font-mono text-xs text-slate-400">
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">Python</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">HTML / CSS / JavaScript</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">CI/CD Pipelines</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">SOLID Principles</span>
-            <span class="px-2.5 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)]">GitHub Actions</span>
+          <div class="grid grid-cols-2 gap-1.5 sm:gap-2 pt-3 border-t border-slate-800/80 font-mono text-[11px]">
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">Python</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">HTML / CSS / JavaScript</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">SOLID Principles</span>
+            <span class="px-2 py-1 pixel-corners-btn bg-slate-800/80 text-slate-200 border border-slate-700/60 shadow-[1px_1px_0px_0px_rgba(15,23,42,0.6)] flex items-center justify-center text-center leading-tight">GitHub Actions</span>
           </div>
         
             </div>
@@ -2637,8 +2635,8 @@
         Let's connect and build something extraordinary
       </h3>
 
-      <p data-i18n="contact_sub" class="text-slate-300 text-base leading-relaxed mb-8 max-w-2xl mx-auto text-balance">
-        I am actively seeking internships, junior software engineer opportunities, and technical collaborations. My inbox is always open.
+      <p data-i18n-html="contact_sub" class="text-slate-300 text-base leading-relaxed mb-8 max-w-2xl mx-auto text-balance">
+        I am actively seeking internships, junior software engineer opportunities, and technical collaborations.<br>My inbox is always open.
       </p>
 
       <!-- Contact Interaction Box -->
@@ -2680,25 +2678,28 @@
         </div>
       </div>
 
-      <!-- Social Links Row -->
-      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2.5 sm:gap-6">
-        <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
-          <span>GitHub</span>
-        </a>
-        <span class="text-slate-700 hidden sm:inline">·</span>
-        <a href="https://www.linkedin.com/in/josue-torres-sibaja/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          <span>LinkedIn</span>
-        </a>
-        <span class="text-slate-700 hidden sm:inline">·</span>
-        <a href="./docs/Josue_Torres_Resume.pdf" target="_blank" download="Josue_Torres_Resume.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
-          <span>Resume (English)</span>
-        </a>
-        <span class="text-slate-700 hidden sm:inline">·</span>
-        <a href="./docs/Josue_Torres_CV.pdf" target="_blank" download="Josue_Torres_CV.pdf" class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-brand-400 hover:text-brand-300 font-medium transition-colors">
-          <span>CV (Español)</span>
-        </a>
+      <!-- Social & Resume Links -->
+      <div class="flex flex-col items-center justify-center gap-2.5 sm:gap-3">
+        <div class="flex items-center justify-center gap-3 text-sm text-slate-400">
+          <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 hover:text-white transition-colors">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            <span>GitHub</span>
+          </a>
+          <span class="text-slate-500 font-bold select-none">·</span>
+          <a href="https://www.linkedin.com/in/josue-torres-sibaja/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 hover:text-white transition-colors">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <div class="flex items-center justify-center gap-3 text-xs sm:text-sm">
+          <a href="./docs/Josue_Torres_Resume.pdf" target="_blank" download="Josue_Torres_Resume.pdf" class="inline-flex items-center gap-1 text-brand-400 hover:text-brand-300 font-medium transition-colors">
+            <span>Resume (English)</span>
+          </a>
+          <span class="text-slate-500 font-bold select-none">·</span>
+          <a href="./docs/Josue_Torres_CV.pdf" target="_blank" download="Josue_Torres_CV.pdf" class="inline-flex items-center gap-1 text-brand-400 hover:text-brand-300 font-medium transition-colors">
+            <span>CV (Español)</span>
+          </a>
+        </div>
       </div>
 
     </div>
@@ -2706,8 +2707,8 @@
 
   <!-- ================= FOOTER ================= -->
   <footer class="py-8 border-t border-slate-900 bg-slate-950 text-slate-500 text-xs">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p data-i18n="footer_copyright">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <p data-i18n="footer_copyright" class="text-center sm:text-left">
         &copy; 2026 Josue Torres Sibaja · Software Engineering Portfolio.
       </p>
       <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
@@ -3225,7 +3226,7 @@
 
         contact_section_tag: "09. Get in Touch",
         contact_heading: "Let's connect and build something extraordinary",
-        contact_sub: "I am actively seeking internships, junior software engineer opportunities, and technical collaborations. My inbox is always open.",
+        contact_sub: "I am actively seeking internships, junior software engineer opportunities, and technical collaborations.<br>My inbox is always open.",
         contact_email_label: "Email Address",
         contact_btn_write: "Email Me",
         contact_toast_copied: "Copied!",
@@ -3512,7 +3513,7 @@
 
         contact_section_tag: "09. ¿Conversamos?",
         contact_heading: "Conectemos y creemos algo extraordinario",
-        contact_sub: "Estoy en búsqueda activa de pasantías, roles junior de ingeniería de software o colaboraciones técnicas. Mi bandeja de entrada siempre está abierta.",
+        contact_sub: "Estoy en búsqueda activa de pasantías, roles junior de ingeniería de software o colaboraciones técnicas.<br>Mi bandeja de entrada siempre está abierta.",
         contact_email_label: "Correo Electrónico",
         contact_btn_write: "Escribir",
         contact_toast_copied: "¡Copiado!",

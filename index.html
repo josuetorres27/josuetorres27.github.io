@@ -108,12 +108,20 @@
       }
       .edu-meta-container {
         display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
         width: 100% !important;
-        min-height: 3.25rem !important;
-        column-gap: 0 !important;
+        min-height: 4.85rem !important;
+        gap: 0.35rem !important;
+      }
+      .edu-meta-divider {
+        display: none !important;
+      }
+      .edu-meta-inst,
+      .edu-meta-dates,
+      .edu-meta-cefr {
+        text-align: left !important;
       }
       .edu-desc-container {
         min-height: 10.5rem !important;

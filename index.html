@@ -95,9 +95,12 @@
       box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(99, 102, 241, 0.35);
     }
 
-    /* Education Card alignment across breakpoints */
-    html[lang="es"] .edu-header-container {
-      min-height: auto;
+    /* Education Card alignment on mobile */
+    @media (max-width: 767px) {
+      .edu-header-container,
+      html[lang="es"] .edu-header-container {
+        min-height: auto !important;
+      }
     }
 
     .tablet-only-break {
@@ -143,6 +146,28 @@
         align-items: flex-start !important;
         gap: 0.35rem !important;
         min-height: 4.25rem !important;
+      }
+    }
+
+    /* Desktop (1280px+): Synchronize Education card section heights for exact alignment */
+    @media (min-width: 1280px) {
+      .edu-header-container,
+      html[lang="es"] .edu-header-container {
+        min-height: 4.75rem !important;
+      }
+      .edu-meta-container {
+        min-height: 2.25rem !important;
+      }
+      .edu-desc-container {
+        min-height: 7.25rem !important;
+      }
+      .edu-skills-container {
+        min-height: 4.5rem !important;
+      }
+      .edu-bottom-container {
+        min-height: 2.75rem !important;
+        display: flex !important;
+        align-items: center !important;
       }
     }
 

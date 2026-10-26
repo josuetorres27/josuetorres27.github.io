@@ -107,7 +107,13 @@
         min-height: 7.75rem !important;
       }
       .edu-meta-container {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
         min-height: 3.25rem !important;
+        column-gap: 0 !important;
       }
       .edu-desc-container {
         min-height: 10.5rem !important;
@@ -942,6 +948,10 @@
       color: #0f172a !important;
       background-color: #e2e8f0 !important;
     }
+    html.light .edu-meta-divider .edu-pipe,
+    html.light .edu-meta-divider .edu-dot {
+      color: #94a3b8 !important;
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
@@ -1481,10 +1491,10 @@
               </span>
             </div>
 
-            <div class="edu-meta-container flex flex-col sm:flex-row sm:items-center sm:gap-x-2.5 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
-              <span data-i18n="edu_ucr_institution" class="text-slate-200 font-semibold">Universidad de Costa Rica (UCR)</span>
-              <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-500 self-center shrink-0" aria-hidden="true"></span>
-              <span data-i18n-html="edu_ucr_dates"><span class="whitespace-nowrap">Mar 2023 –</span> <span class="whitespace-nowrap">Dec 2026</span></span>
+            <div class="edu-meta-container flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
+              <span data-i18n="edu_ucr_institution" class="edu-meta-inst text-slate-200 font-semibold shrink-0">Universidad de Costa Rica (UCR)</span>
+              <span class="edu-meta-divider font-mono text-slate-500 select-none self-center shrink-0 text-center" aria-hidden="true"><span class="edu-dot hidden sm:inline md:hidden xl:inline font-bold">·</span><span class="edu-pipe hidden md:inline xl:hidden text-xs opacity-75">|</span></span>
+              <span data-i18n-html="edu_ucr_dates" class="edu-meta-dates text-left md:text-right xl:text-left"><span class="whitespace-nowrap">Mar 2023 –</span> <span class="whitespace-nowrap">Dec 2026</span></span>
             </div>
 
             <p data-i18n="edu_ucr_desc" class="edu-desc-container text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 md:min-h-[5.75rem]">
@@ -1549,12 +1559,12 @@
               </span>
             </div>
 
-            <div class="edu-meta-container flex flex-col sm:flex-row sm:items-center sm:gap-x-2.5 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
-              <span data-i18n="edu_una_institution" class="text-slate-200 font-semibold">National University of CR (UNA)</span>
-              <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-500 self-center shrink-0" aria-hidden="true"></span>
-              <span data-i18n-html="edu_una_dates"><span class="whitespace-nowrap">2019 –</span> <span class="whitespace-nowrap">2021</span></span>
-              <span class="hidden sm:inline-block w-1.5 h-1.5 rounded-full bg-slate-500 self-center shrink-0" aria-hidden="true"></span>
-              <span data-i18n-html="edu_una_cefr" class="text-cyan-300 font-semibold"><span class="whitespace-nowrap">CEFR</span> <span class="whitespace-nowrap">B2–C1</span></span>
+            <div class="edu-meta-container flex flex-col sm:flex-row sm:items-center sm:gap-x-4 gap-1 text-xs text-slate-400 font-mono mb-4 pb-3 border-b border-slate-800/80 md:min-h-[2.25rem]">
+              <span data-i18n="edu_una_institution" class="edu-meta-inst text-slate-200 font-semibold shrink-0">National University of CR (UNA)</span>
+              <span class="edu-meta-divider font-mono text-slate-500 select-none self-center shrink-0 text-center" aria-hidden="true"><span class="edu-dot hidden sm:inline md:hidden xl:inline font-bold">·</span><span class="edu-pipe hidden md:inline xl:hidden text-xs opacity-75">|</span></span>
+              <span data-i18n-html="edu_una_dates" class="edu-meta-dates text-left md:text-center xl:text-left"><span class="whitespace-nowrap">2019 –</span> <span class="whitespace-nowrap">2021</span></span>
+              <span class="edu-meta-divider font-mono text-slate-500 select-none self-center shrink-0 text-center" aria-hidden="true"><span class="edu-dot hidden sm:inline md:hidden xl:inline font-bold">·</span><span class="edu-pipe hidden md:inline xl:hidden text-xs opacity-75">|</span></span>
+              <span data-i18n-html="edu_una_cefr" class="edu-meta-cefr text-cyan-300 font-semibold shrink-0 text-left md:text-right xl:text-left"><span class="whitespace-nowrap">CEFR</span> <span class="whitespace-nowrap">B2–C1</span></span>
             </div>
 
             <p data-i18n="edu_una_desc" class="edu-desc-container text-slate-300 text-xs sm:text-sm leading-relaxed mb-5 md:min-h-[5.75rem]">

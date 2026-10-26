@@ -952,6 +952,10 @@
     html.light .edu-meta-divider .edu-dot {
       color: #94a3b8 !important;
     }
+    html.light #tablet-subnav {
+      background-color: rgba(241, 245, 249, 0.95) !important;
+      border-color: rgba(203, 213, 225, 0.8) !important;
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
@@ -1032,43 +1036,43 @@
 
   <!-- ================= NAVBAR ================= -->
   <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-4 lg:px-8 h-16 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Logo / Monogram -->
       <a href="#hero" class="flex items-center gap-2 sm:gap-2.5 group shrink-0">
         <span class="w-7 h-7 sm:w-8 sm:h-8 pixel-corners-btn overflow-hidden flex items-center justify-center shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform select-none">
           <img src="./favicon.png" alt="Josue" class="w-full h-full object-cover pixelated" />
         </span>
-        <span class="font-mono font-semibold text-sm md:text-sm lg:text-lg tracking-tight text-slate-200 group-hover:text-white transition-colors">
+        <span class="font-mono font-semibold text-sm sm:text-lg tracking-tight text-slate-200 group-hover:text-white transition-colors">
           dev.<span class="text-brand-400">josue.torres</span>
         </span>
       </a>
 
-      <!-- Desktop & Tablet Navigation Links with Clean Snug Spacing & JetBrains Mono -->
-      <nav class="hidden md:flex items-center gap-0.5 xl:gap-1 text-[11px] lg:text-xs font-mono font-semibold tracking-tight text-slate-300">
-        <a href="#about" data-i18n="nav_about" class="nav-item-link px-1.5 md:w-auto lg:w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">About Me</a>
-        <span class="nav-divider hidden lg:inline" aria-hidden="true">|</span>
-        <a href="#experience" data-i18n="nav_experience" class="nav-item-link px-1.5 md:w-auto lg:w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Experience</a>
-        <span class="nav-divider hidden lg:inline" aria-hidden="true">|</span>
-        <a href="#education" data-i18n="nav_education" class="nav-item-link px-1.5 md:w-auto lg:w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Education</a>
-        <span class="nav-divider hidden lg:inline" aria-hidden="true">|</span>
-        <a href="#skills" data-i18n="nav_skills" class="nav-item-link px-1.5 md:w-auto lg:w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Skills</a>
-        <span class="nav-divider hidden lg:inline" aria-hidden="true">|</span>
-        <a href="#projects" data-i18n="nav_projects" class="nav-item-link px-1.5 md:w-auto lg:w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Projects</a>
-        <span class="nav-divider hidden lg:inline" aria-hidden="true">|</span>
-        <a href="#ai" data-i18n="nav_ai" class="nav-item-link px-1.5 md:w-auto lg:w-[82px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">AI & LLMs</a>
-        <span class="nav-divider hidden lg:inline" aria-hidden="true">|</span>
-        <a href="#interests" data-i18n="nav_interests" class="nav-item-link px-1.5 md:w-auto lg:w-[44px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">BTC</a>
-        <span class="nav-divider hidden lg:inline" aria-hidden="true">|</span>
-        <a href="#contact" data-i18n="nav_contact" class="nav-item-link px-1.5 md:w-auto lg:w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Contact</a>
+      <!-- Desktop Navigation Links (Desktop 1024px+ Only) -->
+      <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 text-xs font-mono font-semibold tracking-tight text-slate-300">
+        <a href="#about" data-i18n="nav_about" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">About Me</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#experience" data-i18n="nav_experience" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Experience</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#education" data-i18n="nav_education" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Education</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#skills" data-i18n="nav_skills" class="nav-item-link w-[98px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Skills</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#projects" data-i18n="nav_projects" class="nav-item-link w-[84px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Projects</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#ai" data-i18n="nav_ai" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">AI & LLMs</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#interests" data-i18n="nav_interests" class="nav-item-link w-[44px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">BTC</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#contact" data-i18n="nav_contact" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/60 transition-all text-center justify-center">Contact</a>
       </nav>
 
       <!-- Desktop & Tablet Actions: Language, Theme -->
-      <div class="hidden md:flex items-center gap-1.5 lg:gap-2">
+      <div class="hidden md:flex items-center gap-2">
         <!-- Language Switcher Desktop/Tablet (Pixel Art Style) -->
         <div class="h-8 inline-flex items-center p-0.5 pixel-corners-btn bg-slate-900 border border-slate-700/80 text-xs font-mono shadow-[2px_2px_0px_0px_rgba(15,23,42,0.9)] box-border" role="group" aria-label="Language selection">
-          <button id="lang-btn-en" type="button" class="lang-switch-btn h-full px-2 lg:px-2.5 pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-[11px] lg:text-xs" aria-label="Switch to English">EN</button>
-          <button id="lang-btn-es" type="button" class="lang-switch-btn h-full px-2 lg:px-2.5 pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-[11px] lg:text-xs" aria-label="Cambiar a Español">ES</button>
+          <button id="lang-btn-en" type="button" class="lang-switch-btn h-full px-2.5 pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-xs" aria-label="Switch to English">EN</button>
+          <button id="lang-btn-es" type="button" class="lang-switch-btn h-full px-2.5 pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-xs" aria-label="Cambiar a Español">ES</button>
         </div>
 
         <!-- Theme Toggle Desktop/Tablet (Pixel Art Style) -->
@@ -1101,6 +1105,27 @@
         </button>
       </div>
     </div>
+
+    <!-- Tablet Sub-Navbar (Second bar directly below the top bar, exclusively on tablet) -->
+    <nav id="tablet-subnav" class="hidden md:flex lg:hidden items-center justify-center border-t border-slate-800/80 bg-slate-900/90 backdrop-blur-md px-4 py-2 text-xs font-mono font-semibold tracking-tight text-slate-300">
+      <div class="max-w-3xl w-full mx-auto flex items-center justify-between gap-1 sm:gap-2">
+        <a href="#about" data-i18n="nav_about" class="nav-item-link px-2 py-1 hover:text-white hover:bg-slate-800/80 transition-all text-center">About Me</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#experience" data-i18n="nav_experience" class="nav-item-link px-2 py-1 hover:text-white hover:bg-slate-800/80 transition-all text-center">Experience</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#education" data-i18n="nav_education" class="nav-item-link px-2 py-1 hover:text-white hover:bg-slate-800/80 transition-all text-center">Education</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#skills" data-i18n="nav_skills" class="nav-item-link px-2 py-1 hover:text-white hover:bg-slate-800/80 transition-all text-center">Skills</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#projects" data-i18n="nav_projects" class="nav-item-link px-2 py-1 hover:text-white hover:bg-slate-800/80 transition-all text-center">Projects</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#ai" data-i18n="nav_ai" class="nav-item-link px-2 py-1 hover:text-white hover:bg-slate-800/80 transition-all text-center">AI & LLMs</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#interests" data-i18n="nav_interests" class="nav-item-link px-2 py-1 hover:text-white hover:bg-slate-800/80 transition-all text-center">BTC</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#contact" data-i18n="nav_contact" class="nav-item-link px-2 py-1 hover:text-white hover:bg-slate-800/80 transition-all text-center">Contact</a>
+      </div>
+    </nav>
 
     <!-- Mobile Dropdown -->
     <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 border-b border-slate-800 bg-slate-900/95 backdrop-blur-md">

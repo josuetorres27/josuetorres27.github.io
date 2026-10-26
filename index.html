@@ -959,6 +959,15 @@
       background-color: rgba(241, 245, 249, 0.95) !important;
       border-color: rgba(203, 213, 225, 0.8) !important;
     }
+    /* Tablet Light Mode: Skills Section (Section 04) vertical dividers match horizontal border color (#e2e8f0) */
+    @media (min-width: 768px) and (max-width: 1279px) {
+      html.light #skills .md\:divide-slate-800\/80 > :not([hidden]) ~ :not([hidden]),
+      html.light #skills .md\:divide-x > :not([hidden]) ~ :not([hidden]),
+      html.light #skills [class*="divide-"] > :not([hidden]) ~ :not([hidden]),
+      html.light #skills [class*="divide-"] > * {
+        border-color: #e2e8f0 !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">

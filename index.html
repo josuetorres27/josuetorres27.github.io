@@ -973,7 +973,6 @@
     }
     html.light #theme-toggle-btn,
     html.light #theme-toggle-mobile,
-    html.light #mobile-menu-btn,
     html.light [aria-label="Language selection"],
     html.light [aria-label="Mobile language selector"] {
       background-color: #f1f5f9 !important;
@@ -991,9 +990,28 @@
     html.light .edu-meta-divider .edu-dot {
       color: #94a3b8 !important;
     }
-    html.light #tablet-subnav {
+    html.light #tablet-subnav,
+    html.light #mobile-subnav {
       background-color: rgba(241, 245, 249, 0.95) !important;
       border-color: rgba(203, 213, 225, 0.8) !important;
+    }
+    html.light #mobile-subnav .border-t {
+      border-color: rgba(203, 213, 225, 0.6) !important;
+    }
+    @media (max-width: 767px) {
+      section[id] {
+        scroll-margin-top: 7.25rem;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      section[id] {
+        scroll-margin-top: 6.5rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
     }
     /* Tablet Light Mode: Skills Section (Section 04) vertical dividers match horizontal border color (#e2e8f0) */
     @media (min-width: 768px) and (max-width: 1279px) {
@@ -1130,7 +1148,7 @@
         </button>
       </div>
 
-      <!-- Mobile Right Controls (Lang, Theme, Hamburger) -->
+      <!-- Mobile Right Controls (Lang, Theme) -->
       <div class="flex items-center gap-1.5 sm:gap-2 md:hidden">
         <!-- Language Switcher Mobile (Pixel Art Style) -->
         <div class="h-8 inline-flex items-center p-0.5 pixel-corners-btn bg-slate-900 border border-slate-700/80 text-xs font-mono shadow-[2px_2px_0px_0px_rgba(15,23,42,0.9)] box-border" role="group" aria-label="Mobile language selector">
@@ -1142,17 +1160,34 @@
           <img src="./img/icons/sun.png" alt="Light Mode" class="theme-icon-sun w-4 h-4 hidden pixelated select-none pointer-events-none drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]" />
           <img src="./img/icons/moon.png" alt="Dark Mode" class="theme-icon-moon w-4 h-4 pixelated select-none pointer-events-none drop-shadow-[0_0_6px_rgba(56,189,248,0.5)]" />
         </button>
-
-        <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="h-8 w-8 flex items-center justify-center p-0 text-slate-400 hover:text-white hover:bg-slate-800 pixel-corners-btn bg-slate-900 border border-slate-700/80 shadow-[2px_2px_0px_0px_rgba(15,23,42,0.9)] transition-all active:scale-95 box-border">
-          <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
       </div>
     </div>
+
+    <!-- Mobile Sub-Navbar (2-tier bar directly below top bar, exclusively on mobile) -->
+    <nav id="mobile-subnav" class="flex md:hidden flex-col items-center justify-center border-t border-slate-800/80 bg-slate-900/95 backdrop-blur-md px-1 py-1 text-[10px] sm:text-[11px] font-mono font-semibold tracking-tight text-slate-300">
+      <div class="w-full max-w-[370px] mx-auto flex flex-col">
+        <!-- Tier 1: About Me | Experience | Education | Skills -->
+        <div class="flex items-center justify-between w-full py-0.5">
+          <a href="#about" data-i18n="nav_about" class="nav-item-link w-[68px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">About Me</a>
+          <span class="nav-divider" aria-hidden="true">|</span>
+          <a href="#experience" data-i18n="nav_experience" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Experience</a>
+          <span class="nav-divider" aria-hidden="true">|</span>
+          <a href="#education" data-i18n="nav_education" class="nav-item-link w-[72px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Education</a>
+          <span class="nav-divider" aria-hidden="true">|</span>
+          <a href="#skills" data-i18n="nav_skills" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Skills</a>
+        </div>
+        <!-- Tier 2: Projects | AI & LLMs | BTC | Contact -->
+        <div class="flex items-center justify-between w-full py-0.5 border-t border-slate-800/50">
+          <a href="#projects" data-i18n="nav_projects" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Projects</a>
+          <span class="nav-divider" aria-hidden="true">|</span>
+          <a href="#ai" data-i18n="nav_ai" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">AI & LLMs</a>
+          <span class="nav-divider" aria-hidden="true">|</span>
+          <a href="#interests" data-i18n="nav_interests" class="nav-item-link w-[44px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">BTC</a>
+          <span class="nav-divider" aria-hidden="true">|</span>
+          <a href="#contact" data-i18n="nav_contact" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Contact</a>
+        </div>
+      </div>
+    </nav>
 
     <!-- Tablet Sub-Navbar (Second bar directly below the top bar, exclusively on tablet) -->
     <nav id="tablet-subnav" class="hidden md:flex lg:hidden items-center justify-center border-t border-slate-800/80 bg-slate-900/90 backdrop-blur-md px-3 py-2 text-xs font-mono font-semibold tracking-tight text-slate-300">
@@ -1174,20 +1209,6 @@
         <a href="#contact" data-i18n="nav_contact" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Contact</a>
       </div>
     </nav>
-
-    <!-- Mobile Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 border-b border-slate-800 bg-slate-900/95 backdrop-blur-md">
-      <div class="flex flex-col space-y-3 font-mono font-semibold text-xs sm:text-sm text-slate-300">
-        <a href="#about" data-i18n="nav_about" class="mobile-nav-link py-2 hover:text-brand-400">About Me</a>
-        <a href="#experience" data-i18n="nav_experience" class="mobile-nav-link py-2 hover:text-brand-400">Experience</a>
-        <a href="#education" data-i18n="nav_education" class="mobile-nav-link py-2 hover:text-brand-400">Education</a>
-        <a href="#skills" data-i18n="nav_skills" class="mobile-nav-link py-2 hover:text-brand-400">Skills</a>
-        <a href="#projects" data-i18n="nav_projects" class="mobile-nav-link py-2 hover:text-brand-400">Projects</a>
-        <a href="#ai" data-i18n="nav_ai" class="mobile-nav-link py-2 hover:text-brand-400">AI & LLMs</a>
-        <a href="#interests" data-i18n="nav_interests" class="mobile-nav-link py-2 hover:text-brand-400">BTC</a>
-        <a href="#contact" data-i18n="nav_contact" class="mobile-nav-link py-2 hover:text-brand-400">Contact</a>
-      </div>
-    </div>
   </header>
 
   <!-- ================= HERO SECTION ================= -->

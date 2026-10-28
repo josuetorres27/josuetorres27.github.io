@@ -821,6 +821,8 @@
     #image-lightbox-modal #lightbox-content-box {
       background-color: #020617 !important;
       border-color: #334155 !important;
+      max-height: calc(85vh - 80px);
+      max-height: calc(85dvh - 80px);
     }
     #image-lightbox-modal #lightbox-location-link {
       background-color: rgba(6, 182, 212, 0.14) !important;
@@ -836,7 +838,18 @@
       color: inherit !important;
     }
     #lightbox-img {
-      max-height: calc(85vh - 70px);
+      max-height: calc(82vh - 85px);
+      max-height: calc(82dvh - 85px);
+      width: auto;
+      height: auto;
+    }
+    @media (max-width: 640px) {
+      #image-lightbox-modal #lightbox-content-box {
+        max-height: calc(78dvh - 90px);
+      }
+      #lightbox-img {
+        max-height: calc(75dvh - 95px);
+      }
     }
 
     /* ================= TYPEWRITER CURSOR ================= */
@@ -1582,21 +1595,21 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/1.jpeg" alt="Workstation Teardown and Motherboard Servicing" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img2_caption" class="text-xs font-semibold text-white drop-shadow">Hardware Servicing & Internal Diagnostics</span>
               </div>
             </div>
 
             <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/2.jpeg" alt="Storage Component Diagnostic and HDD to SSD Upgrade" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img3_caption" class="text-xs font-semibold text-white drop-shadow">Storage Upgrades & SATA Diagnostics</span>
               </div>
             </div>
 
             <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
               <img src="./img/experience/3.jpeg" alt="Oficina de Orientación - Universidad de Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img1_caption" class="text-xs font-semibold text-white drop-shadow">Orientation Office · Universidad de Costa Rica</span>
               </div>
             </div>
@@ -2583,9 +2596,9 @@
               
               <!-- Slide 1: 1.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc1" data-location-url="https://maps.app.goo.gl/2KUMJyLAawHhcthu5" data-location-name="Parque Naomi, Quepos, Puntarenas, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc1" data-location-url="https://maps.app.goo.gl/2KUMJyLAawHhcthu5" data-location-name="Parque Naomi, Quepos, Puntarenas, Costa Rica">
                   <img src="./img/photography/1.jpg" alt="Pacific Coast shoreline under blue tropical skies" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img1" class="text-xs font-semibold text-white drop-shadow">Tropical Coastline & Marine Horizon</span>
                     <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
                       <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -2597,9 +2610,9 @@
 
               <!-- Slide 2: 2.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc2" data-location-url="https://maps.app.goo.gl/a6MjnM6DAJu7bmFT6" data-location-name="Playa Bejuco, Parrita, Puntarenas, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc2" data-location-url="https://maps.app.goo.gl/a6MjnM6DAJu7bmFT6" data-location-name="Playa Bejuco, Parrita, Puntarenas, Costa Rica">
                   <img src="./img/photography/2.jpg" alt="Golden sunset reflections along the beach horizon" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img2" class="text-xs font-semibold text-white drop-shadow">Golden Sunset Reflections</span>
                     <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
                       <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -2611,9 +2624,9 @@
 
               <!-- Slide 3: 3.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc3" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc3" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/3.jpeg" alt="Iconic sunflower mural at University of Costa Rica" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img3" class="text-xs font-semibold text-white drop-shadow">The Cosmic Sunflower · UCR</span>
                     <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
                       <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -2625,9 +2638,9 @@
 
               <!-- Slide 4: 4.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc4" data-location-url="https://maps.app.goo.gl/3M5YRM2zduhpCBvY7" data-location-name="Marina Pez Vela, Quepos, Puntarenas, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc4" data-location-url="https://maps.app.goo.gl/3M5YRM2zduhpCBvY7" data-location-name="Marina Pez Vela, Quepos, Puntarenas, Costa Rica">
                   <img src="./img/photography/4.jpg" alt="Marina pier with boats and ocean view under tropical sky" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img4" class="text-xs font-semibold text-white drop-shadow">Marina Pier & Sailboats</span>
                     <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
                       <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -2639,9 +2652,9 @@
 
               <!-- Slide 5: 5.jpeg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc5" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc5" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/5.jpeg" alt="Sunset sky gradient with violet and amber tones" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img5" class="text-xs font-semibold text-white drop-shadow">Evening Sky Gradient & Dusk Horizon</span>
                     <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
                       <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -2653,9 +2666,9 @@
 
               <!-- Slide 6: 6.jpg -->
               <div class="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc6" data-location-url="https://maps.app.goo.gl/1SERCtZCMmwr2hc18" data-location-name="Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc6" data-location-url="https://maps.app.goo.gl/1SERCtZCMmwr2hc18" data-location-name="Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica">
                   <img src="./img/photography/6.jpg" alt="Rustic treehouse in pine trees under clear sky" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img6" class="text-xs font-semibold text-white drop-shadow">Rustic Treehouse</span>
                     <span class="flex items-center gap-1 text-[11px] text-white font-medium drop-shadow mt-1">
                       <svg class="w-3 h-3 fill-current text-cyan-300 flex-shrink-0" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -2724,19 +2737,19 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
           <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/1.jpg" alt="Handcrafted miniature sculptures: Stitch, Pikachu, Capybara, Cat, Dragon pencil toppers" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img1" class="text-xs font-semibold text-white drop-shadow">Miniature Sculpting & Pencil Toppers</span>
             </div>
           </div>
           <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/2.jpg" alt="Handcrafted sculptures: Toothless, Spider-Man and Unicorn" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img2" class="text-xs font-semibold text-white drop-shadow">Character Clay Figures</span>
             </div>
           </div>
           <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
             <img src="./img/handicrafts/3.jpg" alt="Handcrafted sculpture: Commemorative anniversary reading owl on a pencil for library celebration" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img3" class="text-xs font-semibold text-white drop-shadow">Commemorative Reading Owl</span>
             </div>
           </div>
@@ -2948,37 +2961,40 @@
   </footer>
 
   <!-- ================= IMAGE LIGHTBOX MODAL ================= -->
-  <div id="image-lightbox-modal" class="hidden fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
-    <div class="relative max-w-4xl w-full flex flex-col items-center">
+  <div id="image-lightbox-modal" class="hidden fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+    <div class="relative max-w-4xl w-full flex flex-col items-center my-auto">
       
       <!-- Top Bar: Caption & Location above image + Close Button -->
-      <div id="lightbox-header-bar" class="w-full flex items-start sm:items-center justify-between gap-3 mb-3 px-1 sm:px-2">
-        <div class="min-w-0 flex-1 pr-2">
-          <p id="lightbox-caption" class="text-sm sm:text-base font-semibold tracking-wide truncate text-white"></p>
+      <div id="lightbox-header-bar" class="w-full flex flex-col gap-2 mb-2.5 sm:mb-3 px-1 sm:px-2">
+        <!-- Row 1: Caption on the left, Close button on the right -->
+        <div class="w-full flex items-center justify-between gap-3">
+          <p id="lightbox-caption" class="text-sm sm:text-base font-semibold tracking-wide truncate text-white min-w-0 flex-1"></p>
           
-          <!-- Location Link / Google Maps Badge (shown when image has location data) -->
-          <div id="lightbox-location-container" class="hidden mt-1.5 flex items-center">
-            <a id="lightbox-location-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all active:scale-95 shadow-sm border group/loc" title="Abrir ubicación en Google Maps">
+          <button id="lightbox-close-btn" type="button" aria-label="Cerrar imagen" class="flex-shrink-0 pixel-btn pixel-btn-icon pixel-corners-btn p-2" title="Cerrar">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+        
+        <!-- Row 2: Location Link / Google Maps Badge (shown when image has location data) -->
+        <div id="lightbox-location-container" class="hidden w-full flex items-center">
+          <a id="lightbox-location-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-2.5 px-3 sm:px-3.5 py-1.5 rounded-xl sm:rounded-full text-xs font-medium transition-all active:scale-95 shadow-sm border group/loc" title="Abrir ubicación en Google Maps">
+            <div class="flex items-center gap-1.5 min-w-0 flex-1">
               <svg class="w-3.5 h-3.5 text-cyan-400 group-hover/loc:scale-110 transition-transform fill-current flex-shrink-0" viewBox="0 0 24 24">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
-              <span id="lightbox-location-text" class="font-sans font-medium truncate max-w-[190px] sm:max-w-md"></span>
-              <span class="inline-flex items-center gap-1 text-[11px] font-mono opacity-90 ml-3.5 pl-3.5 border-l border-cyan-500/30">
-                <span data-i18n="lightbox_view_maps">Ver en Google Maps</span>
-                <svg class="w-3 h-3 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-              </span>
-            </a>
-          </div>
+              <span id="lightbox-location-text" class="font-sans font-medium text-[11px] sm:text-xs truncate max-w-full sm:max-w-md"></span>
+            </div>
+            <span class="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-mono opacity-90 ml-1.5 sm:ml-2.5 pl-2 sm:pl-3 border-l border-cyan-500/30 flex-shrink-0 whitespace-nowrap">
+              <span data-i18n="lightbox_view_maps">Ver en Google Maps</span>
+              <svg class="w-3 h-3 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </span>
+          </a>
         </div>
-
-        <button id="lightbox-close-btn" type="button" aria-label="Cerrar imagen" class="flex-shrink-0 pixel-btn pixel-btn-icon pixel-corners-btn p-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
       </div>
 
       <!-- Image Display Container -->
-      <div id="lightbox-content-box" class="relative rounded-2xl overflow-hidden border shadow-2xl max-h-[80vh] flex items-center justify-center">
-        <img id="lightbox-img" src="" alt="" class="w-auto h-auto max-h-[75vh] max-w-full object-contain">
+      <div id="lightbox-content-box" class="relative rounded-2xl overflow-hidden border shadow-2xl flex items-center justify-center max-w-full">
+        <img id="lightbox-img" src="" alt="" class="w-auto h-auto max-w-full object-contain">
       </div>
     </div>
   </div>

@@ -112,9 +112,16 @@
       .tablet-only-break {
         display: inline !important;
       }
+      .edu-header-container {
+        gap: 0.5rem !important;
+      }
+      .edu-header-container h4 {
+        font-size: 1.05rem !important;
+        line-height: 1.35 !important;
+      }
       .edu-header-container,
       html[lang="es"] .edu-header-container {
-        min-height: 8.85rem !important;
+        min-height: 7.75rem !important;
       }
       .edu-meta-container {
         display: flex !important;
@@ -1544,8 +1551,8 @@
                   <img src="./img/icons/graduation-cap.png" alt="Graduation Cap" class="w-full h-full object-cover pixelated select-none" />
                 </div>
                 <div class="min-w-0 flex-1">
-                  <h4 data-i18n="edu_ucr_degree" class="text-base sm:text-lg font-bold text-white leading-snug">
-                    Bachelor of Science (B.Sc.), Computer Science
+                  <h4 data-i18n-html="edu_ucr_degree" class="text-base sm:text-lg font-bold text-white leading-snug">
+                    Bachelor of Science (B.Sc.), <span class="whitespace-nowrap">Computer Science</span>
                   </h4>
                   <p data-i18n="edu_ucr_emphasis" class="text-xs text-brand-400 font-mono font-semibold mt-0.5">
                     Software Engineering Emphasis
@@ -3173,7 +3180,7 @@
         education_section_tag: "03. Education & Academics",
         education_heading: "Academic Background & Specialized Studies",
         education_sub: "Rigorous university formation in computer science and software engineering, complemented by professional conversational English proficiency.",
-        edu_ucr_degree: "Bachelor of Science (B.Sc.), Computer Science",
+        edu_ucr_degree: 'Bachelor of Science (B.Sc.), <span class="whitespace-nowrap">Computer Science</span>',
         edu_ucr_emphasis: "Software Engineering Emphasis",
         edu_ucr_status: "In Progress",
         edu_ucr_institution: "University of Costa Rica (UCR)",

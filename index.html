@@ -3456,6 +3456,12 @@
         interests_photo_loc4: "Marina Pez Vela, Quepos, Puntarenas, Costa Rica",
         interests_photo_loc5: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
         interests_photo_loc6: "Near Central Park of Zarcero, Zarcero, Alajuela, Costa Rica",
+        interests_photo_loc1_mobile: "Parque Naomi, Quepos",
+        interests_photo_loc2_mobile: "Playa Bejuco, Parrita",
+        interests_photo_loc3_mobile: "UCR Rodrigo Facio",
+        interests_photo_loc4_mobile: "Marina Pez Vela, Quepos",
+        interests_photo_loc5_mobile: "UCR Rodrigo Facio",
+        interests_photo_loc6_mobile: "Central Park of Zarcero",
         lightbox_view_maps: "View on Google Maps",
         interests_carousel_note: "Use arrows or dots to navigate",
         interests_more_title: "A Few More Things I Like",
@@ -3478,6 +3484,10 @@
         footer_hosted: "Hosted on",
         page_title: "Josue Torres Sibaja | Software Engineer & CS Student",
         hero_photo_caption: "Josue Torres Sibaja | Software Engineer & CS Student",
+        hero_photo_caption_mobile: "Josue | Software Engineer",
+        experience_img2_caption_mobile: "PC Maintenance",
+        experience_img3_caption_mobile: "Storage Upgrades",
+        experience_img1_caption_mobile: "Orientation Office • UCR",
         hero_player_tag: "PLAYER 1: JOSUE",
         adventure_badge: "PRESS START",
         adv_lvl_0: "Hey there! 👋 I'm Pixel Josué. Welcome to my portfolio! Let's explore my software journey together.",
@@ -3743,6 +3753,12 @@
         interests_photo_loc4: "Marina Pez Vela, Quepos, Puntarenas, Costa Rica",
         interests_photo_loc5: "UCR Rodrigo Facio, San Pedro, San José, Costa Rica",
         interests_photo_loc6: "Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica",
+        interests_photo_loc1_mobile: "Parque Naomi, Quepos",
+        interests_photo_loc2_mobile: "Playa Bejuco, Parrita",
+        interests_photo_loc3_mobile: "UCR Rodrigo Facio",
+        interests_photo_loc4_mobile: "Marina Pez Vela, Quepos",
+        interests_photo_loc5_mobile: "UCR Rodrigo Facio",
+        interests_photo_loc6_mobile: "Parque Central de Zarcero",
         lightbox_view_maps: "Ver en Google Maps",
         interests_carousel_note: "Usa las flechas o puntos para navegar",
         interests_more_title: "Otras cosas que me gustan",
@@ -3765,6 +3781,10 @@
         footer_hosted: "Alojado en",
         page_title: "Josué Torres Sibaja | Ingeniero de Software & Estudiante de CS",
         hero_photo_caption: "Josué Torres Sibaja | Ingeniero de Software & Estudiante de CS",
+        hero_photo_caption_mobile: "Josué | Ingeniero de Software",
+        experience_img2_caption_mobile: "Mantenimiento de PC",
+        experience_img3_caption_mobile: "Actualización de Almacenamiento",
+        experience_img1_caption_mobile: "Oficina de Orientación • UCR",
         hero_player_tag: "JUGADOR 1: JOSUÉ",
         adventure_badge: "INICIAR AVENTURA",
         adv_lvl_0: "¡Hola! 👋 Soy Josué Pixel. ¡Te doy la bienvenida a mi portafolio! Acompáñame a explorar mi trayectoria.",
@@ -4111,22 +4131,50 @@
 
       if (!modal || !lightboxImg || !lightboxCaption) return;
 
-      function openModal(src, caption, locUrl, locKey, locFallback) {
+      function openModal(src, captionKey, captionEl, img, locUrl, locKey, locFallback) {
+        const isMobile = window.innerWidth < 640;
+        const currentLang = document.documentElement.lang || 'en';
+        const dict = (typeof I18N !== 'undefined' && I18N[currentLang]) ? I18N[currentLang] : {};
+
+        // Resolve caption: prioritize mobile override if on mobile
+        let finalCaptionKey = captionKey;
+        if (isMobile && captionKey && dict[captionKey + '_mobile']) {
+          finalCaptionKey = captionKey + '_mobile';
+        }
+
+        let caption = '';
+        if (finalCaptionKey && dict[finalCaptionKey]) {
+          caption = dict[finalCaptionKey];
+          lightboxCaption.setAttribute('data-i18n', finalCaptionKey);
+        } else if (captionEl) {
+          caption = captionEl.textContent.trim();
+          if (captionKey) lightboxCaption.setAttribute('data-i18n', captionKey);
+          else lightboxCaption.removeAttribute('data-i18n');
+        } else {
+          caption = img ? (img.getAttribute('alt') || '') : '';
+          lightboxCaption.removeAttribute('data-i18n');
+        }
+
         lightboxImg.src = src;
         lightboxImg.alt = caption;
         lightboxCaption.textContent = caption;
 
+        // Resolve location: prioritize mobile override if on mobile
         if (locUrl && locContainer && locLink && locText) {
-          const currentLang = document.documentElement.lang || 'en';
+          let finalLocKey = locKey;
+          if (isMobile && locKey && dict[locKey + '_mobile']) {
+            finalLocKey = locKey + '_mobile';
+          }
+
           let locName = locFallback || '';
-          if (locKey && typeof I18N !== 'undefined' && I18N[currentLang] && I18N[currentLang][locKey]) {
-            locName = I18N[currentLang][locKey];
-          }
-          if (locKey) {
-            locText.setAttribute('data-i18n', locKey);
+          if (finalLocKey && dict[finalLocKey]) {
+            locName = dict[finalLocKey];
+            locText.setAttribute('data-i18n', finalLocKey);
           } else {
-            locText.removeAttribute('data-i18n');
+            if (locKey) locText.setAttribute('data-i18n', locKey);
+            else locText.removeAttribute('data-i18n');
           }
+
           locText.textContent = locName;
           locLink.href = locUrl;
           locContainer.classList.remove('hidden');
@@ -4151,6 +4199,7 @@
             lightboxImg.src = '';
             lightboxImg.alt = '';
             lightboxCaption.textContent = '';
+            lightboxCaption.removeAttribute('data-i18n');
             if (locContainer) locContainer.classList.add('hidden');
             if (locLink) locLink.href = '#';
             if (locText) {
@@ -4168,11 +4217,11 @@
           if (!img) return;
           const src = img.getAttribute('src');
           const captionEl = trigger.querySelector('span[data-i18n]');
-          const caption = captionEl ? captionEl.textContent.trim() : (img.getAttribute('alt') || '');
+          const captionKey = captionEl ? captionEl.getAttribute('data-i18n') : null;
           const locUrl = trigger.getAttribute('data-location-url');
           const locKey = trigger.getAttribute('data-location-key');
           const locFallback = trigger.getAttribute('data-location-name');
-          openModal(src, caption, locUrl, locKey, locFallback);
+          openModal(src, captionKey, captionEl, img, locUrl, locKey, locFallback);
         }
 
         trigger.addEventListener('click', handleTrigger);

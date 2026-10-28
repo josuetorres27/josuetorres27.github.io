@@ -998,6 +998,38 @@
     html.light #mobile-subnav .border-t {
       border-color: rgba(203, 213, 225, 0.6) !important;
     }
+    #mobile-subnav .subnav-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      justify-items: center;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+    #mobile-subnav .nav-item-link {
+      width: 100%;
+      padding: 0.2rem 0.15rem;
+      font-size: 10px;
+      line-height: 1.25rem;
+      text-align: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+    #mobile-subnav .nav-divider {
+      padding: 0 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      line-height: 1;
+      user-select: none;
+      opacity: 0.7;
+    }
+    #mobile-subnav .subnav-divider-row {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
     @media (max-width: 767px) {
       section[id] {
         scroll-margin-top: 7.25rem;
@@ -1165,27 +1197,27 @@
 
     <!-- Mobile Sub-Navbar (2-tier bar directly below top bar, exclusively on mobile) -->
     <nav id="mobile-subnav" class="flex md:hidden flex-col items-center justify-center border-t border-slate-800/80 bg-slate-900/95 backdrop-blur-md px-1 py-1 text-[10px] sm:text-[11px] font-mono font-semibold tracking-tight text-slate-300">
-      <div class="w-full max-w-[370px] mx-auto flex flex-col">
+      <div class="subnav-grid">
         <!-- Tier 1: About Me | Experience | Education | Skills -->
-        <div class="flex items-center justify-between w-full py-0.5">
-          <a href="#about" data-i18n="nav_about" class="nav-item-link w-[68px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">About Me</a>
-          <span class="nav-divider" aria-hidden="true">|</span>
-          <a href="#experience" data-i18n="nav_experience" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Experience</a>
-          <span class="nav-divider" aria-hidden="true">|</span>
-          <a href="#education" data-i18n="nav_education" class="nav-item-link w-[72px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Education</a>
-          <span class="nav-divider" aria-hidden="true">|</span>
-          <a href="#skills" data-i18n="nav_skills" class="nav-item-link w-[82px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Skills</a>
-        </div>
+        <a href="#about" data-i18n="nav_about" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">About Me</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#experience" data-i18n="nav_experience" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Experience</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#education" data-i18n="nav_education" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Education</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#skills" data-i18n="nav_skills" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Skills</a>
+
+        <!-- Horizontal divider line spanning all 7 columns -->
+        <div class="subnav-divider-row border-t border-slate-800/50 my-0.5" aria-hidden="true"></div>
+
         <!-- Tier 2: Projects | AI & LLMs | BTC | Contact -->
-        <div class="flex items-center justify-between w-full py-0.5 border-t border-slate-800/50">
-          <a href="#projects" data-i18n="nav_projects" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Projects</a>
-          <span class="nav-divider" aria-hidden="true">|</span>
-          <a href="#ai" data-i18n="nav_ai" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">AI & LLMs</a>
-          <span class="nav-divider" aria-hidden="true">|</span>
-          <a href="#interests" data-i18n="nav_interests" class="nav-item-link w-[44px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">BTC</a>
-          <span class="nav-divider" aria-hidden="true">|</span>
-          <a href="#contact" data-i18n="nav_contact" class="nav-item-link w-[76px] hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Contact</a>
-        </div>
+        <a href="#projects" data-i18n="nav_projects" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Projects</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#ai" data-i18n="nav_ai" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">AI & LLMs</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#interests" data-i18n="nav_interests" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">BTC</a>
+        <span class="nav-divider" aria-hidden="true">|</span>
+        <a href="#contact" data-i18n="nav_contact" class="nav-item-link hover:text-white hover:bg-slate-800/80 transition-all text-center justify-center">Contact</a>
       </div>
     </nav>
 

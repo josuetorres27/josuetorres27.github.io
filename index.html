@@ -1283,7 +1283,7 @@
             </a>
 
             <!-- Dual CV & Resume Dropdown in Hero -->
-            <div class="relative w-full sm:w-auto" id="hero-cv-container">
+            <div class="relative w-full sm:w-auto sm:inline-block" id="hero-cv-container">
               <button id="hero-cv-btn" type="button" aria-expanded="false" class="w-full sm:w-auto pixel-btn pixel-btn-secondary pixel-corners-btn px-5 py-3.5 text-sm font-semibold">
                 <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -1291,7 +1291,7 @@
                 <span data-i18n="hero_btn_cv">Download CV / Resume</span>
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
               </button>
-              <div id="hero-cv-dropdown" class="hidden absolute left-0 right-0 sm:right-auto mt-2 w-full sm:w-56 pixel-corners-card bg-slate-900 border border-slate-700/80 shadow-2xl py-2 z-50">
+              <div id="hero-cv-dropdown" class="hidden absolute left-0 right-0 w-full mt-2 pixel-corners-card bg-slate-900 border border-slate-700/80 shadow-2xl py-2 z-50">
                 <a href="./docs/Josue_Torres_Resume.pdf" target="_blank" download="Josue_Torres_Resume.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
                   <span class="w-6 h-6 pixel-corners-btn bg-brand-500/15 border border-brand-500/40 text-brand-400 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">EN</span>
                   <div>
@@ -2898,7 +2898,7 @@
   </footer>
 
   <!-- ================= IMAGE LIGHTBOX MODAL ================= -->
-  <div id="image-lightbox-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+  <div id="image-lightbox-modal" class="hidden fixed inset-0 z-[150] flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
     <div class="relative max-w-4xl w-full flex flex-col items-center">
       
       <!-- Top Bar: Caption & Location above image + Close Button -->
@@ -3953,7 +3953,7 @@
         const visible = getVisibleCards();
         const max = getMaxIndex();
         if (currentIndex > max) currentIndex = max;
-        const offsetPercent = currentIndex * (100 / visible);
+        const offsetPercent = totalItems > 0 ? (currentIndex * 100) / totalItems : 0;
         track.style.transform = `translateX(-${offsetPercent}%)`;
 
         if (dotsContainer) {
@@ -3995,6 +3995,25 @@
 
       if (nextBtn) nextBtn.addEventListener('click', nextSlide);
       if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+      // Mobile Touch Swipe Support
+      let touchStartX = 0;
+      let touchEndX = 0;
+      container.addEventListener('touchstart', (e) => {
+        if (e.changedTouches && e.changedTouches[0]) {
+          touchStartX = e.changedTouches[0].screenX;
+        }
+      }, { passive: true });
+      container.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches[0]) {
+          touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+          }
+        }
+      }, { passive: true });
 
       let resizeTimeout;
       window.addEventListener('resize', () => {
@@ -4129,7 +4148,7 @@
     initImageLightbox();
 
     // ================= ADVENTURE MODE SYSTEM (SCROLLYTELLING & COMPANION) =================
-    let isAdventureActive = false;
+    var isAdventureActive = false;
     let currentAdvLevel = 0;
     let soundEnabled = true;
     let advDialogueTimer = null;

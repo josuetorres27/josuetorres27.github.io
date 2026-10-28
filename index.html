@@ -423,6 +423,22 @@
       animation: pop-out-arc 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     }
 
+    /* Adventure Mode Stage Wrapper Shift */
+    #adventure-stage-wrapper {
+      position: relative;
+      left: 0px;
+      width: 100%;
+      transition: left 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: left;
+    }
+    .adventure-stage-shifted #adventure-stage-wrapper {
+      left: calc(var(--adv-content-shift, 36px) * -1);
+    }
+    .adventure-stage-shifted #adventure-stage-wrapper header,
+    .adventure-stage-shifted #adventure-stage-wrapper footer {
+      width: calc(100% + var(--adv-content-shift, 36px));
+    }
+
     @keyframes walker-bob {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-2.5px); }
@@ -1208,6 +1224,9 @@
 
   <!-- Glow Background Effect -->
   <div class="absolute top-0 left-0 right-0 h-[600px] radial-bg pointer-events-none -z-10"></div>
+
+  <!-- Main Page Content Stage Wrapper (Shifts during Adventure Mode) -->
+  <div id="adventure-stage-wrapper">
 
   <!-- ================= NAVBAR ================= -->
   <header class="sticky top-0 z-50 glass-nav border-b border-slate-800/80 transition-all duration-300">
@@ -2973,6 +2992,7 @@
       </div>
     </div>
   </footer>
+  </div><!-- /adventure-stage-wrapper -->
 
   <!-- ================= IMAGE LIGHTBOX MODAL ================= -->
   <div id="image-lightbox-modal" class="hidden fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
@@ -3034,10 +3054,12 @@
       <div id="rail-track-container" class="relative flex flex-col items-center gap-2 sm:gap-2.5">
         <div class="absolute top-2 bottom-2 left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-brand-500 via-cyan-500 to-indigo-500 opacity-30"></div>
         
-        <!-- Animated Walking Sprite on the Rail -->
-        <div id="rail-character-walker" class="absolute -left-9 sm:-left-11 transition-all duration-500 ease-out flex items-center pointer-events-none" style="top: 0px;">
-          <img id="rail-character-sprite" src="./img/character-sprites/idle.png" class="w-7 h-7 sm:w-8 sm:h-8 pixelated drop-shadow-md" alt="Walker" />
-          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 ml-1 animate-ping"></span>
+        <!-- Animated Walking Sprite on the Rail (Enlarged 2x Pixel Art) -->
+        <div id="rail-character-walker" class="absolute -left-16 sm:-left-[76px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
+          <div class="relative flex items-center justify-center">
+            <img id="rail-character-sprite" src="./img/character-sprites/idle.png" class="w-14 h-14 sm:w-16 sm:h-16 pixelated drop-shadow-[0_4px_12px_rgba(2,132,199,0.55)] transition-transform duration-150 group-hover:scale-110 active:scale-95" alt="Mini Josué" />
+            <span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 rounded-none bg-cyan-400 border border-slate-950 animate-pulse hidden sm:inline-block"></span>
+          </div>
         </div>
 
         <!-- Level Checkpoint Buttons -->
@@ -3089,9 +3111,9 @@
   <!-- Companion Dialogue Box (Bottom Floating) -->
   <div id="adventure-dialogue-box" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 z-50 sm:max-w-md bg-slate-950/95 border border-brand-500/40 rounded-2xl shadow-2xl backdrop-blur-md p-3.5 sm:p-4 hidden transition-all duration-300 opacity-0 transform translate-y-4">
     <div class="flex items-start gap-3">
-      <!-- Avatar with Live Animations -->
-      <button id="dialogue-avatar-btn" type="button" class="w-12 h-12 rounded-xl bg-slate-900 border border-brand-500/30 flex items-center justify-center shrink-0 p-1 group hover:border-brand-400 transition-all active:scale-95 relative cursor-pointer" title="¡Hazme clic para saltar!">
-        <img id="dialogue-avatar-sprite" src="./img/character-sprites/idle.png" class="w-9 h-9 pixelated transition-transform duration-200" alt="Mini Josué" />
+      <!-- Avatar with Live Animations (Enlarged) -->
+      <button id="dialogue-avatar-btn" type="button" class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-slate-900 border border-brand-500/30 flex items-center justify-center shrink-0 p-1 group hover:border-brand-400 transition-all active:scale-95 relative cursor-pointer" title="¡Hazme clic para saltar!">
+        <img id="dialogue-avatar-sprite" src="./img/character-sprites/idle.png" class="w-11 h-11 sm:w-13 sm:h-13 pixelated transition-transform duration-200" alt="Mini Josué" />
         <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-950"></span>
       </button>
 
@@ -4381,7 +4403,45 @@
       tick();
     }
 
-    let walkerAnimInterval = null;
+        let walkerAnimInterval = null;
+    let previousAdvLevel = 0;
+
+    function updateAdventureContentShift(enable) {
+      const stageWrapper = document.getElementById('adventure-stage-wrapper');
+      if (!stageWrapper) return;
+
+      if (!enable || window.innerWidth < 640) {
+        document.body.classList.remove('adventure-stage-shifted');
+        stageWrapper.style.left = '0px';
+        return;
+      }
+
+      // Calculate free space on the left of main content container
+      const container = document.querySelector('#hero .max-w-6xl') || document.querySelector('section .max-w-6xl');
+      let freeLeft = 0;
+      if (container) {
+        const currentLeft = parseFloat(stageWrapper.style.left) || 0;
+        const rect = container.getBoundingClientRect();
+        freeLeft = rect.left - currentLeft;
+      } else {
+        freeLeft = Math.max(0, (window.innerWidth - 1152) / 2);
+      }
+
+      // User preference: "unos 30 pixeles (o la mitad de lo que tiene ahora de espacio libre a la izquierda)"
+      // Take half of free space on the left, at least 30px (if screen permits), comfortably capped at 64px
+      let shift = 32;
+      if (freeLeft > 60) {
+        shift = Math.min(Math.max(30, Math.floor(freeLeft * 0.5)), 64);
+      } else if (freeLeft > 35) {
+        shift = Math.max(20, Math.floor(freeLeft * 0.5));
+      } else {
+        shift = 0;
+      }
+
+      document.documentElement.style.setProperty('--adv-content-shift', shift + 'px');
+      stageWrapper.style.left = '-' + shift + 'px';
+      document.body.classList.add('adventure-stage-shifted');
+    }
 
     function updateAdventureUI() {
       const activeLang = document.documentElement.lang === 'es' ? 'es' : 'en';
@@ -4417,13 +4477,22 @@
           walkerAnimInterval = null;
         }
 
-        walker.style.top = targetNode.offsetTop + 'px';
+        // Center walker vertically with target node
+        const walkerH = walker.offsetHeight || 64;
+        const nodeH = targetNode.offsetHeight || 32;
+        const verticalOffset = Math.round((nodeH - walkerH) / 2);
+        walker.style.top = (targetNode.offsetTop + verticalOffset) + 'px';
         
+        const isMovingUp = currentAdvLevel < previousAdvLevel;
+        const walkFrame1 = isMovingUp ? './img/character-sprites/back-walk-1.png' : './img/character-sprites/walk-1.png';
+        const walkFrame2 = isMovingUp ? './img/character-sprites/back-walk-2.png' : './img/character-sprites/walk-2.png';
+        const idleFrame = isMovingUp ? './img/character-sprites/back.png' : './img/character-sprites/idle.png';
+
         let step = 0;
         walkerAnimInterval = setInterval(() => {
           step++;
-          walkerSprite.src = (step % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
-        }, 120);
+          walkerSprite.src = (step % 2 === 1) ? walkFrame1 : walkFrame2;
+        }, 110);
 
         setTimeout(() => {
           if (walkerAnimInterval) {
@@ -4431,10 +4500,18 @@
             walkerAnimInterval = null;
           }
           if (walkerSprite) {
-            walkerSprite.src = './img/character-sprites/idle.png';
+            walkerSprite.src = idleFrame;
+            if (isMovingUp) {
+              setTimeout(() => {
+                if (!walkerAnimInterval && walkerSprite && currentAdvLevel === previousAdvLevel) {
+                  walkerSprite.src = './img/character-sprites/idle.png';
+                }
+              }, 700);
+            }
           }
         }, 460);
       }
+      previousAdvLevel = currentAdvLevel;
     }
 
     function initAdventureMode() {
@@ -4487,6 +4564,9 @@
         isAdventureActive = true;
         playRetroSound('jump');
 
+        // Slide page content to the left to give companion breathing room
+        updateAdventureContentShift(true);
+
         // Portal flash effect on photo
         photoCard.classList.add('portal-spawn-active');
         setTimeout(() => photoCard.classList.remove('portal-spawn-active'), 900);
@@ -4497,7 +4577,7 @@
         const startY = photoRect.top + photoRect.height / 2 - 32;
 
         const isMobile = window.innerWidth < 640;
-        const targetX = isMobile ? (window.innerWidth / 2 - 32) : (window.innerWidth - 120);
+        const targetX = isMobile ? (window.innerWidth / 2 - 32) : (window.innerWidth - 140);
         const targetY = isMobile ? (window.innerHeight - 180) : (window.innerHeight / 2 - 32);
 
         const deltaX = targetX - startX;
@@ -4568,6 +4648,10 @@
         if (!isAdventureActive) return;
         isAdventureActive = false;
         playRetroSound('exit');
+
+        // Return page content smoothly back to center
+        updateAdventureContentShift(false);
+
         if (afkTimer) {
           clearTimeout(afkTimer);
           afkTimer = null;
@@ -4677,6 +4761,25 @@
         });
       }, { passive: true });
 
+            // Interactive walker on rail click (Jump & Sound)
+      const railWalker = document.getElementById('rail-character-walker');
+      if (railWalker) {
+        railWalker.addEventListener('click', (e) => {
+          if (e) e.stopPropagation();
+          resetAfkTimer();
+          playRetroSound('jump');
+          const walkerSprite = document.getElementById('rail-character-sprite');
+          if (walkerSprite) {
+            walkerSprite.src = './img/character-sprites/jump.png';
+            railWalker.classList.add('-translate-y-3');
+            setTimeout(() => {
+              railWalker.classList.remove('-translate-y-3');
+              walkerSprite.src = './img/character-sprites/idle.png';
+            }, 400);
+          }
+        });
+      }
+
       // Responsive rail toggle on window resize
       window.addEventListener('resize', () => {
         if (!isAdventureActive) return;
@@ -4684,9 +4787,11 @@
         if (mobileNow) {
           rail.classList.add('hidden', 'opacity-0', 'pointer-events-none');
           rail.classList.remove('flex', 'opacity-100');
+          updateAdventureContentShift(false);
         } else {
           rail.classList.remove('hidden', 'pointer-events-none');
           rail.classList.add('flex', 'opacity-100');
+          updateAdventureContentShift(true);
         }
       }, { passive: true });
     }

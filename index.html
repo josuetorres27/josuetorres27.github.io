@@ -784,21 +784,23 @@
       color: #ffffff !important;
     }
     #image-lightbox-modal #lightbox-close-btn {
-      background-color: rgba(30, 41, 59, 0.9) !important;
+      background-color: #0f172a !important;
       color: #ffffff !important;
-      border: 1px solid #475569 !important;
-      filter: none !important;
+      border: 1px solid #334155 !important;
+      box-shadow: inset 0 0 0 1px #334155 !important;
+      filter: drop-shadow(2px 2px 0px rgba(15, 23, 42, 0.9)) !important;
     }
     #image-lightbox-modal #lightbox-close-btn svg {
       stroke: #ffffff !important;
     }
     #image-lightbox-modal #lightbox-close-btn:hover {
-      background-color: #ef4444 !important;
-      border-color: #ef4444 !important;
+      background-color: #1e293b !important;
+      border-color: #38bdf8 !important;
+      box-shadow: inset 0 0 0 1px #38bdf8, 0 0 10px rgba(56, 189, 248, 0.35) !important;
       color: #ffffff !important;
     }
     #image-lightbox-modal #lightbox-close-btn:hover svg {
-      stroke: #ffffff !important;
+      stroke: #38bdf8 !important;
     }
     html.light #image-lightbox-modal #lightbox-close-btn {
       background-color: #ffffff !important;
@@ -811,28 +813,50 @@
       stroke: #0f172a !important;
     }
     html.light #image-lightbox-modal #lightbox-close-btn:hover {
-      background-color: #ef4444 !important;
-      border-color: #ef4444 !important;
-      color: #ffffff !important;
+      background-color: #f1f5f9 !important;
+      border-color: #0284c7 !important;
+      box-shadow: 2px 2px 0px 0px #0284c7 !important;
+      color: #0f172a !important;
     }
     html.light #image-lightbox-modal #lightbox-close-btn:hover svg {
-      stroke: #ffffff !important;
+      stroke: #0f172a !important;
     }
     #image-lightbox-modal #lightbox-content-box {
       background-color: #020617 !important;
-      border-color: #334155 !important;
+      box-shadow: inset 0 0 0 2px #38bdf8, 0 0 24px rgba(56, 189, 248, 0.25), 4px 4px 0px 0px rgba(15, 23, 42, 0.95) !important;
       max-height: calc(85vh - 80px);
       max-height: calc(85dvh - 80px);
     }
+    html.light #image-lightbox-modal #lightbox-content-box {
+      background-color: #ffffff !important;
+      box-shadow: inset 0 0 0 2px #0284c7, 4px 4px 0px 0px #cbd5e1 !important;
+    }
     #image-lightbox-modal #lightbox-location-link {
       background-color: rgba(6, 182, 212, 0.14) !important;
-      border-color: rgba(6, 182, 212, 0.38) !important;
+      border: 1px solid rgba(6, 182, 212, 0.45) !important;
       color: #a5f3fc !important;
+      box-shadow: inset 0 0 0 1px rgba(6, 182, 212, 0.5) !important;
+      filter: drop-shadow(2px 2px 0px rgba(15, 23, 42, 0.8)) !important;
     }
     #image-lightbox-modal #lightbox-location-link:hover {
       background-color: rgba(6, 182, 212, 0.25) !important;
-      border-color: rgba(6, 182, 212, 0.75) !important;
+      border-color: #38bdf8 !important;
       color: #ffffff !important;
+      box-shadow: inset 0 0 0 1px #38bdf8 !important;
+      filter: drop-shadow(3px 3px 0px rgba(6, 182, 212, 0.35)) !important;
+    }
+    html.light #image-lightbox-modal #lightbox-location-link {
+      background-color: rgba(2, 132, 199, 0.08) !important;
+      border: 1px solid #0284c7 !important;
+      color: #0284c7 !important;
+      box-shadow: inset 0 0 0 1px #0284c7, 2px 2px 0px 0px #cbd5e1 !important;
+      filter: none !important;
+    }
+    html.light #image-lightbox-modal #lightbox-location-link:hover {
+      background-color: rgba(2, 132, 199, 0.18) !important;
+      border-color: #0369a1 !important;
+      color: #0369a1 !important;
+      box-shadow: inset 0 0 0 1px #0369a1, 2px 2px 0px 0px #94a3b8 !important;
     }
     #image-lightbox-modal #lightbox-location-link span {
       color: inherit !important;
@@ -2977,14 +3001,14 @@
         
         <!-- Row 2: Location Link / Google Maps Badge (shown when image has location data) -->
         <div id="lightbox-location-container" class="hidden w-full flex items-center">
-          <a id="lightbox-location-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start px-3 sm:px-3.5 py-1.5 rounded-xl sm:rounded-full text-xs font-medium transition-all active:scale-95 shadow-sm border group/loc" title="Abrir ubicación en Google Maps">
-            <div class="w-1/2 sm:w-auto flex items-center justify-center sm:justify-start gap-1.5 min-w-0 pr-1.5 sm:pr-0">
+          <a id="lightbox-location-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start px-3 sm:px-3.5 py-1.5 pixel-corners-sm text-xs font-medium transition-all active:scale-95 shadow-sm border group/loc" title="Abrir ubicación en Google Maps">
+            <div class="w-1/2 sm:w-auto flex items-center justify-center sm:justify-start gap-1.5 min-w-0 pr-2 sm:pr-3">
               <svg class="w-3.5 h-3.5 text-cyan-400 group-hover/loc:scale-110 transition-transform fill-current flex-shrink-0" viewBox="0 0 24 24">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
               </svg>
               <span id="lightbox-location-text" class="font-sans font-medium text-[11px] sm:text-xs truncate max-w-full sm:max-w-md"></span>
             </div>
-            <span class="w-1/2 sm:w-auto inline-flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-[11px] font-mono opacity-90 pl-1.5 sm:pl-3 border-l border-cyan-500/30 flex-shrink-0 whitespace-nowrap">
+            <span class="w-1/2 sm:w-auto inline-flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-[11px] font-mono opacity-90 pl-2 sm:pl-3 border-l border-cyan-500/30 flex-shrink-0 whitespace-nowrap">
               <span data-i18n="lightbox_view_maps">Ver en Google Maps</span>
               <svg class="w-3 h-3 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
             </span>
@@ -2992,9 +3016,9 @@
         </div>
       </div>
 
-      <!-- Image Display Container -->
-      <div id="lightbox-content-box" class="relative rounded-2xl overflow-hidden border shadow-2xl flex items-center justify-center max-w-full">
-        <img id="lightbox-img" src="" alt="" class="w-auto h-auto max-w-full object-contain">
+      <!-- Image Display Container (Pixel Art Stepped Corners) -->
+      <div id="lightbox-content-box" class="relative pixel-corners-photo overflow-hidden flex items-center justify-center max-w-full">
+        <img id="lightbox-img" src="" alt="" class="w-auto h-auto max-w-full object-contain pixel-corners-photo">
       </div>
     </div>
   </div>

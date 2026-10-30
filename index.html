@@ -3041,100 +3041,100 @@
   </div>
 
   <!-- Side Quest Level Rail (Right Sidebar on Desktop / Tablet) -->
-  <aside id="adventure-rail" class="fixed right-3 sm:right-6 lg:right-8 top-20 sm:top-24 z-40 hidden flex-col items-center transition-all duration-500 opacity-0 pointer-events-none" aria-label="Navegación de nivel de Modo Aventura">
-    <div class="relative py-3 px-2 sm:px-2.5 rounded-2xl bg-slate-950/90 border border-slate-800/90 shadow-2xl backdrop-blur-md flex flex-col items-center">
+  <aside id="adventure-rail" class="fixed right-3 sm:right-6 lg:right-8 top-14 sm:top-16 z-40 hidden flex-col items-center transition-all duration-500 opacity-0 pointer-events-none" aria-label="Navegación de nivel de Modo Aventura">
+    <div class="relative py-2.5 px-2 sm:px-2.5 pixel-corners-card bg-slate-950/95 border border-slate-800/90 shadow-2xl backdrop-blur-md flex flex-col items-center">
       
       <!-- Top Rail Header / Controls -->
-      <div class="flex flex-col items-center gap-1 pb-2 mb-2 border-b border-slate-800/80 w-full">
+      <div class="flex flex-col items-center gap-0.5 pb-1.5 mb-1.5 border-b border-slate-800/80 w-full">
         <span class="text-[9px] font-mono font-bold tracking-widest text-brand-400">MAP</span>
-        <button id="rail-sound-toggle" type="button" class="w-6 h-6 rounded-md hover:bg-slate-800 text-[11px] text-slate-400 hover:text-white flex items-center justify-center transition-colors" title="Activar/Silenciar sonido">🔊</button>
+        <button id="rail-sound-toggle" type="button" class="w-6 h-6 pixel-corners-btn hover:bg-slate-800 text-[11px] text-slate-400 hover:text-white flex items-center justify-center transition-colors" title="Activar/Silenciar sonido">🔊</button>
       </div>
 
       <!-- Vertical Level Track Line -->
-      <div id="rail-track-container" class="relative flex flex-col items-center gap-2.5 sm:gap-3">
+      <div id="rail-track-container" class="relative flex flex-col items-center gap-1.5 sm:gap-2">
         <div class="absolute top-2 bottom-2 left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-brand-500 via-cyan-500 to-indigo-500 opacity-30"></div>
         
         <!-- Animated Walking Sprite on the Rail (Enlarged Pixel Art) -->
         <div id="rail-character-walker" class="absolute -left-20 sm:-left-[88px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
           <div class="relative flex items-center justify-center">
             <img id="rail-character-sprite" src="./img/character-sprites/idle.png" class="w-16 h-16 sm:w-20 sm:h-20 pixelated drop-shadow-[0_4px_16px_rgba(2,132,199,0.65)] transition-transform duration-150 group-hover:scale-110 active:scale-95" alt="Mini Josué" />
-            <span class="absolute -bottom-1 -right-1 w-2.5 h-2.5 rounded-none bg-cyan-400 border border-slate-950 animate-pulse hidden sm:inline-block"></span>
+            <!-- Active Node Cyan Indicator (Vertically centered with walker & node) -->
+            <span class="absolute top-1/2 -translate-y-1/2 -right-2.5 w-2.5 h-2.5 rounded-none bg-cyan-400 border border-slate-950 animate-pulse hidden sm:inline-block shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span>
           </div>
         </div>
 
         <!-- Level Checkpoint Buttons -->
-        <button type="button" data-level="0" data-target="#hero" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 1: Inicio">
+        <button type="button" data-level="0" data-target="#hero" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 1: Inicio">
           <span>🌟</span>
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">1. Inicio</span>
         </button>
-        <button type="button" data-level="1" data-target="#about" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 2: Sobre Mí">
+        <button type="button" data-level="1" data-target="#about" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 2: Sobre Mí">
           <span>👤</span>
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">2. Sobre Mí</span>
         </button>
-        <button type="button" data-level="2" data-target="#experience" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 3: Experiencia">
+        <button type="button" data-level="2" data-target="#experience" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 3: Experiencia">
           <span>💼</span>
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">3. Experiencia</span>
         </button>
-        <button type="button" data-level="3" data-target="#education" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 4: Educación">
+        <button type="button" data-level="3" data-target="#education" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 4: Educación">
           <span>🎓</span>
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">4. Educación</span>
         </button>
-        <button type="button" data-level="4" data-target="#skills" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 5: Habilidades">
+        <button type="button" data-level="4" data-target="#skills" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 5: Habilidades">
           <span>⚡</span>
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">5. Habilidades</span>
         </button>
-        <button type="button" data-level="5" data-target="#projects" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 6: Proyectos">
+        <button type="button" data-level="5" data-target="#projects" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 6: Proyectos">
           <span>🚀</span>
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">6. Proyectos</span>
         </button>
-        <button type="button" data-level="6" data-target="#ai" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 7: IA & LLMs">
+        <button type="button" data-level="6" data-target="#ai" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 7: IA & LLMs">
           <span>🤖</span>
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">7. IA & LLMs</span>
         </button>
-        <button type="button" data-level="7" data-target="#interests" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 8: Pasiones">
+        <button type="button" data-level="7" data-target="#interests" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 8: Pasiones">
           <span>📸</span>
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">8. Pasiones & Arte</span>
         </button>
-        <button type="button" data-level="8" data-target="#contact" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 9: Contacto">
+        <button type="button" data-level="8" data-target="#contact" class="rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 9: Contacto">
           <span>📬</span>
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">9. Contacto</span>
         </button>
       </div>
 
       <!-- Exit Button -->
-      <div class="pt-2 mt-2 border-t border-slate-800/80 w-full flex justify-center">
-        <button id="rail-exit-btn" type="button" class="w-6 h-6 rounded-md hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 text-xs flex items-center justify-center transition-colors" title="Cerrar Modo Aventura">✕</button>
+      <div class="pt-1.5 mt-1.5 border-t border-slate-800/80 w-full flex justify-center">
+        <button id="rail-exit-btn" type="button" class="w-6 h-6 pixel-corners-btn hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 text-xs flex items-center justify-center transition-colors" title="Cerrar Modo Aventura">✕</button>
       </div>
     </div>
   </aside>
 
-  <!-- Companion Dialogue Box (Bottom Floating - Fixed Size) -->
-  <div id="adventure-dialogue-box" class="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-6 sm:bottom-6 z-50 w-auto sm:w-[480px] h-[138px] sm:h-[142px] bg-slate-950/95 border border-brand-500/40 rounded-2xl shadow-2xl backdrop-blur-md p-3.5 sm:p-4 hidden transition-all duration-300 opacity-0 transform translate-y-4 select-none">
-    <div class="flex items-start gap-3 h-full">
-      <!-- Avatar with Live Animations (Enlarged) -->
-      <button id="dialogue-avatar-btn" type="button" class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-slate-900 border border-brand-500/30 flex items-center justify-center shrink-0 p-1 group hover:border-brand-400 transition-all active:scale-95 relative cursor-pointer" title="¡Hazme clic para saltar!">
-        <img id="dialogue-avatar-sprite" src="./img/character-sprites/idle.png" class="w-11 h-11 sm:w-13 sm:h-13 pixelated transition-transform duration-200" alt="Mini Josué" />
-        <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-950"></span>
+  <!-- Companion Dialogue Box (Bottom Floating - Stepped Pixel Art Frame) -->
+  <div id="adventure-dialogue-box" class="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-6 sm:bottom-6 z-50 w-auto sm:w-[480px] h-[142px] sm:h-[146px] bg-slate-950/95 border border-brand-500/50 pixel-corners-card shadow-2xl backdrop-blur-md p-3.5 sm:p-4 hidden transition-all duration-300 opacity-0 transform translate-y-4 select-none">
+    <div class="flex items-center gap-3.5 h-full w-full">
+      <!-- Avatar with Live Animations (Enlarged & Stepped Pixel Frame - No green dot) -->
+      <button id="dialogue-avatar-btn" type="button" class="w-16 h-16 sm:w-20 sm:h-20 pixel-corners-sm bg-slate-900 border border-brand-500/40 flex items-center justify-center shrink-0 p-1 group hover:border-brand-400 transition-all active:scale-95 relative cursor-pointer shadow-lg shadow-brand-500/10" title="¡Hazme clic para saltar!">
+        <img id="dialogue-avatar-sprite" src="./img/character-sprites/idle.png" class="w-14 h-14 sm:w-16 sm:h-16 pixelated transition-transform duration-200" alt="Mini Josué" />
       </button>
 
-      <!-- Dialogue Content (Fixed Height Container) -->
-      <div class="flex-1 min-w-0 flex flex-col justify-between h-full">
-        <div class="flex items-center justify-between gap-2 mb-1">
+      <!-- Dialogue Content (w-full ensures right-aligned buttons stay pinned to edge from start) -->
+      <div class="flex-1 min-w-0 flex flex-col justify-between h-full w-full">
+        <div class="flex items-center justify-between gap-2 mb-1 w-full">
           <div class="flex items-center gap-1.5">
             <span class="text-xs font-mono font-bold text-white tracking-tight">Josué Pixel</span>
             <span class="text-[10px] px-1.5 py-0.2 rounded bg-brand-500/20 text-cyan-300 border border-brand-500/30 font-mono font-medium">Guía</span>
           </div>
-          <div class="flex items-center gap-1.5 text-slate-400">
-            <button id="dialogue-mute-btn" type="button" class="p-1 hover:text-white text-xs transition-colors" title="Activar/Silenciar sonido">🔊</button>
-            <button id="dialogue-close-btn" type="button" class="p-1 hover:text-white text-xs transition-colors" title="Cerrar Guía">✕</button>
+          <div class="flex items-center gap-1 text-slate-400">
+            <button id="dialogue-mute-btn" type="button" class="p-1 pixel-corners-btn hover:text-white text-xs transition-colors" title="Activar/Silenciar sonido">🔊</button>
+            <button id="dialogue-close-btn" type="button" class="p-1 pixel-corners-btn hover:text-white text-xs transition-colors" title="Cerrar Guía">✕</button>
           </div>
         </div>
 
-        <p id="dialogue-text" class="text-xs sm:text-[13px] text-slate-200 leading-snug font-sans h-[54px] sm:h-[58px] overflow-hidden"></p>
+        <p id="dialogue-text" class="text-xs sm:text-[13px] text-slate-200 leading-snug font-sans h-[54px] sm:h-[58px] overflow-hidden w-full"></p>
 
-        <div class="pt-1.5 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-400">
-          <span id="dialogue-stage-label" class="text-brand-400 font-semibold">NIVEL 1/9 · INICIO</span>
-          <span class="hidden sm:inline text-slate-500 italic">Haz scroll o clic en el mapa</span>
+        <div class="pt-1.5 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-400 w-full">
+          <span id="dialogue-stage-label" class="text-brand-400 font-semibold whitespace-nowrap">NIVEL 1/9 · INICIO</span>
+          <span class="hidden sm:inline text-slate-500 italic whitespace-nowrap">Haz scroll o clic en el mapa</span>
         </div>
       </div>
     </div>
@@ -4465,9 +4465,9 @@
       railNodes.forEach((node, idx) => {
         const isCurrent = idx === currentAdvLevel;
         if (isCurrent) {
-          node.className = 'rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-brand-600 text-white border-2 border-brand-400 shadow-lg shadow-brand-500/40 scale-110';
+          node.className = 'rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-brand-600 text-white border-2 border-brand-400 shadow-lg shadow-brand-500/40 scale-110';
         } else {
-          node.className = 'rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95';
+          node.className = 'rail-node group relative z-10 w-9 h-9 sm:w-10 sm:h-10 pixel-corners-sm flex items-center justify-center text-sm sm:text-base font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95';
         }
       });
 
@@ -4510,7 +4510,7 @@
                 if (!walkerAnimInterval && walkerSprite && currentAdvLevel === previousAdvLevel) {
                   walkerSprite.src = './img/character-sprites/idle.png';
                 }
-              }, 700);
+              }, 200);
             }
           }
         }, 460);
@@ -4582,7 +4582,7 @@
 
         const isMobile = window.innerWidth < 640;
         const targetX = isMobile ? (window.innerWidth / 2 - 32) : (window.innerWidth - 150);
-        const targetY = isMobile ? (window.innerHeight - 180) : 115;
+        const targetY = isMobile ? (window.innerHeight - 180) : 90;
 
         const deltaX = targetX - startX;
         const deltaY = targetY - startY;

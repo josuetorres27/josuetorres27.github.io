@@ -4465,6 +4465,35 @@
       }
     }
 
+    function renderDialogueTypewriter(fullText, charCount) {
+      if (charCount <= 0) return '';
+      if (charCount >= fullText.length) {
+        return escapeTypewriterHtml(fullText);
+      }
+
+      // Find boundaries of the current word being typed
+      const lastSpaceBefore = fullText.lastIndexOf(' ', charCount - 1);
+      const wordStart = lastSpaceBefore === -1 ? 0 : lastSpaceBefore + 1;
+      const nextSpaceAfter = fullText.indexOf(' ', charCount);
+      const wordEnd = nextSpaceAfter === -1 ? fullText.length : nextSpaceAfter;
+
+      const completedPrefix = fullText.substring(0, wordStart);
+      const currentWordTyped = fullText.substring(wordStart, charCount);
+      const currentWordRemaining = fullText.substring(charCount, wordEnd);
+
+      if (currentWordRemaining.length > 0) {
+        return escapeTypewriterHtml(completedPrefix) +
+          '<span class="inline-block whitespace-nowrap">' +
+            '<span>' + escapeTypewriterHtml(currentWordTyped) + '</span>' +
+            '<span style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' +
+              escapeTypewriterHtml(currentWordRemaining) +
+            '</span>' +
+          '</span>';
+      } else {
+        return escapeTypewriterHtml(completedPrefix) + escapeTypewriterHtml(currentWordTyped);
+      }
+    }
+
     function typeAdventureDialogue(text, onComplete) {
       const dialogueTextEl = document.getElementById('dialogue-text');
       const avatarSprite = document.getElementById('dialogue-avatar-sprite');
@@ -4476,17 +4505,23 @@
       if (avatarSprite) {
         avatarSprite.src = './img/character-sprites/front.png';
       }
-      dialogueTextEl.textContent = '';
+      dialogueTextEl.innerHTML = '';
       let idx = 0;
       function tick() {
         if (idx < text.length) {
-          dialogueTextEl.textContent += text[idx];
-          if (idx % 3 === 0 && text[idx] !== ' ') {
+          let step = 1;
+          const code = text.charCodeAt(idx);
+          if (code >= 0xD800 && code <= 0xDBFF) {
+            step = 2;
+          }
+          idx += step;
+          dialogueTextEl.innerHTML = renderDialogueTypewriter(text, idx);
+          if (idx % 3 === 0 && text[idx - 1] !== ' ') {
             playRetroSound('blip');
           }
-          idx++;
           advDialogueTimer = setTimeout(tick, 22);
         } else {
+          dialogueTextEl.innerHTML = escapeTypewriterHtml(text);
           advDialogueTimer = null;
           if (onComplete) onComplete();
         }

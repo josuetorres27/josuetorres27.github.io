@@ -654,6 +654,19 @@
     html.light #adventure-dialogue-box .border-slate-800\/80 {
       border-color: #e2e8f0 !important;
     }
+    /* Dynamic Theme Icons */
+    .theme-icon-light {
+      display: none !important;
+    }
+    .theme-icon-dark {
+      display: inline-block !important;
+    }
+    html.light .theme-icon-dark {
+      display: none !important;
+    }
+    html.light .theme-icon-light {
+      display: inline-block !important;
+    }
     html.light #adventure-dialogue-box .bg-brand-500\/20 {
       background-color: #e0f2fe !important;
       color: #0284c7 !important;
@@ -3141,46 +3154,58 @@
 
           <!-- Level Checkpoint Buttons -->
         <button type="button" data-level="0" data-target="#hero" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 1: Inicio">
-          <span>🌟</span>
+          <img src="./img/icons/map-flag-dark.png" alt="Inicio" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-flag-light.png" alt="Inicio" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">1. Inicio</span>
         </button>
         <button type="button" data-level="1" data-target="#about" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 2: Sobre Mí">
-          <span>👤</span>
+          <img src="./img/icons/map-profile-dark.png" alt="Sobre Mí" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-profile-light.png" alt="Sobre Mí" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">2. Sobre Mí</span>
         </button>
         <button type="button" data-level="2" data-target="#experience" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 3: Experiencia">
-          <span>💼</span>
+          <img src="./img/icons/map-briefcase-dark.png" alt="Experiencia" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-briefcase-light.png" alt="Experiencia" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">3. Experiencia</span>
         </button>
         <button type="button" data-level="3" data-target="#education" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 4: Educación">
-          <span>🎓</span>
+          <img src="./img/icons/map-education-dark.png" alt="Educación" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-education-light.png" alt="Educación" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">4. Educación</span>
         </button>
         <button type="button" data-level="4" data-target="#skills" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 5: Habilidades">
-          <span>⚡</span>
+          <img src="./img/icons/map-skills-dark.png" alt="Habilidades" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-skills-light.png" alt="Habilidades" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">5. Habilidades</span>
         </button>
         <button type="button" data-level="5" data-target="#projects" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 6: Proyectos">
-          <span>🚀</span>
+          <img src="./img/icons/map-rocket-dark.png" alt="Proyectos" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-rocket-light.png" alt="Proyectos" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">6. Proyectos</span>
         </button>
         <button type="button" data-level="6" data-target="#ai" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 7: IA & LLMs">
-          <span>🤖</span>
+          <img src="./img/icons/map-robot-dark.png" alt="IA & LLMs" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-robot-light.png" alt="IA & LLMs" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">7. IA & LLMs</span>
         </button>
         <button type="button" data-level="7" data-target="#interests" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 8: Pasiones">
-          <span>📸</span>
+          <img src="./img/icons/map-gamepad-dark.png" alt="Pasiones & Arte" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-gamepad-light.png" alt="Pasiones & Arte" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">8. Pasiones & Arte</span>
         </button>
         <button type="button" data-level="8" data-target="#contact" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 9: Contacto">
-          <span>📬</span>
+          <img src="./img/icons/map-mail-dark.png" alt="Contacto" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-mail-light.png" alt="Contacto" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">9. Contacto</span>
         </button>
       </div>
 
         <!-- Exit Button -->
         <div class="pt-1 mt-1 border-t border-slate-800/80 w-full flex justify-center">
-          <button id="rail-exit-btn" type="button" class="w-5 h-5 sm:w-6 sm:h-6 pixel-corners-btn hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 text-xs flex items-center justify-center transition-colors" title="Cerrar Modo Aventura">✕</button>
+          <button id="rail-exit-btn" type="button" class="w-5 h-5 sm:w-6 sm:h-6 pixel-corners-btn hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 text-xs flex items-center justify-center transition-colors" title="Cerrar Modo Aventura">
+            <img src="./img/icons/close-x-dark.png" alt="Cerrar" class="theme-icon-dark w-3.5 h-3.5 pixelated select-none pointer-events-none" />
+            <img src="./img/icons/close-x-light.png" alt="Cerrar" class="theme-icon-light w-3.5 h-3.5 pixelated select-none pointer-events-none" />
+          </button>
         </div>
       </div><!-- /#adventure-rail-card -->
     </div><!-- /#adventure-rail-wrapper -->
@@ -3202,8 +3227,13 @@
             <span class="text-[10px] px-1.5 py-0.2 rounded bg-brand-500/20 text-cyan-300 border border-brand-500/30 font-mono font-medium">Guía</span>
           </div>
           <div class="flex items-center gap-1 text-slate-400">
-            <button id="dialogue-mute-btn" type="button" class="p-1 pixel-corners-btn hover:text-white text-xs transition-colors" title="Activar/Silenciar sonido">🔊</button>
-            <button id="dialogue-close-btn" type="button" class="p-1 pixel-corners-btn hover:text-white text-xs transition-colors" title="Cerrar Guía">✕</button>
+            <button id="dialogue-mute-btn" type="button" class="p-1 pixel-corners-btn hover:text-white text-xs transition-colors flex items-center justify-center" title="Activar/Silenciar sonido">
+              <img id="dialogue-mute-img" src="./img/icons/sound-on-dark.png" alt="Sonido activado" class="w-3.5 h-3.5 pixelated select-none pointer-events-none" />
+            </button>
+            <button id="dialogue-close-btn" type="button" class="p-1 pixel-corners-btn hover:text-white text-xs transition-colors flex items-center justify-center" title="Cerrar Guía">
+              <img src="./img/icons/close-x-dark.png" alt="Cerrar" class="theme-icon-dark w-3.5 h-3.5 pixelated select-none pointer-events-none" />
+              <img src="./img/icons/close-x-light.png" alt="Cerrar" class="theme-icon-light w-3.5 h-3.5 pixelated select-none pointer-events-none" />
+            </button>
           </div>
         </div>
 
@@ -3296,10 +3326,26 @@
     }
 
     // Theme Toggle Functionality
+    function updateSoundBtnUI() {
+      const muteImg = document.getElementById("dialogue-mute-img");
+      if (!muteImg) return;
+      const isLight = document.documentElement.classList.contains("light");
+      if (typeof soundEnabled !== "undefined" && !soundEnabled) {
+        muteImg.src = isLight ? "./img/icons/sound-off-light.png" : "./img/icons/sound-off-dark.png";
+        muteImg.alt = "Sonido silenciado";
+      } else {
+        muteImg.src = isLight ? "./img/icons/sound-on-light.png" : "./img/icons/sound-on-dark.png";
+        muteImg.alt = "Sonido activado";
+      }
+    }
+
     function updateThemeUI(theme) {
       const isLight = theme === 'light';
       document.querySelectorAll('.theme-icon-sun').forEach(el => el.classList.toggle('hidden', !isLight));
       document.querySelectorAll('.theme-icon-moon').forEach(el => el.classList.toggle('hidden', isLight));
+      if (typeof updateSoundBtnUI === 'function') {
+        updateSoundBtnUI();
+      }
     }
 
     function toggleTheme() {
@@ -4933,11 +4979,8 @@
       function toggleSound(e) {
         if (e) e.stopPropagation();
         soundEnabled = !soundEnabled;
-        const icon = soundEnabled ? '🔊' : '🔇';
-        muteBtns.forEach(btn => {
-          if (btn) btn.textContent = icon;
-        });
-        if (soundEnabled) playRetroSound('blip');
+        updateSoundBtnUI();
+        if (soundEnabled) playRetroSound("blip");
       }
 
       muteBtns.forEach(btn => {

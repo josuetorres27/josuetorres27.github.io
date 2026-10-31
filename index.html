@@ -788,18 +788,9 @@
     html.light .text-rose-300 { color: #e11d48 !important; }
     html.light .text-blue-300 { color: #1d4ed8 !important; }
 
-    /* Fix Dark Island Sections in Light Mode (Selected Projects spotlight & AI LLM section) */
-    html.light #spotlight-project .pixel-frame-inner,
-    html.light #ai-container .pixel-frame-inner {
+    /* Fix Dark Island Sections in Light Mode (Selected Projects spotlight) */
+    html.light #spotlight-project .pixel-frame-inner {
       background: #ffffff !important;
-    }
-    html.light #ai {
-      background-color: #f1f5f9 !important;
-    }
-    html.light #ai .bg-slate-950\/80,
-    html.light #ai .bg-slate-950\/60 {
-      background-color: #ffffff !important;
-      border-color: #e2e8f0 !important;
     }
     html.light #spotlight-project .bg-slate-800 {
       background-color: #f1f5f9 !important;
@@ -2424,114 +2415,106 @@
   </section>
 
   <!-- ================= EXPERIENCIA EN IA & LLMs ================= -->
-  <section id="ai" class="py-16 md:py-20 border-t border-slate-800/70 bg-slate-900/30">
+  <section id="ai" class="py-16 md:py-20 border-t border-slate-800/70">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex items-center gap-3 mb-4">
-        <span class="h-px w-8 bg-cyan-500"></span>
-        <h2 data-i18n="ai_section_tag" class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">06. Applied Artificial Intelligence</h2>
-      </div>
-
-      <div id="ai-container" class="card-hover pixel-frame-outer pixel-corners-card">
-        <div class="pixel-frame-inner pixel-corners-card">
-          <div class="terminal-header">
-            <div class="flex items-center min-w-0">
-              <span class="text-cyan-400 font-mono text-xs font-bold mr-1.5 select-none">&gt;</span>
-              <span class="font-mono text-slate-400 text-[11px] truncate">~/ai_labs/agent_workflows.py</span>
-            </div>
-            <span class="font-pixel text-[8px] text-cyan-400 shrink-0 ml-2">[APPLIED AI]</span>
-          </div>
-          <div class="p-8 sm:p-10 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
-<div class="relative z-10 space-y-8">
-          
-          <div class="w-full">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 pixel-corners-btn bg-cyan-500/15 text-cyan-300 text-xs font-mono font-semibold mb-3 border border-cyan-500/40" style="filter: drop-shadow(2px 2px 0px rgba(6, 182, 212, 0.25));">
-              <span data-i18n="ai_badge">AI & LLM Tools</span>
-            </div>
-            
-            <h3 data-i18n="ai_heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight text-balance">
-              Applied AI & Large Language Models
-            </h3>
-
-            <p data-i18n-html="ai_intro" class="text-slate-300 text-sm sm:text-base leading-relaxed mt-3">
-              Practical experience integrating and using AI models in software development workflows: connecting APIs, configuring <span class="font-mono text-cyan-300">Tool & Function Calling</span> for structured actions, handling typed schemas, and setting up multi-step agent flows to automate technical tasks.
-            </p>
-          </div>
-
-          <!-- Cards Grid: 4 Core Pillars -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            
-            <!-- Card 1 -->
-            <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
-              <div class="w-8 h-8 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]" title="01" aria-label="01">
-                <svg class="w-5 h-5" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
-                  <path d="M3 4h3v1H3zM3 11h3v1H3zM2 5h1v6H2zM6 5h1v6H6zM11 4h1v7h-1zM10 5h1v1h-1zM9 11h5v1H9z"/>
-                </svg>
-              </div>
-              <h4 data-i18n="ai_card1_title" class="text-sm font-bold text-white mb-1.5">Multi-Agent Systems</h4>
-              <p data-i18n="ai_card1_desc" class="text-xs text-slate-400 leading-relaxed">
-                Agent orchestration with ReAct loops, hierarchical subtask division, asynchronous delegation, and conversational state memory.
-              </p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
-              <div class="w-8 h-8 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]" title="02" aria-label="02">
-                <svg class="w-5 h-5" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
-                  <path d="M3 4h3v1H3zM3 11h3v1H3zM2 5h1v6H2zM6 5h1v6H6zM10 4h3v1h-3zM9 5h1v1H9zM13 5h1v2h-1zM12 7h1v1h-1zM11 8h1v1h-1zM10 9h1v1h-1zM9 10h1v1H9zM9 11h5v1H9z"/>
-                </svg>
-              </div>
-              <h4 data-i18n="ai_card2_title" class="text-sm font-bold text-white mb-1.5">Function & Tool Calling</h4>
-              <p data-i18n="ai_card2_desc" class="text-xs text-slate-400 leading-relaxed">
-                Deterministic bridging between LLMs and executable code (REST APIs, CLI scripts, SQL queries, and typed JSON schemas).
-              </p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
-              <div class="w-8 h-8 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]" title="03" aria-label="03">
-                <svg class="w-5 h-5" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
-                  <path d="M3 4h3v1H3zM3 11h3v1H3zM2 5h1v6H2zM6 5h1v6H6zM10 4h3v1h-3zM9 5h1v1H9zM13 5h1v2h-1zM11 7h2v1h-2zM13 8h1v3h-1zM9 10h1v1H9zM10 11h3v1h-3z"/>
-                </svg>
-              </div>
-              <h4 data-i18n="ai_card3_title" class="text-sm font-bold text-white mb-1.5">Context & Prompting</h4>
-              <p data-i18n="ai_card3_desc" class="text-xs text-slate-400 leading-relaxed">
-                Context window management, few-shot prompting, structured JSON schema extraction, and drift prevention techniques.
-              </p>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="p-5 pixel-corners-sm bg-slate-950/80 border border-slate-800/80 hover:border-cyan-500/40 transition-colors">
-              <div class="w-8 h-8 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-3 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]" title="04" aria-label="04">
-                <svg class="w-5 h-5" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
-                  <path d="M3 4h3v1H3zM3 11h3v1H3zM2 5h1v6H2zM6 5h1v6H6zM9 4h1v4H9zM9 8h5v1H9zM12 4h1v8h-1z"/>
-                </svg>
-              </div>
-              <h4 data-i18n="ai_card4_title" class="text-sm font-bold text-white mb-1.5">Models & Ecosystem</h4>
-              <p data-i18n="ai_card4_desc" class="text-xs text-slate-400 leading-relaxed">
-                Experience with Gemini API, Claude API, OpenAI SDK, local inference with Ollama, and agentic developer toolchains.
-              </p>
-            </div>
-
-          </div>
-
-          <!-- Bottom Action: Portfolio Repository -->
-          <div class="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-slate-800/80">
-            <p data-i18n-html="ai_portfolio_note" class="text-xs text-slate-400 font-mono">
-              This portfolio was built end-to-end utilizing<span class="tablet-only-break hidden md:inline xl:hidden"><br></span> agentic AI pair-programming workflows.
-            </p>
-            <a href="https://github.com/josuetorres27/josuetorres27.github.io" target="_blank" rel="noopener noreferrer" class="shrink-0 pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-2 text-xs text-cyan-400 hover:text-cyan-300 font-semibold font-mono inline-flex items-center gap-2">
-              <span data-i18n="ai_banner_btn">View Portfolio Codebase</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
-          </div>
-
+      <!-- Section Header -->
+      <div class="w-full mb-10">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="h-px w-8 bg-cyan-500"></span>
+          <h2 data-i18n="ai_section_tag" class="text-xs uppercase tracking-widest font-bold text-cyan-400 font-mono">06. Applied Artificial Intelligence</h2>
         </div>
+
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 pixel-corners-btn bg-cyan-500/15 text-cyan-300 text-xs font-mono font-semibold mb-4 border border-cyan-500/40" style="filter: drop-shadow(2px 2px 0px rgba(6, 182, 212, 0.25));">
+          <span data-i18n="ai_badge">AI & LLM Tools</span>
+        </div>
+        
+        <h3 data-i18n="ai_heading" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4 text-balance">
+          Applied AI & Large Language Models
+        </h3>
+
+        <p data-i18n-html="ai_intro" class="text-slate-300 text-base leading-relaxed max-w-4xl">
+          Practical experience integrating and using AI models in software development workflows: connecting APIs, configuring <span class="font-mono text-cyan-300">Tool & Function Calling</span> for structured actions, handling typed schemas, and setting up multi-step agent flows to automate technical tasks.
+        </p>
       </div>
+
+      <!-- 4 Core Pillars Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Card 1 -->
+        <div class="p-6 pixel-corners-card bg-slate-900/80 border border-slate-800/80 hover:border-cyan-500/50 transition-all card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-4 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]" title="01" aria-label="01">
+              <svg class="w-5 h-5" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+                <path d="M3 4h3v1H3zM3 11h3v1H3zM2 5h1v6H2zM6 5h1v6H6zM11 4h1v7h-1zM10 5h1v1h-1zM9 11h5v1H9z"/>
+              </svg>
+            </div>
+            <h4 data-i18n="ai_card1_title" class="text-base font-bold text-white mb-2">Multi-Agent Systems</h4>
+            <p data-i18n="ai_card1_desc" class="text-xs text-slate-400 leading-relaxed">
+              Agent orchestration with ReAct loops, hierarchical subtask division, asynchronous delegation, and conversational state memory.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-6 pixel-corners-card bg-slate-900/80 border border-slate-800/80 hover:border-cyan-500/50 transition-all card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-4 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]" title="02" aria-label="02">
+              <svg class="w-5 h-5" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+                <path d="M3 4h3v1H3zM3 11h3v1H3zM2 5h1v6H2zM6 5h1v6H6zM10 4h3v1h-3zM9 5h1v1H9zM13 5h1v2h-1zM12 7h1v1h-1zM11 8h1v1h-1zM10 9h1v1h-1zM9 10h1v1H9zM9 11h5v1H9z"/>
+              </svg>
+            </div>
+            <h4 data-i18n="ai_card2_title" class="text-base font-bold text-white mb-2">Function & Tool Calling</h4>
+            <p data-i18n="ai_card2_desc" class="text-xs text-slate-400 leading-relaxed">
+              Deterministic bridging between LLMs and executable code (REST APIs, CLI scripts, SQL queries, and typed JSON schemas).
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-6 pixel-corners-card bg-slate-900/80 border border-slate-800/80 hover:border-cyan-500/50 transition-all card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-4 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]" title="03" aria-label="03">
+              <svg class="w-5 h-5" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+                <path d="M3 4h3v1H3zM3 11h3v1H3zM2 5h1v6H2zM6 5h1v6H6zM10 4h3v1h-3zM9 5h1v1H9zM13 5h1v2h-1zM11 7h2v1h-2zM13 8h1v3h-1zM9 10h1v1H9zM10 11h3v1h-3z"/>
+              </svg>
+            </div>
+            <h4 data-i18n="ai_card3_title" class="text-base font-bold text-white mb-2">Context & Prompting</h4>
+            <p data-i18n="ai_card3_desc" class="text-xs text-slate-400 leading-relaxed">
+              Context window management, few-shot prompting, structured JSON schema extraction, and drift prevention techniques.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="p-6 pixel-corners-card bg-slate-900/80 border border-slate-800/80 hover:border-cyan-500/50 transition-all card-hover flex flex-col justify-between">
+          <div>
+            <div class="w-9 h-9 pixel-corners-btn bg-cyan-500/15 border border-cyan-500/40 flex items-center justify-center text-cyan-400 mb-4 shadow-[2px_2px_0px_0px_rgba(6,182,212,0.25)]" title="04" aria-label="04">
+              <svg class="w-5 h-5" viewBox="0 0 16 16" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+                <path d="M3 4h3v1H3zM3 11h3v1H3zM2 5h1v6H2zM6 5h1v6H6zM9 4h1v4H9zM9 8h5v1H9zM12 4h1v8h-1z"/>
+              </svg>
+            </div>
+            <h4 data-i18n="ai_card4_title" class="text-base font-bold text-white mb-2">Models & Ecosystem</h4>
+            <p data-i18n="ai_card4_desc" class="text-xs text-slate-400 leading-relaxed">
+              Experience with Gemini API, Claude API, OpenAI SDK, local inference with Ollama, and agentic developer toolchains.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Action: Portfolio Repository -->
+      <div class="mt-8 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-slate-800/70">
+        <p data-i18n-html="ai_portfolio_note" class="text-xs text-slate-400 font-mono">
+          This portfolio was built end-to-end utilizing<span class="tablet-only-break hidden md:inline xl:hidden"><br></span> agentic AI pair-programming workflows.
+        </p>
+        <a href="https://github.com/josuetorres27/josuetorres27.github.io" target="_blank" rel="noopener noreferrer" class="shrink-0 pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-2 text-xs text-cyan-400 hover:text-cyan-300 font-semibold font-mono inline-flex items-center gap-2">
+          <span data-i18n="ai_banner_btn">View Portfolio Codebase</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        </a>
+      </div>
+
     </div>
-  </div>
-</div>
   </section>
 
   <!-- ================= MENTALIDAD & ACTITUD ================= -->

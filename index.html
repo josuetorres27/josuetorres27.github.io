@@ -404,23 +404,31 @@
     @keyframes pop-out-arc {
       0% {
         opacity: 0;
-        transform: translate(0, 0) scale(0.3) rotate(-15deg);
+        transform: translate(0, 0) scale(0.6);
       }
-      25% {
+      8% {
         opacity: 1;
-        transform: translate(calc(var(--target-x) * 0.25), calc(var(--target-y) * 0.1 - 130px)) scale(1.4) rotate(15deg);
+        transform: translate(calc(var(--target-x) * 0.08), calc(var(--target-y) * 0.08 - 80px)) scale(1.05);
       }
-      70% {
+      45% {
         opacity: 1;
-        transform: translate(calc(var(--target-x) * 0.75), calc(var(--target-y) * 0.65 - 60px)) scale(1.1) rotate(-8deg);
+        transform: translate(calc(var(--target-x) * 0.45), calc(var(--target-y) * 0.45 - 200px)) scale(1.2);
+      }
+      80% {
+        opacity: 1;
+        transform: translate(calc(var(--target-x) * 0.82), calc(var(--target-y) * 0.82 - 90px)) scale(1.08);
+      }
+      94% {
+        opacity: 1;
+        transform: translate(calc(var(--target-x) * 0.96), calc(var(--target-y) * 0.96 - 15px)) scale(1.02);
       }
       100% {
         opacity: 1;
-        transform: translate(var(--target-x), var(--target-y)) scale(1) rotate(0deg);
+        transform: translate(var(--target-x), var(--target-y)) scale(1);
       }
     }
     .anim-pop-out-arc {
-      animation: pop-out-arc 0.9s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      animation: pop-out-arc 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     }
 
     /* Adventure Mode Stage Wrapper Shift */
@@ -563,6 +571,96 @@
       border-color: rgba(2, 132, 199, 0.35) !important;
       color: #0284c7 !important;
       box-shadow: 2px 2px 0px 0px #cbd5e1 !important;
+    }
+
+    /* Light Mode Adventure Mode (Companion & Rail) Overrides */
+    html.light #adventure-rail-card {
+      background-color: rgba(255, 255, 255, 0.96) !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 16px 32px -4px rgba(15, 23, 42, 0.12), 0 0 0 1px #cbd5e1 !important;
+    }
+    html.light #adventure-rail-card .border-slate-800\/80 {
+      border-color: #e2e8f0 !important;
+    }
+    html.light #adventure-rail-card span.text-brand-400 {
+      color: #0284c7 !important;
+    }
+    html.light .rail-node:not(.bg-brand-600) {
+      background-color: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+      color: #475569 !important;
+    }
+    html.light .rail-node:not(.bg-brand-600):hover {
+      background-color: #f1f5f9 !important;
+      border-color: #0284c7 !important;
+      color: #0f172a !important;
+    }
+    html.light .rail-node.bg-brand-600 {
+      background-color: #0284c7 !important;
+      border-color: #38bdf8 !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
+    }
+    html.light .rail-tooltip {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      color: #1e293b !important;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1) !important;
+    }
+    html.light #rail-exit-btn {
+      color: #64748b !important;
+    }
+    html.light #rail-exit-btn:hover {
+      color: #e11d48 !important;
+      background-color: #ffe4e6 !important;
+    }
+    html.light #rail-active-indicator span {
+      background-color: #0284c7 !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 0 8px rgba(2, 132, 199, 0.5) !important;
+    }
+    html.light #rail-character-sprite {
+      filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.18)) drop-shadow(0 0 6px rgba(2, 132, 199, 0.35)) !important;
+    }
+    html.light #flying-pixel-sprite-img {
+      filter: drop-shadow(0 12px 20px rgba(15, 23, 42, 0.25)) drop-shadow(0 0 8px rgba(2, 132, 199, 0.4)) !important;
+    }
+    html.light #adventure-dialogue-box {
+      background-color: rgba(255, 255, 255, 0.98) !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.08), 0 0 0 1px #cbd5e1 !important;
+    }
+    html.light #dialogue-avatar-btn {
+      background-color: #f8fafc !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06) !important;
+    }
+    html.light #dialogue-avatar-btn:hover {
+      background-color: #ffffff !important;
+      border-color: #0284c7 !important;
+    }
+    html.light #adventure-dialogue-box .text-white {
+      color: #0f172a !important;
+    }
+    html.light #adventure-dialogue-box .text-slate-200 {
+      color: #334155 !important;
+    }
+    html.light #adventure-dialogue-box .text-slate-400 {
+      color: #64748b !important;
+    }
+    html.light #adventure-dialogue-box .text-slate-500 {
+      color: #94a3b8 !important;
+    }
+    html.light #adventure-dialogue-box .border-slate-800\/80 {
+      border-color: #e2e8f0 !important;
+    }
+    html.light #adventure-dialogue-box .bg-brand-500\/20 {
+      background-color: #e0f2fe !important;
+      color: #0284c7 !important;
+      border-color: #bae6fd !important;
+    }
+    html.light #dialogue-stage-label {
+      color: #0284c7 !important;
     }
 
     /* High contrast color overrides for Light Mode */
@@ -3041,20 +3139,20 @@
   </div>
 
   <!-- Side Quest Level Rail (Right Sidebar on Desktop / Tablet) -->
-  <aside id="adventure-rail" class="fixed right-3 sm:right-5 top-11 sm:top-12 z-40 hidden flex-col items-center transition-all duration-500 opacity-0 pointer-events-none" aria-label="Navegación de nivel de Modo Aventura">
+  <aside id="adventure-rail" class="fixed right-3 sm:right-5 top-auto bottom-[168px] sm:bottom-[176px] z-40 hidden flex-col items-center transition-all duration-500 opacity-0 pointer-events-none" aria-label="Navegación de nivel de Modo Aventura">
     
     <!-- Outer Wrapper (NO clip-path: allows walker and indicator to render outside) -->
     <div id="adventure-rail-wrapper" class="relative flex flex-col items-center">
 
       <!-- Animated Walking Sprite on the Rail (Enlarged Pixel Art - Outside clip-path!) -->
-      <div id="rail-character-walker" class="absolute -left-[76px] sm:-left-[84px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
+      <div id="rail-character-walker" class="absolute -left-[92px] sm:-left-[102px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
         <div class="relative flex items-center justify-center">
           <img id="rail-character-sprite" src="./img/character-sprites/idle.png" class="w-16 h-16 sm:w-20 sm:h-20 pixelated drop-shadow-[0_4px_16px_rgba(2,132,199,0.65)] transition-transform duration-150 group-hover:scale-110 active:scale-95" alt="Mini Josué" />
         </div>
       </div>
 
       <!-- Active Node Cyan Indicator (Positioned right on the container line, between walker and level node!) -->
-      <div id="rail-active-indicator" class="absolute -left-[22px] sm:-left-[26px] transition-all duration-500 ease-out pointer-events-none z-40 flex items-center justify-center" style="top: 0px;">
+      <div id="rail-active-indicator" class="absolute -left-[13px] sm:-left-[16px] transition-all duration-500 ease-out pointer-events-none z-40 flex items-center justify-center" style="top: 0px;">
         <span class="w-2.5 h-2.5 rounded-none bg-cyan-400 border border-slate-950 animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.9)]"></span>
       </div>
 
@@ -4605,44 +4703,73 @@
           e.stopPropagation();
         }
 
+        // Always scroll to top (#hero) where the adventure starts
+        const heroSec = document.querySelector('#hero');
+        if (heroSec) {
+          heroSec.scrollIntoView({ behavior: 'smooth' });
+        }
+
         if (isAdventureActive) {
-          const heroSec = document.querySelector('#hero');
-          if (heroSec) heroSec.scrollIntoView({ behavior: 'smooth' });
           playRetroSound('coin');
           return;
         }
 
         isAdventureActive = true;
         isDialogueDismissed = false;
+        currentAdvLevel = 0;
+        previousAdvLevel = 0;
         playRetroSound('jump');
+
+        const walker = document.getElementById('rail-character-walker');
+        const indicator = document.getElementById('rail-active-indicator');
+        const walkerSprite = document.getElementById('rail-character-sprite');
+        if (walker) {
+          walker.style.top = '0px';
+          walker.classList.add('opacity-0'); // Keep walker hidden while flying sprite travels!
+        }
+        if (indicator) {
+          indicator.style.top = '0px';
+          indicator.classList.add('opacity-0');
+        }
+        if (walkerSprite) {
+          walkerSprite.src = './img/character-sprites/idle.png';
+        }
 
         // Slide page content to the left to give companion breathing room
         updateAdventureContentShift(true);
 
         // Portal flash effect on photo
         photoCard.classList.add('portal-spawn-active');
-        setTimeout(() => photoCard.classList.remove('portal-spawn-active'), 900);
+        setTimeout(() => photoCard.classList.remove('portal-spawn-active'), 1200);
 
-        // Calculate start position (photo center) and target destination
+        // Calculate start position (photo center) and target destination (first node on rail)
         const photoRect = photoCard.getBoundingClientRect();
         const startX = photoRect.left + photoRect.width / 2 - 32;
         const startY = photoRect.top + photoRect.height / 2 - 32;
 
         const isMobile = window.innerWidth < 640;
-        const targetX = isMobile ? (window.innerWidth / 2 - 32) : (window.innerWidth - 150);
-        const targetY = isMobile ? (window.innerHeight - 180) : 75;
 
-        const deltaX = targetX - startX;
-        const deltaY = targetY - startY;
-
-        // Open rail on tablet & desktop (>= 640px) and dialogue box immediately into DOM
+        // Open rail on tablet & desktop (>= 640px)
         if (!isMobile) {
           rail.classList.remove('hidden', 'pointer-events-none');
           rail.classList.add('flex');
+          rail.classList.remove('opacity-0');
+          rail.classList.add('opacity-100');
         }
 
-        dialogueBox.classList.remove('hidden');
-        dialogueBox.classList.add('flex');
+        let targetX = isMobile ? (window.innerWidth / 2 - 32) : (window.innerWidth - 170);
+        let targetY = isMobile ? (window.innerHeight - 180) : 120;
+
+        const firstNode = railNodes[0];
+        if (firstNode && !isMobile) {
+          const nodeRect = firstNode.getBoundingClientRect();
+          // Walker lands right on the left of the first level node
+          targetX = nodeRect.left - 80;
+          targetY = nodeRect.top + nodeRect.height / 2 - 36;
+        }
+
+        const deltaX = targetX - startX;
+        const deltaY = targetY - startY;
 
         if (flyingSprite) {
           flyingSprite.style.left = startX + 'px';
@@ -4656,11 +4783,18 @@
             flyingSprite.classList.add('hidden');
             flyingSprite.classList.remove('anim-pop-out-arc');
 
-            if (!isMobile) {
-              rail.classList.remove('opacity-0');
-              rail.classList.add('opacity-100');
+            // Reveal rail walker at level 0 with landing bounce
+            if (walker) {
+              walker.classList.remove('opacity-0');
+              walker.classList.add('-translate-y-3');
+              setTimeout(() => walker.classList.remove('-translate-y-3'), 350);
+            }
+            if (indicator) {
+              indicator.classList.remove('opacity-0');
             }
 
+            dialogueBox.classList.remove('hidden');
+            dialogueBox.classList.add('flex');
             dialogueBox.classList.remove('opacity-0', 'translate-y-4');
             dialogueBox.classList.add('opacity-100', 'translate-y-0');
 
@@ -4678,12 +4812,12 @@
             currentAdvLevel = 0;
             updateAdventureUI();
             resetAfkTimer();
-          }, 850);
+          }, 3000); // 3-second graceful arc jump!
         } else {
-          if (!isMobile) {
-            rail.classList.remove('opacity-0');
-            rail.classList.add('opacity-100');
-          }
+          if (walker) walker.classList.remove('opacity-0');
+          if (indicator) indicator.classList.remove('opacity-0');
+          dialogueBox.classList.remove('hidden');
+          dialogueBox.classList.add('flex');
           dialogueBox.classList.remove('opacity-0', 'translate-y-4');
           dialogueBox.classList.add('opacity-100', 'translate-y-0');
           currentAdvLevel = 0;
@@ -4702,6 +4836,10 @@
         isDialogueDismissed = false;
         playRetroSound('exit');
 
+        // Reset level state back to 0 completely
+        currentAdvLevel = 0;
+        previousAdvLevel = 0;
+
         // Return page content smoothly back to center
         updateAdventureContentShift(false);
 
@@ -4712,6 +4850,30 @@
 
         rail.classList.add('opacity-0', 'pointer-events-none');
         dialogueBox.classList.add('opacity-0', 'translate-y-4');
+
+        // Reset walker & indicator positions and hide walker so reopening starts clean from 0
+        const walker = document.getElementById('rail-character-walker');
+        const indicator = document.getElementById('rail-active-indicator');
+        const walkerSprite = document.getElementById('rail-character-sprite');
+        if (walker) {
+          walker.style.top = '0px';
+          walker.classList.add('opacity-0');
+        }
+        if (indicator) {
+          indicator.style.top = '0px';
+        }
+        if (walkerSprite) {
+          walkerSprite.src = './img/character-sprites/idle.png';
+        }
+
+        // Reset rail nodes to level 0 active
+        railNodes.forEach((node, idx) => {
+          if (idx === 0) {
+            node.className = 'rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-brand-600 text-white border-2 border-brand-400 shadow-lg shadow-brand-500/40 scale-110';
+          } else {
+            node.className = 'rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95';
+          }
+        });
 
         setTimeout(() => {
           rail.classList.add('hidden');

@@ -1151,6 +1151,16 @@
       border-color: #cbd5e1 !important;
       box-shadow: 2px 2px 0px 0px #cbd5e1 !important;
     }
+    html.light #theme-toggle-btn:hover,
+    html.light #theme-toggle-mobile:hover {
+      background-color: #e2e8f0 !important;
+      border-color: #94a3b8 !important;
+      box-shadow: 2px 2px 0px 0px #94a3b8 !important;
+    }
+    html.light #theme-toggle-btn:hover .theme-icon-sun,
+    html.light #theme-toggle-mobile:hover .theme-icon-sun {
+      filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.85)) !important;
+    }
     html.light .lang-switch-btn:not(.bg-brand-600) {
       color: #64748b !important;
     }
@@ -1395,9 +1405,9 @@
       <!-- Desktop & Tablet Actions: Language, Theme -->
       <div class="hidden md:flex items-center gap-2">
         <!-- Language Switcher Desktop/Tablet (Pixel Art Style) -->
-        <div class="h-8 inline-flex items-center p-0.5 pixel-corners-btn bg-slate-900 border border-slate-700/80 text-xs font-mono shadow-[2px_2px_0px_0px_rgba(15,23,42,0.9)] box-border" role="group" aria-label="Language selection">
-          <button id="lang-btn-en" type="button" class="lang-switch-btn h-full px-2.5 pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-xs" aria-label="Switch to English">EN</button>
-          <button id="lang-btn-es" type="button" class="lang-switch-btn h-full px-2.5 pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-xs" aria-label="Cambiar a Español">ES</button>
+        <div class="h-8 inline-flex items-center p-0.5 pixel-corners-btn bg-slate-900 border border-slate-700/80 text-xs font-mono shadow-[2px_2px_0px_0px_rgba(15,23,42,0.9)] box-border select-none" role="group" aria-label="Language selection">
+          <button id="lang-btn-en" type="button" class="lang-switch-btn w-7 h-full pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-xs select-none" aria-label="Switch to English">EN</button>
+          <button id="lang-btn-es" type="button" class="lang-switch-btn w-7 h-full pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-xs select-none" aria-label="Cambiar a Español">ES</button>
         </div>
 
         <!-- Theme Toggle Desktop/Tablet (Pixel Art Style) -->
@@ -1410,9 +1420,9 @@
       <!-- Mobile Right Controls (Lang, Theme) -->
       <div class="flex items-center gap-1.5 sm:gap-2 md:hidden">
         <!-- Language Switcher Mobile (Pixel Art Style) -->
-        <div class="h-8 inline-flex items-center p-0.5 pixel-corners-btn bg-slate-900 border border-slate-700/80 text-xs font-mono shadow-[2px_2px_0px_0px_rgba(15,23,42,0.9)] box-border" role="group" aria-label="Mobile language selector">
-          <button id="lang-btn-en-m" type="button" class="lang-switch-btn h-full px-2 pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-[11px]" aria-label="Switch to English">EN</button>
-          <button id="lang-btn-es-m" type="button" class="lang-switch-btn h-full px-2 pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-[11px]" aria-label="Cambiar a Español">ES</button>
+        <div class="h-8 inline-flex items-center p-0.5 pixel-corners-btn bg-slate-900 border border-slate-700/80 text-xs font-mono shadow-[2px_2px_0px_0px_rgba(15,23,42,0.9)] box-border select-none" role="group" aria-label="Mobile language selector">
+          <button id="lang-btn-en-m" type="button" class="lang-switch-btn w-6 h-full pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-[11px] select-none" aria-label="Switch to English">EN</button>
+          <button id="lang-btn-es-m" type="button" class="lang-switch-btn w-6 h-full pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-[11px] select-none" aria-label="Cambiar a Español">ES</button>
         </div>
 
         <button id="theme-toggle-mobile" type="button" aria-label="Cambiar tema / Toggle theme" class="h-8 w-8 flex items-center justify-center p-0 text-slate-400 hover:text-white hover:bg-slate-800 pixel-corners-btn bg-slate-900 border border-slate-700/80 shadow-[2px_2px_0px_0px_rgba(15,23,42,0.9)] transition-all active:scale-95 box-border">
@@ -4123,12 +4133,12 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         const isMobileBtn = btn.id.endsWith('-m');
         const isEn = btn.id.includes('-en');
         const isSelected = (activeLang === 'en' && isEn) || (activeLang === 'es' && !isEn);
-        const padClasses = isMobileBtn ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-1 text-xs';
+        const sizeClasses = isMobileBtn ? 'w-6 h-full text-[11px]' : 'w-7 h-full text-xs';
 
         if (isSelected) {
-          btn.className = `lang-switch-btn ${padClasses} pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none`;
+          btn.className = `lang-switch-btn ${sizeClasses} pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none select-none`;
         } else {
-          btn.className = `lang-switch-btn ${padClasses} pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none`;
+          btn.className = `lang-switch-btn ${sizeClasses} pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none select-none`;
         }
       });
 

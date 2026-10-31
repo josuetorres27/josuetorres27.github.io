@@ -1539,7 +1539,7 @@
             <!-- Pixel Art Stepped Photo Frame (Outer Cyan Border) -->
             <div class="pixel-photo-frame p-1 pixel-corners-photo w-64 sm:w-72 lg:w-80">
               <!-- Dark Console Chassis (Matching Quest Button Tone & Texture) -->
-              <div class="pixel-photo-chassis px-2.5 sm:px-3 pt-3 sm:pt-3.5 pb-2.5 sm:pb-8 pixel-corners-photo flex flex-col">
+              <div class="pixel-photo-chassis px-2.5 sm:px-3 pt-3 sm:pt-3.5 pb-7 sm:pb-8 pixel-corners-photo flex flex-col">
                 <!-- Integrated Arcade Header: Player 1 Name -->
                 <div class="flex items-center justify-center mb-2 select-none">
                   <span class="font-pixel text-xs sm:text-[13px] font-bold text-white tracking-wider uppercase group-hover:text-emerald-300 transition-colors" data-i18n="hero_player_tag">JUGADOR 1: JOSUÉ</span>
@@ -1554,8 +1554,8 @@
             </div>
 
             <!-- Adventure Mode Trigger: Interactive Quest Module (Docked to bottom edge of frame) -->
-            <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 z-40 hidden sm:block">
-              <button id="start-adventure-btn" type="button" aria-label="INICIAR AVENTURA / PRESS START" class="pixel-quest-btn pixel-corners-btn inline-flex items-center gap-2.5 px-6 py-3 sm:px-7 sm:py-3.5 text-xs sm:text-sm font-mono font-bold text-white cursor-pointer select-none whitespace-nowrap shadow-2xl">
+            <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 z-40 flex justify-center">
+              <button id="start-adventure-btn" type="button" aria-label="INICIAR AVENTURA / PRESS START" class="pixel-quest-btn pixel-corners-btn inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-7 sm:py-3.5 text-xs sm:text-sm font-mono font-bold text-white cursor-pointer select-none whitespace-nowrap shadow-2xl">
                 <span class="w-2.5 h-2.5 rounded-none bg-emerald-400 animate-pulse shrink-0"></span>
                 <span class="font-pixel text-xs sm:text-[13px] font-bold text-white group-hover:text-emerald-300 transition-colors tracking-wide" data-i18n="adventure_badge">INICIAR AVENTURA</span>
               </button>
@@ -3224,7 +3224,7 @@
         <div class="flex items-center justify-between gap-2 mb-1 w-full">
           <div class="flex items-center gap-1.5">
             <span class="text-xs font-mono font-bold text-white tracking-tight">Josué Pixel</span>
-            <span class="text-[10px] px-1.5 py-0.2 rounded bg-brand-500/20 text-cyan-300 border border-brand-500/30 font-mono font-medium">Guía</span>
+            <span data-i18n="adv_badge_guide" class="text-[10px] px-1.5 py-0.2 rounded bg-brand-500/20 text-cyan-300 border border-brand-500/30 font-mono font-medium">Guía</span>
           </div>
           <div class="flex items-center gap-1 text-slate-400">
             <button id="dialogue-mute-btn" type="button" class="p-1 pixel-corners-btn hover:text-white text-xs transition-colors flex items-center justify-center" title="Activar/Silenciar sonido">
@@ -3241,7 +3241,7 @@
 
         <div class="pt-1.5 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-400 w-full">
           <span id="dialogue-stage-label" class="text-brand-400 font-semibold whitespace-nowrap">NIVEL 1/9 · INICIO</span>
-          <span class="hidden sm:inline text-slate-500 italic whitespace-nowrap">Haz scroll o clic en el mapa</span>
+          <span data-i18n="adv_scroll_hint" class="hidden sm:inline text-slate-500 italic whitespace-nowrap">Haz scroll o clic en el mapa</span>
         </div>
       </div>
     </div>
@@ -3249,6 +3249,16 @@
 
   <!-- ================= JAVASCRIPT ================= -->
   <script>
+    // Adventure Mode Global State
+    var isAdventureActive = false;
+    var isDialogueDismissed = false;
+    var isAfkActive = false;
+    var currentAdvLevel = 0;
+    var previousAdvLevel = 0;
+    var soundEnabled = true;
+    var advDialogueTimer = null;
+    var audioCtx = null;
+
     // Toggle Mobile Menu
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -3330,12 +3340,13 @@
       const muteImg = document.getElementById("dialogue-mute-img");
       if (!muteImg) return;
       const isLight = document.documentElement.classList.contains("light");
-      if (typeof soundEnabled !== "undefined" && !soundEnabled) {
+      const activeLang = document.documentElement.lang === "es" ? "es" : "en";
+      if (!soundEnabled) {
         muteImg.src = isLight ? "./img/icons/sound-off-light.png" : "./img/icons/sound-off-dark.png";
-        muteImg.alt = "Sonido silenciado";
+        muteImg.alt = activeLang === "es" ? "Sonido silenciado" : "Sound muted";
       } else {
         muteImg.src = isLight ? "./img/icons/sound-on-light.png" : "./img/icons/sound-on-dark.png";
-        muteImg.alt = "Sonido activado";
+        muteImg.alt = activeLang === "es" ? "Sonido activado" : "Sound active";
       }
     }
 
@@ -3658,7 +3669,36 @@
         adv_lvl_6: "Engineering intelligent workflows with Google Gemini, multi-agent frameworks, and prompt engineering.",
         adv_lvl_7: "Balance is essential! 📸 Costa Rican nature photography, handcrafted sculptures, gaming, and the gym.",
         adv_lvl_8: "Reached the finish line! 🎉 Send me an email or download my CV—I'd love to connect and build together!",
-        adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep exploring!",
+adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep exploring!",
+        adv_badge_guide: "Guide",
+        adv_scroll_hint: "Scroll or click on the map",
+        adv_click_jump: "Click me to jump!",
+        adv_close_guide: "Close Guide",
+        adv_close_mode: "Close Adventure Mode",
+        adv_sound_toggle: "Mute/Unmute sound",
+        adv_close: "Close",
+        adv_node_tooltips: [
+          "1. Start",
+          "2. About Me",
+          "3. Experience",
+          "4. Education",
+          "5. Skills",
+          "6. Projects",
+          "7. AI & LLMs",
+          "8. Passions & Art",
+          "9. Contact"
+        ],
+        adv_node_arias: [
+          "Level 1: Start",
+          "Level 2: About Me",
+          "Level 3: Experience",
+          "Level 4: Education",
+          "Level 5: Skills",
+          "Level 6: Projects",
+          "Level 7: AI & LLMs",
+          "Level 8: Passions & Art",
+          "Level 9: Contact"
+        ],
         adv_stage_labels: [
           "STAGE 1/9 · HERO",
           "STAGE 2/9 · ABOUT ME",
@@ -3956,6 +3996,35 @@
         adv_lvl_7: "¡El balance es clave! 📸 Fotografía de Costa Rica, esculturas artesanales, videojuegos y entrenamiento en el gym.",
         adv_lvl_8: "¡Llegamos a la meta! 🎉 Envíame un correo o descárgate mi CV. ¡Será un gusto conectar y crear juntos!",
         adv_afk: "¿Sigues ahí, aventurero? 👀 ¡Haz clic en cualquier nivel o desliza para seguir explorando!",
+        adv_badge_guide: "Guía",
+        adv_scroll_hint: "Haz scroll o clic en el mapa",
+        adv_click_jump: "¡Hazme clic para saltar!",
+        adv_close_guide: "Cerrar Guía",
+        adv_close_mode: "Cerrar Modo Aventura",
+        adv_sound_toggle: "Activar/Silenciar sonido",
+        adv_close: "Cerrar",
+        adv_node_tooltips: [
+          "1. Inicio",
+          "2. Sobre Mí",
+          "3. Experiencia",
+          "4. Educación",
+          "5. Habilidades",
+          "6. Proyectos",
+          "7. IA & LLMs",
+          "8. Pasiones & Arte",
+          "9. Contacto"
+        ],
+        adv_node_arias: [
+          "Nivel 1: Inicio",
+          "Nivel 2: Sobre Mí",
+          "Nivel 3: Experiencia",
+          "Nivel 4: Educación",
+          "Nivel 5: Habilidades",
+          "Nivel 6: Proyectos",
+          "Nivel 7: IA & LLMs",
+          "Nivel 8: Pasiones & Arte",
+          "Nivel 9: Contacto"
+        ],
         adv_stage_labels: [
           "NIVEL 1/9 · INICIO",
           "NIVEL 2/9 · SOBRE MÍ",
@@ -4016,6 +4085,62 @@
       if (dict.hero_phrases) {
         initTypewriter(dict.hero_phrases);
       }
+
+// Update Adventure Mode titles, aria-labels, tooltips, and alts
+      const walker = document.getElementById('rail-character-walker');
+      if (walker && dict.adv_click_jump) {
+        walker.setAttribute('title', dict.adv_click_jump);
+      }
+      const avatarBtn = document.getElementById('dialogue-avatar-btn');
+      if (avatarBtn && dict.adv_click_jump) {
+        avatarBtn.setAttribute('title', dict.adv_click_jump);
+      }
+      const railExitBtn = document.getElementById('rail-exit-btn');
+      if (railExitBtn && dict.adv_close_mode) {
+        railExitBtn.setAttribute('title', dict.adv_close_mode);
+        railExitBtn.querySelectorAll('img').forEach(img => img.alt = dict.adv_close || 'Cerrar');
+      }
+      const dialogueCloseBtn = document.getElementById('dialogue-close-btn');
+      if (dialogueCloseBtn && dict.adv_close_guide) {
+        dialogueCloseBtn.setAttribute('title', dict.adv_close_guide);
+        dialogueCloseBtn.querySelectorAll('img').forEach(img => img.alt = dict.adv_close || 'Cerrar');
+      }
+      const dialogueMuteBtn = document.getElementById('dialogue-mute-btn');
+      if (dialogueMuteBtn && dict.adv_sound_toggle) {
+        dialogueMuteBtn.setAttribute('title', dict.adv_sound_toggle);
+      }
+      const startAdvBtn = document.getElementById('start-adventure-btn');
+      if (startAdvBtn) {
+        startAdvBtn.setAttribute('aria-label', activeLang === 'es' ? 'Iniciar Aventura / Iniciar Guía' : 'Start Adventure / Press Start');
+      }
+      const railEl = document.getElementById('adventure-rail');
+      if (railEl) {
+        railEl.setAttribute('aria-label', activeLang === 'es' ? 'Mapa de aventura y niveles' : 'Adventure map and levels');
+      }
+      const dialogueBoxEl = document.getElementById('adventure-dialogue-box');
+      if (dialogueBoxEl) {
+        dialogueBoxEl.setAttribute('aria-label', activeLang === 'es' ? 'Cuadro de diálogo de la guía' : 'Guide dialogue box');
+      }
+      if (typeof updateSoundBtnUI === 'function') {
+        updateSoundBtnUI();
+      }
+
+      // Update rail node tooltips and aria-labels
+      const railNodes = document.querySelectorAll('.rail-node');
+      railNodes.forEach((node, idx) => {
+        if (dict.adv_node_arias && dict.adv_node_arias[idx]) {
+          node.setAttribute('aria-label', dict.adv_node_arias[idx]);
+        }
+        const tooltip = node.querySelector('.rail-tooltip');
+        if (tooltip && dict.adv_node_tooltips && dict.adv_node_tooltips[idx]) {
+          tooltip.textContent = dict.adv_node_tooltips[idx];
+        }
+        const icons = node.querySelectorAll('img');
+        if (icons.length && dict.adv_node_tooltips && dict.adv_node_tooltips[idx]) {
+          const rawLabel = dict.adv_node_tooltips[idx].replace(/^\d+\.\s*/, '');
+          icons.forEach(img => img.alt = rawLabel);
+        }
+      });
 
       // Sync Adventure Mode if active
       if (typeof isAdventureActive !== 'undefined' && isAdventureActive && typeof updateAdventureUI === 'function') {
@@ -4423,12 +4548,6 @@
     initImageLightbox();
 
     // ================= ADVENTURE MODE SYSTEM (SCROLLYTELLING & COMPANION) =================
-    var isAdventureActive = false;
-    var isDialogueDismissed = false;
-    let currentAdvLevel = 0;
-    let soundEnabled = true;
-    let advDialogueTimer = null;
-    let audioCtx = null;
 
     function initAudio() {
       if (!audioCtx) {
@@ -4563,7 +4682,6 @@
     }
 
         let walkerAnimInterval = null;
-    let previousAdvLevel = 0;
 
     function updateAdventureContentShift(enable) {
       const stageWrapper = document.getElementById('adventure-stage-wrapper');
@@ -4627,9 +4745,13 @@
         stageLabelEl.textContent = stageLabels[currentAdvLevel];
       }
 
-      const textKey = 'adv_lvl_' + currentAdvLevel;
-      const text = dict[textKey] || '';
-      typeAdventureDialogue(text);
+      if (isAfkActive) {
+        typeAdventureDialogue(dict.adv_afk || '');
+      } else {
+        const textKey = 'adv_lvl_' + currentAdvLevel;
+        const text = dict[textKey] || '';
+        typeAdventureDialogue(text);
+      }
 
       // Update level nodes on rail
       const railNodes = document.querySelectorAll('.rail-node');
@@ -4723,9 +4845,11 @@
       let afkTimer = null;
       function resetAfkTimer() {
         if (afkTimer) clearTimeout(afkTimer);
+        isAfkActive = false;
         if (!isAdventureActive) return;
         afkTimer = setTimeout(() => {
           if (!isAdventureActive) return;
+          isAfkActive = true;
           if (isDialogueDismissed) {
             isDialogueDismissed = false;
             dialogueBox.classList.remove('hidden');
@@ -4767,6 +4891,7 @@
 
         isAdventureActive = true;
         isDialogueDismissed = false;
+        isAfkActive = false;
         currentAdvLevel = 0;
         previousAdvLevel = 0;
         playRetroSound('jump');
@@ -4885,6 +5010,7 @@
         if (!isAdventureActive) return;
         isAdventureActive = false;
         isDialogueDismissed = false;
+        isAfkActive = false;
         playRetroSound('exit');
 
         // Reset level state back to 0 completely
@@ -5008,6 +5134,7 @@
       railNodes.forEach((node, idx) => {
         node.addEventListener('click', () => {
           resetAfkTimer();
+          currentAdvLevel = idx;
           if (isDialogueDismissed) {
             isDialogueDismissed = false;
             dialogueBox.classList.remove('hidden');

@@ -40,8 +40,8 @@ I am a final-semester Computer Science and Software Engineering student at the *
 ### [LASCE — Institutional Scientific Web Platform](https://lasce.up.railway.app/) *(Active Development)*
 Full-stack institutional and scientific-data platform developed for the **Solar Astrophysics and Space Weather Laboratory (LASCE)** at the Universidad de Costa Rica.
 - **Live Platform:** [https://lasce.up.railway.app/](https://lasce.up.railway.app/)
-- **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, PostgreSQL, Python 3.13, Docker.
-- **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (concurrency control, database transactions, media asset pipelines), and accessible WCAG UI components.
+- **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
+- **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
 
 ### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel) *(UCR)*
 Desktop administration platform that digitizes microscopy workflows and manages biological specimen collections.

@@ -3208,7 +3208,7 @@
   </div>
 
   <!-- Side Quest Level Rail (Right Sidebar on Desktop / Tablet) -->
-  <aside id="adventure-rail" class="fixed right-3 sm:right-5 top-auto bottom-[168px] sm:bottom-[176px] z-40 hidden flex-col items-center opacity-0 transform translate-x-48 pointer-events-none" aria-label="Navegación de nivel de Modo Aventura">
+  <aside id="adventure-rail" class="fixed right-3 sm:right-5 top-auto bottom-[186px] sm:bottom-[196px] z-40 hidden flex-col items-center opacity-0 transform translate-x-48 pointer-events-none" aria-label="Navegación de nivel de Modo Aventura">
     
     <!-- Outer Wrapper (NO clip-path: allows walker and indicator to render outside) -->
     <div id="adventure-rail-wrapper" class="relative flex flex-col items-center">
@@ -3293,7 +3293,7 @@
   </aside>
 
   <!-- Companion Dialogue Box (Bottom Floating - Stepped Pixel Art Frame) -->
-  <div id="adventure-dialogue-box" class="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-5 sm:bottom-5 z-50 w-auto sm:w-[480px] h-[142px] sm:h-[146px] bg-slate-950/95 border border-brand-500/50 pixel-corners-card shadow-2xl backdrop-blur-md p-3.5 sm:p-4 hidden opacity-0 transform translate-x-full select-none pointer-events-none">
+  <div id="adventure-dialogue-box" class="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-5 sm:bottom-5 z-50 w-auto sm:w-[480px] h-[162px] sm:h-[166px] bg-slate-950/95 border border-brand-500/50 pixel-corners-card shadow-2xl backdrop-blur-md p-3.5 sm:p-4 hidden opacity-0 transform translate-x-full select-none pointer-events-none">
     <div class="flex items-center gap-3.5 h-full w-full">
       <!-- Avatar with Live Animations (Enlarged & Stepped Pixel Frame - No green dot) -->
       <button id="dialogue-avatar-btn" type="button" class="w-16 h-16 sm:w-20 sm:h-20 pixel-corners-sm bg-slate-900 border border-brand-500/40 flex items-center justify-center shrink-0 p-1 group hover:border-brand-400 transition-all active:scale-95 relative cursor-pointer shadow-lg shadow-brand-500/10" title="¡Hazme clic para saltar!">
@@ -3318,7 +3318,7 @@
           </div>
         </div>
 
-        <p id="dialogue-text" class="text-xs sm:text-[13px] text-slate-200 leading-snug font-sans h-[54px] sm:h-[58px] overflow-hidden w-full"></p>
+        <p id="dialogue-text" class="text-xs sm:text-[13px] text-slate-200 leading-snug font-sans h-[72px] sm:h-[76px] overflow-hidden w-full"></p>
 
         <div class="pt-1.5 border-t border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-400 w-full">
           <span id="dialogue-stage-label" class="text-brand-400 font-semibold whitespace-nowrap">NIVEL 1/9 · INICIO</span>
@@ -5418,6 +5418,10 @@
         if (e) {
           e.preventDefault();
           e.stopPropagation();
+        }
+        if (window.innerWidth < 640) {
+          closeAdventure(e);
+          return;
         }
         playRetroSound('exit');
         hideDialogueBox();

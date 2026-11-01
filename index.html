@@ -627,6 +627,13 @@
       filter: drop-shadow(0 12px 20px rgba(15, 23, 42, 0.25)) drop-shadow(0 0 8px rgba(2, 132, 199, 0.4)) !important;
     }
     /* Light Mode Photo Portal Blur (Clean Slate-50 White Matching Avatar Window) */
+    /* Smooth 550ms Cinematic Photo Portal Dissolve for both Dark & Light modes */
+    #hero-portal-overlay {
+      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.55s ease-out !important;
+    }
+    #hero-profile-img {
+      transition: filter 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
     html.light #hero-photo-card {
       background-color: #f8fafc !important;
     }
@@ -5051,8 +5058,13 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
           heroImg.classList.add('blur-md', 'scale-95', 'opacity-25');
         }
         if (portalOverlay) {
-          portalOverlay.classList.remove('opacity-0', 'hidden');
-          portalOverlay.classList.add('opacity-100');
+          portalOverlay.classList.remove('hidden');
+          portalOverlay.classList.add('opacity-0');
+          void portalOverlay.offsetHeight;
+          requestAnimationFrame(() => {
+            portalOverlay.classList.remove('opacity-0');
+            portalOverlay.classList.add('opacity-100');
+          });
         }
 
         if (portalSpriteWrap && portalSprite) {

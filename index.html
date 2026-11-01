@@ -5101,10 +5101,15 @@
           e.stopPropagation();
         }
 
-        // Always scroll to top (#hero) where the adventure starts
-        const heroSec = document.querySelector('#hero');
-        if (heroSec) {
-          heroSec.scrollIntoView({ behavior: 'smooth' });
+        // Focus and center the hero photo card so the portal animation is fully visible across all formats
+        const photoTarget = document.getElementById('hero-photo-wrapper') || document.getElementById('hero-photo-card') || document.querySelector('#hero');
+        if (photoTarget) {
+          const rect = photoTarget.getBoundingClientRect();
+          const targetY = Math.max(0, Math.round(window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2)));
+          window.scrollTo({
+            top: targetY,
+            behavior: 'smooth'
+          });
         }
 
         if (isAdventureActive) {

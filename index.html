@@ -3173,7 +3173,7 @@
     <div id="adventure-rail-wrapper" class="relative flex flex-col items-center">
 
       <!-- Animated Walking Sprite on the Rail (Enlarged Pixel Art - Outside clip-path!) -->
-      <div id="rail-character-walker" class="absolute -left-[83px] sm:-left-[91px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
+      <div id="rail-character-walker" class="absolute -left-[80px] sm:-left-[88px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
         <div class="relative flex items-center justify-center">
           <img id="rail-character-sprite" src="./img/character-sprites/idle.png" class="w-16 h-16 sm:w-20 sm:h-20 pixelated drop-shadow-[0_4px_16px_rgba(2,132,199,0.65)] transition-transform duration-150 group-hover:scale-110 active:scale-95" alt="Mini Josué" />
         </div>
@@ -4794,7 +4794,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
     let isProgrammaticScroll = false;
     let programmaticScrollTimeout = null;
 
-    function updateAdventureUI() {
+    function updateAdventureUI(skipWalkerAnim = false) {
       const activeLang = document.documentElement.lang === 'es' ? 'es' : 'en';
       const dict = I18N[activeLang];
       const stageLabels = dict.adv_stage_labels || [];
@@ -4846,7 +4846,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
           indicator.style.top = Math.round(nodeCenterY - indH / 2) + 'px';
         }
 
-        if (walkerSprite) {
+        if (walkerSprite && !skipWalkerAnim) {
           if (walkerAnimInterval) {
             clearInterval(walkerAnimInterval);
             walkerAnimInterval = null;
@@ -5085,15 +5085,26 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
                     }
 
                     if (walker && walkerSprite) {
-                      // Calculate starting position just below the header navbar
+                      // Calculate starting position just below header navbar & target Level 0 checkpoint
                       let startTop = -180;
+                      let targetLevel0Top = 12;
                       const headerEl = document.querySelector('header');
                       const wrapperEl = document.getElementById('adventure-rail-wrapper');
-                      if (headerEl && wrapperEl) {
-                        const headerBottom = headerEl.getBoundingClientRect().bottom;
-                        const wrapperTop = wrapperEl.getBoundingClientRect().top;
-                        startTop = Math.round((headerBottom + 8) - wrapperTop);
-                        if (startTop > -120) startTop = -180;
+                      const node0 = document.querySelector('.rail-node[data-level="0"]');
+
+                      if (wrapperEl) {
+                        const wrapperRect = wrapperEl.getBoundingClientRect();
+                        if (headerEl) {
+                          const headerBottom = headerEl.getBoundingClientRect().bottom;
+                          startTop = Math.round((headerBottom + 8) - wrapperRect.top);
+                          if (startTop > -120) startTop = -180;
+                        }
+                        if (node0) {
+                          const node0Rect = node0.getBoundingClientRect();
+                          const nodeCenterY = (node0Rect.top - wrapperRect.top) + (node0Rect.height / 2);
+                          const walkerH = walker.offsetHeight || 80;
+                          targetLevel0Top = Math.round(nodeCenterY - walkerH / 2);
+                        }
                       }
 
                       walker.style.transition = 'none';
@@ -5107,7 +5118,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
                       // Walk downwards from under header straight to Level 0 checkpoint
                       const walkDurationMs = 850;
                       walker.style.transition = `top ${walkDurationMs}ms cubic-bezier(0.25, 0.1, 0.25, 1)`;
-                      walker.style.top = '0px';
+                      walker.style.top = targetLevel0Top + 'px';
 
                       let railStep = 0;
                       const railWalkInterval = setInterval(() => {
@@ -5141,7 +5152,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
 
                         currentAdvLevel = 0;
                         previousAdvLevel = 0;
-                        updateAdventureUI();
+                        updateAdventureUI(true);
                         resetAfkTimer();
                       }, walkDurationMs);
                     }

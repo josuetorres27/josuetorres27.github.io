@@ -4286,14 +4286,30 @@
     }
 
     function renderSingleLine(phrase, charCount, withCursor, cursorHtml) {
+      if (!phrase) return withCursor ? cursorHtml : '';
+
       const words = phrase.split(' ');
+
       if (charCount <= 0) {
-        const hidden = words.map(w => '<span class="inline-block whitespace-nowrap" style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeTypewriterHtml(w) + '</span>').join(' ');
-        return (withCursor ? cursorHtml : '') + hidden;
+        const hidden = words.map((w, idx) => {
+          const escaped = escapeTypewriterHtml(w);
+          if (idx === 0 && withCursor) {
+            return '<span class="inline-block whitespace-nowrap">' + cursorHtml + '<span style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escaped + '</span></span>';
+          }
+          return '<span class="inline-block whitespace-nowrap" style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escaped + '</span>';
+        }).join(' ');
+        return hidden;
       }
+
       if (charCount >= phrase.length) {
-        const visible = words.map(w => '<span class="inline-block whitespace-nowrap">' + escapeTypewriterHtml(w) + '</span>').join(' ');
-        return visible + (withCursor ? cursorHtml : '');
+        const visible = words.map((w, idx) => {
+          const escaped = escapeTypewriterHtml(w);
+          if (idx === words.length - 1 && withCursor) {
+            return '<span class="inline-block whitespace-nowrap">' + escaped + cursorHtml + '</span>';
+          }
+          return '<span class="inline-block whitespace-nowrap">' + escaped + '</span>';
+        }).join(' ');
+        return visible;
       }
 
       const tokens = [];
@@ -4315,20 +4331,25 @@
         const token = tokens[i];
         if (token.isSpace) {
           html += token.text;
-          if (withCursor && !cursorPlaced && charCount >= token.start && charCount < token.end) {
-            html += cursorHtml;
-            cursorPlaced = true;
-          }
         } else {
+          const wordText = escapeTypewriterHtml(token.text);
           if (charCount >= token.end) {
-            let wHtml = escapeTypewriterHtml(token.text);
+            let wordHtml = wordText;
             if (withCursor && !cursorPlaced && charCount === token.end) {
-              wHtml += cursorHtml;
+              wordHtml += cursorHtml;
               cursorPlaced = true;
             }
-            html += '<span class="inline-block whitespace-nowrap">' + wHtml + '</span>';
+            html += '<span class="inline-block whitespace-nowrap">' + wordHtml + '</span>';
           } else if (charCount <= token.start) {
-            html += '<span class="inline-block whitespace-nowrap" style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeTypewriterHtml(token.text) + '</span>';
+            if (withCursor && !cursorPlaced && charCount <= token.start) {
+              html += '<span class="inline-block whitespace-nowrap">' +
+                cursorHtml +
+                '<span style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + wordText + '</span>' +
+              '</span>';
+              cursorPlaced = true;
+            } else {
+              html += '<span class="inline-block whitespace-nowrap" style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + wordText + '</span>';
+            }
           } else {
             const typed = token.text.substring(0, charCount - token.start);
             const untyped = token.text.substring(charCount - token.start);

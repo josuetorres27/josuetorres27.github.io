@@ -1592,7 +1592,7 @@
                   <!-- Portal Overlay & Big Pixel Character inside photo -->
                   <div id="hero-portal-overlay" class="absolute inset-0 bg-slate-950/75 backdrop-blur-sm opacity-0 hidden pointer-events-none transition-opacity duration-300 flex items-center justify-center z-20"></div>
                   <div id="hero-portal-sprite-wrap" class="absolute inset-0 flex items-center justify-center pointer-events-none z-30 opacity-0 hidden transition-opacity duration-200">
-                    <img id="hero-portal-sprite" src="./img/character-sprites/jump.png" class="w-32 h-32 sm:w-40 sm:h-40 pixelated drop-shadow-[0_10px_25px_rgba(6,182,212,0.85)] transform transition-transform duration-300 ease-out" alt="Mini Josué Portal" />
+                    <img id="hero-portal-sprite" src="./img/character-sprites/front.png" class="w-32 h-32 sm:w-40 sm:h-40 pixelated drop-shadow-[0_10px_25px_rgba(6,182,212,0.85)] transform transition-transform duration-300 ease-out" alt="Mini Josué Portal" />
                   </div>
                 </div>
               </div>
@@ -3189,7 +3189,7 @@
         
         <!-- Top Rail Header / Controls -->
         <div class="flex flex-col items-center py-0.5 pb-1 mb-1 border-b border-slate-800/80 w-full text-center">
-          <span class="text-[9px] font-mono font-bold tracking-widest text-brand-400">MAP</span>
+          <span data-i18n="adv_map_title" class="text-[9px] font-mono font-bold tracking-widest text-brand-400">MAPA</span>
           
         </div>
 
@@ -3735,6 +3735,7 @@
         adv_lvl_8: "Reached the finish line! 🎉 Send me an email or download my CV—I'd love to connect and build together!",
 adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep exploring!",
         adv_badge_guide: "Guide",
+        adv_map_title: "MAP",
         adv_scroll_hint: "Scroll or click on the map",
         adv_click_jump: "Click me to jump!",
         adv_close_guide: "Close Guide",
@@ -4061,6 +4062,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         adv_lvl_8: "¡Llegamos a la meta! 🎉 Envíame un correo o descárgate mi CV. ¡Será un gusto conectar y crear juntos!",
         adv_afk: "¿Sigues ahí, aventurero? 👀 ¡Haz clic en cualquier nivel o desliza para seguir explorando!",
         adv_badge_guide: "Guía",
+        adv_map_title: "MAPA",
         adv_scroll_hint: "Haz scroll o clic en el mapa",
         adv_click_jump: "¡Hazme clic para saltar!",
         adv_close_guide: "Cerrar Guía",
@@ -4982,7 +4984,6 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         const portalSprite = document.getElementById('hero-portal-sprite');
 
         if (walker) {
-          walker.style.top = '-55px'; // Starts above Level 0 checkpoint
           walker.classList.add('opacity-0');
         }
         if (indicator) {
@@ -4993,8 +4994,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
           walkerSprite.src = './img/character-sprites/walk-1.png';
         }
 
-        // 1. Photo portal blur & Big character spawn (Rich 2.6s sequence)
-        playRetroSound('jump');
+        // 1. Photo portal blur & Big character spawn
         if (heroImg) {
           heroImg.classList.remove('blur-0', 'scale-100', 'opacity-100');
           heroImg.classList.add('blur-md', 'scale-95', 'opacity-25');
@@ -5005,122 +5005,151 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         }
 
         if (portalSpriteWrap && portalSprite) {
-          portalSprite.src = './img/character-sprites/jump.png';
-          portalSprite.style.transition = 'transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2)';
-          portalSprite.style.transform = 'translateY(-48px)';
+          // STEP 1: Appear standing with front sprite at center
+          portalSprite.src = './img/character-sprites/front.png';
+          portalSprite.style.transition = 'none';
+          portalSprite.style.transform = 'translateY(0px) scale(1, 1)';
           portalSpriteWrap.classList.remove('opacity-0', 'hidden');
           portalSpriteWrap.classList.add('opacity-100');
 
-          // Phase A: Jump apex -> Land back in center (0.45s)
+          // Phase A: Stand briefly (350ms), then jump!
           setTimeout(() => {
-            portalSprite.style.transition = 'transform 0.35s ease-in';
-            portalSprite.style.transform = 'translateY(0px)';
+            playRetroSound('jump');
+            portalSprite.src = './img/character-sprites/jump.png';
+            portalSprite.style.transition = 'transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2)';
+            portalSprite.style.transform = 'translateY(-48px)';
 
-            // Phase B: Landing impact (at t = 0.8s)
+            // Phase B: Jump apex -> Land back in center (0.45s)
             setTimeout(() => {
-              portalSprite.src = './img/character-sprites/front.png';
-              playRetroSound('coin');
-              portalSprite.style.transition = 'transform 0.18s ease-out';
-              portalSprite.style.transform = 'scale(1.08, 0.92)';
+              portalSprite.style.transition = 'transform 0.35s ease-in';
+              portalSprite.style.transform = 'translateY(0px)';
 
+              // Phase C: Landing impact (0.35s)
               setTimeout(() => {
-                portalSprite.style.transform = 'scale(1, 1)';
-              }, 180);
+                portalSprite.src = './img/character-sprites/front.png';
+                playRetroSound('coin');
+                portalSprite.style.transition = 'transform 0.18s ease-out';
+                portalSprite.style.transform = 'scale(1.08, 0.92)';
 
-              // Phase C: Short proud pause, then begin walking towards bottom of photo frame (at t = 1.35s)
-              setTimeout(() => {
-                portalSprite.style.transition = 'transform 1.25s linear';
-                portalSprite.style.transform = 'translateY(280px)';
-
-                let portalStep = 0;
-                const portalWalkInterval = setInterval(() => {
-                  portalStep++;
-                  portalSprite.src = (portalStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
-                }, 120);
-
-                // Phase D: Fully crossed bottom border into portal (at t = 2.6s)
                 setTimeout(() => {
-                  clearInterval(portalWalkInterval);
+                  portalSprite.style.transform = 'scale(1, 1)';
+                }, 180);
 
-                  // Completely fade and hide the portal overlay & big sprite
-                  portalSpriteWrap.classList.remove('opacity-100');
-                  portalSpriteWrap.classList.add('opacity-0');
-                  if (portalOverlay) {
-                    portalOverlay.classList.remove('opacity-100');
-                    portalOverlay.classList.add('opacity-0');
-                  }
+                // Phase D: Short proud pause, then begin walking towards bottom of photo frame (450ms)
+                setTimeout(() => {
+                  portalSprite.style.transition = 'transform 1.25s linear';
+                  portalSprite.style.transform = 'translateY(280px)';
 
-                  // Restore photo to 100% normal crisp clarity!
-                  if (heroImg) {
-                    heroImg.classList.remove('blur-md', 'blur-sm', 'scale-95', 'opacity-25', 'opacity-35');
-                    heroImg.classList.add('blur-0', 'scale-100', 'opacity-100');
-                  }
+                  let portalStep = 0;
+                  const portalWalkInterval = setInterval(() => {
+                    portalStep++;
+                    portalSprite.src = (portalStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
+                  }, 120);
 
-                  // Clean up sprite transform after fadeout finishes
+                  // Phase E: Fully crossed bottom border into portal (1.25s)
                   setTimeout(() => {
-                    portalSpriteWrap.classList.add('hidden');
-                    if (portalOverlay) portalOverlay.classList.add('hidden');
-                    portalSprite.style.transition = '';
-                    portalSprite.style.transform = 'translateY(0px)';
-                  }, 300);
+                    clearInterval(portalWalkInterval);
 
-                  // 2. Open map & emerge from top of rail walking down to Level 0
-                  updateAdventureContentShift(true);
-                  const isMobile = window.innerWidth < 640;
-                  if (!isMobile) {
-                    rail.classList.remove('hidden', 'pointer-events-none');
-                    rail.classList.add('flex');
-                    requestAnimationFrame(() => {
-                      rail.classList.remove('opacity-0', 'translate-x-48');
-                      rail.classList.add('opacity-100', 'translate-x-0');
-                    });
-                  }
+                    // Completely fade and hide the portal overlay & big sprite
+                    portalSpriteWrap.classList.remove('opacity-100');
+                    portalSpriteWrap.classList.add('opacity-0');
+                    if (portalOverlay) {
+                      portalOverlay.classList.remove('opacity-100');
+                      portalOverlay.classList.add('opacity-0');
+                    }
 
-                  if (walker && walkerSprite) {
-                    walker.classList.remove('opacity-0');
-                    walker.style.transition = 'top 0.55s ease-out';
-                    walker.style.top = '0px';
+                    // Restore photo to 100% normal crisp clarity!
+                    if (heroImg) {
+                      heroImg.classList.remove('blur-md', 'blur-sm', 'scale-95', 'opacity-25', 'opacity-35');
+                      heroImg.classList.add('blur-0', 'scale-100', 'opacity-100');
+                    }
 
-                    let railStep = 0;
-                    const railWalkInterval = setInterval(() => {
-                      railStep++;
-                      walkerSprite.src = (railStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
-                    }, 110);
-
+                    // Clean up sprite transform after fadeout finishes
                     setTimeout(() => {
-                      clearInterval(railWalkInterval);
-                      walker.style.transition = '';
-                      walkerSprite.src = './img/character-sprites/jump.png';
-                      walker.classList.add('-translate-y-2');
-                      playRetroSound('coin');
+                      portalSpriteWrap.classList.add('hidden');
+                      if (portalOverlay) portalOverlay.classList.add('hidden');
+                      portalSprite.style.transition = '';
+                      portalSprite.style.transform = 'translateY(0px)';
+                    }, 300);
 
-                      setTimeout(() => {
-                        walker.classList.remove('-translate-y-2');
-                        walkerSprite.src = './img/character-sprites/idle.png';
-                      }, 250);
+                    // 2. Open map & emerge from below header walking down to Level 0
+                    updateAdventureContentShift(true);
+                    const isMobile = window.innerWidth < 640;
+                    if (!isMobile) {
+                      rail.classList.remove('hidden', 'pointer-events-none');
+                      rail.classList.add('flex');
+                      requestAnimationFrame(() => {
+                        rail.classList.remove('opacity-0', 'translate-x-48');
+                        rail.classList.add('opacity-100', 'translate-x-0');
+                      });
+                    }
 
-                      if (indicator) indicator.classList.remove('opacity-0');
-
-                      showDialogueBox();
-                      if (avatarSprite) {
-                        avatarSprite.classList.add('-translate-y-3');
-                        avatarSprite.src = './img/character-sprites/jump.png';
-                        setTimeout(() => {
-                          avatarSprite.classList.remove('-translate-y-3');
-                          avatarSprite.src = './img/character-sprites/front.png';
-                        }, 450);
+                    if (walker && walkerSprite) {
+                      // Calculate starting position just below the header navbar
+                      let startTop = -180;
+                      const headerEl = document.querySelector('header');
+                      const wrapperEl = document.getElementById('adventure-rail-wrapper');
+                      if (headerEl && wrapperEl) {
+                        const headerBottom = headerEl.getBoundingClientRect().bottom;
+                        const wrapperTop = wrapperEl.getBoundingClientRect().top;
+                        startTop = Math.round((headerBottom + 8) - wrapperTop);
+                        if (startTop > -120) startTop = -180;
                       }
 
-                      currentAdvLevel = 0;
-                      previousAdvLevel = 0;
-                      updateAdventureUI();
-                      resetAfkTimer();
-                    }, 550);
-                  }
-                }, 1250);
-              }, 450);
-            }, 350);
-          }, 450);
+                      walker.style.transition = 'none';
+                      walker.style.top = startTop + 'px';
+                      walkerSprite.src = './img/character-sprites/walk-1.png';
+                      walker.classList.remove('opacity-0');
+
+                      // Force reflow before starting smooth downward walk
+                      void walker.offsetHeight;
+
+                      // Walk downwards from under header straight to Level 0 checkpoint
+                      const walkDurationMs = 850;
+                      walker.style.transition = `top ${walkDurationMs}ms cubic-bezier(0.25, 0.1, 0.25, 1)`;
+                      walker.style.top = '0px';
+
+                      let railStep = 0;
+                      const railWalkInterval = setInterval(() => {
+                        railStep++;
+                        walkerSprite.src = (railStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
+                      }, 110);
+
+                      setTimeout(() => {
+                        clearInterval(railWalkInterval);
+                        walker.style.transition = '';
+                        walkerSprite.src = './img/character-sprites/jump.png';
+                        walker.classList.add('-translate-y-2');
+                        playRetroSound('coin');
+
+                        setTimeout(() => {
+                          walker.classList.remove('-translate-y-2');
+                          walkerSprite.src = './img/character-sprites/idle.png';
+                        }, 250);
+
+                        if (indicator) indicator.classList.remove('opacity-0');
+
+                        showDialogueBox();
+                        if (avatarSprite) {
+                          avatarSprite.classList.add('-translate-y-3');
+                          avatarSprite.src = './img/character-sprites/jump.png';
+                          setTimeout(() => {
+                            avatarSprite.classList.remove('-translate-y-3');
+                            avatarSprite.src = './img/character-sprites/front.png';
+                          }, 450);
+                        }
+
+                        currentAdvLevel = 0;
+                        previousAdvLevel = 0;
+                        updateAdventureUI();
+                        resetAfkTimer();
+                      }, walkDurationMs);
+                    }
+                  }, 1250);
+                }, 450);
+              }, 350);
+            }, 450);
+          }, 350);
         } else {
           // Fallback
           updateAdventureContentShift(true);

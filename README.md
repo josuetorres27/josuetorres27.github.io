@@ -1,10 +1,10 @@
 # Josué Torres Sibaja — Software Engineering Portfolio
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Site-josuetorres27.github.io-3b82f6?style=for-the-badge&logo=google-chrome&logoColor=white)](https://josuetorres27.github.io/)
-[![GitHub Pages](https://img.shields.io/badge/Deployed%20with-GitHub%20Pages-22c55e?style=for-the-badge&logo=github)](https://josuetorres27.github.io/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=for-the-badge)](#portfolio-key-features)
-[![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=for-the-badge)](#portfolio-key-features)
+[![Live Portfolio](https://img.shields.io/badge/Live_Site-josuetorres27.github.io-3b82f6?style=flat-square&logo=google-chrome&logoColor=white)](https://josuetorres27.github.io/)
+[![GitHub Pages](https://img.shields.io/badge/Deployed%20with-GitHub%20Pages-22c55e?style=flat-square&logo=github)](https://josuetorres27.github.io/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#portfolio-key-features)
+[![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=flat-square)](#portfolio-key-features)
 
 Welcome to the official repository for my personal software engineering portfolio. This website showcases my academic background, featured software engineering projects, production experience in IT infrastructure & web administration, applied AI workflows, and personal interests — wrapped in a custom retro gaming and terminal aesthetic.
 
@@ -84,18 +84,18 @@ Audiovisual ethical investigation analyzing algorithmic recommendation engines, 
 ```text
 josuetorres27.github.io/
 ├── docs/
-│   ├── Josue_Torres_Resume.pdf                  # English Resume (PDF)
-│   ├── Josue_Torres_CV.pdf                      # Spanish Curriculum Vitae (PDF)
-│   └── Josue_Torres_English_Certificate_UNA.pdf # UNA Conversational English Certificate (PDF)
+│   ├── Josue_Torres_Resume.pdf                     # English Resume (PDF)
+│   ├── Josue_Torres_CV.pdf                         # Spanish Curriculum Vitae (PDF)
+│   └── Josue_Torres_English_Certificate_UNA.pdf    # UNA Conversational English Certificate (PDF)
 ├── img/
-│   ├── portfolio.jpeg                   # Professional profile photograph
-│   ├── icons/                           # Custom retro pixel-art icon suite
-│   ├── character-sprites/               # Pixel companion animation sprite sheets
-│   ├── experience/                      # Workplace & IT operations photographic evidence
-│   ├── handicrafts/                     # Foamy clay sculpting & TCU workshop creations
-│   └── photography/                     # Costa Rica landscape & nature gallery
-├── index.html                           # Single-page portfolio application
-└── README.md                            # Repository documentation & presentation
+│   ├── portfolio.jpeg                              # Professional profile photograph
+│   ├── icons/                                      # Custom retro pixel-art icon suite
+│   ├── character-sprites/                          # Pixel companion animation sprite sheets
+│   ├── experience/                                 # Workplace & IT operations photographic evidence
+│   ├── handicrafts/                                # Foamy clay sculpting & TCU workshop creations
+│   └── photography/                                # Costa Rica landscape & nature gallery
+├── index.html                                      # Single-page portfolio application
+└── README.md                                       # Repository documentation & presentation
 ```
 
 ---

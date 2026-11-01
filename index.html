@@ -3167,7 +3167,7 @@
     <div id="adventure-rail-wrapper" class="relative flex flex-col items-center">
 
       <!-- Animated Walking Sprite on the Rail (Enlarged Pixel Art - Outside clip-path!) -->
-      <div id="rail-character-walker" class="absolute -left-[70px] sm:-left-[78px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
+      <div id="rail-character-walker" class="absolute -left-[86px] sm:-left-[94px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
         <div class="relative flex items-center justify-center">
           <img id="rail-character-sprite" src="./img/character-sprites/idle.png" class="w-16 h-16 sm:w-20 sm:h-20 pixelated drop-shadow-[0_4px_16px_rgba(2,132,199,0.65)] transition-transform duration-150 group-hover:scale-110 active:scale-95" alt="Mini Josué" />
         </div>
@@ -3193,8 +3193,7 @@
 
           <!-- Level Checkpoint Buttons -->
         <button type="button" data-level="0" data-target="#hero" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 1: Inicio">
-          <img src="./img/icons/map-flag-dark.png" alt="Inicio" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
-          <img src="./img/icons/map-flag-light.png" alt="Inicio" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-flag.png" alt="Inicio" class="w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">1. Inicio</span>
         </button>
         <button type="button" data-level="1" data-target="#about" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 2: Sobre Mí">
@@ -3203,18 +3202,15 @@
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">2. Sobre Mí</span>
         </button>
         <button type="button" data-level="2" data-target="#experience" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 3: Experiencia">
-          <img src="./img/icons/map-briefcase-dark.png" alt="Experiencia" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
-          <img src="./img/icons/map-briefcase-light.png" alt="Experiencia" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-briefcase.png" alt="Experiencia" class="w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">3. Experiencia</span>
         </button>
         <button type="button" data-level="3" data-target="#education" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 4: Educación">
-          <img src="./img/icons/map-education-dark.png" alt="Educación" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
-          <img src="./img/icons/map-education-light.png" alt="Educación" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-education.png" alt="EducaciÃ³n" class="w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">4. Educación</span>
         </button>
         <button type="button" data-level="4" data-target="#skills" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 5: Habilidades">
-          <img src="./img/icons/map-skills-dark.png" alt="Habilidades" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
-          <img src="./img/icons/map-skills-light.png" alt="Habilidades" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-skills.png" alt="Habilidades" class="w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">5. Habilidades</span>
         </button>
         <button type="button" data-level="5" data-target="#projects" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 6: Proyectos">
@@ -3223,8 +3219,7 @@
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">6. Proyectos</span>
         </button>
         <button type="button" data-level="6" data-target="#ai" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 7: IA & LLMs">
-          <img src="./img/icons/map-robot-dark.png" alt="IA & LLMs" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
-          <img src="./img/icons/map-robot-light.png" alt="IA & LLMs" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
+          <img src="./img/icons/map-robot.png" alt="IA & LLMs" class="w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none" />
           <span class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2 py-1 rounded-md bg-slate-900 border border-slate-700 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap shadow-lg">7. IA & LLMs</span>
         </button>
         <button type="button" data-level="7" data-target="#interests" class="rail-node group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center text-xs sm:text-sm font-mono font-bold transition-all bg-slate-900 border border-slate-700/80 text-slate-400 hover:text-white hover:border-brand-500 active:scale-95" aria-label="Nivel 8: Pasiones">
@@ -3251,7 +3246,7 @@
   </aside>
 
   <!-- Companion Dialogue Box (Bottom Floating - Stepped Pixel Art Frame) -->
-  <div id="adventure-dialogue-box" class="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-5 sm:bottom-5 z-50 w-auto sm:w-[480px] h-[142px] sm:h-[146px] bg-slate-950/95 border border-brand-500/50 pixel-corners-card shadow-2xl backdrop-blur-md p-3.5 sm:p-4 hidden opacity-0 transform translate-x-full select-none">
+  <div id="adventure-dialogue-box" class="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-5 sm:bottom-5 z-50 w-auto sm:w-[480px] h-[142px] sm:h-[146px] bg-slate-950/95 border border-brand-500/50 pixel-corners-card shadow-2xl backdrop-blur-md p-3.5 sm:p-4 hidden opacity-0 transform translate-x-full select-none pointer-events-none">
     <div class="flex items-center gap-3.5 h-full w-full">
       <!-- Avatar with Live Animations (Enlarged & Stepped Pixel Frame - No green dot) -->
       <button id="dialogue-avatar-btn" type="button" class="w-16 h-16 sm:w-20 sm:h-20 pixel-corners-sm bg-slate-900 border border-brand-500/40 flex items-center justify-center shrink-0 p-1 group hover:border-brand-400 transition-all active:scale-95 relative cursor-pointer shadow-lg shadow-brand-500/10" title="¡Hazme clic para saltar!">
@@ -3266,10 +3261,10 @@
             <span data-i18n="adv_badge_guide" class="text-[10px] px-1.5 py-0.2 rounded bg-brand-500/20 text-cyan-300 border border-brand-500/30 font-mono font-medium">Guía</span>
           </div>
           <div class="flex items-center gap-1 text-slate-400">
-            <button id="dialogue-mute-btn" type="button" class="p-1 pixel-corners-btn hover:text-white text-xs transition-colors flex items-center justify-center" title="Activar/Silenciar sonido">
+            <button id="dialogue-mute-btn" type="button" class="w-6 h-6 sm:w-7 sm:h-7 pixel-corners-btn hover:text-white text-xs transition-colors flex items-center justify-center cursor-pointer pointer-events-auto" title="Activar/Silenciar sonido">
               <img id="dialogue-mute-img" src="./img/icons/sound-on-dark.png" alt="Sonido activado" class="w-3.5 h-3.5 pixelated select-none pointer-events-none" />
             </button>
-            <button id="dialogue-close-btn" type="button" class="p-1 pixel-corners-btn hover:text-white text-xs transition-colors flex items-center justify-center" title="Cerrar Guía">
+            <button id="dialogue-close-btn" type="button" class="w-6 h-6 sm:w-7 sm:h-7 pixel-corners-btn hover:text-white text-xs transition-colors flex items-center justify-center cursor-pointer pointer-events-auto" title="Cerrar Guía">
               <img src="./img/icons/close-x-dark.png" alt="Cerrar" class="theme-icon-dark w-3.5 h-3.5 pixelated select-none pointer-events-none" />
               <img src="./img/icons/close-x-light.png" alt="Cerrar" class="theme-icon-light w-3.5 h-3.5 pixelated select-none pointer-events-none" />
             </button>
@@ -4787,19 +4782,11 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
       document.body.classList.add('adventure-stage-shifted');
     }
 
+    let walkerIdleTimeout = null;
+    let isProgrammaticScroll = false;
+    let programmaticScrollTimeout = null;
+
     function updateAdventureUI() {
-      if (isAdventureActive && isDialogueDismissed) {
-        isDialogueDismissed = false;
-        const dialogueBox = document.getElementById('adventure-dialogue-box');
-        if (dialogueBox) {
-          dialogueBox.classList.remove('hidden');
-          dialogueBox.classList.add('flex');
-          requestAnimationFrame(() => {
-            dialogueBox.classList.remove('opacity-0', 'translate-x-full');
-            dialogueBox.classList.add('opacity-100', 'translate-x-0');
-          });
-        }
-      }
       const activeLang = document.documentElement.lang === 'es' ? 'es' : 'en';
       const dict = I18N[activeLang];
       const stageLabels = dict.adv_stage_labels || [];
@@ -4856,34 +4843,38 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
             clearInterval(walkerAnimInterval);
             walkerAnimInterval = null;
           }
+          if (walkerIdleTimeout) {
+            clearTimeout(walkerIdleTimeout);
+            walkerIdleTimeout = null;
+          }
         
-        const isMovingUp = currentAdvLevel < previousAdvLevel;
-        const walkFrame1 = isMovingUp ? './img/character-sprites/back-walk-1.png' : './img/character-sprites/walk-1.png';
-        const walkFrame2 = isMovingUp ? './img/character-sprites/back-walk-2.png' : './img/character-sprites/walk-2.png';
-        const idleFrame = isMovingUp ? './img/character-sprites/back.png' : './img/character-sprites/idle.png';
+          const isMovingUp = currentAdvLevel < previousAdvLevel;
+          const walkFrame1 = isMovingUp ? './img/character-sprites/back-walk-1.png' : './img/character-sprites/walk-1.png';
+          const walkFrame2 = isMovingUp ? './img/character-sprites/back-walk-2.png' : './img/character-sprites/walk-2.png';
+          const idleFrame = isMovingUp ? './img/character-sprites/back.png' : './img/character-sprites/idle.png';
 
-        let step = 0;
-        walkerAnimInterval = setInterval(() => {
-          step++;
-          walkerSprite.src = (step % 2 === 1) ? walkFrame1 : walkFrame2;
-        }, 110);
+          let step = 0;
+          walkerAnimInterval = setInterval(() => {
+            step++;
+            walkerSprite.src = (step % 2 === 1) ? walkFrame1 : walkFrame2;
+          }, 110);
 
-        setTimeout(() => {
-          if (walkerAnimInterval) {
-            clearInterval(walkerAnimInterval);
-            walkerAnimInterval = null;
-          }
-          if (walkerSprite) {
-            walkerSprite.src = idleFrame;
-            if (isMovingUp) {
-              setTimeout(() => {
-                if (!walkerAnimInterval && walkerSprite && currentAdvLevel === previousAdvLevel) {
-                  walkerSprite.src = './img/character-sprites/idle.png';
-                }
-              }, 200);
+          walkerIdleTimeout = setTimeout(() => {
+            if (walkerAnimInterval) {
+              clearInterval(walkerAnimInterval);
+              walkerAnimInterval = null;
             }
-          }
-        }, 460);
+            if (walkerSprite) {
+              walkerSprite.src = idleFrame;
+              if (isMovingUp) {
+                walkerIdleTimeout = setTimeout(() => {
+                  if (!walkerAnimInterval && walkerSprite) {
+                    walkerSprite.src = './img/character-sprites/idle.png';
+                  }
+                }, 220);
+              }
+            }
+          }, 460);
         }
       }
       previousAdvLevel = currentAdvLevel;
@@ -4905,6 +4896,30 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
 
       if (!startBtn || !rail || !dialogueBox || !photoCard) return;
 
+      function showDialogueBox() {
+        if (!dialogueBox) return;
+        isDialogueDismissed = false;
+        dialogueBox.classList.remove('hidden', 'pointer-events-none', 'opacity-0', 'translate-x-full', 'translate-y-4');
+        dialogueBox.classList.add('flex', 'opacity-100', 'translate-x-0');
+      }
+
+      function hideDialogueBox() {
+        if (!dialogueBox) return;
+        isDialogueDismissed = true;
+        dialogueBox.classList.remove('opacity-100', 'translate-x-0', 'translate-y-0');
+        dialogueBox.classList.add('opacity-0', 'translate-x-full', 'pointer-events-none');
+        if (advDialogueTimer) {
+          clearTimeout(advDialogueTimer);
+          advDialogueTimer = null;
+        }
+        setTimeout(() => {
+          if (isDialogueDismissed) {
+            dialogueBox.classList.add('hidden');
+            dialogueBox.classList.remove('flex');
+          }
+        }, 450);
+      }
+
       let afkTimer = null;
       function resetAfkTimer() {
         if (afkTimer) clearTimeout(afkTimer);
@@ -4914,13 +4929,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
           if (!isAdventureActive) return;
           isAfkActive = true;
           if (isDialogueDismissed) {
-            isDialogueDismissed = false;
-            dialogueBox.classList.remove('hidden');
-            dialogueBox.classList.add('flex');
-            requestAnimationFrame(() => {
-              dialogueBox.classList.remove('opacity-0', 'translate-y-4');
-              dialogueBox.classList.add('opacity-100', 'translate-y-0');
-            });
+            showDialogueBox();
           }
           const activeLang = document.documentElement.lang === 'es' ? 'es' : 'en';
           const dict = I18N[activeLang];
@@ -5004,8 +5013,8 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         const firstNode = railNodes[0];
         if (firstNode && !isMobile) {
           const nodeRect = firstNode.getBoundingClientRect();
-          // Walker lands right on the left of the first level node
-          targetX = nodeRect.left - 62;
+          // Walker lands right on the left of the first level node with comfortable breathing room
+          targetX = nodeRect.left - 76;
           targetY = nodeRect.top + nodeRect.height / 2 - 36;
         }
 
@@ -5034,10 +5043,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
               indicator.classList.remove('opacity-0');
             }
 
-            dialogueBox.classList.remove('hidden');
-            dialogueBox.classList.add('flex');
-            dialogueBox.classList.remove('opacity-0', 'translate-x-full');
-            dialogueBox.classList.add('opacity-100', 'translate-x-0');
+            showDialogueBox();
 
             // Greet user
             playRetroSound('coin');
@@ -5057,10 +5063,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         } else {
           if (walker) walker.classList.remove('opacity-0');
           if (indicator) indicator.classList.remove('opacity-0');
-          dialogueBox.classList.remove('hidden');
-          dialogueBox.classList.add('flex');
-          dialogueBox.classList.remove('opacity-0', 'translate-x-full');
-          dialogueBox.classList.add('opacity-100', 'translate-x-0');
+          showDialogueBox();
           currentAdvLevel = 0;
           updateAdventureUI();
           resetAfkTimer();
@@ -5092,8 +5095,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
 
         rail.classList.remove('opacity-100', 'translate-x-0');
         rail.classList.add('opacity-0', 'translate-x-48', 'pointer-events-none');
-        dialogueBox.classList.remove('opacity-100', 'translate-x-0');
-        dialogueBox.classList.add('opacity-0', 'translate-x-full', 'pointer-events-none');
+        hideDialogueBox();
 
         // Reset walker & indicator positions and hide walker so reopening starts clean from 0
         const walker = document.getElementById('rail-character-walker');
@@ -5122,8 +5124,6 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         setTimeout(() => {
           rail.classList.add('hidden');
           rail.classList.remove('flex');
-          dialogueBox.classList.add('hidden');
-          dialogueBox.classList.remove('flex');
           if (advDialogueTimer) {
             clearTimeout(advDialogueTimer);
             advDialogueTimer = null;
@@ -5139,23 +5139,8 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
           e.preventDefault();
           e.stopPropagation();
         }
-        isDialogueDismissed = true;
         playRetroSound('exit');
-
-        dialogueBox.classList.remove('opacity-100', 'translate-x-0');
-        dialogueBox.classList.add('opacity-0', 'translate-x-full');
-
-        if (advDialogueTimer) {
-          clearTimeout(advDialogueTimer);
-          advDialogueTimer = null;
-        }
-
-        setTimeout(() => {
-          if (isDialogueDismissed) {
-            dialogueBox.classList.add('hidden');
-            dialogueBox.classList.remove('flex');
-          }
-        }, 450);
+        hideDialogueBox();
       }
 
       if (railExitBtn) {
@@ -5170,14 +5155,20 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
 
       // Sound toggle
       function toggleSound(e) {
-        if (e) e.stopPropagation();
+        if (e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
         soundEnabled = !soundEnabled;
         updateSoundBtnUI();
         if (soundEnabled) playRetroSound("blip");
       }
 
       muteBtns.forEach(btn => {
-        if (btn) btn.addEventListener('click', toggleSound);
+        if (btn) {
+          btn.addEventListener('click', toggleSound);
+          btn.addEventListener('touchend', toggleSound);
+        }
       });
 
       // Interactive avatar click (Jump & Emote)
@@ -5201,21 +5192,24 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
       railNodes.forEach((node, idx) => {
         node.addEventListener('click', () => {
           resetAfkTimer();
-          currentAdvLevel = idx;
           if (isDialogueDismissed) {
-            isDialogueDismissed = false;
-            dialogueBox.classList.remove('hidden');
-            dialogueBox.classList.add('flex');
-            requestAnimationFrame(() => {
-              dialogueBox.classList.remove('opacity-0', 'translate-y-4');
-              dialogueBox.classList.add('opacity-100', 'translate-y-0');
-            });
-            updateAdventureUI();
+            showDialogueBox();
           }
           const targetId = sectionIds[idx];
-          const targetEl = document.querySelector(targetId);
-          if (targetEl) {
+          const targetEl = targetId ? document.querySelector(targetId) : null;
+          
+          if (currentAdvLevel !== idx) {
+            isProgrammaticScroll = true;
+            if (programmaticScrollTimeout) clearTimeout(programmaticScrollTimeout);
+            programmaticScrollTimeout = setTimeout(() => {
+              isProgrammaticScroll = false;
+            }, 850);
+            currentAdvLevel = idx;
             playRetroSound('jump');
+            updateAdventureUI();
+          }
+
+          if (targetEl) {
             targetEl.scrollIntoView({ behavior: 'smooth' });
           }
         });
@@ -5226,6 +5220,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
       window.addEventListener('scroll', () => {
         if (!isAdventureActive) return;
         resetAfkTimer();
+        if (isProgrammaticScroll) return; // Suppress intermediate level flickering during programmatic travel
         if (isScrollingThrottle) return;
         isScrollingThrottle = true;
 
@@ -5255,7 +5250,15 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         });
       }, { passive: true });
 
-            // Interactive walker on rail click (Jump & Sound)
+      window.addEventListener('scrollend', () => {
+        isProgrammaticScroll = false;
+        if (programmaticScrollTimeout) {
+          clearTimeout(programmaticScrollTimeout);
+          programmaticScrollTimeout = null;
+        }
+      });
+
+      // Interactive walker on rail click (Jump & Sound)
       const railWalker = document.getElementById('rail-character-walker');
       if (railWalker) {
         railWalker.addEventListener('click', (e) => {
@@ -5263,13 +5266,7 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
           resetAfkTimer();
           playRetroSound('jump');
           if (isDialogueDismissed) {
-            isDialogueDismissed = false;
-            dialogueBox.classList.remove('hidden');
-            dialogueBox.classList.add('flex');
-            requestAnimationFrame(() => {
-              dialogueBox.classList.remove('opacity-0', 'translate-y-4');
-              dialogueBox.classList.add('opacity-100', 'translate-y-0');
-            });
+            showDialogueBox();
             updateAdventureUI();
           }
           const walkerSprite = document.getElementById('rail-character-sprite');
@@ -5289,17 +5286,14 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         if (!isAdventureActive) return;
         const mobileNow = window.innerWidth < 640;
         if (mobileNow) {
-          rail.classList.add('hidden', 'opacity-0', 'translate-x-48', 'pointer-events-none');
-          rail.classList.remove('flex', 'opacity-100', 'translate-x-0');
-          updateAdventureContentShift(false);
+          rail.classList.add('hidden', 'pointer-events-none');
+          rail.classList.remove('flex');
         } else {
-          rail.classList.remove('hidden', 'pointer-events-none', 'translate-x-48');
+          rail.classList.remove('hidden', 'pointer-events-none');
           rail.classList.add('flex', 'opacity-100', 'translate-x-0');
-          updateAdventureContentShift(true);
         }
-      }, { passive: true });
+      });
     }
-
     initAdventureMode();
   </script>
 </body>

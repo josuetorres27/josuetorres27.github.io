@@ -1,4 +1,4 @@
-# Josué Torres Sibaja — Software Engineering Portfolio
+# Josue Torres Sibaja — Software Engineering Portfolio
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Site-josuetorres27.github.io-3b82f6?style=flat-square&logo=google-chrome&logoColor=white)](https://josuetorres27.github.io/)
 [![GitHub Pages](https://img.shields.io/badge/Deployed%20with-GitHub%20Pages-22c55e?style=flat-square&logo=github)](https://josuetorres27.github.io/)
@@ -118,5 +118,5 @@ You can view or download my latest resumes and official certifications directly 
 ---
 
 <div align="center">
-  <sub>Designed & Developed by Josué Torres Sibaja · Hosted with GitHub Pages</sub>
+  <sub>Designed & Developed by Josue Torres Sibaja · Hosted with GitHub Pages</sub>
 </div>

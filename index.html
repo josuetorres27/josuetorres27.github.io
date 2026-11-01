@@ -1586,8 +1586,14 @@
 
                 <!-- Photo Screen -->
                 <div id="hero-photo-card" class="lightbox-trigger relative w-full aspect-[4/5] bg-slate-950 overflow-hidden pixel-corners-sm cursor-pointer border border-cyan-500/20 shadow-inner" role="button" tabindex="0" aria-label="Ver fotografía de perfil">
-                  <img id="hero-profile-img" src="./img/portfolio.jpeg" alt="Josue Torres Sibaja | Software Engineer & CS Student" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                  <img id="hero-profile-img" src="./img/portfolio.jpeg" alt="Josue Torres Sibaja | Software Engineer & CS Student" class="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-300">
                   <span data-i18n="hero_photo_caption" class="sr-only">Josue Torres Sibaja | Software Engineer & CS Student</span>
+
+                  <!-- Portal Overlay & Big Pixel Character inside photo -->
+                  <div id="hero-portal-overlay" class="absolute inset-0 bg-slate-950/75 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center z-20"></div>
+                  <div id="hero-portal-sprite-wrap" class="absolute inset-0 flex items-center justify-center pointer-events-none z-30 opacity-0 transition-opacity duration-200">
+                    <img id="hero-portal-sprite" src="./img/character-sprites/jump.png" class="w-32 h-32 sm:w-40 sm:h-40 pixelated drop-shadow-[0_10px_25px_rgba(6,182,212,0.85)] transform transition-transform duration-300 ease-out" alt="Mini Josué Portal" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -3167,7 +3173,7 @@
     <div id="adventure-rail-wrapper" class="relative flex flex-col items-center">
 
       <!-- Animated Walking Sprite on the Rail (Enlarged Pixel Art - Outside clip-path!) -->
-      <div id="rail-character-walker" class="absolute -left-[86px] sm:-left-[94px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
+      <div id="rail-character-walker" class="absolute -left-[83px] sm:-left-[91px] transition-all duration-500 ease-out flex items-center pointer-events-auto cursor-pointer group select-none z-30" style="top: 0px;" title="¡Hazme clic para saltar!">
         <div class="relative flex items-center justify-center">
           <img id="rail-character-sprite" src="./img/character-sprites/idle.png" class="w-16 h-16 sm:w-20 sm:h-20 pixelated drop-shadow-[0_4px_16px_rgba(2,132,199,0.65)] transition-transform duration-150 group-hover:scale-110 active:scale-95" alt="Mini Josué" />
         </div>
@@ -4966,101 +4972,135 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         isAfkActive = false;
         currentAdvLevel = 0;
         previousAdvLevel = 0;
-        playRetroSound('jump');
 
         const walker = document.getElementById('rail-character-walker');
         const indicator = document.getElementById('rail-active-indicator');
         const walkerSprite = document.getElementById('rail-character-sprite');
+        const heroImg = document.getElementById('hero-profile-img');
+        const portalOverlay = document.getElementById('hero-portal-overlay');
+        const portalSpriteWrap = document.getElementById('hero-portal-sprite-wrap');
+        const portalSprite = document.getElementById('hero-portal-sprite');
+
         if (walker) {
-          walker.style.top = '0px';
-          walker.classList.add('opacity-0'); // Keep walker hidden while flying sprite travels!
+          walker.style.top = '-55px'; // Starts above Level 0 checkpoint
+          walker.classList.add('opacity-0');
         }
         if (indicator) {
           indicator.style.top = '0px';
           indicator.classList.add('opacity-0');
         }
         if (walkerSprite) {
-          walkerSprite.src = './img/character-sprites/idle.png';
+          walkerSprite.src = './img/character-sprites/walk-1.png';
         }
 
-        // Slide page content to the left to give companion breathing room
-        updateAdventureContentShift(true);
+        // 1. Photo portal blur & Big character spawn
+        playRetroSound('jump');
+        if (heroImg) heroImg.classList.add('blur-sm', 'scale-95', 'opacity-35');
+        if (portalOverlay) {
+          portalOverlay.classList.remove('opacity-0');
+          portalOverlay.classList.add('opacity-100');
+        }
 
-        // Portal flash effect on photo
-        photoCard.classList.add('portal-spawn-active');
-        setTimeout(() => photoCard.classList.remove('portal-spawn-active'), 1200);
+        if (portalSpriteWrap && portalSprite) {
+          portalSprite.src = './img/character-sprites/jump.png';
+          portalSprite.style.transition = 'transform 0.28s cubic-bezier(0.16, 1, 0.3, 1)';
+          portalSprite.style.transform = 'translateY(-34px)';
+          portalSpriteWrap.classList.remove('opacity-0');
+          portalSpriteWrap.classList.add('opacity-100');
 
-        // Calculate start position (photo center) and target destination (first node on rail)
-        const photoRect = photoCard.getBoundingClientRect();
-        const startX = photoRect.left + photoRect.width / 2 - 32;
-        const startY = photoRect.top + photoRect.height / 2 - 32;
+          // Jump apex -> Land back
+          setTimeout(() => {
+            portalSprite.style.transition = 'transform 0.22s ease-in';
+            portalSprite.style.transform = 'translateY(0px)';
+            portalSprite.src = './img/character-sprites/front.png';
+            playRetroSound('coin');
 
-        const isMobile = window.innerWidth < 640;
+            // Walk down through bottom edge of photo into portal
+            setTimeout(() => {
+              portalSprite.style.transition = 'transform 0.55s ease-in';
+              portalSprite.style.transform = 'translateY(240px)';
 
-        // Open rail on tablet & desktop (>= 640px)
-        if (!isMobile) {
-          rail.classList.remove('hidden', 'pointer-events-none');
-          rail.classList.add('flex');
-          requestAnimationFrame(() => {
+              let portalStep = 0;
+              const portalWalkInterval = setInterval(() => {
+                portalStep++;
+                portalSprite.src = (portalStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
+              }, 100);
+
+              // Exactly when crossing bottom edge of photo:
+              setTimeout(() => {
+                clearInterval(portalWalkInterval);
+                portalSpriteWrap.classList.add('opacity-0');
+                if (portalOverlay) portalOverlay.classList.add('opacity-0');
+                if (heroImg) heroImg.classList.remove('blur-sm', 'scale-95', 'opacity-35');
+                portalSprite.style.transition = '';
+                portalSprite.style.transform = 'translateY(0px)';
+
+                // 2. Open map & emerge from top of rail walking down to Level 0
+                updateAdventureContentShift(true);
+                const isMobile = window.innerWidth < 640;
+                if (!isMobile) {
+                  rail.classList.remove('hidden', 'pointer-events-none');
+                  rail.classList.add('flex');
+                  requestAnimationFrame(() => {
+                    rail.classList.remove('opacity-0', 'translate-x-48');
+                    rail.classList.add('opacity-100', 'translate-x-0');
+                  });
+                }
+
+                if (walker && walkerSprite) {
+                  walker.classList.remove('opacity-0');
+                  walker.style.transition = 'top 0.45s ease-out';
+                  walker.style.top = '0px';
+
+                  let railStep = 0;
+                  const railWalkInterval = setInterval(() => {
+                    railStep++;
+                    walkerSprite.src = (railStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
+                  }, 100);
+
+                  setTimeout(() => {
+                    clearInterval(railWalkInterval);
+                    walker.style.transition = '';
+                    walkerSprite.src = './img/character-sprites/jump.png';
+                    walker.classList.add('-translate-y-2');
+                    playRetroSound('coin');
+
+                    setTimeout(() => {
+                      walker.classList.remove('-translate-y-2');
+                      walkerSprite.src = './img/character-sprites/idle.png';
+                    }, 250);
+
+                    if (indicator) indicator.classList.remove('opacity-0');
+
+                    showDialogueBox();
+                    if (avatarSprite) {
+                      avatarSprite.classList.add('-translate-y-3');
+                      avatarSprite.src = './img/character-sprites/jump.png';
+                      setTimeout(() => {
+                        avatarSprite.classList.remove('-translate-y-3');
+                        avatarSprite.src = './img/character-sprites/front.png';
+                      }, 450);
+                    }
+
+                    currentAdvLevel = 0;
+                    previousAdvLevel = 0;
+                    updateAdventureUI();
+                    resetAfkTimer();
+                  }, 450);
+                }
+              }, 550);
+            }, 180);
+          }, 280);
+        } else {
+          // Fallback
+          updateAdventureContentShift(true);
+          const isMobile = window.innerWidth < 640;
+          if (!isMobile) {
+            rail.classList.remove('hidden', 'pointer-events-none');
+            rail.classList.add('flex');
             rail.classList.remove('opacity-0', 'translate-x-48');
             rail.classList.add('opacity-100', 'translate-x-0');
-          });
-        }
-
-        let targetX = isMobile ? (window.innerWidth / 2 - 32) : (window.innerWidth - 170);
-        let targetY = isMobile ? (window.innerHeight - 180) : 120;
-
-        const firstNode = railNodes[0];
-        if (firstNode && !isMobile) {
-          const nodeRect = firstNode.getBoundingClientRect();
-          // Walker lands right on the left of the first level node with comfortable breathing room
-          targetX = nodeRect.left - 76;
-          targetY = nodeRect.top + nodeRect.height / 2 - 36;
-        }
-
-        const deltaX = targetX - startX;
-        const deltaY = targetY - startY;
-
-        if (flyingSprite) {
-          flyingSprite.style.left = startX + 'px';
-          flyingSprite.style.top = startY + 'px';
-          flyingSprite.style.setProperty('--target-x', deltaX + 'px');
-          flyingSprite.style.setProperty('--target-y', deltaY + 'px');
-          flyingSprite.classList.remove('hidden');
-          flyingSprite.classList.add('anim-pop-out-arc');
-
-          setTimeout(() => {
-            flyingSprite.classList.add('hidden');
-            flyingSprite.classList.remove('anim-pop-out-arc');
-
-            // Reveal rail walker at level 0 with landing bounce
-            if (walker) {
-              walker.classList.remove('opacity-0');
-              walker.classList.add('-translate-y-3');
-              setTimeout(() => walker.classList.remove('-translate-y-3'), 350);
-            }
-            if (indicator) {
-              indicator.classList.remove('opacity-0');
-            }
-
-            showDialogueBox();
-
-            // Greet user
-            playRetroSound('coin');
-            if (avatarSprite) {
-              avatarSprite.classList.add('-translate-y-3');
-              avatarSprite.src = './img/character-sprites/jump.png';
-              setTimeout(() => {
-                avatarSprite.classList.remove('-translate-y-3');
-                avatarSprite.src = './img/character-sprites/front.png';
-              }, 450);
-            }
-
-            currentAdvLevel = 0;
-            updateAdventureUI();
-            resetAfkTimer();
-          }, 3000); // 3-second graceful arc jump!
-        } else {
+          }
           if (walker) walker.classList.remove('opacity-0');
           if (indicator) indicator.classList.remove('opacity-0');
           showDialogueBox();
@@ -5084,6 +5124,19 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         // Reset level state back to 0 completely
         currentAdvLevel = 0;
         previousAdvLevel = 0;
+
+        // Reset photo portal states
+        const heroImg = document.getElementById('hero-profile-img');
+        const portalOverlay = document.getElementById('hero-portal-overlay');
+        const portalSpriteWrap = document.getElementById('hero-portal-sprite-wrap');
+        const portalSprite = document.getElementById('hero-portal-sprite');
+        if (heroImg) heroImg.classList.remove('blur-sm', 'scale-95', 'opacity-35');
+        if (portalOverlay) portalOverlay.classList.add('opacity-0');
+        if (portalSpriteWrap) portalSpriteWrap.classList.add('opacity-0');
+        if (portalSprite) {
+          portalSprite.style.transition = '';
+          portalSprite.style.transform = 'translateY(0px)';
+        }
 
         // Return page content smoothly back to center
         updateAdventureContentShift(false);

@@ -1183,13 +1183,13 @@
 /* Smooth Dropdown Menu Animations */
     .dropdown-animated {
       transform-origin: top center;
-      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-                  visibility 0.22s;
+      transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                  visibility 0.28s;
     }
     .dropdown-animated.dropdown-closed {
       opacity: 0 !important;
-      transform: translateY(-8px) scale(0.97) !important;
+      transform: translateY(-16px) scale(0.97) !important;
       pointer-events: none !important;
       visibility: hidden !important;
     }
@@ -1198,6 +1198,30 @@
       transform: translateY(0) scale(1) !important;
       pointer-events: auto !important;
       visibility: visible !important;
+    }
+    .dropdown-animated a {
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease-out;
+    }
+    .dropdown-animated.dropdown-closed a {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    .dropdown-animated.dropdown-open a {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .dropdown-animated.dropdown-open a:nth-child(1) {
+      transition-delay: 0.04s;
+    }
+    .dropdown-animated.dropdown-open a:nth-child(2) {
+      transition-delay: 0.09s;
+    }
+    #hero-cv-arrow {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #hero-cv-btn[aria-expanded="true"] #hero-cv-arrow,
+    #hero-cv-arrow.rotate-180 {
+      transform: rotate(180deg);
     }
 
     /* Adventure Rail & Dialogue Slide Transitions from Right Edge */
@@ -1521,14 +1545,14 @@
 
             <!-- Dual CV & Resume Dropdown in Hero -->
             <div class="relative w-full sm:w-auto sm:inline-block" id="hero-cv-container">
-              <button id="hero-cv-btn" type="button" aria-expanded="false" class="w-full sm:w-auto pixel-btn pixel-btn-secondary pixel-corners-btn px-5 py-3.5 text-sm font-semibold">
+              <button id="hero-cv-btn" type="button" aria-expanded="false" class="w-full sm:w-auto pixel-btn pixel-btn-secondary pixel-corners-btn px-5 py-3.5 text-sm font-semibold relative z-20">
                 <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
                 <span data-i18n="hero_btn_cv">Download Resume / CV</span>
-                <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <svg id="hero-cv-arrow" class="w-3.5 h-3.5 text-slate-400 transition-transform duration-300 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
               </button>
-              <div id="hero-cv-dropdown" class="dropdown-animated dropdown-closed absolute left-0 right-0 w-full mt-2 pixel-corners-card bg-slate-900 border border-slate-700/80 shadow-2xl py-2 z-50">
+              <div id="hero-cv-dropdown" class="dropdown-animated dropdown-closed absolute left-0 right-0 w-full mt-2 pixel-corners-card bg-slate-900 border border-slate-700/80 shadow-2xl py-2 z-10">
                 <a href="./docs/Josue_Torres_Resume.pdf" target="_blank" download="Josue_Torres_Resume.pdf" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors">
                   <span class="w-6 h-6 pixel-corners-btn bg-brand-500/15 border border-brand-500/40 text-brand-400 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">EN</span>
                   <div>
@@ -3342,14 +3366,17 @@
         function toggleDropdown(show) {
           const isOpen = dropdown.classList.contains('dropdown-open');
           const willOpen = show !== undefined ? show : !isOpen;
+          const arrow = btn.querySelector('#hero-cv-arrow') || btn.querySelector('.dropdown-arrow');
           if (willOpen) {
             dropdown.classList.remove('dropdown-closed');
             dropdown.classList.add('dropdown-open');
             btn.setAttribute('aria-expanded', 'true');
+            if (arrow) arrow.classList.add('rotate-180');
           } else {
             dropdown.classList.remove('dropdown-open');
             dropdown.classList.add('dropdown-closed');
             btn.setAttribute('aria-expanded', 'false');
+            if (arrow) arrow.classList.remove('rotate-180');
           }
         }
 
@@ -4795,6 +4822,9 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
     let programmaticScrollTimeout = null;
 
     function updateAdventureUI(skipWalkerAnim = false) {
+      if (isDialogueDismissed) {
+        showDialogueBox();
+      }
       const activeLang = document.documentElement.lang === 'es' ? 'es' : 'en';
       const dict = I18N[activeLang];
       const stageLabels = dict.adv_stage_labels || [];
@@ -5405,6 +5435,9 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
           if (bestIdx !== currentAdvLevel) {
             currentAdvLevel = bestIdx;
             playRetroSound('level');
+            if (isDialogueDismissed) {
+              showDialogueBox();
+            }
             updateAdventureUI();
           }
 

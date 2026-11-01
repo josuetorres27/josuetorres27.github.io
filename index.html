@@ -1010,19 +1010,18 @@
     }
     .typewriter-cursor {
       display: inline-block;
-      width: 0;
-      margin-left: 2px;
-      overflow: visible;
-      animation: cursorBlink 0.85s infinite;
-      font-weight: 200;
-      color: #38bdf8;
-      -webkit-text-fill-color: #38bdf8 !important;
-      background: none !important;
+      width: 3px;
+      height: 0.85em;
+      vertical-align: baseline;
+      background-color: #38bdf8 !important;
+      margin-left: 3px;
+      margin-right: -6px;
+      animation: cursorBlink 0.8s infinite;
       user-select: none;
+      pointer-events: none;
     }
     html.light .typewriter-cursor {
-      color: #0284c7 !important;
-      -webkit-text-fill-color: #0284c7 !important;
+      background-color: #0284c7 !important;
     }
 
     /* ================= PIXEL ART BUTTONS SYSTEM ================= */
@@ -1540,7 +1539,7 @@
           <!-- Main Headline with Dynamic Typewriter Effect -->
           <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-4 sm:mb-6">
             <span data-i18n-html="hero_greeting">Hi, I'm <span class="text-white">Josue Torres Sibaja</span></span><br>
-            <span class="block min-h-[2.6em] sm:min-h-[2.5em] lg:min-h-[2.4em]"><span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">CS & Software Engineering Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor" aria-hidden="true">|</span></span>
+            <span class="block min-h-[2.6em] sm:min-h-[2.5em] lg:min-h-[2.4em]"><span id="hero-typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">CS & Software Engineering Student</span><span id="hero-typewriter-cursor" class="typewriter-cursor" aria-hidden="true"></span></span>
           </h1>
 
           <!-- Value Proposition / Bio Summary -->
@@ -3509,9 +3508,9 @@
         hero_badge: "Final Semester Student · Available for Internships & Junior Roles",
         hero_greeting: `Hi, I'm <span class="text-white">Josue Torres Sibaja</span>`,
         hero_phrases: [
-          "CS & Software Engineering Student",
-          "Full-Stack Developer & IT Technician",
-          "Building Scalable & Reliable Software"
+          "CS & Software\nEngineering Student",
+          "Full-Stack Developer\n& IT Technician",
+          "Building Scalable\n& Reliable Software"
         ],
         hero_headline: `Hi, I'm <span class="text-white">Josue Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">CS & Software Engineering Student</span>`,
         hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">University of Costa Rica (UCR)</strong>. Passionate about building high-performance software and modern architectures with languages like <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 pixel-corners-btn border border-cyan-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(6,182,212,0.25)]">Python</span>, <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 pixel-corners-btn border border-indigo-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(99,102,241,0.25)]">C++</span>, <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 pixel-corners-btn border border-amber-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(245,158,11,0.25)]">JavaScript</span> and <span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-2 py-0.5 pixel-corners-btn border border-blue-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(59,130,246,0.25)]">C# / .NET</span>.`,
@@ -3833,15 +3832,15 @@
         nav_interests: "FDC",
         nav_contact: "Contacto",
 
-        hero_hud_role: "Estudiante de Computación e Ingeniería de Software",
+        hero_hud_role: "Estudiante de Ingeniería de Software",
         hero_badge: "Estudiante de Último Semestre · Disponible para Pasantías & Roles Junior",
         hero_greeting: `Hola, soy <span class="text-white">Josué Torres Sibaja</span>`,
         hero_phrases: [
-          "Estudiante de Computación e Ingeniería de Software",
-          "Desarrollador Full-Stack & Técnico en TI",
-          "Construyendo Software Escalable y Confiable"
+          "Estudiante de\nIngeniería de Software",
+          "Desarrollador Full-Stack\n& Técnico en TI",
+          "Construyendo Software\nEscalable y Confiable"
         ],
-        hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Estudiante de Computación e Ingeniería de Software</span>`,
+        hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Estudiante de Ingeniería de Software</span>`,
         hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir software de alto rendimiento y arquitecturas modernas con lenguajes como <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 pixel-corners-btn border border-cyan-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(6,182,212,0.25)]">Python</span>, <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 pixel-corners-btn border border-indigo-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(99,102,241,0.25)]">C++</span>, <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 pixel-corners-btn border border-amber-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(245,158,11,0.25)]">JavaScript</span> y <span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-2 py-0.5 pixel-corners-btn border border-blue-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(59,130,246,0.25)]">C# / .NET</span>.`,
         hero_btn_projects: "Ver Proyectos Destacados",
         hero_btn_cv: "Descargar Resume / CV",
@@ -4089,9 +4088,9 @@
         contact_toast_copied: "¡Copiado!",
         footer_copyright: "© 2026 Josué Torres Sibaja · Portafolio Profesional.",
         footer_hosted: "Alojado en",
-        page_title: "Josué Torres Sibaja | Estudiante de Computación e Ingeniería de Software",
-        hero_photo_caption: "Josué Torres Sibaja | Estudiante de Computación e Ingeniería de Software",
-        hero_photo_caption_mobile: "Josué | Estudiante de Computación e Ing. de Software",
+        page_title: "Josué Torres Sibaja | Estudiante de Ingeniería de Software",
+        hero_photo_caption: "Josué Torres Sibaja | Estudiante de Ingeniería de Software",
+        hero_photo_caption_mobile: "Josué | Estudiante de Ing. de Software",
         experience_img2_caption_mobile: "Mantenimiento de PC",
         experience_img3_caption_mobile: "Actualización de Almacenamiento",
         experience_img1_caption_mobile: "Oficina de Orientación • UCR",
@@ -4286,12 +4285,21 @@
         .replace(/>/g, '&gt;');
     }
 
-    function renderTypewriter(fullPhrase, charCount) {
-      if (!fullPhrase) return '';
+    function renderSingleLine(phrase, charCount, withCursor, cursorHtml) {
+      const words = phrase.split(' ');
+      if (charCount <= 0) {
+        const hidden = words.map(w => '<span class="inline-block whitespace-nowrap" style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeTypewriterHtml(w) + '</span>').join(' ');
+        return (withCursor ? cursorHtml : '') + hidden;
+      }
+      if (charCount >= phrase.length) {
+        const visible = words.map(w => '<span class="inline-block whitespace-nowrap">' + escapeTypewriterHtml(w) + '</span>').join(' ');
+        return visible + (withCursor ? cursorHtml : '');
+      }
+
       const tokens = [];
       const regex = /(\s+|[^\s]+)/g;
       let match;
-      while ((match = regex.exec(fullPhrase)) !== null) {
+      while ((match = regex.exec(phrase)) !== null) {
         tokens.push({
           text: match[0],
           isSpace: /^\s+$/.test(match[0]),
@@ -4301,20 +4309,24 @@
       }
 
       let html = '';
-      for (const token of tokens) {
+      let cursorPlaced = false;
+
+      for (let i = 0; i < tokens.length; i++) {
+        const token = tokens[i];
         if (token.isSpace) {
-          if (charCount >= token.end) {
-            html += token.text;
-          } else if (charCount <= token.start) {
-            html += '<span style="visibility:hidden; user-select:none;">' + token.text + '</span>';
-          } else {
-            const typed = token.text.substring(0, charCount - token.start);
-            const untyped = token.text.substring(charCount - token.start);
-            html += typed + '<span class="typewriter-cursor" aria-hidden="true">|</span><span style="visibility:hidden; user-select:none;">' + untyped + '</span>';
+          html += token.text;
+          if (withCursor && !cursorPlaced && charCount >= token.start && charCount < token.end) {
+            html += cursorHtml;
+            cursorPlaced = true;
           }
         } else {
           if (charCount >= token.end) {
-            html += '<span class="inline-block whitespace-nowrap">' + escapeTypewriterHtml(token.text) + '</span>';
+            let wHtml = escapeTypewriterHtml(token.text);
+            if (withCursor && !cursorPlaced && charCount === token.end) {
+              wHtml += cursorHtml;
+              cursorPlaced = true;
+            }
+            html += '<span class="inline-block whitespace-nowrap">' + wHtml + '</span>';
           } else if (charCount <= token.start) {
             html += '<span class="inline-block whitespace-nowrap" style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeTypewriterHtml(token.text) + '</span>';
           } else {
@@ -4322,13 +4334,44 @@
             const untyped = token.text.substring(charCount - token.start);
             html += '<span class="inline-block whitespace-nowrap">' +
               '<span>' + escapeTypewriterHtml(typed) + '</span>' +
-              '<span class="typewriter-cursor" aria-hidden="true">|</span>' +
+              (withCursor ? cursorHtml : '') +
               '<span style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeTypewriterHtml(untyped) + '</span>' +
             '</span>';
+            if (withCursor) cursorPlaced = true;
           }
         }
       }
+
+      if (withCursor && !cursorPlaced) {
+        html += cursorHtml;
+      }
+
       return html;
+    }
+
+    function renderTypewriter(fullPhrase, charCount) {
+      if (!fullPhrase) return '<span class="typewriter-cursor" aria-hidden="true"></span>';
+      
+      const cursorHtml = '<span class="typewriter-cursor" aria-hidden="true"></span>';
+      const lines = fullPhrase.split('\n');
+
+      if (lines.length === 1) {
+        return renderSingleLine(lines[0], charCount, true, cursorHtml);
+      }
+
+      const line1 = lines[0];
+      const line2 = lines[1];
+
+      if (charCount <= line1.length) {
+        return renderSingleLine(line1, charCount, true, cursorHtml) + 
+               '<br>' + 
+               renderSingleLine(line2, 0, false, cursorHtml);
+      } else {
+        const line2CharCount = Math.max(0, charCount - (line1.length + 1));
+        return renderSingleLine(line1, line1.length, false, cursorHtml) + 
+               '<br>' + 
+               renderSingleLine(line2, line2CharCount, true, cursorHtml);
+      }
     }
 
     function initTypewriter(phrases) {
@@ -4337,7 +4380,7 @@
         typewriterTimeout = null;
       }
       activePhrases = Array.isArray(phrases) && phrases.length ? phrases : [
-        "CS & Software Engineering Student"
+        "CS & Software\nEngineering Student"
       ];
       currentPhraseIndex = 0;
       currentCharIndex = 0;
@@ -4352,7 +4395,7 @@
 
       // Accessibility: respect user preference for reduced motion
       if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        el.textContent = activePhrases[0];
+        el.innerHTML = escapeTypewriterHtml(activePhrases[0]).replace(/\n/g, '<br>');
         return;
       }
 
@@ -4733,9 +4776,14 @@
 
     function renderDialogueTypewriter(fullText, charCount) {
       if (!fullText) return '';
+      const words = fullText.split(' ');
+
       if (charCount <= 0) {
-        return '<span style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeTypewriterHtml(fullText) + '</span>';
+        return words.map(w => 
+          '<span class="inline-block whitespace-nowrap" style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeTypewriterHtml(w) + '</span>'
+        ).join(' ');
       }
+
       if (charCount >= fullText.length) {
         return escapeTypewriterHtml(fullText);
       }
@@ -4755,15 +4803,7 @@
       let html = '';
       for (const token of tokens) {
         if (token.isSpace) {
-          if (charCount >= token.end) {
-            html += token.text;
-          } else if (charCount <= token.start) {
-            html += '<span style="visibility:hidden; user-select:none;">' + token.text + '</span>';
-          } else {
-            const typed = token.text.substring(0, charCount - token.start);
-            const untyped = token.text.substring(charCount - token.start);
-            html += typed + '<span style="visibility:hidden; user-select:none;">' + untyped + '</span>';
-          }
+          html += token.text;
         } else {
           if (charCount >= token.end) {
             html += '<span class="inline-block whitespace-nowrap">' + escapeTypewriterHtml(token.text) + '</span>';

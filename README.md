@@ -28,10 +28,10 @@ I am a final-semester Computer Science and Software Engineering student at the *
 | Category | Technologies & Tools |
 | :--- | :--- |
 | **Languages** | Python, C++, TypeScript, JavaScript (ES6+), C#, Java, SQL, HTML5, CSS3 |
-| **Frameworks & Libraries** | Next.js 16, React 19, ASP.NET Core, Node.js, Tailwind CSS, Prisma ORM |
-| **Databases & Messaging** | PostgreSQL, Microsoft SQL Server, Redis, BullMQ, MinIO (S3-compatible Object Storage) |
-| **Developer Tools & Infrastructure** | Git, GitHub Actions (CI/CD), Linux (Ubuntu/Debian), Windows, Docker, Playwright, Vitest, Visual Studio, VS Code |
-| **Applied AI & Agentic Workflows** | Multi-Agent Systems, Autonomous Coding Agents, Gemini API, Claude API, OpenAI SDK, Tool & Function Calling, Prompt & Context Engineering |
+| **Frameworks & Libraries** | Next.js 16, React 19, ASP.NET Core, Node.js, Tailwind CSS |
+| **Databases** | Microsoft SQL Server, PostgreSQL |
+| **Developer Tools & Infrastructure** | Git, GitHub Actions (CI/CD), Linux, Windows, Docker, Visual Studio, VS Code |
+| **Applied AI & Agentic Workflows** | Multi-Agent Systems, Autonomous Coding Agents, Google Antigravity, Claude Code, GitHub Copilot, Tool & Function Calling, Prompt & Context Engineering |
 
 ---
 

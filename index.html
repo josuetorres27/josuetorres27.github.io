@@ -5201,9 +5201,10 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
           if (currentAdvLevel !== idx) {
             isProgrammaticScroll = true;
             if (programmaticScrollTimeout) clearTimeout(programmaticScrollTimeout);
+            // Safety timeout in case the page is already at target and no scroll event fires
             programmaticScrollTimeout = setTimeout(() => {
               isProgrammaticScroll = false;
-            }, 850);
+            }, 600);
             currentAdvLevel = idx;
             playRetroSound('jump');
             updateAdventureUI();
@@ -5215,12 +5216,34 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
         });
       });
 
+      // User manual scroll interrupts programmatic lock
+      const releaseProgrammaticScroll = () => {
+        if (isProgrammaticScroll) {
+          isProgrammaticScroll = false;
+          if (programmaticScrollTimeout) {
+            clearTimeout(programmaticScrollTimeout);
+            programmaticScrollTimeout = null;
+          }
+        }
+      };
+      window.addEventListener('wheel', releaseProgrammaticScroll, { passive: true });
+      window.addEventListener('touchmove', releaseProgrammaticScroll, { passive: true });
+
       // Scroll listener to update active stage
       let isScrollingThrottle = false;
       window.addEventListener('scroll', () => {
         if (!isAdventureActive) return;
         resetAfkTimer();
-        if (isProgrammaticScroll) return; // Suppress intermediate level flickering during programmatic travel
+
+        // While programmatic travel is active, continually postpone release until smooth scroll has completely stopped!
+        if (isProgrammaticScroll) {
+          if (programmaticScrollTimeout) clearTimeout(programmaticScrollTimeout);
+          programmaticScrollTimeout = setTimeout(() => {
+            isProgrammaticScroll = false;
+          }, 200);
+          return;
+        }
+
         if (isScrollingThrottle) return;
         isScrollingThrottle = true;
 
@@ -5230,15 +5253,22 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
           let bestIdx = 0;
           let minDiff = Infinity;
 
-          sections.forEach((sec, idx) => {
-            if (!sec) return;
-            const rect = sec.getBoundingClientRect();
-            const diff = Math.abs(rect.top - viewportCheck);
-            if (rect.top <= viewportCheck + 80 && diff < minDiff) {
-              minDiff = diff;
-              bestIdx = idx;
-            }
-          });
+          const isAtBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60);
+          if (isAtBottom) {
+            bestIdx = sections.length - 1;
+          } else if (window.scrollY <= 80) {
+            bestIdx = 0;
+          } else {
+            sections.forEach((sec, idx) => {
+              if (!sec) return;
+              const rect = sec.getBoundingClientRect();
+              const diff = Math.abs(rect.top - viewportCheck);
+              if (rect.top <= viewportCheck + 80 && diff < minDiff) {
+                minDiff = diff;
+                bestIdx = idx;
+              }
+            });
+          }
 
           if (bestIdx !== currentAdvLevel) {
             currentAdvLevel = bestIdx;
@@ -5251,11 +5281,11 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
       }, { passive: true });
 
       window.addEventListener('scrollend', () => {
-        isProgrammaticScroll = false;
         if (programmaticScrollTimeout) {
           clearTimeout(programmaticScrollTimeout);
           programmaticScrollTimeout = null;
         }
+        isProgrammaticScroll = false;
       });
 
       // Interactive walker on rail click (Jump & Sound)

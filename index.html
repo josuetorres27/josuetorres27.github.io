@@ -626,6 +626,17 @@
     html.light #flying-pixel-sprite-img {
       filter: drop-shadow(0 12px 20px rgba(15, 23, 42, 0.25)) drop-shadow(0 0 8px rgba(2, 132, 199, 0.4)) !important;
     }
+    /* Light Mode Photo Portal Blur (Clean Slate-50 White Matching Avatar Window) */
+    html.light #hero-photo-card {
+      background-color: #f8fafc !important;
+    }
+    html.light #hero-portal-overlay {
+      background-color: rgba(248, 250, 252, 0.88) !important;
+      backdrop-filter: blur(8px) !important;
+    }
+    html.light #hero-portal-sprite {
+      filter: drop-shadow(0 10px 22px rgba(15, 23, 42, 0.22)) drop-shadow(0 0 10px rgba(2, 132, 199, 0.45)) !important;
+    }
     html.light #adventure-dialogue-box {
       background-color: rgba(255, 255, 255, 0.98) !important;
       border-color: #cbd5e1 !important;
@@ -4937,14 +4948,24 @@ adv_afk: "Still there, adventurer? 👀 Click any checkpoint or scroll to keep e
       function showDialogueBox() {
         if (!dialogueBox) return;
         isDialogueDismissed = false;
-        dialogueBox.classList.remove('hidden', 'pointer-events-none', 'opacity-0', 'translate-x-full', 'translate-y-4');
-        dialogueBox.classList.add('flex', 'opacity-100', 'translate-x-0');
+        dialogueBox.classList.remove('hidden', 'pointer-events-none');
+        dialogueBox.classList.add('flex');
+        dialogueBox.classList.add('opacity-0', 'translate-x-full');
+        dialogueBox.classList.remove('opacity-100', 'translate-x-0');
+
+        // Force browser layout reflow so the transition is guaranteed to animate!
+        void dialogueBox.offsetHeight;
+
+        requestAnimationFrame(() => {
+          dialogueBox.classList.remove('opacity-0', 'translate-x-full');
+          dialogueBox.classList.add('opacity-100', 'translate-x-0');
+        });
       }
 
       function hideDialogueBox() {
         if (!dialogueBox) return;
         isDialogueDismissed = true;
-        dialogueBox.classList.remove('opacity-100', 'translate-x-0', 'translate-y-0');
+        dialogueBox.classList.remove('opacity-100', 'translate-x-0');
         dialogueBox.classList.add('opacity-0', 'translate-x-full', 'pointer-events-none');
         if (advDialogueTimer) {
           clearTimeout(advDialogueTimer);

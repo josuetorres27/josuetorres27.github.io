@@ -1,0 +1,17 @@
+name: Deploy to Coolify
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Coolify Deployment
+        run: |
+          curl --request POST \
+            --url 'https://manage.gabrielserranorojas.com/api/v1/deploy' \
+            --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}' \
+            --header 'Content-Type: application/json'

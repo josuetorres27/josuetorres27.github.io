@@ -83,6 +83,8 @@ Audiovisual ethical investigation analyzing algorithmic recommendation engines, 
 
 ```text
 josuetorres27.github.io/
+├── css/
+│   └── styles.css                                  # Custom retro, CRT scanlines & pixel styling
 ├── docs/
 │   ├── Josue_Torres_Resume.pdf                     # English Resume (PDF)
 │   ├── Josue_Torres_CV.pdf                         # Spanish Curriculum Vitae (PDF)
@@ -94,7 +96,10 @@ josuetorres27.github.io/
 │   ├── experience/                                 # Workplace & IT operations photographic evidence
 │   ├── handicrafts/                                # Foamy clay sculpting & TCU workshop creations
 │   └── photography/                                # Costa Rica landscape & nature gallery
-├── index.html                                      # Single-page portfolio application
+├── js/
+│   ├── main.js                                     # Interactive companion, audio synth & observers
+│   └── translations.js                             # Bilingual (EN/ES) internationalization data
+├── index.html                                      # Semantic, accessible HTML markup structure
 └── README.md                                       # Repository documentation & presentation
 ```
 

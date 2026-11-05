@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Trigger Coolify Deployment
         run: |
-          curl --request POST \
+          curl -i --request POST \
             --url 'https://manage.gabrielserranorojas.com/api/v1/deploy' \
             --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}' \
             --header 'Content-Type: application/json'

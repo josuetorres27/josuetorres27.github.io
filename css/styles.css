@@ -1260,3 +1260,10 @@
         border-color: #e2e8f0 !important;
       }
     }
+
+    /* Hero typewriter container: maintain fixed 3-line height in Spanish on compact mobile screens (<= 380px, e.g. Samsung Galaxy S25 / 360px) to eliminate layout shift */
+    @media (max-width: 380px) {
+      html[lang="es"] #hero-typewriter-wrapper {
+        min-height: 3.8em;
+      }
+    }

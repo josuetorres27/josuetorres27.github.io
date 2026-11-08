@@ -1470,10 +1470,13 @@
         }
       });
 
-      // Interactive avatar click (Jump & Emote)
+      // Interactive avatar click (Jump & Emote - debounced to prevent double jump)
+      let isAvatarJumping = false;
       if (avatarBtn) {
         avatarBtn.addEventListener('click', (e) => {
           if (e) e.stopPropagation();
+          if (isAvatarJumping) return;
+          isAvatarJumping = true;
           resetAfkTimer();
           playRetroSound('jump');
           if (avatarSprite) {
@@ -1482,7 +1485,10 @@
             setTimeout(() => {
               avatarSprite.classList.remove('-translate-y-3');
               avatarSprite.src = './img/character-sprites/front.png';
+              isAvatarJumping = false;
             }, 450);
+          } else {
+            isAvatarJumping = false;
           }
         });
       }
@@ -1590,11 +1596,14 @@
         isProgrammaticScroll = false;
       });
 
-      // Interactive walker on rail click (Jump & Sound)
+      // Interactive walker on rail click (Jump & Sound - debounced to prevent double jump)
       const railWalker = document.getElementById('rail-character-walker');
+      let isWalkerJumping = false;
       if (railWalker) {
         railWalker.addEventListener('click', (e) => {
           if (e) e.stopPropagation();
+          if (isWalkerJumping) return;
+          isWalkerJumping = true;
           resetAfkTimer();
           playRetroSound('jump');
           if (isDialogueDismissed) {
@@ -1608,7 +1617,10 @@
             setTimeout(() => {
               railWalker.classList.remove('-translate-y-3');
               walkerSprite.src = './img/character-sprites/idle.png';
+              isWalkerJumping = false;
             }, 400);
+          } else {
+            isWalkerJumping = false;
           }
         });
       }

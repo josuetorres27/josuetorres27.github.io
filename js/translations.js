@@ -8,7 +8,7 @@
         nav_projects: "Projects",
         nav_ai: "AI & LLMs",
         nav_mindset: "Mindset",
-        nav_interests: "BTC",
+        nav_interests: "Hobbies",
         nav_contact: "Contact",
 
         hero_hud_role: "CS & Software Engineering Student",
@@ -336,7 +336,7 @@
         nav_projects: "Proyectos",
         nav_ai: "IA & LLMs",
         nav_mindset: "Mentalidad",
-        nav_interests: "FDC",
+        nav_interests: "Hobbies",
         nav_contact: "Contacto",
 
         hero_hud_role: "Estudiante de Ingeniería de Software",

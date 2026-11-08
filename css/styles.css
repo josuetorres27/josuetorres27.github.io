@@ -385,9 +385,31 @@
       inset: 2px !important;
       clip-path: inherit !important;
     }
+    /* Hero Profile Photo: strictly borderless in both Dark & Light modes */
+    #hero-photo-card,
+    #hero-photo-card.pixel-corners-sm,
+    html.light #hero-photo-card,
+    html.light #hero-photo-card.pixel-corners-sm {
+      border: none !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      filter: none !important;
+      outline: none !important;
+    }
+    #hero-photo-card:hover,
+    html.light #hero-photo-card:hover {
+      border: none !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+      filter: none !important;
+      transform: none !important;
+    }
     #hero-photo-card.pixel-corners-sm > #hero-portal-overlay,
     #hero-photo-card.pixel-corners-sm > #hero-portal-sprite-wrap {
-      inset: 2px !important;
+      inset: 0 !important;
       clip-path: inherit !important;
     }
     .lightbox-trigger.pixel-corners-sm.hover\:border-brand-500\/50:hover {
@@ -754,7 +776,7 @@
       transition: filter 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     html.light #hero-photo-card {
-      background-color: #f8fafc !important;
+      background-color: transparent !important;
     }
     html.light #hero-portal-overlay {
       background-color: rgba(248, 250, 252, 0.88) !important;

@@ -1754,11 +1754,35 @@
       transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease-out;
     }
 
-    /* Light Mode: Hero CV / Resume Dropdown */
+    /* Hero CV / Resume Dropdown Stepped Border System (Dark & Light Mode) */
+    #hero-cv-dropdown {
+      position: absolute;
+      border: none !important;
+      background: #475569 !important; /* Stepped Slate-600 Outer Border */
+      box-shadow: none !important;
+      filter: drop-shadow(4px 4px 0px rgba(15, 23, 42, 0.95)) drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6)) !important;
+      box-sizing: border-box !important;
+      z-index: 10;
+    }
+    #hero-cv-dropdown::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      background: #0f172a !important; /* Slate-900 Card Body */
+      clip-path: inherit;
+      z-index: -1;
+    }
+    #hero-cv-dropdown a {
+      margin: 0 2px;
+    }
     html.light #hero-cv-dropdown {
-      background-color: #ffffff !important;
-      border-color: #cbd5e1 !important;
-      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1), 3px 3px 0px 0px #cbd5e1 !important;
+      background: #cbd5e1 !important; /* Stepped Slate-300 Border (matches buttons & map levels) */
+      border: none !important;
+      box-shadow: none !important;
+      filter: drop-shadow(3px 3px 0px #cbd5e1) drop-shadow(0 10px 25px rgba(15, 23, 42, 0.1)) !important;
+    }
+    html.light #hero-cv-dropdown::before {
+      background: #ffffff !important;
     }
     html.light #hero-cv-dropdown a {
       color: #334155 !important;

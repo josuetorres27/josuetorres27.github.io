@@ -496,7 +496,7 @@
 
         p1_type: "C# / .NET · Aplicación de Escritorio",
         p1_date: "Mar 2026 – Jul 2026",
-        p1_title: "Panel de Administración del Microscopio Virtual",
+        p1_title: "Panel de Administración para Microscopio Virtual",
         p1_desc: "Desarrollo integral del panel de administración del Microscopio Virtual, una aplicación de escritorio que digitaliza los flujos de trabajo de microscopía del mundo real. Diseñé e implementé un sistema integral de gestión de datos en C# y .NET para organizar colecciones de especímenes en estructuras jerárquicas (Grupos, Cajas y Muestras) asociadas con imágenes microscópicas de alta fidelidad. Desarrollada como una solución de escritorio autocontenida con base de datos embebida para administración segura y local.",
 
         p2_type: "Arquitectura Backend · Unity & APIs REST",

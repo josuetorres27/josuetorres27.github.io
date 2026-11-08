@@ -284,6 +284,116 @@
       filter: drop-shadow(6px 6px 0px rgba(2, 132, 199, 0.35)) drop-shadow(0 0 18px rgba(56, 189, 248, 0.25));
       transform: translateY(-2px);
     }
+
+    /* Small Cards & Containers (Experience Responsibilities, Lightbox Photo Cards) */
+    .pixel-corners-sm.hover\:border-indigo-500\/40,
+    .pixel-corners-sm.hover\:border-emerald-500\/40,
+    .pixel-corners-sm.hover\:border-cyan-500\/40,
+    .pixel-corners-sm.hover\:border-amber-500\/40 {
+      position: relative;
+      z-index: 0;
+      border: none !important;
+      background: #334155 !important; /* Stepped Slate-700 Border */
+      filter: drop-shadow(2px 2px 0px rgba(15, 23, 42, 0.9));
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pixel-corners-sm.hover\:border-indigo-500\/40::before,
+    .pixel-corners-sm.hover\:border-emerald-500\/40::before,
+    .pixel-corners-sm.hover\:border-cyan-500\/40::before,
+    .pixel-corners-sm.hover\:border-amber-500\/40::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      background: #020617 !important;
+      clip-path: inherit;
+      z-index: -1;
+      transition: all 0.22s ease;
+    }
+
+    /* Hover Glow across Stepped Corners (Experience Items) */
+    .pixel-corners-sm.hover\:border-indigo-500\/40:hover {
+      background: #818cf8 !important;
+      filter: drop-shadow(0 0 14px rgba(99, 102, 241, 0.55)) drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95)) !important;
+      transform: translateY(-2px);
+    }
+    .pixel-corners-sm.hover\:border-emerald-500\/40:hover {
+      background: #34d399 !important;
+      filter: drop-shadow(0 0 14px rgba(16, 185, 129, 0.55)) drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95)) !important;
+      transform: translateY(-2px);
+    }
+    .pixel-corners-sm.hover\:border-cyan-500\/40:hover {
+      background: #22d3ee !important;
+      filter: drop-shadow(0 0 14px rgba(6, 182, 212, 0.55)) drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95)) !important;
+      transform: translateY(-2px);
+    }
+    .pixel-corners-sm.hover\:border-amber-500\/40:hover {
+      background: #fbbf24 !important;
+      filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.55)) drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95)) !important;
+      transform: translateY(-2px);
+    }
+
+    /* Light Mode Overrides for Small Cards */
+    html.light .pixel-corners-sm.hover\:border-indigo-500\/40,
+    html.light .pixel-corners-sm.hover\:border-emerald-500\/40,
+    html.light .pixel-corners-sm.hover\:border-cyan-500\/40,
+    html.light .pixel-corners-sm.hover\:border-amber-500\/40 {
+      background: #cbd5e1 !important;
+      filter: drop-shadow(2px 2px 0px rgba(148, 163, 184, 0.5));
+    }
+    html.light .pixel-corners-sm.hover\:border-indigo-500\/40::before,
+    html.light .pixel-corners-sm.hover\:border-emerald-500\/40::before,
+    html.light .pixel-corners-sm.hover\:border-cyan-500\/40::before,
+    html.light .pixel-corners-sm.hover\:border-amber-500\/40::before {
+      background: #ffffff !important;
+    }
+    html.light .pixel-corners-sm.hover\:border-indigo-500\/40:hover {
+      background: #6366f1 !important;
+      filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.4)) drop-shadow(3px 3px 0px rgba(148, 163, 184, 0.6)) !important;
+    }
+    html.light .pixel-corners-sm.hover\:border-emerald-500\/40:hover {
+      background: #10b981 !important;
+      filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.4)) drop-shadow(3px 3px 0px rgba(148, 163, 184, 0.6)) !important;
+    }
+    html.light .pixel-corners-sm.hover\:border-cyan-500\/40:hover {
+      background: #06b6d4 !important;
+      filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.4)) drop-shadow(3px 3px 0px rgba(148, 163, 184, 0.6)) !important;
+    }
+    html.light .pixel-corners-sm.hover\:border-amber-500\/40:hover {
+      background: #d97706 !important;
+      filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.4)) drop-shadow(3px 3px 0px rgba(148, 163, 184, 0.6)) !important;
+    }
+
+    /* Photo Lightbox Cards Stepped Hover Glow */
+    .lightbox-trigger.pixel-corners-sm {
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .lightbox-trigger.pixel-corners-sm.hover\:border-brand-500\/50:hover {
+      border-color: #38bdf8 !important;
+      filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.55)) drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95)) !important;
+      transform: translateY(-2px);
+    }
+    .lightbox-trigger.pixel-corners-sm.hover\:border-cyan-500\/50:hover {
+      border-color: #22d3ee !important;
+      filter: drop-shadow(0 0 14px rgba(6, 182, 212, 0.55)) drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95)) !important;
+      transform: translateY(-2px);
+    }
+    .lightbox-trigger.pixel-corners-sm.hover\:border-amber-500\/50:hover {
+      border-color: #fbbf24 !important;
+      filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.55)) drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95)) !important;
+      transform: translateY(-2px);
+    }
+    html.light .lightbox-trigger.pixel-corners-sm.hover\:border-brand-500\/50:hover {
+      border-color: #0284c7 !important;
+      filter: drop-shadow(0 0 12px rgba(2, 132, 199, 0.4)) drop-shadow(2px 2px 0px rgba(148, 163, 184, 0.6)) !important;
+    }
+    html.light .lightbox-trigger.pixel-corners-sm.hover\:border-cyan-500\/50:hover {
+      border-color: #0891b2 !important;
+      filter: drop-shadow(0 0 12px rgba(8, 145, 178, 0.4)) drop-shadow(2px 2px 0px rgba(148, 163, 184, 0.6)) !important;
+    }
+    html.light .lightbox-trigger.pixel-corners-sm.hover\:border-amber-500\/50:hover {
+      border-color: #d97706 !important;
+      filter: drop-shadow(0 0 12px rgba(217, 119, 6, 0.4)) drop-shadow(2px 2px 0px rgba(148, 163, 184, 0.6)) !important;
+    }
     .pixel-photo-frame {
       padding: 4px;
       background: linear-gradient(135deg, #38bdf8 0%, #0284c7 35%, #0f172a 70%, #38bdf8 100%);
@@ -1400,6 +1510,32 @@
       background: #ffffff !important;
     }
 
+    /* 7. Purple Badges (Online Learning Platform) - Hollow/Card chassis */
+    .pixel-corners-btn.border-purple-800\/60,
+    .pixel-corners-btn.border-purple-500\/40 {
+      background: #a855f7 !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .pixel-corners-btn.border-purple-800\/60::before,
+    .pixel-corners-btn.border-purple-500\/40::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      background: #0f172a !important;
+      clip-path: inherit;
+      z-index: -1;
+    }
+    html.light .pixel-corners-btn.border-purple-800\/60,
+    html.light .pixel-corners-btn.border-purple-500\/40 {
+      background: #9333ea !important;
+      color: #7e22ce !important;
+    }
+    html.light .pixel-corners-btn.border-purple-800\/60::before,
+    html.light .pixel-corners-btn.border-purple-500\/40::before {
+      background: #ffffff !important;
+    }
+
     /* Dialogue avatar button & Rail nodes */
     #dialogue-avatar-btn {
       border: none !important;
@@ -1462,12 +1598,21 @@
     html.light .rail-node.bg-slate-900::before {
       background: #ffffff !important;
     }
+    /* Language Switcher Chassis (Dark & Light Mode) */
+    .lang-switch-chassis {
+      background: #0f172a;
+      border: 1px solid rgba(51, 65, 85, 0.8);
+      box-shadow: 2px 2px 0px 0px rgba(15, 23, 42, 0.9);
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+    }
     html.light #theme-toggle-btn,
     html.light #theme-toggle-mobile {
       background-color: #f1f5f9 !important;
       border-color: #cbd5e1 !important;
       box-shadow: 2px 2px 0px 0px #cbd5e1 !important;
     }
+    html.light .lang-switch-chassis,
     html.light [aria-label="Language selection"],
     html.light [aria-label="Mobile language selector"] {
       background: #f1f5f9 !important;
@@ -1475,6 +1620,7 @@
       box-shadow: none !important;
       filter: none !important;
     }
+    html.light .lang-switch-chassis::before,
     html.light [aria-label="Language selection"]::before,
     html.light [aria-label="Mobile language selector"]::before {
       display: none !important;
@@ -1506,11 +1652,17 @@
       filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.85)) !important;
     }
     html.light .lang-switch-btn:not(.bg-brand-600) {
-      color: #64748b !important;
+      color: #475569 !important;
+      background: transparent !important;
     }
     html.light .lang-switch-btn:not(.bg-brand-600):hover {
       color: #0f172a !important;
       background-color: #e2e8f0 !important;
+    }
+    html.light .lang-switch-btn.bg-brand-600 {
+      background-color: #0284c7 !important;
+      color: #ffffff !important;
+      filter: drop-shadow(1px 1px 0px rgba(2, 132, 199, 0.4));
     }
     html.light .edu-meta-divider .edu-pipe,
     html.light .edu-meta-divider .edu-dot {

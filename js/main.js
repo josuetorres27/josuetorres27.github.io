@@ -243,6 +243,15 @@
       if (dialogueBoxEl) {
         dialogueBoxEl.setAttribute('aria-label', activeLang === 'es' ? 'Cuadro de diálogo de la guía' : 'Guide dialogue box');
       }
+      const exitTooltip = document.getElementById('rail-exit-tooltip');
+      if (exitTooltip) {
+        exitTooltip.textContent = activeLang === 'es' ? 'Salir' : 'Exit';
+      }
+      const railExitBtn = document.getElementById('rail-exit-btn');
+      if (railExitBtn) {
+        railExitBtn.setAttribute('title', activeLang === 'es' ? 'Cerrar Modo Aventura' : 'Close Adventure Mode');
+        railExitBtn.setAttribute('aria-label', activeLang === 'es' ? 'Cerrar Modo Aventura' : 'Close Adventure Mode');
+      }
       if (typeof updateSoundBtnUI === 'function') {
         updateSoundBtnUI();
       }

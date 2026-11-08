@@ -165,21 +165,43 @@
     }
     .pixel-quest-btn {
       position: relative;
-      border: 2px solid #38bdf8;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(8, 47, 73, 0.95));
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.45), 3px 3px 0px 0px rgba(2, 132, 199, 0.7);
+      z-index: 0;
+      clip-path: polygon(
+        0 6px, 2px 6px, 2px 4px, 4px 4px, 4px 2px, 6px 2px, 6px 0,
+        calc(100% - 6px) 0, calc(100% - 6px) 2px, calc(100% - 4px) 2px, calc(100% - 4px) 4px, calc(100% - 2px) 4px, calc(100% - 2px) 6px, 100% 6px,
+        100% calc(100% - 6px), calc(100% - 2px) calc(100% - 6px), calc(100% - 2px) calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) calc(100% - 2px), calc(100% - 6px) calc(100% - 2px), calc(100% - 6px) 100%,
+        6px 100%, 6px calc(100% - 2px), 4px calc(100% - 2px), 4px calc(100% - 4px), 2px calc(100% - 4px), 2px calc(100% - 6px), 0 calc(100% - 6px)
+      );
+      border: none !important;
+      background: #38bdf8;
+      filter: drop-shadow(3px 3px 0px rgba(2, 132, 199, 0.7)) drop-shadow(0 0 16px rgba(56, 189, 248, 0.45));
       animation: quest-beacon-glow 2.6s ease-in-out infinite;
+      transition: all 0.25s ease;
+    }
+    .pixel-quest-btn::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      clip-path: inherit;
+      z-index: -1;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(8, 47, 73, 0.95));
       transition: all 0.25s ease;
     }
     @keyframes quest-beacon-glow {
       0%, 100% {
-        box-shadow: 0 0 16px rgba(56, 189, 248, 0.4), 3px 3px 0px 0px rgba(2, 132, 199, 0.7);
-        border-color: #38bdf8;
+        background: #38bdf8;
+        filter: drop-shadow(3px 3px 0px rgba(2, 132, 199, 0.7)) drop-shadow(0 0 16px rgba(56, 189, 248, 0.45));
       }
       50% {
-        box-shadow: 0 0 28px rgba(52, 211, 153, 0.65), 0 0 14px rgba(56, 189, 248, 0.5), 3px 3px 0px 0px rgba(16, 185, 129, 0.8);
-        border-color: #34d399;
+        background: #34d399;
+        filter: drop-shadow(3px 3px 0px rgba(16, 185, 129, 0.8)) drop-shadow(0 0 28px rgba(52, 211, 153, 0.65));
       }
+    }
+    html.light .pixel-quest-btn,
+    html.light .pixel-quest-btn span,
+    html.light #start-adventure-btn,
+    html.light #start-adventure-btn span {
+      color: #ffffff !important;
     }
     .pixel-quest-btn:active {
       transform: translateY(1px);
@@ -284,8 +306,8 @@
       color: #6ee7b7;
     }
     #hero-photo-wrapper:hover .pixel-quest-btn {
-      border-color: #34d399;
-      box-shadow: 0 0 35px rgba(52, 211, 153, 0.75), 4px 4px 0px 0px rgba(16, 185, 129, 0.85);
+      background: #34d399 !important;
+      filter: drop-shadow(3px 3px 0px rgba(16, 185, 129, 0.85)) drop-shadow(0 0 35px rgba(52, 211, 153, 0.75));
       animation: none;
       transform: scale(1.02);
     }
@@ -532,11 +554,37 @@
       color: #ffffff !important;
       box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35) !important;
     }
+    /* Rail tooltip stepped corners */
+    .rail-tooltip {
+      position: absolute;
+      right: calc(100% + 10px);
+      clip-path: polygon(
+        0 4px, 2px 4px, 2px 2px, 4px 2px, 4px 0,
+        calc(100% - 4px) 0, calc(100% - 4px) 2px, calc(100% - 2px) 2px, calc(100% - 2px) 4px, 100% 4px,
+        100% calc(100% - 4px), calc(100% - 2px) calc(100% - 4px), calc(100% - 2px) calc(100% - 2px), calc(100% - 4px) calc(100% - 2px), calc(100% - 4px) 100%,
+        4px 100%, 4px calc(100% - 2px), 2px calc(100% - 2px), 2px calc(100% - 4px), 0 calc(100% - 4px)
+      ) !important;
+      background: #475569 !important;
+      border: none !important;
+      box-shadow: none !important;
+      filter: drop-shadow(2px 2px 0px rgba(15, 23, 42, 0.9));
+      z-index: 30;
+    }
+    .rail-tooltip::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      clip-path: inherit;
+      z-index: -1;
+      background: #0f172a;
+    }
     html.light .rail-tooltip {
-      background-color: #ffffff !important;
-      border-color: #cbd5e1 !important;
-      color: #1e293b !important;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1) !important;
+      background: #cbd5e1 !important;
+      color: #0f172a !important;
+      filter: drop-shadow(2px 2px 0px rgba(148, 163, 184, 0.5));
+    }
+    html.light .rail-tooltip::before {
+      background: #ffffff !important;
     }
     html.light #rail-exit-btn {
       color: #64748b !important;
@@ -955,8 +1003,15 @@
       background-color: #0284c7 !important;
     }
 
-    /* ================= PIXEL ART BUTTONS SYSTEM ================= */
+    /* ================= PIXEL ART BUTTONS & STEPPED CORNERS SYSTEM ================= */
+    
+    /* 4px stepped polygon for badges, capsules, and compact controls */
     .pixel-corners-btn {
+      position: relative;
+      z-index: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       clip-path: polygon(
         0 4px,
         2px 4px,
@@ -980,8 +1035,11 @@
         0 calc(100% - 4px)
       );
     }
+
+    /* 6px stepped polygon for interactive action buttons (3 distinct pixel steps) */
     .pixel-btn {
       position: relative;
+      z-index: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -992,7 +1050,47 @@
       cursor: pointer;
       user-select: none;
       text-decoration: none;
+      border: none !important;
+      box-shadow: none !important;
       filter: drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95));
+      clip-path: polygon(
+        0 6px,
+        2px 6px,
+        2px 4px,
+        4px 4px,
+        4px 2px,
+        6px 2px,
+        6px 0,
+        calc(100% - 6px) 0,
+        calc(100% - 6px) 2px,
+        calc(100% - 4px) 2px,
+        calc(100% - 4px) 4px,
+        calc(100% - 2px) 4px,
+        calc(100% - 2px) 6px,
+        100% 6px,
+        100% calc(100% - 6px),
+        calc(100% - 2px) calc(100% - 6px),
+        calc(100% - 2px) calc(100% - 4px),
+        calc(100% - 4px) calc(100% - 4px),
+        calc(100% - 4px) calc(100% - 2px),
+        calc(100% - 6px) calc(100% - 2px),
+        calc(100% - 6px) 100%,
+        6px 100%,
+        6px calc(100% - 2px),
+        4px calc(100% - 2px),
+        4px calc(100% - 4px),
+        2px calc(100% - 4px),
+        2px calc(100% - 6px),
+        0 calc(100% - 6px)
+      ) !important;
+    }
+    .pixel-btn::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      clip-path: inherit;
+      z-index: -1;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .pixel-btn:hover {
       transform: translateY(-2px);
@@ -1001,51 +1099,55 @@
       transform: translate(2px, 2px);
       filter: drop-shadow(1px 1px 0px rgba(15, 23, 42, 0.95));
     }
+
+    /* Primary Button (Dark Mode) */
     .pixel-btn-primary {
-      background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+      background: #38bdf8 !important; /* Stepped Cyan Outer Border */
       color: #ffffff !important;
-      box-shadow: 
-        inset 0 0 0 2px #38bdf8,
-        inset 0 2px 0 0 rgba(255, 255, 255, 0.4),
-        inset 0 -2px 0 0 rgba(0, 0, 0, 0.35);
+    }
+    .pixel-btn-primary::before {
+      background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%) !important;
     }
     .pixel-btn-primary:hover {
-      background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
-      box-shadow: 
-        inset 0 0 0 2px #7dd3fc,
-        inset 0 2px 0 0 rgba(255, 255, 255, 0.5),
-        inset 0 -2px 0 0 rgba(0, 0, 0, 0.3);
-      filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.5)) drop-shadow(0 0 12px rgba(56, 189, 248, 0.4));
+      background: #7dd3fc !important;
+      filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.5)) drop-shadow(0 0 14px rgba(56, 189, 248, 0.45));
     }
+    .pixel-btn-primary:hover::before {
+      background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%) !important;
+    }
+
+    /* Secondary Button (Dark Mode) */
     .pixel-btn-secondary {
-      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      background: #475569 !important; /* Stepped Slate-600 Outer Border */
       color: #e2e8f0 !important;
-      box-shadow: 
-        inset 0 0 0 2px #334155,
-        inset 0 2px 0 0 rgba(255, 255, 255, 0.15),
-        inset 0 -2px 0 0 rgba(0, 0, 0, 0.4);
+    }
+    .pixel-btn-secondary::before {
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
     }
     .pixel-btn-secondary:hover {
-      background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+      background: #38bdf8 !important; /* Stepped Cyan Border on Hover */
       color: #ffffff !important;
-      box-shadow: 
-        inset 0 0 0 2px #38bdf8,
-        inset 0 2px 0 0 rgba(255, 255, 255, 0.25);
-      filter: drop-shadow(4px 4px 0px rgba(56, 189, 248, 0.3));
+      filter: drop-shadow(4px 4px 0px rgba(56, 189, 248, 0.35));
     }
+    .pixel-btn-secondary:hover::before {
+      background: linear-gradient(180deg, #334155 0%, #1e293b 100%) !important;
+    }
+
+    /* Icon Buttons (Dark Mode) */
     .pixel-btn-icon {
-      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      background: #475569 !important;
       color: #94a3b8 !important;
-      box-shadow: 
-        inset 0 0 0 2px #334155,
-        inset 0 2px 0 0 rgba(255, 255, 255, 0.15);
+    }
+    .pixel-btn-icon::before {
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
     }
     .pixel-btn-icon:hover {
+      background: #38bdf8 !important;
       color: #38bdf8 !important;
-      box-shadow: 
-        inset 0 0 0 2px #38bdf8,
-        inset 0 2px 0 0 rgba(255, 255, 255, 0.25);
       filter: drop-shadow(4px 4px 0px rgba(56, 189, 248, 0.35));
+    }
+    .pixel-btn-icon:hover::before {
+      background: linear-gradient(180deg, #334155 0%, #1e293b 100%) !important;
     }
 
     /* Light Mode Button Overrides */
@@ -1056,40 +1158,284 @@
       filter: drop-shadow(1px 1px 0px #cbd5e1);
     }
     html.light .pixel-btn-primary {
-      background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%) !important;
+      background: #0284c7 !important;
       color: #ffffff !important;
-      box-shadow: 
-        inset 0 0 0 2px #38bdf8,
-        inset 0 2px 0 0 rgba(255, 255, 255, 0.35) !important;
-      filter: drop-shadow(3px 3px 0px #cbd5e1) !important;
+    }
+    html.light .pixel-btn-primary::before {
+      background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%) !important;
     }
     html.light .pixel-btn-primary:hover {
+      background: #0369a1 !important;
       filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.35)) !important;
     }
     html.light .pixel-btn-secondary {
-      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+      background: #0284c7 !important;
       color: #0f172a !important;
-      box-shadow: 
-        inset 0 0 0 2px #cbd5e1,
-        inset 0 2px 0 0 rgba(255, 255, 255, 0.8) !important;
-      filter: drop-shadow(3px 3px 0px #cbd5e1) !important;
+    }
+    html.light .pixel-btn-secondary::before {
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
     }
     html.light .pixel-btn-secondary:hover {
-      background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%) !important;
-      box-shadow: 
-        inset 0 0 0 2px #0284c7 !important;
+      background: #0369a1 !important;
       filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.25)) !important;
+    }
+    html.light .pixel-btn-secondary:hover::before {
+      background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%) !important;
     }
     html.light .pixel-btn-icon {
-      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+      background: #0284c7 !important;
       color: #475569 !important;
-      box-shadow: inset 0 0 0 2px #cbd5e1 !important;
-      filter: drop-shadow(3px 3px 0px #cbd5e1) !important;
+    }
+    html.light .pixel-btn-icon::before {
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
     }
     html.light .pixel-btn-icon:hover {
+      background: #0369a1 !important;
       color: #0284c7 !important;
-      box-shadow: inset 0 0 0 2px #0284c7 !important;
       filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.25)) !important;
+    }
+    html.light .pixel-btn-icon:hover::before {
+      background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    }
+
+    /* ================= TECH CAPSULES & BADGES STEPPED BORDERS ================= */
+
+    /* 1. Default Slate Tech Capsules (Projects, Education, Skills) */
+    .pixel-corners-btn.border-slate-700\/60,
+    .pixel-corners-btn.border-slate-700\/80 {
+      background: #475569 !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .pixel-corners-btn.border-slate-700\/60::before,
+    .pixel-corners-btn.border-slate-700\/80::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      background: #1e293b !important;
+      clip-path: inherit;
+      z-index: -1;
+    }
+    html.light .pixel-corners-btn.border-slate-700\/60,
+    html.light .pixel-corners-btn.border-slate-700\/80 {
+      background: #94a3b8 !important;
+      color: #0f172a !important;
+    }
+    html.light .pixel-corners-btn.border-slate-700\/60::before,
+    html.light .pixel-corners-btn.border-slate-700\/80::before {
+      background: #f1f5f9 !important;
+    }
+
+    /* 2. Emerald Badges (Active Status, LASCE Boss Badge, Distributed Systems Badge) */
+    .pixel-corners-btn.border-emerald-500\/40 {
+      background: #10b981 !important;
+      border: none !important;
+      box-shadow: none !important;
+      filter: drop-shadow(2px 2px 0px rgba(16, 185, 129, 0.35)) drop-shadow(0 0 10px rgba(16, 185, 129, 0.2)) !important;
+    }
+    .pixel-corners-btn.border-emerald-500\/40::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      background: #064e3b !important;
+      clip-path: inherit;
+      z-index: -1;
+    }
+    html.light .pixel-corners-btn.border-emerald-500\/40 {
+      background: #059669 !important;
+      color: #047857 !important;
+      filter: drop-shadow(2px 2px 0px rgba(5, 150, 105, 0.25)) !important;
+    }
+    html.light .pixel-corners-btn.border-emerald-500\/40::before {
+      background: #ecfdf5 !important;
+    }
+
+    /* 3. Cyan Badges (Python, Ethical Vodcast Quest Badge) */
+    .pixel-corners-btn.border-cyan-800\/60,
+    .pixel-corners-btn.border-cyan-500\/40 {
+      background: #0891b2 !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .pixel-corners-btn.border-cyan-800\/60::before,
+    .pixel-corners-btn.border-cyan-500\/40::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      background: #082f49 !important;
+      clip-path: inherit;
+      z-index: -1;
+    }
+    html.light .pixel-corners-btn.border-cyan-800\/60,
+    html.light .pixel-corners-btn.border-cyan-500\/40 {
+      background: #0284c7 !important;
+      color: #0284c7 !important;
+    }
+    html.light .pixel-corners-btn.border-cyan-800\/60::before,
+    html.light .pixel-corners-btn.border-cyan-500\/40::before {
+      background: #e0f2fe !important;
+    }
+    html.light .pixel-corners-btn.border-indigo-800\/60 {
+      background: #4f46e5 !important;
+      color: #4338ca !important;
+    }
+    html.light .pixel-corners-btn.border-indigo-800\/60::before {
+      background: #e0e7ff !important;
+    }
+    html.light .pixel-corners-btn.border-amber-800\/60 {
+      background: #d97706 !important;
+      color: #92400e !important;
+    }
+    html.light .pixel-corners-btn.border-amber-800\/60::before {
+      background: #fef3c7 !important;
+    }
+    html.light .pixel-corners-btn.border-blue-800\/60 {
+      background: #2563eb !important;
+      color: #1d4ed8 !important;
+    }
+    html.light .pixel-corners-btn.border-blue-800\/60::before {
+      background: #dbeafe !important;
+    }
+
+    /* 4. Indigo Badges (C++, Virtual Microscope Quest Badge) */
+    .pixel-corners-btn.border-indigo-800\/60,
+    .pixel-corners-btn.border-indigo-500\/40 {
+      background: #6366f1 !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .pixel-corners-btn.border-indigo-800\/60::before,
+    .pixel-corners-btn.border-indigo-500\/40::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      background: #1e1b4b !important;
+      clip-path: inherit;
+      z-index: -1;
+    }
+    html.light .pixel-corners-btn.border-indigo-800\/60,
+    html.light .pixel-corners-btn.border-indigo-500\/40 {
+      background: #4f46e5 !important;
+      color: #3730a3 !important;
+    }
+    html.light .pixel-corners-btn.border-indigo-800\/60::before,
+    html.light .pixel-corners-btn.border-indigo-500\/40::before {
+      background: #eef2ff !important;
+    }
+
+    /* 5. Amber Badges (JavaScript) */
+    .pixel-corners-btn.border-amber-800\/60,
+    .pixel-corners-btn.border-amber-500\/40 {
+      background: #d97706 !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .pixel-corners-btn.border-amber-800\/60::before,
+    .pixel-corners-btn.border-amber-500\/40::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      background: #451a03 !important;
+      clip-path: inherit;
+      z-index: -1;
+    }
+    html.light .pixel-corners-btn.border-amber-800\/60,
+    html.light .pixel-corners-btn.border-amber-500\/40 {
+      background: #d97706 !important;
+      color: #b45309 !important;
+    }
+    html.light .pixel-corners-btn.border-amber-800\/60::before,
+    html.light .pixel-corners-btn.border-amber-500\/40::before {
+      background: #fffbeb !important;
+    }
+
+    /* 6. Blue Badges (C# / .NET, Brand Badges) */
+    .pixel-corners-btn.border-blue-800\/60,
+    .pixel-corners-btn.border-brand-500\/40 {
+      background: #2563eb !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .pixel-corners-btn.border-blue-800\/60::before,
+    .pixel-corners-btn.border-brand-500\/40::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      background: #172554 !important;
+      clip-path: inherit;
+      z-index: -1;
+    }
+    html.light .pixel-corners-btn.border-blue-800\/60,
+    html.light .pixel-corners-btn.border-brand-500\/40 {
+      background: #2563eb !important;
+      color: #1d4ed8 !important;
+    }
+    html.light .pixel-corners-btn.border-blue-800\/60::before,
+    html.light .pixel-corners-btn.border-brand-500\/40::before {
+      background: #eff6ff !important;
+    }
+
+    /* Dialogue avatar button & Rail nodes */
+    #dialogue-avatar-btn {
+      border: none !important;
+      background: #0284c7 !important;
+      position: relative;
+      z-index: 0;
+    }
+    #dialogue-avatar-btn::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      clip-path: inherit;
+      z-index: -1;
+      background: #0f172a;
+    }
+    #dialogue-avatar-btn:hover {
+      background: #38bdf8 !important;
+    }
+    html.light #dialogue-avatar-btn {
+      background: #0284c7 !important;
+    }
+    html.light #dialogue-avatar-btn::before {
+      background: #f8fafc !important;
+    }
+
+    .rail-node {
+      border: none !important;
+      position: relative;
+      z-index: 0;
+    }
+    .rail-node::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      clip-path: inherit;
+      z-index: -1;
+      background: #0f172a;
+    }
+    .rail-node.bg-brand-600 {
+      background: #38bdf8 !important;
+    }
+    .rail-node.bg-brand-600::before {
+      background: #0284c7 !important;
+    }
+    .rail-node.bg-slate-900 {
+      background: #475569 !important;
+    }
+    .rail-node.bg-slate-900:hover {
+      background: #38bdf8 !important;
+    }
+    html.light .rail-node.bg-brand-600 {
+      background: #0284c7 !important;
+    }
+    html.light .rail-node.bg-brand-600::before {
+      background: #0284c7 !important;
+    }
+    html.light .rail-node.bg-slate-900 {
+      background: #cbd5e1 !important;
+    }
+    html.light .rail-node.bg-slate-900::before {
+      background: #ffffff !important;
     }
     html.light #theme-toggle-btn,
     html.light #theme-toggle-mobile,

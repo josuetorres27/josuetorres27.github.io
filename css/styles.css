@@ -1414,15 +1414,20 @@
     }
     html.light .pixel-corners-btn.border-slate-700\/60,
     html.light .pixel-corners-btn.border-slate-700\/80 {
-      background: #94a3b8 !important;
-      color: #0f172a !important;
+      background: transparent !important;
+      color: #334155 !important;
     }
     html.light .pixel-corners-btn.border-slate-700\/60::before,
     html.light .pixel-corners-btn.border-slate-700\/80::before {
-      background: #f1f5f9 !important;
+      inset: 0 !important;
+      padding: 1.5px !important;
+      background: #94a3b8 !important;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+      -webkit-mask-composite: xor !important;
+      mask-composite: exclude !important;
     }
 
-    /* 2. Emerald Badges (Active Status, LASCE Boss Badge, Distributed Systems Badge) - Hollow/Card chassis, no solid colored fill */
+    /* 2. Emerald Badges (Active Status, LASCE Boss Badge, Distributed Systems Badge) - Hollow outline badge without solid white fill */
     .pixel-corners-btn.border-emerald-500\/40 {
       background: #10b981 !important;
       border: none !important;
@@ -1438,15 +1443,20 @@
       z-index: -1;
     }
     html.light .pixel-corners-btn.border-emerald-500\/40 {
-      background: #059669 !important;
+      background: transparent !important;
       color: #047857 !important;
       filter: drop-shadow(2px 2px 0px rgba(5, 150, 105, 0.25)) !important;
     }
     html.light .pixel-corners-btn.border-emerald-500\/40::before {
-      background: #ffffff !important;
+      inset: 0 !important;
+      padding: 1.5px !important;
+      background: #059669 !important;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+      -webkit-mask-composite: xor !important;
+      mask-composite: exclude !important;
     }
 
-    /* 3. Cyan Badges (Python, Ethical Vodcast Quest Badge) - Hollow/Card chassis */
+    /* 3. Cyan Badges (Python, Ethical Vodcast Quest Badge) - Hollow outline badge without solid white fill */
     .pixel-corners-btn.border-cyan-800\/60,
     .pixel-corners-btn.border-cyan-500\/40 {
       background: #0891b2 !important;
@@ -1464,15 +1474,20 @@
     }
     html.light .pixel-corners-btn.border-cyan-800\/60,
     html.light .pixel-corners-btn.border-cyan-500\/40 {
-      background: #0284c7 !important;
+      background: transparent !important;
       color: #0284c7 !important;
     }
     html.light .pixel-corners-btn.border-cyan-800\/60::before,
     html.light .pixel-corners-btn.border-cyan-500\/40::before {
-      background: #ffffff !important;
+      inset: 0 !important;
+      padding: 1.5px !important;
+      background: #0284c7 !important;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+      -webkit-mask-composite: xor !important;
+      mask-composite: exclude !important;
     }
 
-    /* 4. Indigo Badges (C++, Virtual Microscope Quest Badge) - Hollow/Card chassis */
+    /* 4. Indigo Badges (C++, Virtual Microscope Quest Badge) - Hollow outline badge without solid white fill */
     .pixel-corners-btn.border-indigo-800\/60,
     .pixel-corners-btn.border-indigo-500\/40 {
       background: #6366f1 !important;
@@ -1490,15 +1505,20 @@
     }
     html.light .pixel-corners-btn.border-indigo-800\/60,
     html.light .pixel-corners-btn.border-indigo-500\/40 {
-      background: #4f46e5 !important;
-      color: #3730a3 !important;
+      background: transparent !important;
+      color: #4338ca !important;
     }
     html.light .pixel-corners-btn.border-indigo-800\/60::before,
     html.light .pixel-corners-btn.border-indigo-500\/40::before {
-      background: #ffffff !important;
+      inset: 0 !important;
+      padding: 1.5px !important;
+      background: #4f46e5 !important;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+      -webkit-mask-composite: xor !important;
+      mask-composite: exclude !important;
     }
 
-    /* 5. Amber Badges (JavaScript) - Hollow/Card chassis */
+    /* 5. Amber Badges (JavaScript) - Hollow outline badge without solid white fill */
     .pixel-corners-btn.border-amber-800\/60,
     .pixel-corners-btn.border-amber-500\/40 {
       background: #d97706 !important;
@@ -1516,15 +1536,20 @@
     }
     html.light .pixel-corners-btn.border-amber-800\/60,
     html.light .pixel-corners-btn.border-amber-500\/40 {
-      background: #d97706 !important;
+      background: transparent !important;
       color: #b45309 !important;
     }
     html.light .pixel-corners-btn.border-amber-800\/60::before,
     html.light .pixel-corners-btn.border-amber-500\/40::before {
-      background: #ffffff !important;
+      inset: 0 !important;
+      padding: 1.5px !important;
+      background: #d97706 !important;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+      -webkit-mask-composite: xor !important;
+      mask-composite: exclude !important;
     }
 
-    /* 6. Blue Badges (C# / .NET, Brand Badges) - Hollow/Card chassis */
+    /* 6. Blue Badges (C# / .NET, Brand Badges) - Hollow outline badge without solid white fill */
     .pixel-corners-btn.border-blue-800\/60,
     .pixel-corners-btn.border-brand-500\/40 {
       background: #2563eb !important;
@@ -1542,15 +1567,20 @@
     }
     html.light .pixel-corners-btn.border-blue-800\/60,
     html.light .pixel-corners-btn.border-brand-500\/40 {
-      background: #2563eb !important;
+      background: transparent !important;
       color: #1d4ed8 !important;
     }
     html.light .pixel-corners-btn.border-blue-800\/60::before,
     html.light .pixel-corners-btn.border-brand-500\/40::before {
-      background: #ffffff !important;
+      inset: 0 !important;
+      padding: 1.5px !important;
+      background: #2563eb !important;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+      -webkit-mask-composite: xor !important;
+      mask-composite: exclude !important;
     }
 
-    /* 7. Purple Badges (Online Learning Platform) - Hollow/Card chassis */
+    /* 7. Purple Badges (Online Learning Platform) - Hollow outline badge without solid white fill */
     .pixel-corners-btn.border-purple-800\/60,
     .pixel-corners-btn.border-purple-500\/40 {
       background: #a855f7 !important;
@@ -1568,12 +1598,17 @@
     }
     html.light .pixel-corners-btn.border-purple-800\/60,
     html.light .pixel-corners-btn.border-purple-500\/40 {
-      background: #9333ea !important;
+      background: transparent !important;
       color: #7e22ce !important;
     }
     html.light .pixel-corners-btn.border-purple-800\/60::before,
     html.light .pixel-corners-btn.border-purple-500\/40::before {
-      background: #ffffff !important;
+      inset: 0 !important;
+      padding: 1.5px !important;
+      background: #9333ea !important;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+      -webkit-mask-composite: xor !important;
+      mask-composite: exclude !important;
     }
 
     /* Dialogue avatar button: standardized with map level buttons in dark & light mode */

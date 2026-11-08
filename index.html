@@ -953,17 +953,17 @@
           <div class="p-6 sm:p-8 relative overflow-hidden">
             <div class="absolute top-0 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -mr-16 -mt-16"></div>
 <div class="relative z-10">
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 pixel-corners-btn bg-emerald-500/15 border border-emerald-500/40 text-emerald-400 text-xs font-semibold font-mono" style="filter: drop-shadow(2px 2px 0px rgba(16, 185, 129, 0.25));">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 pixel-corners-btn bg-slate-900 border border-emerald-500/40 text-emerald-400 text-xs font-semibold font-mono self-start sm:self-auto" style="filter: drop-shadow(2px 2px 0px rgba(16, 185, 129, 0.25));">
               <span class="w-2 h-2 rounded-none bg-emerald-400 animate-pulse shrink-0"></span>
               <span data-i18n="lasce_badge">Currently Working On · Active Project</span>
             </div>
-            <div class="flex flex-col sm:items-end gap-2 shrink-0">
+            <div class="flex flex-wrap items-center gap-2 shrink-0">
               <a href="https://lasce.ucr.ac.cr" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-primary pixel-corners-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center justify-center gap-1.5">
                 <span data-i18n="lasce_btn">Visit Production</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
               </a>
-              <a href="https://github.com/LasceUCR/lasce" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center justify-center gap-2" aria-label="Ver repositorio de LASCE en GitHub">
+              <a href="https://github.com/LasceUCR/lasce" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-2 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center justify-center gap-2" aria-label="Ver repositorio de LASCE en GitHub">
                 <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
                 <span>GitHub</span>
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -1918,7 +1918,7 @@
         
         <!-- Row 2: Location Link / Google Maps Badge (shown when image has location data) -->
         <div id="lightbox-location-container" class="hidden w-full flex items-center">
-          <a id="lightbox-location-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start px-3 sm:px-3.5 py-1.5 pixel-corners-sm text-xs font-medium transition-all active:scale-95 shadow-sm border group/loc" title="Abrir ubicación en Google Maps">
+          <a id="lightbox-location-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start px-3 sm:px-3.5 py-1.5 pixel-corners-btn text-xs font-medium transition-all active:scale-95 shadow-sm group/loc" title="Abrir ubicación en Google Maps">
             <div class="w-1/2 sm:w-auto flex items-center justify-center sm:justify-start gap-1.5 min-w-0 pr-2 sm:pr-3">
               <svg class="w-3.5 h-3.5 text-cyan-400 group-hover/loc:scale-110 transition-transform fill-current flex-shrink-0" viewBox="0 0 24 24">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -2048,10 +2048,10 @@
             <span data-i18n="adv_badge_guide" class="text-[10px] px-2 py-0.5 pixel-corners-btn border-cyan-800/60 text-cyan-300 font-mono font-medium">Guía</span>
           </div>
           <div class="flex items-center gap-1 text-slate-400">
-            <button id="dialogue-mute-btn" type="button" class="w-6 h-6 sm:w-7 sm:h-7 pixel-corners-btn border-slate-700/80 hover:text-white text-xs transition-colors flex items-center justify-center cursor-pointer pointer-events-auto" title="Activar/Silenciar sonido">
+            <button id="dialogue-mute-btn" type="button" class="w-6 h-6 sm:w-7 sm:h-7 hover:text-white text-xs transition-colors flex items-center justify-center cursor-pointer pointer-events-auto border-0 shadow-none bg-transparent" title="Activar/Silenciar sonido">
               <img id="dialogue-mute-img" src="./img/icons/sound-on-dark.png" alt="Sonido activado" class="w-3.5 h-3.5 pixelated select-none pointer-events-none" />
             </button>
-            <button id="dialogue-close-btn" type="button" class="w-6 h-6 sm:w-7 sm:h-7 pixel-corners-btn border-slate-700/80 hover:text-white text-xs transition-colors flex items-center justify-center cursor-pointer pointer-events-auto" title="Cerrar Guía">
+            <button id="dialogue-close-btn" type="button" class="w-6 h-6 sm:w-7 sm:h-7 hover:text-white text-xs transition-colors flex items-center justify-center cursor-pointer pointer-events-auto border-0 shadow-none bg-transparent" title="Cerrar Guía">
               <img src="./img/icons/close-x-dark.png" alt="Cerrar" class="theme-icon-dark w-3.5 h-3.5 pixelated select-none pointer-events-none" />
               <img src="./img/icons/close-x-light.png" alt="Cerrar" class="theme-icon-light w-3.5 h-3.5 pixelated select-none pointer-events-none" />
             </button>

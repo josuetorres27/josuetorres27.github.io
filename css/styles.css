@@ -899,44 +899,61 @@
     #image-lightbox-modal #lightbox-caption {
       color: #ffffff !important;
     }
+    /* Lightbox stepped close button */
     #image-lightbox-modal #lightbox-close-btn {
-      background-color: #0f172a !important;
-      color: #ffffff !important;
-      border: 1px solid #334155 !important;
-      box-shadow: inset 0 0 0 1px #334155 !important;
-      filter: drop-shadow(2px 2px 0px rgba(15, 23, 42, 0.9)) !important;
+      position: relative;
+      z-index: 0;
+      border: none !important;
+      box-shadow: none !important;
+      background: #475569 !important;
+      filter: drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95)) !important;
+      cursor: pointer;
+    }
+    #image-lightbox-modal #lightbox-close-btn::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      clip-path: inherit;
+      z-index: -1;
+      background: #0f172a !important;
+      transition: background 0.15s ease;
     }
     #image-lightbox-modal #lightbox-close-btn svg {
-      stroke: #ffffff !important;
+      stroke: #e2e8f0 !important;
+      transition: stroke 0.15s ease;
     }
     #image-lightbox-modal #lightbox-close-btn:hover {
-      background-color: #1e293b !important;
-      border-color: #38bdf8 !important;
-      box-shadow: inset 0 0 0 1px #38bdf8, 0 0 10px rgba(56, 189, 248, 0.35) !important;
-      color: #ffffff !important;
+      background: #38bdf8 !important;
+      filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.4)) drop-shadow(0 0 12px rgba(56, 189, 248, 0.5)) !important;
+      transform: translateY(-2px);
+    }
+    #image-lightbox-modal #lightbox-close-btn:hover::before {
+      background: #1e293b !important;
     }
     #image-lightbox-modal #lightbox-close-btn:hover svg {
       stroke: #38bdf8 !important;
     }
     html.light #image-lightbox-modal #lightbox-close-btn {
-      background-color: #ffffff !important;
-      color: #0f172a !important;
-      border: 1px solid #cbd5e1 !important;
-      box-shadow: 2px 2px 0px 0px #cbd5e1 !important;
-      filter: none !important;
+      background: #94a3b8 !important;
+      filter: drop-shadow(3px 3px 0px rgba(148, 163, 184, 0.5)) !important;
+    }
+    html.light #image-lightbox-modal #lightbox-close-btn::before {
+      background: #ffffff !important;
     }
     html.light #image-lightbox-modal #lightbox-close-btn svg {
       stroke: #0f172a !important;
     }
     html.light #image-lightbox-modal #lightbox-close-btn:hover {
-      background-color: #f1f5f9 !important;
-      border-color: #0284c7 !important;
-      box-shadow: 2px 2px 0px 0px #0284c7 !important;
-      color: #0f172a !important;
+      background: #0284c7 !important;
+      filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.35)) drop-shadow(0 0 12px rgba(2, 132, 199, 0.3)) !important;
+    }
+    html.light #image-lightbox-modal #lightbox-close-btn:hover::before {
+      background: #f0f9ff !important;
     }
     html.light #image-lightbox-modal #lightbox-close-btn:hover svg {
-      stroke: #0f172a !important;
+      stroke: #0284c7 !important;
     }
+
     #image-lightbox-modal #lightbox-content-box {
       background-color: #020617 !important;
       box-shadow: inset 0 0 0 2px #38bdf8, 0 0 24px rgba(56, 189, 248, 0.25), 4px 4px 0px 0px rgba(15, 23, 42, 0.95) !important;
@@ -947,25 +964,54 @@
       background-color: #ffffff !important;
       box-shadow: inset 0 0 0 2px #0284c7, 4px 4px 0px 0px #cbd5e1 !important;
     }
-    #image-lightbox-modal #lightbox-location-link,
-    html.light #image-lightbox-modal #lightbox-location-link {
-      background-color: rgba(6, 182, 212, 0.14) !important;
-      border: 1px solid rgba(6, 182, 212, 0.45) !important;
-      color: #a5f3fc !important;
-      box-shadow: inset 0 0 0 1px rgba(6, 182, 212, 0.5) !important;
+
+    /* Lightbox stepped location pill */
+    #image-lightbox-modal #lightbox-location-link {
+      position: relative;
+      z-index: 0;
+      border: none !important;
+      box-shadow: none !important;
+      background: #0891b2 !important;
       filter: drop-shadow(2px 2px 0px rgba(15, 23, 42, 0.8)) !important;
+      color: #a5f3fc !important;
+      transition: all 0.2s ease;
     }
-    #image-lightbox-modal #lightbox-location-link:hover,
-    html.light #image-lightbox-modal #lightbox-location-link:hover {
-      background-color: rgba(6, 182, 212, 0.25) !important;
-      border-color: #38bdf8 !important;
+    #image-lightbox-modal #lightbox-location-link::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      clip-path: inherit;
+      z-index: -1;
+      background: #0f172a !important;
+      transition: background 0.2s ease;
+    }
+    #image-lightbox-modal #lightbox-location-link:hover {
+      background: #38bdf8 !important;
+      filter: drop-shadow(3px 3px 0px rgba(6, 182, 212, 0.35)) drop-shadow(0 0 10px rgba(56, 189, 248, 0.4)) !important;
       color: #ffffff !important;
-      box-shadow: inset 0 0 0 1px #38bdf8 !important;
-      filter: drop-shadow(3px 3px 0px rgba(6, 182, 212, 0.35)) !important;
+      transform: translateY(-1px);
     }
-    #image-lightbox-modal #lightbox-location-link span,
-    html.light #image-lightbox-modal #lightbox-location-link span {
+    #image-lightbox-modal #lightbox-location-link:hover::before {
+      background: #082f49 !important;
+    }
+    #image-lightbox-modal #lightbox-location-link span {
       color: inherit !important;
+    }
+    html.light #image-lightbox-modal #lightbox-location-link {
+      background: #0284c7 !important;
+      filter: drop-shadow(2px 2px 0px rgba(148, 163, 184, 0.5)) !important;
+      color: #0369a1 !important;
+    }
+    html.light #image-lightbox-modal #lightbox-location-link::before {
+      background: #ffffff !important;
+    }
+    html.light #image-lightbox-modal #lightbox-location-link:hover {
+      background: #0284c7 !important;
+      filter: drop-shadow(3px 3px 0px rgba(2, 132, 199, 0.3)) drop-shadow(0 0 10px rgba(2, 132, 199, 0.25)) !important;
+      color: #0c4a6e !important;
+    }
+    html.light #image-lightbox-modal #lightbox-location-link:hover::before {
+      background: #f0f9ff !important;
     }
     #lightbox-img {
       max-height: calc(82vh - 85px);
@@ -1226,18 +1272,18 @@
       background: #f1f5f9 !important;
     }
 
-    /* 2. Emerald Badges (Active Status, LASCE Boss Badge, Distributed Systems Badge) */
+    /* 2. Emerald Badges (Active Status, LASCE Boss Badge, Distributed Systems Badge) - Hollow/Card chassis, no solid colored fill */
     .pixel-corners-btn.border-emerald-500\/40 {
       background: #10b981 !important;
       border: none !important;
       box-shadow: none !important;
-      filter: drop-shadow(2px 2px 0px rgba(16, 185, 129, 0.35)) drop-shadow(0 0 10px rgba(16, 185, 129, 0.2)) !important;
+      filter: drop-shadow(2px 2px 0px rgba(16, 185, 129, 0.35)) !important;
     }
     .pixel-corners-btn.border-emerald-500\/40::before {
       content: "";
       position: absolute;
       inset: 1.5px;
-      background: #064e3b !important;
+      background: #0f172a !important;
       clip-path: inherit;
       z-index: -1;
     }
@@ -1247,10 +1293,10 @@
       filter: drop-shadow(2px 2px 0px rgba(5, 150, 105, 0.25)) !important;
     }
     html.light .pixel-corners-btn.border-emerald-500\/40::before {
-      background: #ecfdf5 !important;
+      background: #ffffff !important;
     }
 
-    /* 3. Cyan Badges (Python, Ethical Vodcast Quest Badge) */
+    /* 3. Cyan Badges (Python, Ethical Vodcast Quest Badge) - Hollow/Card chassis */
     .pixel-corners-btn.border-cyan-800\/60,
     .pixel-corners-btn.border-cyan-500\/40 {
       background: #0891b2 !important;
@@ -1262,7 +1308,7 @@
       content: "";
       position: absolute;
       inset: 1.5px;
-      background: #082f49 !important;
+      background: #0f172a !important;
       clip-path: inherit;
       z-index: -1;
     }
@@ -1273,31 +1319,10 @@
     }
     html.light .pixel-corners-btn.border-cyan-800\/60::before,
     html.light .pixel-corners-btn.border-cyan-500\/40::before {
-      background: #e0f2fe !important;
-    }
-    html.light .pixel-corners-btn.border-indigo-800\/60 {
-      background: #4f46e5 !important;
-      color: #4338ca !important;
-    }
-    html.light .pixel-corners-btn.border-indigo-800\/60::before {
-      background: #e0e7ff !important;
-    }
-    html.light .pixel-corners-btn.border-amber-800\/60 {
-      background: #d97706 !important;
-      color: #92400e !important;
-    }
-    html.light .pixel-corners-btn.border-amber-800\/60::before {
-      background: #fef3c7 !important;
-    }
-    html.light .pixel-corners-btn.border-blue-800\/60 {
-      background: #2563eb !important;
-      color: #1d4ed8 !important;
-    }
-    html.light .pixel-corners-btn.border-blue-800\/60::before {
-      background: #dbeafe !important;
+      background: #ffffff !important;
     }
 
-    /* 4. Indigo Badges (C++, Virtual Microscope Quest Badge) */
+    /* 4. Indigo Badges (C++, Virtual Microscope Quest Badge) - Hollow/Card chassis */
     .pixel-corners-btn.border-indigo-800\/60,
     .pixel-corners-btn.border-indigo-500\/40 {
       background: #6366f1 !important;
@@ -1309,7 +1334,7 @@
       content: "";
       position: absolute;
       inset: 1.5px;
-      background: #1e1b4b !important;
+      background: #0f172a !important;
       clip-path: inherit;
       z-index: -1;
     }
@@ -1320,10 +1345,10 @@
     }
     html.light .pixel-corners-btn.border-indigo-800\/60::before,
     html.light .pixel-corners-btn.border-indigo-500\/40::before {
-      background: #eef2ff !important;
+      background: #ffffff !important;
     }
 
-    /* 5. Amber Badges (JavaScript) */
+    /* 5. Amber Badges (JavaScript) - Hollow/Card chassis */
     .pixel-corners-btn.border-amber-800\/60,
     .pixel-corners-btn.border-amber-500\/40 {
       background: #d97706 !important;
@@ -1335,7 +1360,7 @@
       content: "";
       position: absolute;
       inset: 1.5px;
-      background: #451a03 !important;
+      background: #0f172a !important;
       clip-path: inherit;
       z-index: -1;
     }
@@ -1346,10 +1371,10 @@
     }
     html.light .pixel-corners-btn.border-amber-800\/60::before,
     html.light .pixel-corners-btn.border-amber-500\/40::before {
-      background: #fffbeb !important;
+      background: #ffffff !important;
     }
 
-    /* 6. Blue Badges (C# / .NET, Brand Badges) */
+    /* 6. Blue Badges (C# / .NET, Brand Badges) - Hollow/Card chassis */
     .pixel-corners-btn.border-blue-800\/60,
     .pixel-corners-btn.border-brand-500\/40 {
       background: #2563eb !important;
@@ -1361,7 +1386,7 @@
       content: "";
       position: absolute;
       inset: 1.5px;
-      background: #172554 !important;
+      background: #0f172a !important;
       clip-path: inherit;
       z-index: -1;
     }
@@ -1372,7 +1397,7 @@
     }
     html.light .pixel-corners-btn.border-blue-800\/60::before,
     html.light .pixel-corners-btn.border-brand-500\/40::before {
-      background: #eff6ff !important;
+      background: #ffffff !important;
     }
 
     /* Dialogue avatar button & Rail nodes */
@@ -1438,12 +1463,37 @@
       background: #ffffff !important;
     }
     html.light #theme-toggle-btn,
-    html.light #theme-toggle-mobile,
-    html.light [aria-label="Language selection"],
-    html.light [aria-label="Mobile language selector"] {
+    html.light #theme-toggle-mobile {
       background-color: #f1f5f9 !important;
       border-color: #cbd5e1 !important;
       box-shadow: 2px 2px 0px 0px #cbd5e1 !important;
+    }
+    html.light [aria-label="Language selection"],
+    html.light [aria-label="Mobile language selector"] {
+      background: #f1f5f9 !important;
+      border: none !important;
+      box-shadow: none !important;
+      filter: none !important;
+    }
+    html.light [aria-label="Language selection"]::before,
+    html.light [aria-label="Mobile language selector"]::before {
+      display: none !important;
+    }
+
+    /* Dialogue mute and close buttons: strictly borderless & clean in both themes */
+    #dialogue-mute-btn,
+    #dialogue-close-btn,
+    html.light #dialogue-mute-btn,
+    html.light #dialogue-close-btn {
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+      filter: none !important;
+      clip-path: none !important;
+    }
+    #dialogue-mute-btn::before,
+    #dialogue-close-btn::before {
+      display: none !important;
     }
     html.light #theme-toggle-btn:hover,
     html.light #theme-toggle-mobile:hover {

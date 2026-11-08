@@ -162,6 +162,7 @@ class TestDOMIntegrity(unittest.TestCase):
             "dialogue-mute-img",
             "dialogue-close-btn",
             "rail-character-walker",
+            "rail-character-scale-wrap",
             "rail-character-sprite",
             "rail-active-indicator",
             "rail-exit-btn",

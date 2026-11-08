@@ -588,6 +588,7 @@
     if (walker) {
       walker.style.top = '0px';
       walker.classList.add('opacity-0');
+      walker.classList.remove('is-jumping');
       walker.style.pointerEvents = '';
     }
     if (indicator) {
@@ -689,7 +690,6 @@
         if (e) e.stopPropagation();
         if (isAvatarJumping) return;
         isAvatarJumping = true;
-        avatarBtn.style.pointerEvents = 'none';
         resetAfkTimer();
         playSound('jump');
         if (avatarSprite) {
@@ -699,11 +699,9 @@
             avatarSprite.classList.remove('animate-pixel-jump');
             avatarSprite.src = './img/character-sprites/front.png';
             isAvatarJumping = false;
-            avatarBtn.style.pointerEvents = '';
           }, 500);
         } else {
           isAvatarJumping = false;
-          avatarBtn.style.pointerEvents = '';
         }
       });
     }
@@ -814,7 +812,7 @@
         if (e) e.stopPropagation();
         if (isWalkerJumping) return;
         isWalkerJumping = true;
-        railWalker.style.pointerEvents = 'none';
+        railWalker.classList.add('is-jumping');
         resetAfkTimer();
         playSound('jump');
         if (isDialogueDismissed) {
@@ -829,11 +827,11 @@
             walkerSprite.classList.remove('animate-pixel-jump');
             walkerSprite.src = './img/character-sprites/idle.png';
             isWalkerJumping = false;
-            railWalker.style.pointerEvents = '';
+            railWalker.classList.remove('is-jumping');
           }, 500);
         } else {
           isWalkerJumping = false;
-          railWalker.style.pointerEvents = '';
+          railWalker.classList.remove('is-jumping');
         }
       });
     }

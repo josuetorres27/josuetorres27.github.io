@@ -1860,6 +1860,16 @@
         transform: translateY(0);
       }
     }
+    /* Walker Sprite Hover Scale & Jump Consistency */
+    #rail-character-scale-wrap {
+      transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.4, 1);
+      transform-origin: center center;
+    }
+    #rail-character-walker:hover #rail-character-scale-wrap,
+    #rail-character-walker.is-jumping #rail-character-scale-wrap {
+      transform: scale(1.1);
+    }
+
     .animate-pixel-jump {
       animation: pixel-jump-bounce 0.48s cubic-bezier(0.2, 0.8, 0.4, 1) forwards !important;
     }

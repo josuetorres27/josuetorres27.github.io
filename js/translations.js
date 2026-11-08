@@ -295,6 +295,8 @@
         adv_close_mode: "Close Adventure Mode",
         adv_sound_toggle: "Mute/Unmute sound",
         adv_close: "Close",
+        loader_init: "[ SYSTEM INITIALIZING ]",
+        loader_status: "LOADING ASSETS...",
         adv_node_tooltips: [
           "1. Start",
           "2. About Me",
@@ -624,6 +626,8 @@
         adv_close_mode: "Cerrar Modo Aventura",
         adv_sound_toggle: "Activar/Silenciar sonido",
         adv_close: "Cerrar",
+        loader_init: "[ INICIALIZANDO SISTEMA ]",
+        loader_status: "CARGANDO ASSETS...",
         adv_node_tooltips: [
           "1. Inicio",
           "2. Sobre Mí",

@@ -174,6 +174,11 @@ class TestDOMIntegrity(unittest.TestCase):
             "hero-portal-sprite-wrap",
             "hero-portal-sprite",
             "adventure-stage-wrapper",
+            "portfolio-loader",
+            "loader-sprite",
+            "loader-progress-bar",
+            "loader-status-text",
+            "loader-percent",
         ]
         for target in js_targets:
             self.assertIn(target, self.collector.ids, f"Required JS binding target id='{target}' missing in index.html")

@@ -114,6 +114,35 @@
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
 
+  <!-- Portfolio Preloader / Retro Skeleton Boot Screen -->
+  <div id="portfolio-loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center select-none bg-slate-950 transition-opacity duration-400 ease-out" role="status" aria-live="polite" aria-label="Cargando portafolio...">
+    <div class="flex flex-col items-center max-w-xs w-full px-4 text-center">
+      <!-- Animated Companion Sprite -->
+      <div class="relative w-20 h-20 mb-4 flex items-center justify-center">
+        <img id="loader-sprite" src="./img/character-sprites/idle.png" alt="Cargando..." class="w-16 h-16 pixelated animate-bounce drop-shadow-[0_4px_12px_rgba(2,132,199,0.7)]" />
+      </div>
+      
+      <!-- System Title & Retro Subtitle -->
+      <div class="font-pixel text-xs sm:text-sm text-cyan-400 tracking-wider mb-1 font-bold">
+        JOSUE TORRES SIBAJA
+      </div>
+      <div data-i18n="loader_init" class="text-[10px] font-mono text-slate-400 tracking-widest uppercase mb-4">
+        [ SYSTEM INITIALIZING ]
+      </div>
+
+      <!-- Stepped Pixel Progress Container -->
+      <div class="loader-progress-chassis w-56 sm:w-64 h-3 bg-slate-900 border border-slate-700/80 p-[1.5px] pixel-corners-btn relative overflow-hidden shadow-[2px_2px_0px_0px_rgba(15,23,42,0.9)]">
+        <div id="loader-progress-bar" class="h-full bg-gradient-to-r from-brand-600 via-cyan-400 to-emerald-400 transition-all duration-200 ease-out" style="width: 15%;"></div>
+      </div>
+
+      <!-- Status Row: Loading Assets text + Percentage -->
+      <div class="flex items-center justify-between w-56 sm:w-64 text-[10px] font-mono text-slate-400 mt-2 px-0.5">
+        <span id="loader-status-text" data-i18n="loader_status">CARGANDO ASSETS...</span>
+        <span id="loader-percent" class="text-cyan-400 font-bold font-mono">15%</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Inlined Pixel Josue Sprites (Works offline & online) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
   <symbol id="pixel-josue-walk2" viewBox="0 0 20 26" shape-rendering="crispEdges">
@@ -2060,7 +2089,7 @@
     <div id="adventure-rail-wrapper" class="relative flex flex-col items-center">
 
       <!-- Animated Walking Sprite on the Rail (Enlarged Pixel Art - Outside clip-path!) -->
-      <div id="rail-character-walker" class="absolute -left-[82px] sm:-left-[90px] transition-all duration-500 ease-out flex items-center justify-center pointer-events-auto cursor-pointer group select-none z-30 p-2" style="top: 0px;" title="¡Hazme clic para saltar!">
+      <div id="rail-character-walker" class="absolute -left-[86px] sm:-left-[94px] transition-all duration-500 ease-out flex items-center justify-center pointer-events-auto cursor-pointer group select-none z-30 p-2" style="top: 0px;" title="¡Hazme clic para saltar!">
         <div id="rail-character-scale-wrap" class="relative flex items-center justify-center">
           <img id="rail-character-sprite" src="./img/character-sprites/idle.png" class="w-16 h-16 sm:w-20 sm:h-20 pixelated drop-shadow-[0_4px_16px_rgba(2,132,199,0.65)]" alt="Mini Josué" />
         </div>

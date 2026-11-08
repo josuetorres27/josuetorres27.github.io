@@ -127,7 +127,89 @@
     }
   }
 
+  function setupPreloader() {
+    var loader = document.getElementById('portfolio-loader');
+    if (!loader) return;
+
+    var progressBar = document.getElementById('loader-progress-bar');
+    var percentText = document.getElementById('loader-percent');
+
+    var images = Array.prototype.slice.call(document.querySelectorAll('img[src]'));
+    var totalImages = images.length || 1;
+    var loadedImages = 0;
+    var isDone = false;
+
+    function updateProgress(force100) {
+      if (isDone) return;
+      var ratio = force100 ? 1 : (loadedImages / totalImages);
+      var percent = Math.min(100, Math.max(15, Math.round(ratio * 100)));
+      if (progressBar) {
+        progressBar.style.width = percent + '%';
+      }
+      if (percentText) {
+        percentText.textContent = percent + '%';
+      }
+    }
+
+    function dismissLoader() {
+      if (isDone) return;
+      isDone = true;
+      updateProgress(true);
+      if (progressBar) {
+        progressBar.style.width = '100%';
+      }
+      if (percentText) {
+        percentText.textContent = '100%';
+      }
+
+      setTimeout(function () {
+        loader.classList.add('loader-hidden');
+        setTimeout(function () {
+          loader.style.display = 'none';
+        }, 450);
+      }, 200);
+    }
+
+    var fallbackTimeout = setTimeout(dismissLoader, 2500);
+
+    if (images.length === 0) {
+      dismissLoader();
+      return;
+    }
+
+    images.forEach(function (img) {
+      if (img.complete && img.naturalWidth !== 0) {
+        loadedImages++;
+        updateProgress();
+      } else {
+        var onImageSettled = function () {
+          img.removeEventListener('load', onImageSettled);
+          img.removeEventListener('error', onImageSettled);
+          loadedImages++;
+          updateProgress();
+          if (loadedImages >= totalImages) {
+            clearTimeout(fallbackTimeout);
+            dismissLoader();
+          }
+        };
+        img.addEventListener('load', onImageSettled);
+        img.addEventListener('error', onImageSettled);
+      }
+    });
+
+    if (loadedImages >= totalImages) {
+      clearTimeout(fallbackTimeout);
+      dismissLoader();
+    } else {
+      window.addEventListener('load', function () {
+        clearTimeout(fallbackTimeout);
+        dismissLoader();
+      }, { once: true });
+    }
+  }
+
   function initUI() {
+    setupPreloader();
     setupMobileMenu();
     setupDropdown('hero-cv-btn', 'hero-cv-dropdown', 'hero-cv-container');
     setupCopyEmail();
@@ -135,6 +217,7 @@
 
   window.PortfolioUI = {
     init: initUI,
-    setupDropdown: setupDropdown
+    setupDropdown: setupDropdown,
+    setupPreloader: setupPreloader
   };
 })();

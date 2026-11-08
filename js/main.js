@@ -1505,7 +1505,7 @@
               isProgrammaticScroll = false;
             }, 600);
             currentAdvLevel = idx;
-            playRetroSound('jump');
+            playRetroSound('level');
             updateAdventureUI();
           }
 

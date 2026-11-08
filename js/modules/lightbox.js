@@ -251,11 +251,8 @@
       });
     }
 
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal || (!e.target.closest('#lightbox-content-box') && !e.target.closest('#lightbox-header-bar') && !e.target.closest('#lightbox-close-btn'))) {
-        closeModal();
-      }
-    });
+    // Modal only closes via the X button (or Escape key) to prevent accidental dismissal when clicking outside
+    // Backdrop click-to-dismiss disabled per user request
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !modal.classList.contains('hidden')) {

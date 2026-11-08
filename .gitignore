@@ -16,3 +16,9 @@ desktop.ini
 test_*.html
 *.tmp
 *.log
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/

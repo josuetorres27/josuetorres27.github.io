@@ -423,46 +423,7 @@
       filter: drop-shadow(0 0 12px rgba(217, 119, 6, 0.4)) drop-shadow(2px 2px 0px rgba(148, 163, 184, 0.6)) !important;
     }
 
-    /* Section 6 (AI & LLMs) Cards Stepped Border System (Dark & Light Mode) */
-    #ai .pixel-corners-card {
-      position: relative;
-      z-index: 0;
-      border: none !important;
-      background: #334155 !important; /* Stepped Slate-700 Border */
-      box-shadow: none !important;
-      filter: drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.95));
-      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-      box-sizing: border-box !important;
-    }
-    #ai .pixel-corners-card::before {
-      content: "";
-      position: absolute;
-      inset: 2px;
-      background: #0f172a !important; /* Slate-900 Card Body */
-      clip-path: inherit;
-      z-index: -1;
-      transition: all 0.22s ease;
-    }
-    #ai .pixel-corners-card:hover {
-      background: #22d3ee !important; /* Stepped Cyan-400 Border */
-      filter: drop-shadow(0 0 16px rgba(6, 182, 212, 0.55)) drop-shadow(4px 4px 0px rgba(15, 23, 42, 0.95)) !important;
-      transform: translateY(-4px);
-      box-shadow: none !important;
-    }
-    html.light #ai .pixel-corners-card {
-      background: #cbd5e1 !important; /* Stepped Slate-300 Border */
-      filter: drop-shadow(3px 3px 0px rgba(148, 163, 184, 0.5));
-      box-shadow: none !important;
-    }
-    html.light #ai .pixel-corners-card::before {
-      background: #ffffff !important;
-    }
-    html.light #ai .pixel-corners-card:hover {
-      background: #0891b2 !important; /* Stepped Cyan-600 Border */
-      filter: drop-shadow(0 0 14px rgba(8, 145, 178, 0.45)) drop-shadow(4px 4px 0px rgba(148, 163, 184, 0.6)) !important;
-      transform: translateY(-4px);
-      box-shadow: none !important;
-    }
+
     .pixel-photo-frame {
       padding: 4px;
       background: linear-gradient(135deg, #38bdf8 0%, #0284c7 35%, #0f172a 70%, #38bdf8 100%);
@@ -1670,11 +1631,22 @@
     }
     /* Language Switcher Chassis (Dark & Light Mode) */
     .lang-switch-chassis {
-      background: #0f172a;
-      border: 1px solid rgba(51, 65, 85, 0.8);
-      box-shadow: 2px 2px 0px 0px rgba(15, 23, 42, 0.9);
+      position: relative;
+      z-index: 0;
+      background: #475569 !important; /* Stepped Slate-600 Outer Border */
+      border: none !important;
+      box-shadow: none !important;
+      filter: drop-shadow(2px 2px 0px rgba(15, 23, 42, 0.9));
       box-sizing: border-box;
       transition: all 0.2s ease;
+    }
+    .lang-switch-chassis::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      background: #0f172a !important; /* Slate-900 Inner Chassis Body */
+      clip-path: inherit;
+      z-index: -1;
     }
     html.light #theme-toggle-btn,
     html.light #theme-toggle-mobile {

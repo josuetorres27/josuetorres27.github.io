@@ -933,6 +933,8 @@
     let walkerIdleTimeout = null;
     let isProgrammaticScroll = false;
     let programmaticScrollTimeout = null;
+    let isWalkerJumping = false;
+    let isAvatarJumping = false;
 
     function updateAdventureUI(skipWalkerAnim = false) {
       if (isDialogueDismissed) {
@@ -989,7 +991,7 @@
           indicator.style.top = Math.round(nodeCenterY - indH / 2) + 'px';
         }
 
-        if (walkerSprite && !skipWalkerAnim) {
+        if (walkerSprite && !skipWalkerAnim && !isWalkerJumping) {
           if (walkerAnimInterval) {
             clearInterval(walkerAnimInterval);
             walkerAnimInterval = null;
@@ -1403,8 +1405,21 @@
         if (indicator) {
           indicator.style.top = '0px';
         }
+        isWalkerJumping = false;
+        isAvatarJumping = false;
+        if (walker) {
+          walker.style.pointerEvents = '';
+        }
+        if (avatarBtn) {
+          avatarBtn.style.pointerEvents = '';
+        }
         if (walkerSprite) {
+          walkerSprite.classList.remove('animate-pixel-jump');
           walkerSprite.src = './img/character-sprites/idle.png';
+        }
+        if (avatarSprite) {
+          avatarSprite.classList.remove('animate-pixel-jump');
+          avatarSprite.src = './img/character-sprites/front.png';
         }
 
         // Reset rail nodes to level 0 active
@@ -1470,25 +1485,27 @@
         }
       });
 
-      // Interactive avatar click (Jump & Emote - debounced to prevent double jump)
-      let isAvatarJumping = false;
+      // Interactive avatar click (Jump & Emote - locked to prevent multi-click glitches)
       if (avatarBtn) {
         avatarBtn.addEventListener('click', (e) => {
           if (e) e.stopPropagation();
           if (isAvatarJumping) return;
           isAvatarJumping = true;
+          avatarBtn.style.pointerEvents = 'none';
           resetAfkTimer();
           playRetroSound('jump');
           if (avatarSprite) {
-            avatarSprite.classList.add('-translate-y-3');
+            avatarSprite.classList.add('animate-pixel-jump');
             avatarSprite.src = './img/character-sprites/jump.png';
             setTimeout(() => {
-              avatarSprite.classList.remove('-translate-y-3');
+              avatarSprite.classList.remove('animate-pixel-jump');
               avatarSprite.src = './img/character-sprites/front.png';
               isAvatarJumping = false;
-            }, 450);
+              avatarBtn.style.pointerEvents = '';
+            }, 500);
           } else {
             isAvatarJumping = false;
+            avatarBtn.style.pointerEvents = '';
           }
         });
       }
@@ -1596,14 +1613,14 @@
         isProgrammaticScroll = false;
       });
 
-      // Interactive walker on rail click (Jump & Sound - debounced to prevent double jump)
+      // Interactive walker on rail click (Jump & Sound - locked to prevent multi-click glitches)
       const railWalker = document.getElementById('rail-character-walker');
-      let isWalkerJumping = false;
       if (railWalker) {
         railWalker.addEventListener('click', (e) => {
           if (e) e.stopPropagation();
           if (isWalkerJumping) return;
           isWalkerJumping = true;
+          railWalker.style.pointerEvents = 'none';
           resetAfkTimer();
           playRetroSound('jump');
           if (isDialogueDismissed) {
@@ -1612,15 +1629,17 @@
           }
           const walkerSprite = document.getElementById('rail-character-sprite');
           if (walkerSprite) {
+            walkerSprite.classList.add('animate-pixel-jump');
             walkerSprite.src = './img/character-sprites/jump.png';
-            railWalker.classList.add('-translate-y-3');
             setTimeout(() => {
-              railWalker.classList.remove('-translate-y-3');
+              walkerSprite.classList.remove('animate-pixel-jump');
               walkerSprite.src = './img/character-sprites/idle.png';
               isWalkerJumping = false;
-            }, 400);
+              railWalker.style.pointerEvents = '';
+            }, 500);
           } else {
             isWalkerJumping = false;
+            railWalker.style.pointerEvents = '';
           }
         });
       }

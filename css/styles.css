@@ -730,8 +730,8 @@
       color: #64748b !important;
     }
     html.light #rail-exit-btn:hover {
-      color: #e11d48 !important;
-      background-color: #ffe4e6 !important;
+      color: #0284c7 !important;
+
     }
     html.light #rail-active-indicator span {
       background-color: #0284c7 !important;
@@ -763,11 +763,7 @@
     html.light #hero-portal-sprite {
       filter: drop-shadow(0 10px 22px rgba(15, 23, 42, 0.22)) drop-shadow(0 0 10px rgba(2, 132, 199, 0.45)) !important;
     }
-    html.light #adventure-dialogue-box {
-      background-color: rgba(255, 255, 255, 0.98) !important;
-      border-color: #cbd5e1 !important;
-      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.08), 0 0 0 1px #cbd5e1 !important;
-    }
+    /* html.light #adventure-dialogue-box handled in Stepped Border System */
     html.light #dialogue-avatar-btn {
       background-color: #f8fafc !important;
       border-color: #cbd5e1 !important;
@@ -1629,6 +1625,48 @@
     html.light .rail-node.bg-slate-900::before {
       background: #ffffff !important;
     }
+    html.light .rail-node.bg-slate-900:hover {
+      background: #0284c7 !important;
+    }
+    html.light .rail-node.bg-slate-900:hover::before {
+      background: #f8fafc !important;
+    }
+
+    /* Adventure Rail Exit Button Stepped Pixel Border System (Dark & Light Mode) */
+    #rail-exit-btn {
+      border: none !important;
+      position: relative;
+      z-index: 0;
+      background: #475569 !important;
+      transition: background 0.18s ease, transform 0.15s ease;
+    }
+    #rail-exit-btn::before {
+      content: "";
+      position: absolute;
+      inset: 1.5px;
+      clip-path: inherit;
+      z-index: -1;
+      background: #0f172a !important;
+      transition: background 0.18s ease;
+    }
+    #rail-exit-btn:hover {
+      background: #38bdf8 !important;
+    }
+    #rail-exit-btn:hover::before {
+      background: #1e293b !important;
+    }
+    html.light #rail-exit-btn {
+      background: #cbd5e1 !important;
+    }
+    html.light #rail-exit-btn::before {
+      background: #ffffff !important;
+    }
+    html.light #rail-exit-btn:hover {
+      background: #0284c7 !important;
+    }
+    html.light #rail-exit-btn:hover::before {
+      background: #f8fafc !important;
+    }
     /* Language Switcher Chassis (Dark & Light Mode) */
     .lang-switch-chassis {
       position: relative;
@@ -1766,8 +1804,62 @@
     #adventure-rail {
       transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.38s ease-out;
     }
+    /* Companion Dialogue Box Stepped Pixel Border System (Dark & Light Mode) */
     #adventure-dialogue-box {
-      transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease-out;
+      border: none !important;
+      position: fixed;
+      isolation: isolate;
+      z-index: 50;
+      background: #0284c7 !important; /* Stepped border idle in Dark Mode */
+      box-shadow: none !important;
+      filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.5)) !important;
+      transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease-out, background 0.2s ease, filter 0.2s ease;
+    }
+    #adventure-dialogue-box::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      clip-path: inherit;
+      z-index: -1;
+      background: rgba(2, 6, 23, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background 0.2s ease;
+    }
+    #adventure-dialogue-box:hover {
+      background: #38bdf8 !important; /* Illuminated Cyan Stepped Border including corners on hover! */
+      filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.4)) drop-shadow(0 20px 25px rgba(0, 0, 0, 0.6)) !important;
+    }
+    html.light #adventure-dialogue-box {
+      background: #cbd5e1 !important; /* Stepped Slate-300 Border idle in Light Mode */
+      color: #0f172a !important;
+      filter: drop-shadow(0 10px 25px rgba(15, 23, 42, 0.12)) !important;
+    }
+    html.light #adventure-dialogue-box::before {
+      background: rgba(255, 255, 255, 0.98) !important;
+    }
+    html.light #adventure-dialogue-box:hover {
+      background: #0284c7 !important; /* Illuminated Blue Stepped Border including corners on hover! */
+      filter: drop-shadow(0 0 16px rgba(2, 132, 199, 0.35)) drop-shadow(0 10px 25px rgba(15, 23, 42, 0.15)) !important;
+    }
+
+    /* Retro Jump Keyframe Animation for Adventure Character & Avatar */
+    @keyframes pixel-jump-bounce {
+      0% {
+        transform: translateY(0);
+      }
+      35% {
+        transform: translateY(-16px);
+      }
+      65% {
+        transform: translateY(-16px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    .animate-pixel-jump {
+      animation: pixel-jump-bounce 0.48s cubic-bezier(0.2, 0.8, 0.4, 1) forwards !important;
     }
 
     /* Hero CV / Resume Dropdown Stepped Border System (Dark & Light Mode) */

@@ -20,7 +20,7 @@
           "Building Scalable\n& Reliable Software"
         ],
         hero_headline: `Hi, I'm <span class="text-white">Josue Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">CS & Software Engineering Student</span>`,
-        hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">University of Costa Rica (UCR)</strong>. Passionate about building high-performance software and modern architectures with languages like <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 pixel-corners-btn border border-cyan-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(6,182,212,0.25)]">Python</span>, <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 pixel-corners-btn border border-indigo-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(99,102,241,0.25)]">C++</span>, <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 pixel-corners-btn border border-amber-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(245,158,11,0.25)]">JavaScript</span> and <span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-2 py-0.5 pixel-corners-btn border border-blue-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(59,130,246,0.25)]">C# / .NET</span>`,
+        hero_bio: `Advanced Computer Science student at <strong class="text-white font-semibold">University of Costa Rica (UCR)</strong>. Passionate about building high-performance software and modern architectures with languages like <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 pixel-corners-btn border border-cyan-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(6,182,212,0.25)]">Python</span>, <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 pixel-corners-btn border border-indigo-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(99,102,241,0.25)]">C++</span>, <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 pixel-corners-btn border border-amber-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(245,158,11,0.25)]">JavaScript</span> and <span class="whitespace-nowrap"><span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-2 py-0.5 pixel-corners-btn border border-blue-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(59,130,246,0.25)]">C# / .NET</span>.</span>`,
         hero_btn_projects: "View Featured Projects",
         hero_btn_cv: "Download Resume / CV",
 
@@ -295,7 +295,7 @@
         adv_close_mode: "Close Adventure Mode",
         adv_sound_toggle: "Mute/Unmute sound",
         adv_close: "Close",
-        loader_init: "[ SYSTEM INITIALIZING ]",
+        loader_init: "SYSTEM INITIALIZING",
         loader_status: "LOADING ASSETS...",
         adv_node_tooltips: [
           "1. Start",
@@ -351,7 +351,7 @@
           "Construyendo Software\nEscalable y Confiable"
         ],
         hero_headline: `Hola, soy <span class="text-white">Josué Torres Sibaja</span><br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-300 to-cyan-400">Estudiante de Ingeniería de Software</span>`,
-        hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir software de alto rendimiento y arquitecturas modernas con lenguajes como <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 pixel-corners-btn border border-cyan-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(6,182,212,0.25)]">Python</span>, <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 pixel-corners-btn border border-indigo-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(99,102,241,0.25)]">C++</span>, <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 pixel-corners-btn border border-amber-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(245,158,11,0.25)]">JavaScript</span> y <span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-2 py-0.5 pixel-corners-btn border border-blue-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(59,130,246,0.25)]">C# / .NET</span>`,
+        hero_bio: `Estudiante avanzado de Ciencias de la Computación en la <strong class="text-white font-semibold">Universidad de Costa Rica (UCR)</strong>. Apasionado por construir software de alto rendimiento y arquitecturas modernas con lenguajes como <span class="font-mono font-bold text-cyan-300 bg-cyan-950/60 px-2 py-0.5 pixel-corners-btn border border-cyan-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(6,182,212,0.25)]">Python</span>, <span class="font-mono font-bold text-indigo-300 bg-indigo-950/60 px-2 py-0.5 pixel-corners-btn border border-indigo-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(99,102,241,0.25)]">C++</span>, <span class="font-mono font-bold text-amber-300 bg-amber-950/60 px-2 py-0.5 pixel-corners-btn border border-amber-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(245,158,11,0.25)]">JavaScript</span> y <span class="whitespace-nowrap"><span class="font-mono font-bold text-blue-400 bg-blue-950/60 px-2 py-0.5 pixel-corners-btn border border-blue-800/60 whitespace-nowrap shadow-[1px_1px_0px_0px_rgba(59,130,246,0.25)]">C# / .NET</span>.</span>`,
         hero_btn_projects: "Ver Proyectos Destacados",
         hero_btn_cv: "Descargar Resume / CV",
 
@@ -626,7 +626,7 @@
         adv_close_mode: "Cerrar Modo Aventura",
         adv_sound_toggle: "Activar/Silenciar sonido",
         adv_close: "Cerrar",
-        loader_init: "[ INICIALIZANDO SISTEMA ]",
+        loader_init: "INICIALIZANDO SISTEMA",
         loader_status: "CARGANDO ASSETS...",
         adv_node_tooltips: [
           "1. Inicio",

@@ -1190,7 +1190,7 @@
       background-color: #38bdf8 !important;
       margin-left: 3px;
       margin-right: -6px;
-      animation: cursorBlink 0.8s infinite;
+      animation: cursorBlink 1s infinite;
       user-select: none;
       pointer-events: none;
     }

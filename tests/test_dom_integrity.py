@@ -284,16 +284,88 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("html.light .pixel-corners-btn.border-cyan-800\\/60", css_code)
         self.assertIn("background: #0284c7 !important;", css_code)
 
-    def test_hero_bio_no_orphaned_period(self):
-        """Verify hero bio does not have a trailing orphaned period after C# / .NET."""
+    def test_hero_bio_has_period_with_nowrap_protection(self):
+        """Verify hero bio has the final period (.) in both EN and ES, protected by whitespace-nowrap with C# / .NET so it never orphans alone."""
         with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
         with open(os.path.join(ROOT_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
             trans_code = f.read()
 
-        self.assertNotIn("C# / .NET</span>.", index_code)
-        self.assertNotIn(r"C# / .NET</span>.`,", trans_code)
-        self.assertIn("C# / .NET</span>\n          </p>", index_code)
+        # Protected structure: whitespace-nowrap wrapper around badge and period
+        nowrap_pattern = r'<span class="whitespace-nowrap"><span[^>]*>C# / \.NET</span>\.</span>'
+        self.assertRegex(index_code, nowrap_pattern, "index.html missing whitespace-nowrap protected period after C# / .NET")
+
+        matches = re.findall(nowrap_pattern, trans_code)
+        self.assertEqual(len(matches), 2, "translations.js must have whitespace-nowrap protected period in both EN and ES hero_bio")
+
+    def test_loader_init_text_has_no_brackets(self):
+        """Verify the preloader initialization status text has no enclosing brackets [] in HTML and translations."""
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            index_code = f.read()
+        with open(os.path.join(ROOT_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
+            trans_code = f.read()
+
+        # In index.html
+        self.assertNotIn("[ SYSTEM INITIALIZING ]", index_code)
+        self.assertNotIn("[ INICIALIZANDO SISTEMA ]", index_code)
+        self.assertIn("SYSTEM INITIALIZING", index_code)
+
+        # In translations.js
+        self.assertNotIn('loader_init: "[', trans_code)
+        self.assertNotIn(']"', trans_code.split("loader_init")[1].split("\n")[0])
+        self.assertIn('loader_init: "SYSTEM INITIALIZING"', trans_code)
+        self.assertIn('loader_init: "INICIALIZANDO SISTEMA"', trans_code)
+
+    def test_hero_mobile_spacing_compact(self):
+        """Verify hero section does not have excessive empty space (pt-20) on mobile between subnav and status badge."""
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            index_code = f.read()
+
+        hero_section_match = re.search(r'<section id="hero" class="([^"]+)"', index_code)
+        self.assertIsNotNone(hero_section_match, "Hero section not found in index.html")
+        classes = hero_section_match.group(1).split()
+
+        # Ensure pt-20 is not used as base mobile padding
+        self.assertNotIn("pt-20", classes, "Hero section has excessive mobile padding pt-20 (80px gap)")
+        # Ensure a compact mobile padding like pt-6, pt-7, or pt-8 is used
+        has_compact_pt = any(c in classes for c in ["pt-5", "pt-6", "pt-7", "pt-8"])
+        self.assertTrue(has_compact_pt, f"Hero section missing compact mobile padding, found: {classes}")
+        # Ensure desktop padding is preserved
+        self.assertIn("md:pt-28", classes)
+
+    def test_hero_cursor_blink_calmed(self):
+        """Verify the hero typewriter cursor blink rate is slowed down to 1s (calmed by ~0.2s from 0.8s)."""
+        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        with open(css_path, "r", encoding="utf-8") as f:
+            css_code = f.read()
+
+        self.assertNotIn("animation: cursorBlink 0.8s infinite;", css_code)
+        self.assertIn("animation: cursorBlink 1s infinite;", css_code)
+
+    def test_preloader_animation_and_fadeout_integrity(self):
+        """Verify preloader fadeout transition, hidden styles, and progress animation logic."""
+        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        ui_path = os.path.join(ROOT_DIR, "js", "modules", "ui.js")
+        with open(css_path, "r", encoding="utf-8") as f:
+            css_code = f.read()
+        with open(ui_path, "r", encoding="utf-8") as f:
+            ui_code = f.read()
+
+        # CSS transitions and hidden state
+        self.assertIn("transition: opacity 0.4s ease-out;", css_code)
+        self.assertIn("#portfolio-loader.loader-hidden", css_code)
+        self.assertIn("opacity: 0 !important;", css_code)
+        self.assertIn("pointer-events: none !important;", css_code)
+
+        # UI dismissal sequence in ui.js
+        self.assertIn("progressBar.style.width = '100%'", ui_code)
+        self.assertIn("percentText.textContent = '100%'", ui_code)
+        self.assertIn("loader.classList.add('loader-hidden')", ui_code)
+        self.assertIn("loader.style.display = 'none'", ui_code)
+
+        # Progress calculation logic (min 15%, max 100%, fallback 2500ms)
+        self.assertIn("Math.min(100, Math.max(15, Math.round(ratio * 100)))", ui_code)
+        self.assertIn("setTimeout(dismissLoader, 2500)", ui_code)
 
     def test_loader_progress_bar_wrapper_container(self):
         """Verify the loading bar on the preloader screen has an outer wrapper casing container that encases the chassis and bar."""

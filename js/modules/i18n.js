@@ -229,6 +229,14 @@
     if (walker && dict.adv_click_jump) {
       walker.setAttribute('title', dict.adv_click_jump);
     }
+    var loaderEl = document.getElementById('portfolio-loader');
+    if (loaderEl) {
+      loaderEl.setAttribute('aria-label', (dict && dict.loader_aria) ? dict.loader_aria : (activeLang === 'es' ? 'Cargando portafolio...' : 'Loading portfolio...'));
+    }
+    var loaderSprite = document.getElementById('loader-sprite');
+    if (loaderSprite) {
+      loaderSprite.setAttribute('alt', (dict && dict.loader_alt) ? dict.loader_alt : (activeLang === 'es' ? 'Cargando...' : 'Loading...'));
+    }
     var avatarBtn = document.getElementById('dialogue-avatar-btn');
     if (avatarBtn && dict.adv_click_jump) {
       avatarBtn.setAttribute('title', dict.adv_click_jump);

@@ -390,6 +390,52 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("#portfolio-loader .loader-progress-chassis", css_code)
         self.assertIn("html.light #portfolio-loader .loader-progress-chassis", css_code)
 
+    def test_preloader_bilingual_full_implementation(self):
+        """Verify preloader is fully implemented in both languages without language bleed or hardcoded Spanish leaks."""
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            index_code = f.read()
+        with open(os.path.join(ROOT_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
+            trans_code = f.read()
+        with open(os.path.join(ROOT_DIR, "js", "modules", "i18n.js"), "r", encoding="utf-8") as f:
+            i18n_code = f.read()
+        with open(os.path.join(ROOT_DIR, "js", "main.js"), "r", encoding="utf-8") as f:
+            main_code = f.read()
+
+        # 1. Default index.html preloader is 100% English (matches site default lang="en")
+        loader_markup = index_code.split('<div id="portfolio-loader"')[1].split('</div>\n  </div>')[0]
+
+        self.assertIn('aria-label="Loading portfolio..."', loader_markup)
+        self.assertIn('alt="Loading..."', loader_markup)
+        self.assertIn('SYSTEM INITIALIZING', loader_markup)
+        self.assertIn('LOADING ASSETS...', loader_markup)
+        self.assertNotIn('CARGANDO ASSETS...', loader_markup)
+        self.assertNotIn('Cargando portafolio...', loader_markup)
+
+        # 2. Instant preloader language hydration script exists right after portfolio-loader
+        self.assertIn("localStorage.getItem('portfolio_lang') || 'en'", index_code)
+        self.assertIn("INICIALIZANDO SISTEMA", index_code)
+        self.assertIn("CARGANDO ASSETS...", index_code)
+
+        # 3. Bilingual completeness in translations.js
+        self.assertIn('loader_init: "SYSTEM INITIALIZING"', trans_code)
+        self.assertIn('loader_status: "LOADING ASSETS..."', trans_code)
+        self.assertIn('loader_aria: "Loading portfolio..."', trans_code)
+        self.assertIn('loader_alt: "Loading..."', trans_code)
+
+        self.assertIn('loader_init: "INICIALIZANDO SISTEMA"', trans_code)
+        self.assertIn('loader_status: "CARGANDO ASSETS..."', trans_code)
+        self.assertIn('loader_aria: "Cargando portafolio..."', trans_code)
+        self.assertIn('loader_alt: "Cargando..."', trans_code)
+
+        # 4. i18n module updates preloader ARIA and alt on language switch
+        self.assertIn("portfolio-loader", i18n_code)
+        self.assertIn("loader-sprite", i18n_code)
+
+        # 5. Application bootstrap runs i18n before UI preloader initialization
+        i18n_pos = main_code.find("PortfolioI18n.init")
+        ui_pos = main_code.find("PortfolioUI.init")
+        self.assertTrue(i18n_pos < ui_pos, "PortfolioI18n.init must run before PortfolioUI.init to ensure translated DOM")
+
 
 
 if __name__ == "__main__":

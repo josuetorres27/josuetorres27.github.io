@@ -117,11 +117,11 @@
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white relative min-h-screen">
 
   <!-- Portfolio Preloader / Retro Skeleton Boot Screen -->
-  <div id="portfolio-loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center select-none bg-slate-950 transition-opacity duration-400 ease-out" role="status" aria-live="polite" aria-label="Cargando portafolio...">
+  <div id="portfolio-loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center select-none bg-slate-950 transition-opacity duration-400 ease-out" role="status" aria-live="polite" aria-label="Loading portfolio...">
     <div class="flex flex-col items-center max-w-xs w-full px-4 text-center">
       <!-- Animated Companion Sprite -->
       <div class="relative w-20 h-20 mb-4 flex items-center justify-center">
-        <img id="loader-sprite" src="./img/character-sprites/idle.png" alt="Cargando..." class="w-16 h-16 pixelated animate-bounce drop-shadow-[0_4px_12px_rgba(2,132,199,0.7)]" />
+        <img id="loader-sprite" src="./img/character-sprites/idle.png" alt="Loading..." class="w-16 h-16 pixelated animate-bounce drop-shadow-[0_4px_12px_rgba(2,132,199,0.7)]" />
       </div>
       
       <!-- System Title & Retro Subtitle -->
@@ -141,11 +141,28 @@
 
       <!-- Status Row: Loading Assets text + Percentage -->
       <div class="flex items-center justify-between w-56 sm:w-64 text-[10px] font-mono text-slate-400 mt-2 px-0.5">
-        <span id="loader-status-text" data-i18n="loader_status">CARGANDO ASSETS...</span>
+        <span id="loader-status-text" data-i18n="loader_status">LOADING ASSETS...</span>
         <span id="loader-percent" class="text-cyan-400 font-bold font-mono">15%</span>
       </div>
     </div>
   </div>
+
+  <script>
+    // Synchronize preloader language immediately from saved preference (zero language flash)
+    (function () {
+      var savedLang = localStorage.getItem('portfolio_lang') || document.documentElement.lang || 'en';
+      if (savedLang === 'es') {
+        var initEl = document.querySelector('[data-i18n="loader_init"]');
+        var statusEl = document.getElementById('loader-status-text');
+        var loaderEl = document.getElementById('portfolio-loader');
+        var spriteEl = document.getElementById('loader-sprite');
+        if (initEl) initEl.textContent = 'INICIALIZANDO SISTEMA';
+        if (statusEl) statusEl.textContent = 'CARGANDO ASSETS...';
+        if (loaderEl) loaderEl.setAttribute('aria-label', 'Cargando portafolio...');
+        if (spriteEl) spriteEl.setAttribute('alt', 'Cargando...');
+      }
+    })();
+  </script>
 
   <!-- Inlined Pixel Josue Sprites (Works offline & online) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">

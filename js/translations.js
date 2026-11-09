@@ -297,6 +297,8 @@
         adv_close: "Close",
         loader_init: "SYSTEM INITIALIZING",
         loader_status: "LOADING ASSETS...",
+        loader_aria: "Loading portfolio...",
+        loader_alt: "Loading...",
         adv_node_tooltips: [
           "1. Start",
           "2. About Me",
@@ -628,6 +630,8 @@
         adv_close: "Cerrar",
         loader_init: "INICIALIZANDO SISTEMA",
         loader_status: "CARGANDO ASSETS...",
+        loader_aria: "Cargando portafolio...",
+        loader_alt: "Cargando...",
         adv_node_tooltips: [
           "1. Inicio",
           "2. Sobre Mí",

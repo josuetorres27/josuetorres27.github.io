@@ -18,14 +18,14 @@
       window.PortfolioTheme.init();
     }
 
-    // 3. UI System (dropdowns, mobile menu, copy email)
-    if (window.PortfolioUI && typeof window.PortfolioUI.init === 'function') {
-      window.PortfolioUI.init();
-    }
-
-    // 4. Internationalization & Hero Typewriter (bilingual system)
+    // 3. Internationalization & Hero Typewriter (bilingual system)
     if (window.PortfolioI18n && typeof window.PortfolioI18n.init === 'function') {
       window.PortfolioI18n.init();
+    }
+
+    // 4. UI System (dropdowns, mobile menu, copy email, preloader)
+    if (window.PortfolioUI && typeof window.PortfolioUI.init === 'function') {
+      window.PortfolioUI.init();
     }
 
     // 5. Image Lightbox & Photo Carousel

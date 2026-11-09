@@ -295,6 +295,29 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertNotIn(r"C# / .NET</span>.`,", trans_code)
         self.assertIn("C# / .NET</span>\n          </p>", index_code)
 
+    def test_loader_progress_bar_wrapper_container(self):
+        """Verify the loading bar on the preloader screen has an outer wrapper casing container that encases the chassis and bar."""
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            index_code = f.read()
+        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        with open(css_path, "r", encoding="utf-8") as f:
+            css_code = f.read()
+
+        # HTML structure: outer wrapper container enclosing chassis and bar
+        self.assertIn("loader-progress-wrapper", index_code)
+        self.assertIn("loader-progress-chassis", index_code)
+        self.assertIn("loader-progress-bar", index_code)
+
+        # Ensure hierarchy: wrapper surrounds chassis and bar inside #portfolio-loader
+        wrapper_match = re.search(r'class="[^"]*loader-progress-wrapper[^"]*"[^>]*>[\s\S]*?class="[^"]*loader-progress-chassis[^"]*"[\s\S]*?id="loader-progress-bar"', index_code)
+        self.assertIsNotNone(wrapper_match, "loader-progress-wrapper must enclose loader-progress-chassis and loader-progress-bar")
+
+        # CSS styling: wrapper has stepped border and casing in both dark and light modes
+        self.assertIn("#portfolio-loader .loader-progress-wrapper", css_code)
+        self.assertIn("html.light #portfolio-loader .loader-progress-wrapper", css_code)
+        self.assertIn("#portfolio-loader .loader-progress-chassis", css_code)
+        self.assertIn("html.light #portfolio-loader .loader-progress-chassis", css_code)
+
 
 
 if __name__ == "__main__":

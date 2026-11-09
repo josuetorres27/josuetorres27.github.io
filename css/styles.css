@@ -1420,8 +1420,8 @@
       clip-path: inherit;
       z-index: -1;
     }
-    html.light .pixel-corners-btn.border-slate-700\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis),
-    html.light .pixel-corners-btn.border-slate-700\/80:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis) {
+    html.light .pixel-corners-btn.border-slate-700\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis):not(.loader-progress-wrapper),
+    html.light .pixel-corners-btn.border-slate-700\/80:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis):not(.loader-progress-wrapper) {
       background: #cbd5e1 !important;
       color: #334155 !important;
       border: none !important;
@@ -1429,8 +1429,8 @@
       filter: none !important;
       text-shadow: none !important;
     }
-    html.light .pixel-corners-btn.border-slate-700\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
-    html.light .pixel-corners-btn.border-slate-700\/80:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+    html.light .pixel-corners-btn.border-slate-700\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis):not(.loader-progress-wrapper)::before,
+    html.light .pixel-corners-btn.border-slate-700\/80:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis):not(.loader-progress-wrapper)::before {
       content: "" !important;
       position: absolute !important;
       inset: 1.5px !important;
@@ -2186,6 +2186,7 @@
       html[lang="es"] #hero-typewriter-wrapper {
         min-height: 3.8em;
       }
+    }
     
     /* ================= PORTFOLIO PRELOADER & SKELETON SCREEN ================= */
     #portfolio-loader {
@@ -2213,37 +2214,59 @@
     html.light #portfolio-loader [data-i18n="loader_init"] {
       color: #64748b !important;
     }
-    #portfolio-loader .loader-progress-chassis {
+    /* Loader progress wrapper (protective outer casing) & inner chassis */
+    #portfolio-loader .loader-progress-wrapper {
       position: relative;
       z-index: 0;
-      height: 14px !important;
-      background: #475569 !important;
+      background: #334155 !important;
       border: none !important;
       box-shadow: none !important;
       filter: drop-shadow(2px 2px 0px rgba(15, 23, 42, 0.95)) !important;
-      padding: 0 !important;
+      padding: 3px !important;
     }
-    #portfolio-loader .loader-progress-chassis::before {
+    #portfolio-loader .loader-progress-wrapper::before {
       content: "" !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #0f172a !important;
+      background: #1e293b !important;
       clip-path: inherit !important;
       z-index: 0 !important;
     }
-    #portfolio-loader #loader-progress-bar {
+    #portfolio-loader .loader-progress-chassis {
       position: relative;
       z-index: 1;
-      height: 100% !important;
+      height: 14px !important;
+      background: #020617 !important;
+      border: 1px solid #334155 !important;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+      filter: none !important;
+      padding: 0 !important;
     }
-    html.light #portfolio-loader .loader-progress-chassis {
-      background: #cbd5e1 !important; /* Stepped Slate-300 border */
+    #portfolio-loader .loader-progress-chassis::before {
+      display: none !important;
+    }
+    #portfolio-loader #loader-progress-bar {
+      position: relative;
+      z-index: 2;
+      height: 100% !important;
+      box-shadow: 0 0 8px rgba(6, 182, 212, 0.5) !important;
+    }
+    html.light #portfolio-loader .loader-progress-wrapper {
+      background: #94a3b8 !important; /* Stepped Slate-400 outer bezel */
       border: none !important;
       box-shadow: none !important;
-      filter: drop-shadow(2px 2px 0px rgba(203, 213, 225, 0.7)) !important;
+      filter: drop-shadow(2px 2px 0px rgba(203, 213, 225, 0.8)) !important;
+    }
+    html.light #portfolio-loader .loader-progress-wrapper::before {
+      background: #ffffff !important; /* Clean light casing well */
+    }
+    html.light #portfolio-loader .loader-progress-chassis {
+      background: #e2e8f0 !important; /* Sunken light track */
+      border: 1px solid #cbd5e1 !important;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;
     }
     html.light #portfolio-loader .loader-progress-chassis::before {
-      background: #e2e8f0 !important; /* Light track behind the progress fill */
+      display: none !important;
     }
     html.light #portfolio-loader #loader-status-text {
       color: #64748b !important;
@@ -2281,5 +2304,3 @@
         animation: none !important;
       }
     }
-
-}

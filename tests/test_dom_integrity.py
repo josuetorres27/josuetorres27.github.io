@@ -229,6 +229,13 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("__portfolioLoaderActive = true", ui_code)
         self.assertIn("__portfolioLoaderActive = false", ui_code)
 
+        # Adventure dialogue & UI updates do not run or play speaking blips when adventure mode is not active
+        adv_path = os.path.join(ROOT_DIR, "js", "modules", "adventure.js")
+        with open(adv_path, "r", encoding="utf-8") as f:
+            adv_code = f.read()
+        self.assertIn("function typeAdventureDialogue(text, onComplete) {\n    if (!isAdventureActive) return;", adv_code)
+        self.assertIn("function updateAdventureUI(skipWalkerAnim) {\n    if (!isAdventureActive) return;", adv_code)
+
 
 
 if __name__ == "__main__":

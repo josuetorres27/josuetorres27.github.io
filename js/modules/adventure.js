@@ -87,6 +87,7 @@
   }
 
   function typeAdventureDialogue(text, onComplete) {
+    if (!isAdventureActive) return;
     var dialogueTextEl = document.getElementById('dialogue-text');
     var avatarSprite = document.getElementById('dialogue-avatar-sprite');
     if (!dialogueTextEl) return;
@@ -219,6 +220,7 @@
   }
 
   function updateAdventureUI(skipWalkerAnim) {
+    if (!isAdventureActive) return;
     if (isDialogueDismissed) {
       showDialogueBox();
     }

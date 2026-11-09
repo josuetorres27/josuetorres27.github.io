@@ -246,10 +246,10 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertEqual(len(pulse_badge_matches), 0, f"Found pulsing badges with drop-shadow duplicating letters: {pulse_badge_matches}")
 
     def test_navbar_monogram_icon_source(self):
-        """Verify the navbar monogram icon references ./img/favicon.png."""
+        """Verify the navbar monogram icon references ./img/icons/favicon.png."""
         with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
             index_code = f.read()
-        self.assertIn('<img src="./img/favicon.png" alt="Josue" class="w-full h-full object-cover pixelated" />', index_code)
+        self.assertIn('<img src="./img/icons/favicon.png" alt="Josue" class="w-full h-full object-cover pixelated" />', index_code)
 
     def test_sun_button_light_background_restored(self):
         """Verify the sun button in light mode has its clean white background restored."""
@@ -271,18 +271,29 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("rgba(56, 189, 248, 0.5)", css_code)
 
     def test_stepped_border_badges_light_mode_corners(self):
-        """Verify tech capsules and Guía badges use 9-slice SVG border-image to preserve corners in light mode."""
+        """Verify tech capsules and Guía badges use stepped border bevel system with 1.5px inset in light mode."""
         css_path = os.path.join(ROOT_DIR, "css", "styles.css")
         with open(css_path, "r", encoding="utf-8") as f:
             css_code = f.read()
 
         # Slate tech capsules
         self.assertIn("html.light .pixel-corners-btn.border-slate-700\\/60", css_code)
-        self.assertIn("border-image-slice: 4 !important;", css_code)
+        self.assertIn("background: #cbd5e1 !important;", css_code)
 
         # Cyan badges (Guía badge)
         self.assertIn("html.light .pixel-corners-btn.border-cyan-800\\/60", css_code)
-        self.assertIn("%230284c7", css_code)
+        self.assertIn("background: #0284c7 !important;", css_code)
+
+    def test_hero_bio_no_orphaned_period(self):
+        """Verify hero bio does not have a trailing orphaned period after C# / .NET."""
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            index_code = f.read()
+        with open(os.path.join(ROOT_DIR, "js", "translations.js"), "r", encoding="utf-8") as f:
+            trans_code = f.read()
+
+        self.assertNotIn("C# / .NET</span>.", index_code)
+        self.assertNotIn(r"C# / .NET</span>.`,", trans_code)
+        self.assertIn("C# / .NET</span>\n          </p>", index_code)
 
 
 

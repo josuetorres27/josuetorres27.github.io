@@ -1398,6 +1398,9 @@
     }
 
     /* ================= TECH CAPSULES & BADGES STEPPED BORDERS ================= */
+    /* Dark & Light modes share the exact same 4px stepped bevel system (inset: 1.5px with clip-path: inherit).
+       This guarantees 100% pixel-perfect corners identical in color to borders, with no distortion,
+       no white box sticker artifact, no ghost letter duplicates, and zero gaps. */
 
     /* 1. Default Slate Tech Capsules (Projects, Education, Skills) */
     .pixel-corners-btn.border-slate-700\/60,
@@ -1405,6 +1408,8 @@
       background: #475569 !important;
       border: none !important;
       box-shadow: none !important;
+      filter: none !important;
+      text-shadow: none !important;
     }
     .pixel-corners-btn.border-slate-700\/60::before,
     .pixel-corners-btn.border-slate-700\/80::before {
@@ -1415,30 +1420,35 @@
       clip-path: inherit;
       z-index: -1;
     }
-    html.light .pixel-corners-btn.border-slate-700\/60,
-    html.light .pixel-corners-btn.border-slate-700\/80 {
-      clip-path: none !important;
-      background: transparent !important;
+    html.light .pixel-corners-btn.border-slate-700\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis),
+    html.light .pixel-corners-btn.border-slate-700\/80:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis) {
+      background: #cbd5e1 !important;
       color: #334155 !important;
-      border-style: solid !important;
-      border-width: 4px !important;
-      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%2394a3b8%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
-      border-image-slice: 4 !important;
-      border-image-width: 4px !important;
+      border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
-    html.light .pixel-corners-btn.border-slate-700\/60::before,
-    html.light .pixel-corners-btn.border-slate-700\/80::before {
-      display: none !important;
+    html.light .pixel-corners-btn.border-slate-700\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light .pixel-corners-btn.border-slate-700\/80:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1.5px !important;
+      background: #ffffff !important;
+      clip-path: inherit !important;
+      z-index: -1 !important;
+      border: none !important;
+      mask: none !important;
+      -webkit-mask: none !important;
     }
 
-    /* 2. Emerald Badges (Active Status, LASCE Boss Badge, Distributed Systems Badge) - Hollow outline badge without solid white fill */
+    /* 2. Emerald Badges (Active Status, LASCE, Distributed Systems) */
     .pixel-corners-btn.border-emerald-500\/40 {
       background: #10b981 !important;
       border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
     .pixel-corners-btn.border-emerald-500\/40::before {
       content: "";
@@ -1448,29 +1458,37 @@
       clip-path: inherit;
       z-index: -1;
     }
-    html.light .pixel-corners-btn.border-emerald-500\/40 {
-      clip-path: none !important;
-      background: transparent !important;
+    html.light .pixel-corners-btn.border-emerald-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis) {
+      background: #059669 !important;
       color: #047857 !important;
-      border-style: solid !important;
-      border-width: 4px !important;
-      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%23059669%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
-      border-image-slice: 4 !important;
-      border-image-width: 4px !important;
+      border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
-    html.light .pixel-corners-btn.border-emerald-500\/40::before {
-      display: none !important;
+    html.light .pixel-corners-btn.border-emerald-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1.5px !important;
+      background: #ffffff !important;
+      clip-path: inherit !important;
+      z-index: -1 !important;
+      border: none !important;
+      mask: none !important;
+      -webkit-mask: none !important;
+    }
+    html.light #hero .pixel-corners-btn.border-emerald-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      background: #f8fafc !important;
     }
 
-    /* 3. Cyan Badges (Guide / Guía Badge, Python, Ethical Vodcast Quest Badge) - Stepped borders in Dark & Light */
+    /* 3. Cyan Badges (Guide / Guia, Python, Ethical Vodcast) */
     .pixel-corners-btn.border-cyan-800\/60,
     .pixel-corners-btn.border-cyan-500\/40 {
       background: #0891b2 !important;
       border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
     .pixel-corners-btn.border-cyan-800\/60::before,
     .pixel-corners-btn.border-cyan-500\/40::before {
@@ -1481,31 +1499,40 @@
       clip-path: inherit;
       z-index: -1;
     }
-    html.light .pixel-corners-btn.border-cyan-800\/60,
-    html.light .pixel-corners-btn.border-cyan-500\/40 {
-      clip-path: none !important;
-      background: transparent !important;
+    html.light .pixel-corners-btn.border-cyan-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis),
+    html.light .pixel-corners-btn.border-cyan-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis) {
+      background: #0284c7 !important;
       color: #0284c7 !important;
-      border-style: solid !important;
-      border-width: 4px !important;
-      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%230284c7%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
-      border-image-slice: 4 !important;
-      border-image-width: 4px !important;
+      border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
-    html.light .pixel-corners-btn.border-cyan-800\/60::before,
-    html.light .pixel-corners-btn.border-cyan-500\/40::before {
-      display: none !important;
+    html.light .pixel-corners-btn.border-cyan-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light .pixel-corners-btn.border-cyan-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1.5px !important;
+      background: #ffffff !important;
+      clip-path: inherit !important;
+      z-index: -1 !important;
+      border: none !important;
+      mask: none !important;
+      -webkit-mask: none !important;
+    }
+    html.light #hero .pixel-corners-btn.border-cyan-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light #hero .pixel-corners-btn.border-cyan-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      background: #f8fafc !important;
     }
 
-    /* 4. Indigo Badges (C++, Virtual Microscope Quest Badge) - Stepped borders in Dark & Light */
+    /* 4. Indigo Badges (C++, Virtual Microscope) */
     .pixel-corners-btn.border-indigo-800\/60,
     .pixel-corners-btn.border-indigo-500\/40 {
       background: #6366f1 !important;
       border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
     .pixel-corners-btn.border-indigo-800\/60::before,
     .pixel-corners-btn.border-indigo-500\/40::before {
@@ -1516,31 +1543,40 @@
       clip-path: inherit;
       z-index: -1;
     }
-    html.light .pixel-corners-btn.border-indigo-800\/60,
-    html.light .pixel-corners-btn.border-indigo-500\/40 {
-      clip-path: none !important;
-      background: transparent !important;
+    html.light .pixel-corners-btn.border-indigo-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis),
+    html.light .pixel-corners-btn.border-indigo-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis) {
+      background: #4f46e5 !important;
       color: #4338ca !important;
-      border-style: solid !important;
-      border-width: 4px !important;
-      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%234f46e5%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
-      border-image-slice: 4 !important;
-      border-image-width: 4px !important;
+      border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
-    html.light .pixel-corners-btn.border-indigo-800\/60::before,
-    html.light .pixel-corners-btn.border-indigo-500\/40::before {
-      display: none !important;
+    html.light .pixel-corners-btn.border-indigo-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light .pixel-corners-btn.border-indigo-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1.5px !important;
+      background: #ffffff !important;
+      clip-path: inherit !important;
+      z-index: -1 !important;
+      border: none !important;
+      mask: none !important;
+      -webkit-mask: none !important;
+    }
+    html.light #hero .pixel-corners-btn.border-indigo-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light #hero .pixel-corners-btn.border-indigo-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      background: #f8fafc !important;
     }
 
-    /* 5. Amber Badges (JavaScript) - Stepped borders in Dark & Light */
+    /* 5. Amber Badges (JavaScript) */
     .pixel-corners-btn.border-amber-800\/60,
     .pixel-corners-btn.border-amber-500\/40 {
       background: #d97706 !important;
       border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
     .pixel-corners-btn.border-amber-800\/60::before,
     .pixel-corners-btn.border-amber-500\/40::before {
@@ -1551,31 +1587,40 @@
       clip-path: inherit;
       z-index: -1;
     }
-    html.light .pixel-corners-btn.border-amber-800\/60,
-    html.light .pixel-corners-btn.border-amber-500\/40 {
-      clip-path: none !important;
-      background: transparent !important;
+    html.light .pixel-corners-btn.border-amber-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis),
+    html.light .pixel-corners-btn.border-amber-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis) {
+      background: #d97706 !important;
       color: #b45309 !important;
-      border-style: solid !important;
-      border-width: 4px !important;
-      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%23d97706%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
-      border-image-slice: 4 !important;
-      border-image-width: 4px !important;
+      border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
-    html.light .pixel-corners-btn.border-amber-800\/60::before,
-    html.light .pixel-corners-btn.border-amber-500\/40::before {
-      display: none !important;
+    html.light .pixel-corners-btn.border-amber-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light .pixel-corners-btn.border-amber-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1.5px !important;
+      background: #ffffff !important;
+      clip-path: inherit !important;
+      z-index: -1 !important;
+      border: none !important;
+      mask: none !important;
+      -webkit-mask: none !important;
+    }
+    html.light #hero .pixel-corners-btn.border-amber-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light #hero .pixel-corners-btn.border-amber-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      background: #f8fafc !important;
     }
 
-    /* 6. Blue Badges (C# / .NET, Brand Badges) - Stepped borders in Dark & Light */
+    /* 6. Blue Badges (C# / .NET, Brand Badges) */
     .pixel-corners-btn.border-blue-800\/60,
     .pixel-corners-btn.border-brand-500\/40 {
       background: #2563eb !important;
       border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
     .pixel-corners-btn.border-blue-800\/60::before,
     .pixel-corners-btn.border-brand-500\/40::before {
@@ -1586,31 +1631,40 @@
       clip-path: inherit;
       z-index: -1;
     }
-    html.light .pixel-corners-btn.border-blue-800\/60,
-    html.light .pixel-corners-btn.border-brand-500\/40 {
-      clip-path: none !important;
-      background: transparent !important;
+    html.light .pixel-corners-btn.border-blue-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis),
+    html.light .pixel-corners-btn.border-brand-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis) {
+      background: #2563eb !important;
       color: #1d4ed8 !important;
-      border-style: solid !important;
-      border-width: 4px !important;
-      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%232563eb%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
-      border-image-slice: 4 !important;
-      border-image-width: 4px !important;
+      border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
-    html.light .pixel-corners-btn.border-blue-800\/60::before,
-    html.light .pixel-corners-btn.border-brand-500\/40::before {
-      display: none !important;
+    html.light .pixel-corners-btn.border-blue-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light .pixel-corners-btn.border-brand-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1.5px !important;
+      background: #ffffff !important;
+      clip-path: inherit !important;
+      z-index: -1 !important;
+      border: none !important;
+      mask: none !important;
+      -webkit-mask: none !important;
+    }
+    html.light #hero .pixel-corners-btn.border-blue-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light #hero .pixel-corners-btn.border-brand-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      background: #f8fafc !important;
     }
 
-    /* 7. Purple Badges (Online Learning Platform) - Stepped borders in Dark & Light */
+    /* 7. Purple Badges (Online Learning Platform) */
     .pixel-corners-btn.border-purple-800\/60,
     .pixel-corners-btn.border-purple-500\/40 {
       background: #a855f7 !important;
       border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
     .pixel-corners-btn.border-purple-800\/60::before,
     .pixel-corners-btn.border-purple-500\/40::before {
@@ -1621,22 +1675,30 @@
       clip-path: inherit;
       z-index: -1;
     }
-    html.light .pixel-corners-btn.border-purple-800\/60,
-    html.light .pixel-corners-btn.border-purple-500\/40 {
-      clip-path: none !important;
-      background: transparent !important;
+    html.light .pixel-corners-btn.border-purple-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis),
+    html.light .pixel-corners-btn.border-purple-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis) {
+      background: #9333ea !important;
       color: #7e22ce !important;
-      border-style: solid !important;
-      border-width: 4px !important;
-      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%239333ea%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
-      border-image-slice: 4 !important;
-      border-image-width: 4px !important;
+      border: none !important;
       box-shadow: none !important;
       filter: none !important;
+      text-shadow: none !important;
     }
-    html.light .pixel-corners-btn.border-purple-800\/60::before,
-    html.light .pixel-corners-btn.border-purple-500\/40::before {
-      display: none !important;
+    html.light .pixel-corners-btn.border-purple-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light .pixel-corners-btn.border-purple-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1.5px !important;
+      background: #ffffff !important;
+      clip-path: inherit !important;
+      z-index: -1 !important;
+      border: none !important;
+      mask: none !important;
+      -webkit-mask: none !important;
+    }
+    html.light #hero .pixel-corners-btn.border-purple-800\/60:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before,
+    html.light #hero .pixel-corners-btn.border-purple-500\/40:not(#theme-toggle-btn):not(#theme-toggle-mobile):not(.loader-progress-chassis)::before {
+      background: #f8fafc !important;
     }
 
     /* Dialogue avatar button: standardized with map level buttons in dark & light mode */
@@ -1764,6 +1826,20 @@
     html.light #rail-exit-btn:hover::before {
       background: #f1f5f9 !important;
     }
+    /* Theme Toggle Icons (Pure CSS instant toggle without flash) */
+    html.light .theme-icon-sun {
+      display: block !important;
+    }
+    html.light .theme-icon-moon {
+      display: none !important;
+    }
+    html:not(.light) .theme-icon-sun {
+      display: none !important;
+    }
+    html:not(.light) .theme-icon-moon {
+      display: block !important;
+    }
+
     /* Language Switcher Chassis & Theme Toggle Buttons (Stepped Pixel Borders in Dark & Light Mode) */
     .lang-switch-chassis,
     #theme-toggle-btn,
@@ -2137,10 +2213,37 @@
     html.light #portfolio-loader [data-i18n="loader_init"] {
       color: #64748b !important;
     }
+    #portfolio-loader .loader-progress-chassis {
+      position: relative;
+      z-index: 0;
+      height: 14px !important;
+      background: #475569 !important;
+      border: none !important;
+      box-shadow: none !important;
+      filter: drop-shadow(2px 2px 0px rgba(15, 23, 42, 0.95)) !important;
+      padding: 0 !important;
+    }
+    #portfolio-loader .loader-progress-chassis::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: 1.5px !important;
+      background: #0f172a !important;
+      clip-path: inherit !important;
+      z-index: 0 !important;
+    }
+    #portfolio-loader #loader-progress-bar {
+      position: relative;
+      z-index: 1;
+      height: 100% !important;
+    }
     html.light #portfolio-loader .loader-progress-chassis {
-      background: #e2e8f0 !important;
-      border-color: #94a3b8 !important;
-      box-shadow: 2px 2px 0px 0px #cbd5e1 !important;
+      background: #cbd5e1 !important; /* Stepped Slate-300 border */
+      border: none !important;
+      box-shadow: none !important;
+      filter: drop-shadow(2px 2px 0px rgba(203, 213, 225, 0.7)) !important;
+    }
+    html.light #portfolio-loader .loader-progress-chassis::before {
+      background: #e2e8f0 !important; /* Light track behind the progress fill */
     }
     html.light #portfolio-loader #loader-status-text {
       color: #64748b !important;

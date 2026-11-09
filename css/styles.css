@@ -1360,8 +1360,11 @@
       background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%) !important;
     }
     html.light .pixel-btn-primary:hover {
-      background: #0369a1 !important;
-      filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.35)) !important;
+      background: #38bdf8 !important;
+      filter: drop-shadow(4px 4px 0px rgba(2, 132, 199, 0.45)) drop-shadow(0 0 14px rgba(56, 189, 248, 0.5)) !important;
+    }
+    html.light .pixel-btn-primary:hover::before {
+      background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%) !important;
     }
     html.light .pixel-btn-secondary {
       background: #cbd5e1 !important;
@@ -1414,17 +1417,20 @@
     }
     html.light .pixel-corners-btn.border-slate-700\/60,
     html.light .pixel-corners-btn.border-slate-700\/80 {
+      clip-path: none !important;
       background: transparent !important;
       color: #334155 !important;
+      border-style: solid !important;
+      border-width: 4px !important;
+      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%2394a3b8%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
+      border-image-slice: 4 !important;
+      border-image-width: 4px !important;
+      box-shadow: none !important;
+      filter: none !important;
     }
     html.light .pixel-corners-btn.border-slate-700\/60::before,
     html.light .pixel-corners-btn.border-slate-700\/80::before {
-      inset: 0 !important;
-      padding: 1.5px !important;
-      background: #94a3b8 !important;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-      -webkit-mask-composite: xor !important;
-      mask-composite: exclude !important;
+      display: none !important;
     }
 
     /* 2. Emerald Badges (Active Status, LASCE Boss Badge, Distributed Systems Badge) - Hollow outline badge without solid white fill */
@@ -1432,7 +1438,7 @@
       background: #10b981 !important;
       border: none !important;
       box-shadow: none !important;
-      filter: drop-shadow(2px 2px 0px rgba(16, 185, 129, 0.35)) !important;
+      filter: none !important;
     }
     .pixel-corners-btn.border-emerald-500\/40::before {
       content: "";
@@ -1443,25 +1449,28 @@
       z-index: -1;
     }
     html.light .pixel-corners-btn.border-emerald-500\/40 {
+      clip-path: none !important;
       background: transparent !important;
       color: #047857 !important;
-      filter: drop-shadow(2px 2px 0px rgba(5, 150, 105, 0.25)) !important;
+      border-style: solid !important;
+      border-width: 4px !important;
+      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%23059669%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
+      border-image-slice: 4 !important;
+      border-image-width: 4px !important;
+      box-shadow: none !important;
+      filter: none !important;
     }
     html.light .pixel-corners-btn.border-emerald-500\/40::before {
-      inset: 0 !important;
-      padding: 1.5px !important;
-      background: #059669 !important;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-      -webkit-mask-composite: xor !important;
-      mask-composite: exclude !important;
+      display: none !important;
     }
 
-    /* 3. Cyan Badges (Python, Ethical Vodcast Quest Badge) - Hollow outline badge without solid white fill */
+    /* 3. Cyan Badges (Guide / Guía Badge, Python, Ethical Vodcast Quest Badge) - Stepped borders in Dark & Light */
     .pixel-corners-btn.border-cyan-800\/60,
     .pixel-corners-btn.border-cyan-500\/40 {
       background: #0891b2 !important;
       border: none !important;
       box-shadow: none !important;
+      filter: none !important;
     }
     .pixel-corners-btn.border-cyan-800\/60::before,
     .pixel-corners-btn.border-cyan-500\/40::before {
@@ -1474,25 +1483,29 @@
     }
     html.light .pixel-corners-btn.border-cyan-800\/60,
     html.light .pixel-corners-btn.border-cyan-500\/40 {
+      clip-path: none !important;
       background: transparent !important;
       color: #0284c7 !important;
+      border-style: solid !important;
+      border-width: 4px !important;
+      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%230284c7%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
+      border-image-slice: 4 !important;
+      border-image-width: 4px !important;
+      box-shadow: none !important;
+      filter: none !important;
     }
     html.light .pixel-corners-btn.border-cyan-800\/60::before,
     html.light .pixel-corners-btn.border-cyan-500\/40::before {
-      inset: 0 !important;
-      padding: 1.5px !important;
-      background: #0284c7 !important;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-      -webkit-mask-composite: xor !important;
-      mask-composite: exclude !important;
+      display: none !important;
     }
 
-    /* 4. Indigo Badges (C++, Virtual Microscope Quest Badge) - Hollow outline badge without solid white fill */
+    /* 4. Indigo Badges (C++, Virtual Microscope Quest Badge) - Stepped borders in Dark & Light */
     .pixel-corners-btn.border-indigo-800\/60,
     .pixel-corners-btn.border-indigo-500\/40 {
       background: #6366f1 !important;
       border: none !important;
       box-shadow: none !important;
+      filter: none !important;
     }
     .pixel-corners-btn.border-indigo-800\/60::before,
     .pixel-corners-btn.border-indigo-500\/40::before {
@@ -1505,25 +1518,29 @@
     }
     html.light .pixel-corners-btn.border-indigo-800\/60,
     html.light .pixel-corners-btn.border-indigo-500\/40 {
+      clip-path: none !important;
       background: transparent !important;
       color: #4338ca !important;
+      border-style: solid !important;
+      border-width: 4px !important;
+      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%234f46e5%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
+      border-image-slice: 4 !important;
+      border-image-width: 4px !important;
+      box-shadow: none !important;
+      filter: none !important;
     }
     html.light .pixel-corners-btn.border-indigo-800\/60::before,
     html.light .pixel-corners-btn.border-indigo-500\/40::before {
-      inset: 0 !important;
-      padding: 1.5px !important;
-      background: #4f46e5 !important;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-      -webkit-mask-composite: xor !important;
-      mask-composite: exclude !important;
+      display: none !important;
     }
 
-    /* 5. Amber Badges (JavaScript) - Hollow outline badge without solid white fill */
+    /* 5. Amber Badges (JavaScript) - Stepped borders in Dark & Light */
     .pixel-corners-btn.border-amber-800\/60,
     .pixel-corners-btn.border-amber-500\/40 {
       background: #d97706 !important;
       border: none !important;
       box-shadow: none !important;
+      filter: none !important;
     }
     .pixel-corners-btn.border-amber-800\/60::before,
     .pixel-corners-btn.border-amber-500\/40::before {
@@ -1536,25 +1553,29 @@
     }
     html.light .pixel-corners-btn.border-amber-800\/60,
     html.light .pixel-corners-btn.border-amber-500\/40 {
+      clip-path: none !important;
       background: transparent !important;
       color: #b45309 !important;
+      border-style: solid !important;
+      border-width: 4px !important;
+      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%23d97706%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
+      border-image-slice: 4 !important;
+      border-image-width: 4px !important;
+      box-shadow: none !important;
+      filter: none !important;
     }
     html.light .pixel-corners-btn.border-amber-800\/60::before,
     html.light .pixel-corners-btn.border-amber-500\/40::before {
-      inset: 0 !important;
-      padding: 1.5px !important;
-      background: #d97706 !important;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-      -webkit-mask-composite: xor !important;
-      mask-composite: exclude !important;
+      display: none !important;
     }
 
-    /* 6. Blue Badges (C# / .NET, Brand Badges) - Hollow outline badge without solid white fill */
+    /* 6. Blue Badges (C# / .NET, Brand Badges) - Stepped borders in Dark & Light */
     .pixel-corners-btn.border-blue-800\/60,
     .pixel-corners-btn.border-brand-500\/40 {
       background: #2563eb !important;
       border: none !important;
       box-shadow: none !important;
+      filter: none !important;
     }
     .pixel-corners-btn.border-blue-800\/60::before,
     .pixel-corners-btn.border-brand-500\/40::before {
@@ -1567,25 +1588,29 @@
     }
     html.light .pixel-corners-btn.border-blue-800\/60,
     html.light .pixel-corners-btn.border-brand-500\/40 {
+      clip-path: none !important;
       background: transparent !important;
       color: #1d4ed8 !important;
+      border-style: solid !important;
+      border-width: 4px !important;
+      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%232563eb%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
+      border-image-slice: 4 !important;
+      border-image-width: 4px !important;
+      box-shadow: none !important;
+      filter: none !important;
     }
     html.light .pixel-corners-btn.border-blue-800\/60::before,
     html.light .pixel-corners-btn.border-brand-500\/40::before {
-      inset: 0 !important;
-      padding: 1.5px !important;
-      background: #2563eb !important;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-      -webkit-mask-composite: xor !important;
-      mask-composite: exclude !important;
+      display: none !important;
     }
 
-    /* 7. Purple Badges (Online Learning Platform) - Hollow outline badge without solid white fill */
+    /* 7. Purple Badges (Online Learning Platform) - Stepped borders in Dark & Light */
     .pixel-corners-btn.border-purple-800\/60,
     .pixel-corners-btn.border-purple-500\/40 {
       background: #a855f7 !important;
       border: none !important;
       box-shadow: none !important;
+      filter: none !important;
     }
     .pixel-corners-btn.border-purple-800\/60::before,
     .pixel-corners-btn.border-purple-500\/40::before {
@@ -1598,17 +1623,20 @@
     }
     html.light .pixel-corners-btn.border-purple-800\/60,
     html.light .pixel-corners-btn.border-purple-500\/40 {
+      clip-path: none !important;
       background: transparent !important;
       color: #7e22ce !important;
+      border-style: solid !important;
+      border-width: 4px !important;
+      border-image-source: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20fill%3D%22%239333ea%22%20d%3D%22M0%2C4%20L2%2C4%20L2%2C2%20L4%2C2%20L4%2C0%20L8%2C0%20L8%2C2%20L10%2C2%20L10%2C4%20L12%2C4%20L12%2C8%20L10%2C8%20L10%2C10%20L8%2C10%20L8%2C12%20L4%2C12%20L4%2C10%20L2%2C10%20L2%2C8%20L0%2C8%20Z%20M1.5%2C4%20L2.5%2C4%20L2.5%2C2.5%20L4%2C2.5%20L4%2C1.5%20L8%2C1.5%20L8%2C2.5%20L9.5%2C2.5%20L9.5%2C4%20L10.5%2C4%20L10.5%2C8%20L9.5%2C8%20L9.5%2C9.5%20L8%2C9.5%20L8%2C10.5%20L4%2C10.5%20L4%2C9.5%20L2.5%2C9.5%20L2.5%2C8%20L1.5%2C8%20Z%22%2F%3E%3C%2Fsvg%3E") !important;
+      border-image-slice: 4 !important;
+      border-image-width: 4px !important;
+      box-shadow: none !important;
+      filter: none !important;
     }
     html.light .pixel-corners-btn.border-purple-800\/60::before,
     html.light .pixel-corners-btn.border-purple-500\/40::before {
-      inset: 0 !important;
-      padding: 1.5px !important;
-      background: #9333ea !important;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-      -webkit-mask-composite: xor !important;
-      mask-composite: exclude !important;
+      display: none !important;
     }
 
     /* Dialogue avatar button: standardized with map level buttons in dark & light mode */
@@ -1783,14 +1811,23 @@
     }
     html.light .lang-switch-chassis::before,
     html.light [aria-label="Language selection"]::before,
-    html.light [aria-label="Mobile language selector"]::before,
+    html.light [aria-label="Mobile language selector"]::before {
+      content: "" !important;
+      display: block !important;
+      position: absolute !important;
+      inset: 1.5px !important;
+      background: #f1f5f9 !important; /* Inner surface matches light navbar chassis */
+      clip-path: inherit !important;
+      z-index: -1 !important;
+      transition: background 0.15s ease;
+    }
     html.light #theme-toggle-btn::before,
     html.light #theme-toggle-mobile::before {
       content: "" !important;
       display: block !important;
       position: absolute !important;
       inset: 1.5px !important;
-      background: #f1f5f9 !important; /* Inner surface matches light navbar chassis */
+      background: #ffffff !important; /* Clean normal white button surface (restored from gray) */
       clip-path: inherit !important;
       z-index: -1 !important;
       transition: background 0.15s ease;

@@ -236,6 +236,54 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("function typeAdventureDialogue(text, onComplete) {\n    if (!isAdventureActive) return;", adv_code)
         self.assertIn("function updateAdventureUI(skipWalkerAnim) {\n    if (!isAdventureActive) return;", adv_code)
 
+    def test_pulsing_badges_have_no_text_shadow(self):
+        """Verify that pulsing dot status/project badges have no inline filter: drop-shadow creating duplicate letters."""
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            index_code = f.read()
+
+        # Find all divs containing animate-pulse dots
+        pulse_badge_matches = re.findall(r'<div[^>]*class="[^"]*pixel-corners-btn[^"]*"[^>]*style="[^"]*drop-shadow[^"]*"[^>]*>\s*<span[^>]*animate-pulse', index_code)
+        self.assertEqual(len(pulse_badge_matches), 0, f"Found pulsing badges with drop-shadow duplicating letters: {pulse_badge_matches}")
+
+    def test_navbar_monogram_icon_source(self):
+        """Verify the navbar monogram icon references ./img/favicon.png."""
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            index_code = f.read()
+        self.assertIn('<img src="./img/favicon.png" alt="Josue" class="w-full h-full object-cover pixelated" />', index_code)
+
+    def test_sun_button_light_background_restored(self):
+        """Verify the sun button in light mode has its clean white background restored."""
+        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        with open(css_path, "r", encoding="utf-8") as f:
+            css_code = f.read()
+
+        self.assertIn("html.light #theme-toggle-btn::before", css_code)
+        self.assertIn("background: #ffffff !important; /* Clean normal white button surface (restored from gray) */", css_code)
+
+    def test_primary_button_hover_effects(self):
+        """Verify primary blue/celeste button has an illuminated hover effect and glow in light mode."""
+        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        with open(css_path, "r", encoding="utf-8") as f:
+            css_code = f.read()
+
+        self.assertIn("html.light .pixel-btn-primary:hover", css_code)
+        self.assertIn("background: #38bdf8 !important;", css_code)
+        self.assertIn("rgba(56, 189, 248, 0.5)", css_code)
+
+    def test_stepped_border_badges_light_mode_corners(self):
+        """Verify tech capsules and Guía badges use 9-slice SVG border-image to preserve corners in light mode."""
+        css_path = os.path.join(ROOT_DIR, "css", "styles.css")
+        with open(css_path, "r", encoding="utf-8") as f:
+            css_code = f.read()
+
+        # Slate tech capsules
+        self.assertIn("html.light .pixel-corners-btn.border-slate-700\\/60", css_code)
+        self.assertIn("border-image-slice: 4 !important;", css_code)
+
+        # Cyan badges (Guía badge)
+        self.assertIn("html.light .pixel-corners-btn.border-cyan-800\\/60", css_code)
+        self.assertIn("%230284c7", css_code)
+
 
 
 if __name__ == "__main__":

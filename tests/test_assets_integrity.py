@@ -38,10 +38,16 @@ class TestAssetsIntegrity(unittest.TestCase):
         return os.path.join(ROOT_DIR, clean)
 
     def test_favicon_exists(self):
-        """Verify favicon.png exists and is non-empty."""
-        favicon_path = os.path.join(ROOT_DIR, "favicon.png")
-        self.assertTrue(os.path.exists(favicon_path), "favicon.png missing from root")
-        self.assertGreater(os.path.getsize(favicon_path), 0, "favicon.png is empty")
+        """Verify root favicon.ico exists and img/favicon.png exists, and root favicon.png is removed."""
+        ico_path = os.path.join(ROOT_DIR, "favicon.ico")
+        img_png_path = os.path.join(ROOT_DIR, "img", "favicon.png")
+        root_png_path = os.path.join(ROOT_DIR, "favicon.png")
+
+        self.assertTrue(os.path.exists(ico_path), "favicon.ico missing from root")
+        self.assertGreater(os.path.getsize(ico_path), 0, "favicon.ico in root is empty")
+        self.assertTrue(os.path.exists(img_png_path), "favicon.png missing from img/ directory")
+        self.assertGreater(os.path.getsize(img_png_path), 0, "img/favicon.png is empty")
+        self.assertFalse(os.path.exists(root_png_path), "favicon.png should not exist in root (only favicon.ico in root)")
 
     def test_all_html_img_sources_exist(self):
         """Verify all local image sources in index.html exist on disk."""

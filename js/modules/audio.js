@@ -2,6 +2,7 @@
  * Portfolio Audio System
  * Synthesizes retro 8-bit sound effects using the native Web Audio API.
  * Zero external audio files or dependencies required.
+ * Audio is strictly silenced and deferred during preloader / page boot.
  */
 
 (function () {
@@ -10,7 +11,14 @@
   var audioCtx = null;
   var soundEnabled = true;
 
-  function initAudio() {
+  function isPreloaderActive() {
+    if (window.__portfolioLoaderActive === true) return true;
+    var loader = document.getElementById('portfolio-loader');
+    if (!loader) return false;
+    return loader.style.display !== 'none' && !loader.classList.contains('loader-hidden');
+  }
+
+  function getAudioContext() {
     if (!audioCtx) {
       var AudioContextClass = window.AudioContext || window.webkitAudioContext;
       if (AudioContextClass) {
@@ -18,20 +26,40 @@
       }
     }
     if (audioCtx && audioCtx.state === 'suspended') {
-      audioCtx.resume();
+      audioCtx.resume().catch(function () {});
     }
+    return audioCtx;
+  }
+
+  function initAudio() {
+    // Keep page boot completely silent: never construct or resume AudioContext while preloader is active.
+    // Listen for genuine user gestures after preloader dismissal to unlock audio seamlessly.
+    var unlockAudio = function () {
+      if (isPreloaderActive()) return;
+      document.removeEventListener('click', unlockAudio, true);
+      document.removeEventListener('keydown', unlockAudio, true);
+      document.removeEventListener('touchstart', unlockAudio, true);
+      getAudioContext();
+    };
+
+    document.addEventListener('click', unlockAudio, true);
+    document.addEventListener('keydown', unlockAudio, true);
+    document.addEventListener('touchstart', unlockAudio, true);
   }
 
   function playRetroSound(type) {
     if (!soundEnabled) return;
+    // Strictly suppress any audio playback while preloader screen is visible or fading
+    if (isPreloaderActive()) return;
+
     try {
-      initAudio();
-      if (!audioCtx) return;
-      var now = audioCtx.currentTime;
-      var osc = audioCtx.createOscillator();
-      var gain = audioCtx.createGain();
+      var ctx = getAudioContext();
+      if (!ctx) return;
+      var now = ctx.currentTime;
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
       osc.connect(gain);
-      gain.connect(audioCtx.destination);
+      gain.connect(ctx.destination);
 
       if (type === 'jump') {
         osc.type = 'square';

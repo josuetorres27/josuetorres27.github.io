@@ -129,7 +129,11 @@
 
   function setupPreloader() {
     var loader = document.getElementById('portfolio-loader');
-    if (!loader) return;
+    if (!loader) {
+      window.__portfolioLoaderActive = false;
+      return;
+    }
+    window.__portfolioLoaderActive = true;
 
     var progressBar = document.getElementById('loader-progress-bar');
     var percentText = document.getElementById('loader-percent');
@@ -154,6 +158,7 @@
     function dismissLoader() {
       if (isDone) return;
       isDone = true;
+      window.__portfolioLoaderActive = false;
       updateProgress(true);
       if (progressBar) {
         progressBar.style.width = '100%';
@@ -166,6 +171,7 @@
         loader.classList.add('loader-hidden');
         setTimeout(function () {
           loader.style.display = 'none';
+          window.__portfolioLoaderActive = false;
         }, 450);
       }, 200);
     }

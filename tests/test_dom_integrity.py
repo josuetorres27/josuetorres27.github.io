@@ -206,6 +206,30 @@ class TestDOMIntegrity(unittest.TestCase):
             if btn_id in ["copy-email-btn", "theme-toggle-btn", "theme-toggle-mobile", "lightbox-close-btn", "rail-exit-btn", "dialogue-close-btn", "dialogue-mute-btn"]:
                 self.assertTrue(has_aria, f"Icon button id='{btn_id}' missing aria-label or title for accessibility")
 
+    def test_audio_suppressed_during_preloader(self):
+        """Verify audio system and UI preloader cooperate to maintain 100% silence during loading."""
+        audio_path = os.path.join(ROOT_DIR, "js", "modules", "audio.js")
+        ui_path = os.path.join(ROOT_DIR, "js", "modules", "ui.js")
+        index_path = os.path.join(ROOT_DIR, "index.html")
+
+        with open(audio_path, "r", encoding="utf-8") as f:
+            audio_code = f.read()
+        with open(ui_path, "r", encoding="utf-8") as f:
+            ui_code = f.read()
+        with open(index_path, "r", encoding="utf-8") as f:
+            index_code = f.read()
+
+        # Audio module checks preloader active status before synthesizing or unlocking
+        self.assertIn("isPreloaderActive", audio_code)
+        self.assertIn("portfolio-loader", audio_code)
+        self.assertIn("__portfolioLoaderActive", audio_code)
+
+        # UI module and index.html manage the preloader flag
+        self.assertIn("__portfolioLoaderActive = true", index_code)
+        self.assertIn("__portfolioLoaderActive = true", ui_code)
+        self.assertIn("__portfolioLoaderActive = false", ui_code)
+
+
 
 if __name__ == "__main__":
     unittest.main()

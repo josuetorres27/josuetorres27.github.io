@@ -163,7 +163,7 @@
         p0_date: "Oct 2026",
         p0_title: "Who Controls Our Attention? — Ethical Vodcast",
         p0_subtitle: "Social media, the attention economy, and the responsibility of computing professionals",
-        p0_team_author: "Josue Torres",
+        p0_team_author: "Josue Torres Sibaja",
         p0_bts_btn: "Behind the Scenes",
 
         p1_type: "C# / .NET · Desktop Application",
@@ -496,7 +496,7 @@
         p0_date: "Oct 2026",
         p0_title: "¿Quién controla nuestra atención? — Vodcast Ético",
         p0_subtitle: "Redes sociales, economía de la atención y la responsabilidad del profesional en computación",
-        p0_team_author: "Josué Torres",
+        p0_team_author: "Josué Torres Sibaja",
         p0_bts_btn: "Detrás de Cámaras",
 
         p1_type: "C# / .NET · Aplicación de Escritorio",

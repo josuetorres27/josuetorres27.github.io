@@ -162,7 +162,7 @@
       typewriterTimeout = null;
     }
     activePhrases = Array.isArray(phrases) && phrases.length ? phrases : [
-      "CS & Software\nEngineering Student"
+      "Computer Science\nGraduating Senior"
     ];
     currentPhraseIndex = 0;
     currentCharIndex = 0;

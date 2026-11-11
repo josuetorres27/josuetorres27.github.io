@@ -8,7 +8,7 @@
 [![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#portfolio-key-features)
 [![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=flat-square)](#portfolio-key-features)
 
-Welcome to the official repository for my personal software engineering portfolio. This website showcases my academic background, featured software engineering projects, production experience in IT infrastructure & web administration, applied AI workflows, and personal interests — wrapped in a custom retro gaming and terminal aesthetic.
+Welcome to the official repository for my personal software engineering portfolio. This website showcases my academic background, featured software engineering projects, production experience in Information Technology infrastructure & web administration, applied AI workflows, and personal interests — wrapped in a custom retro gaming and terminal aesthetic.
 
 **Live Website:** [https://josuetorres.tech](https://josuetorres.tech)
 
@@ -16,12 +16,12 @@ Welcome to the official repository for my personal software engineering portfoli
 
 ## About Me
 
-I am a final-semester Computer Science and Software Engineering student at the **Universidad de Costa Rica (UCR)**. I have a passion for building high-performance software, scalable systems, and clean architectural patterns. My background combines rigorous theoretical foundations (data structures, algorithms, object-oriented design, distributed systems) with practical industry and university engineering experience.
+I am a **Computer Science Graduating Senior** (Software Engineering emphasis) at the **University of Costa Rica (UCR)** (all coursework completed Dec 2026; degree expected April 2027). I build scalable, full-stack, systems-level, and distributed software using modern engineering practices and AI agentic workflows, backed by solid foundations in data structures, algorithms, object-oriented design, and practical university infrastructure and software engineering experience.
 
-- **Education:** B.Sc. in Computer Science (Software Engineering Emphasis) — Universidad de Costa Rica (UCR) *(Mar 2023 – Dec 2026 · Final Graduation Stage)*
+- **Education:** B.Sc. in Computer Science (Software Engineering Emphasis) — University of Costa Rica (UCR) *(Mar 2023 – Dec 2026 · Coursework Completed · Degree Expected April 2027)*
 - **Languages:** Spanish (Native), English (CEFR B2–C1 Bilingual Working Proficiency — Universidad Nacional, 2019 – 2021 · 13 Levels / 520 Hours)
-- **Current Role:** IT Support Assistant at Universidad de Costa Rica (Oficina de Orientación) *(Aug 2026 – Present · Active Contract)*
-- **Target Role:** Junior Software Engineer / Software Engineering Intern
+- **Current Role:** Information Technology Support Assistant at University of Costa Rica (Orientation Office) *(Aug 2026 – Present · Active Contract)*
+- **Availability:** Full-Time Entry-Level & Junior Software Engineering Roles *(Available Immediately)*
 
 ---
 

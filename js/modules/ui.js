@@ -127,6 +127,17 @@
     }
   }
 
+  var CHARACTER_SPRITES = [
+    './img/character-sprites/idle.png',
+    './img/character-sprites/front.png',
+    './img/character-sprites/jump.png',
+    './img/character-sprites/walk-1.png',
+    './img/character-sprites/walk-2.png',
+    './img/character-sprites/back.png',
+    './img/character-sprites/back-walk-1.png',
+    './img/character-sprites/back-walk-2.png'
+  ];
+
   function setupPreloader() {
     var loader = document.getElementById('portfolio-loader');
     if (!loader) {
@@ -138,14 +149,39 @@
     var progressBar = document.getElementById('loader-progress-bar');
     var percentText = document.getElementById('loader-percent');
 
-    var images = Array.prototype.slice.call(document.querySelectorAll('img[src]'));
-    var totalImages = images.length || 1;
-    var loadedImages = 0;
+    // Global persistent sprite cache to prevent garbage collection or texture eviction
+    window.__portfolioSpriteCache = window.__portfolioSpriteCache || {};
+
+    // Collect DOM images and prepare sprites
+    var domImages = Array.prototype.slice.call(document.querySelectorAll('img[src]'));
+
+    var spriteImages = CHARACTER_SPRITES.map(function (src) {
+      if (window.__portfolioSpriteCache[src]) {
+        return window.__portfolioSpriteCache[src];
+      }
+      var img = new Image();
+      img.src = src;
+      window.__portfolioSpriteCache[src] = img;
+      return img;
+    });
+
+    var totalItems = domImages.length + spriteImages.length;
+    var settledItems = 0;
     var isDone = false;
+
+    function onItemSettled() {
+      if (isDone) return;
+      settledItems++;
+      updateProgress();
+      if (settledItems >= totalItems) {
+        clearTimeout(fallbackTimeout);
+        dismissLoader();
+      }
+    }
 
     function updateProgress(force100) {
       if (isDone) return;
-      var ratio = force100 ? 1 : (loadedImages / totalImages);
+      var ratio = force100 ? 1 : (settledItems / Math.max(1, totalItems));
       var percent = Math.min(100, Math.max(15, Math.round(ratio * 100)));
       if (progressBar) {
         progressBar.style.width = percent + '%';
@@ -176,40 +212,58 @@
       }, 200);
     }
 
+    // Fallback timeout to guarantee preloader dismissal even on network stall
     var fallbackTimeout = setTimeout(dismissLoader, 2500);
 
-    if (images.length === 0) {
-      dismissLoader();
-      return;
-    }
-
-    images.forEach(function (img) {
+    // Track DOM images
+    domImages.forEach(function (img) {
       if (img.complete && img.naturalWidth !== 0) {
-        loadedImages++;
-        updateProgress();
+        settledItems++;
       } else {
         var onImageSettled = function () {
           img.removeEventListener('load', onImageSettled);
           img.removeEventListener('error', onImageSettled);
-          loadedImages++;
-          updateProgress();
-          if (loadedImages >= totalImages) {
-            clearTimeout(fallbackTimeout);
-            dismissLoader();
-          }
+          onItemSettled();
         };
         img.addEventListener('load', onImageSettled);
         img.addEventListener('error', onImageSettled);
       }
     });
 
-    if (loadedImages >= totalImages) {
+    // Track and decode character sprites
+    spriteImages.forEach(function (spriteImg) {
+      if (typeof spriteImg.decode === 'function') {
+        spriteImg.decode().then(function () {
+          onItemSettled();
+        }).catch(function () {
+          onItemSettled();
+        });
+      } else if (spriteImg.complete && spriteImg.naturalWidth !== 0) {
+        settledItems++;
+      } else {
+        var onSpriteSettled = function () {
+          spriteImg.removeEventListener('load', onSpriteSettled);
+          spriteImg.removeEventListener('error', onSpriteSettled);
+          onItemSettled();
+        };
+        spriteImg.addEventListener('load', onSpriteSettled);
+        spriteImg.addEventListener('error', onSpriteSettled);
+      }
+    });
+
+    updateProgress();
+
+    if (settledItems >= totalItems) {
       clearTimeout(fallbackTimeout);
       dismissLoader();
     } else {
       window.addEventListener('load', function () {
-        clearTimeout(fallbackTimeout);
-        dismissLoader();
+        setTimeout(function () {
+          if (!isDone) {
+            clearTimeout(fallbackTimeout);
+            dismissLoader();
+          }
+        }, 200);
       }, { once: true });
     }
   }
@@ -224,6 +278,7 @@
   window.PortfolioUI = {
     init: initUI,
     setupDropdown: setupDropdown,
-    setupPreloader: setupPreloader
+    setupPreloader: setupPreloader,
+    CHARACTER_SPRITES: CHARACTER_SPRITES
   };
 })();

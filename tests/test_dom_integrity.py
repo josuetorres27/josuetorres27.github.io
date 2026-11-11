@@ -436,6 +436,61 @@ class TestDOMIntegrity(unittest.TestCase):
         ui_pos = main_code.find("PortfolioUI.init")
         self.assertTrue(i18n_pos < ui_pos, "PortfolioI18n.init must run before PortfolioUI.init to ensure translated DOM")
 
+    def test_character_sprites_preloading_and_dom_cache(self):
+        """Verify all 8 character sprites are preloaded in head, pre-cached in DOM, and decoded in preloader."""
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            index_code = f.read()
+        with open(os.path.join(ROOT_DIR, "js", "modules", "ui.js"), "r", encoding="utf-8") as f:
+            ui_code = f.read()
+
+        sprites = [
+            "idle.png",
+            "front.png",
+            "jump.png",
+            "walk-1.png",
+            "walk-2.png",
+            "back.png",
+            "back-walk-1.png",
+            "back-walk-2.png"
+        ]
+
+        # 1. Check <link rel="preload" as="image"> in <head> for all 8 sprites
+        for sprite in sprites:
+            preload_tag = f'<link rel="preload" as="image" href="./img/character-sprites/{sprite}">'
+            self.assertIn(preload_tag, index_code, f"Missing preload tag in head for {sprite}")
+
+        # 2. Check DOM cache container exists and holds all 8 sprites
+        self.assertIn('id="character-sprites-cache"', index_code)
+        for sprite in sprites:
+            img_tag = f'src="./img/character-sprites/{sprite}"'
+            self.assertIn(img_tag, index_code, f"Missing cached img element for {sprite}")
+
+        # 3. Check ui.js defines CHARACTER_SPRITES with all 8 sprites
+        for sprite in sprites:
+            sprite_path = f'./img/character-sprites/{sprite}'
+            self.assertIn(sprite_path, ui_code, f"Missing sprite path {sprite} in ui.js")
+
+        # 4. Check sprite decoding and global caching
+        self.assertIn("window.__portfolioSpriteCache", ui_code)
+        self.assertIn("spriteImg.decode", ui_code)
+        self.assertIn("CHARACTER_SPRITES: CHARACTER_SPRITES", ui_code)
+
+    def test_adventure_smooth_scroll_and_gpu_acceleration(self):
+        """Verify programmatic scroll flag suppresses thrashing during startAdventure and sprites have GPU acceleration."""
+        with open(os.path.join(ROOT_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
+            adv_code = f.read()
+        with open(os.path.join(ROOT_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
+            css_code = f.read()
+
+        # 1. startAdventure sets isProgrammaticScroll = true to prevent scroll listener thrashing
+        start_adv_block = adv_code.split("function startAdventure(")[1].split("isAdventureActive = true;")[0]
+        self.assertIn("isProgrammaticScroll = true;", start_adv_block)
+
+        # 2. styles.css contains GPU acceleration properties for character sprites
+        self.assertIn("#hero-portal-sprite", css_code)
+        self.assertIn("#rail-character-walker", css_code)
+        self.assertIn("will-change: transform;", css_code)
+        self.assertIn("transform: translateZ(0);", css_code)
 
 
 if __name__ == "__main__":

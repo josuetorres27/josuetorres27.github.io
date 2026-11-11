@@ -2275,6 +2275,17 @@
       color: #0284c7 !important;
     }
 
+    /* GPU Hardware Acceleration for Character Sprites to Guarantee Smooth 60fps Adventure Animations */
+    #hero-portal-sprite,
+    #rail-character-walker,
+    #rail-character-sprite,
+    #dialogue-avatar-sprite,
+    #flying-pixel-sprite-img {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
     /* Photo and Image Skeleton Shimmer */
     .photo-skeleton {
       background: linear-gradient(90deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);

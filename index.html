@@ -54,6 +54,16 @@
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <link rel="icon" type="image/png" sizes="96x96" href="./img/icons/favicon.png">
   
+  <!-- Preload Character Sprites for Butter-Smooth 60fps Adventure Mode Animations -->
+  <link rel="preload" as="image" href="./img/character-sprites/idle.png">
+  <link rel="preload" as="image" href="./img/character-sprites/front.png">
+  <link rel="preload" as="image" href="./img/character-sprites/jump.png">
+  <link rel="preload" as="image" href="./img/character-sprites/walk-1.png">
+  <link rel="preload" as="image" href="./img/character-sprites/walk-2.png">
+  <link rel="preload" as="image" href="./img/character-sprites/back.png">
+  <link rel="preload" as="image" href="./img/character-sprites/back-walk-1.png">
+  <link rel="preload" as="image" href="./img/character-sprites/back-walk-2.png">
+  
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2223,6 +2233,18 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Pre-rendered DOM Sprite Cache for instant zero-latency swap -->
+  <div id="character-sprites-cache" class="hidden" aria-hidden="true">
+    <img src="./img/character-sprites/idle.png" alt="" loading="eager" />
+    <img src="./img/character-sprites/front.png" alt="" loading="eager" />
+    <img src="./img/character-sprites/jump.png" alt="" loading="eager" />
+    <img src="./img/character-sprites/walk-1.png" alt="" loading="eager" />
+    <img src="./img/character-sprites/walk-2.png" alt="" loading="eager" />
+    <img src="./img/character-sprites/back.png" alt="" loading="eager" />
+    <img src="./img/character-sprites/back-walk-1.png" alt="" loading="eager" />
+    <img src="./img/character-sprites/back-walk-2.png" alt="" loading="eager" />
   </div>
 
   <!-- ================= JAVASCRIPT ================= -->

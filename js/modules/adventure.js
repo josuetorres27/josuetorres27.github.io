@@ -323,6 +323,11 @@
     if (photoTarget) {
       var rect = photoTarget.getBoundingClientRect();
       var targetY = Math.max(0, Math.round(window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2)));
+      isProgrammaticScroll = true;
+      if (programmaticScrollTimeout) clearTimeout(programmaticScrollTimeout);
+      programmaticScrollTimeout = setTimeout(function () {
+        isProgrammaticScroll = false;
+      }, 1000);
       window.scrollTo({
         top: targetY,
         behavior: 'smooth'

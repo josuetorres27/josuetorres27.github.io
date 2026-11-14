@@ -1,16 +1,16 @@
 # Josue Torres Sibaja — Software Engineering Portfolio
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Site-josuetorres.tech-3b82f6?style=flat-square&logo=google-chrome&logoColor=white)](https://josuetorres.tech/)
+[![Live Portfolio](https://img.shields.io/badge/Live_Site-josuetorressibaja.com-3b82f6?style=flat-square&logo=google-chrome&logoColor=white)](https://josuetorressibaja.com/)
 [![CI Test Suite](https://github.com/josuetorres27/josuetorres27.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/josuetorres27/josuetorres27.github.io/actions/workflows/ci.yml)
 [![Automated Tests](https://img.shields.io/badge/Tests-312%20Passing-success?style=flat-square&logo=python&logoColor=white)](#automated-testing--quality-assurance)
-[![Production Pipeline](https://img.shields.io/badge/Deployed%20with-CI%2FCD%20Pipeline-22c55e?style=flat-square&logo=githubactions&logoColor=white)](https://josuetorres.tech/)
+[![Production Pipeline](https://img.shields.io/badge/Deployed%20with-CI%2FCD%20Pipeline-22c55e?style=flat-square&logo=githubactions&logoColor=white)](https://josuetorressibaja.com/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#portfolio-key-features)
 [![Web Audio API](https://img.shields.io/badge/Web_Audio-8--Bit_Synth-f59e0b?style=flat-square)](#portfolio-key-features)
 
 Welcome to the official repository for my personal software engineering portfolio. This website showcases my academic background, featured software engineering projects, production experience in Information Technology infrastructure & web administration, applied AI workflows, and personal interests — wrapped in a custom retro gaming and terminal aesthetic.
 
-**Live Website:** [https://josuetorres.tech](https://josuetorres.tech)
+**Live Website:** [https://josuetorressibaja.com](https://josuetorressibaja.com)
 
 ---
 
@@ -169,5 +169,5 @@ You can view or download my latest resumes and official certifications directly 
 ---
 
 <div align="center">
-  <sub>Designed & Developed by Josue Torres Sibaja · Hosted on josuetorres.tech</sub>
+  <sub>Designed & Developed by Josue Torres Sibaja · Hosted on josuetorressibaja.com</sub>
 </div>

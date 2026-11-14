@@ -1,7 +1,7 @@
 """
 Tests for Portfolio Internationalization (i18n)
 Validates symmetry, completeness, formatting, non-emptiness, and DOM consistency
-across all 280 translation keys between EN and ES.
+across all 254 translation keys between EN and ES.
 """
 
 import os
@@ -65,6 +65,14 @@ class TestTranslationsSuite(unittest.TestCase):
             self.assertIn(key, self.en_keys, f"data-i18n-html key '{key}' in index.html is missing in English translations")
             self.assertIn(key, self.es_keys, f"data-i18n-html key '{key}' in index.html is missing in Spanish translations")
 
+    def test_all_data_i18n_aria_and_title_keys_exist_in_dictionaries(self):
+        """Every data-i18n-aria / data-i18n-title attribute in index.html must have a translation key."""
+        attr_keys = set(re.findall(r'data-i18n-(?:aria|title)=["\']([^"\']+)["\']', self.html_content))
+        self.assertGreater(len(attr_keys), 10, "Too few data-i18n-aria attributes found in index.html")
+        for key in attr_keys:
+            self.assertIn(key, self.en_keys, f"data-i18n-aria/title key '{key}' in index.html is missing in English translations")
+            self.assertIn(key, self.es_keys, f"data-i18n-aria/title key '{key}' in index.html is missing in Spanish translations")
+
     def test_no_mojibake_or_corrupted_encoding(self):
         """Ensure no corrupted UTF-8 mojibake patterns appear in translations."""
         mojibake_patterns = [r"Ã¡", r"Ã©", r"Ã­", r"Ã³", r"Ãº", r"Ã±", r"Â¡", r"Â¿", r"â€"]
@@ -110,7 +118,7 @@ class TestTranslationsSuite(unittest.TestCase):
         self.assertEqual(len(en_items), len(es_items), "hero_phrases count must match between EN and ES")
 
 
-# Generate individual test methods for each of the 280 translation keys
+# Generate individual test methods for each of the 254 translation keys
 en_keys_list, es_keys_list, _ = extract_translation_keys_and_dicts()
 common_keys = sorted(list(set(en_keys_list)))
 

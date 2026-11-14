@@ -292,7 +292,7 @@
       <!-- Desktop & Tablet Actions: Language, Theme -->
       <div class="hidden md:flex items-center gap-2">
         <!-- Language Switcher Desktop/Tablet (Pixel Art Style) -->
-        <div class="lang-switch-chassis h-8 inline-flex items-center p-0.5 text-xs font-mono select-none pixel-corners-btn" role="group" aria-label="Language selection">
+        <div class="lang-switch-chassis h-8 inline-flex items-center p-0.5 text-xs font-mono select-none pixel-corners-btn" role="group" aria-label="Language selection" data-i18n-aria="aria_lang_selection">
           <button id="lang-btn-en" type="button" class="lang-switch-btn w-7 h-full pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-xs select-none" aria-label="Switch to English">EN</button>
           <button id="lang-btn-es" type="button" class="lang-switch-btn w-7 h-full pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-xs select-none" aria-label="Cambiar a Español">ES</button>
         </div>
@@ -307,7 +307,7 @@
       <!-- Mobile Right Controls (Lang, Theme) -->
       <div class="flex items-center gap-1.5 sm:gap-2 md:hidden">
         <!-- Language Switcher Mobile (Pixel Art Style) -->
-        <div class="lang-switch-chassis h-8 inline-flex items-center p-0.5 text-xs font-mono select-none pixel-corners-btn" role="group" aria-label="Mobile language selector">
+        <div class="lang-switch-chassis h-8 inline-flex items-center p-0.5 text-xs font-mono select-none pixel-corners-btn" role="group" aria-label="Mobile language selector" data-i18n-aria="aria_lang_selection_mobile">
           <button id="lang-btn-en-m" type="button" class="lang-switch-btn w-6 h-full pixel-corners-btn font-mono font-bold transition-all bg-brand-600 text-white shadow-sm flex items-center justify-center leading-none text-[11px] select-none" aria-label="Switch to English">EN</button>
           <button id="lang-btn-es-m" type="button" class="lang-switch-btn w-6 h-full pixel-corners-btn font-mono font-bold transition-all text-slate-400 hover:text-white flex items-center justify-center leading-none text-[11px] select-none" aria-label="Cambiar a Español">ES</button>
         </div>
@@ -435,19 +435,19 @@
 
             <!-- Quick Links: GitHub & LinkedIn -->
             <div class="flex items-center justify-center sm:justify-start gap-2.5 sm:gap-2 w-full sm:w-auto mt-1 sm:mt-0">
-              <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="pixel-btn pixel-btn-icon pixel-corners-btn p-3 text-slate-400 hover:text-white">
+              <a href="https://github.com/josuetorres27" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" data-i18n-aria="aria_github_profile" class="pixel-btn pixel-btn-icon pixel-corners-btn p-3 text-slate-400 hover:text-white">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
                 </svg>
               </a>
 
-              <a href="https://www.linkedin.com/in/josue-torres-sibaja/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="pixel-btn pixel-btn-icon pixel-corners-btn p-3 text-slate-400 hover:text-white">
+              <a href="https://www.linkedin.com/in/josue-torres-sibaja/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" data-i18n-aria="aria_linkedin_profile" class="pixel-btn pixel-btn-icon pixel-corners-btn p-3 text-slate-400 hover:text-white">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
 
-              <a href="mailto:dev.josue.torres@gmail.com" aria-label="Send email" class="pixel-btn pixel-btn-icon pixel-corners-btn p-3 text-slate-400 hover:text-white">
+              <a href="mailto:dev.josue.torres@gmail.com" aria-label="Send email" data-i18n-aria="aria_send_email" class="pixel-btn pixel-btn-icon pixel-corners-btn p-3 text-slate-400 hover:text-white">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
@@ -472,7 +472,7 @@
                 </div>
 
                 <!-- Photo Screen -->
-                <div id="hero-photo-card" class="lightbox-trigger relative w-full aspect-[4/5] overflow-hidden pixel-corners-sm cursor-pointer" role="button" tabindex="0" aria-label="Ver fotografía de perfil">
+                <div id="hero-photo-card" class="lightbox-trigger relative w-full aspect-[4/5] overflow-hidden pixel-corners-sm cursor-pointer" role="button" tabindex="0" aria-label="View profile photo" data-i18n-aria="aria_view_profile_photo">
                   <img id="hero-profile-img" src="./img/portfolio.jpeg" alt="Josue Torres Sibaja | Software Engineer & CS Graduating Senior" class="w-full h-full object-cover object-top transition-all duration-300">
                   <span data-i18n="hero_photo_caption" class="sr-only">Josue Torres Sibaja | Software Engineer & CS Graduating Senior</span>
 
@@ -660,21 +660,21 @@
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-            <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
+            <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="View full image" data-i18n-aria="aria_view_image">
               <img src="./img/experience/1.jpeg" alt="Workstation Teardown and Motherboard Servicing" class="w-full h-full object-cover object-center transition-all duration-300">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img2_caption" class="text-xs font-semibold text-white drop-shadow">Hardware Servicing & Internal Diagnostics</span>
               </div>
             </div>
 
-            <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
+            <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="View full image" data-i18n-aria="aria_view_image">
               <img src="./img/experience/2.jpeg" alt="Storage Component Diagnostic and HDD to SSD Upgrade" class="w-full h-full object-cover object-center transition-all duration-300">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img3_caption" class="text-xs font-semibold text-white drop-shadow">Storage Upgrades & SATA Diagnostics</span>
               </div>
             </div>
 
-            <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="Ver imagen completa">
+            <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-brand-500/50" role="button" tabindex="0" aria-label="View full image" data-i18n-aria="aria_view_image">
               <img src="./img/experience/3.jpeg" alt="Oficina de Orientación - Universidad de Costa Rica" class="w-full h-full object-cover object-center transition-all duration-300">
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <span data-i18n="experience_img1_caption" class="text-xs font-semibold text-white drop-shadow">Orientation Office · Universidad de Costa Rica</span>
@@ -1077,7 +1077,7 @@
                 <span data-i18n="lasce_btn">Visit Production</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
               </a>
-              <a href="https://github.com/LasceUCR/lasce" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center justify-center gap-2" aria-label="Ver repositorio de LASCE en GitHub">
+              <a href="https://github.com/LasceUCR/lasce" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center justify-center gap-2" aria-label="View LASCE repository on GitHub" data-i18n-aria="aria_gh_lasce">
                 <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
                 <span>GitHub</span>
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -1140,7 +1140,7 @@
                 <span data-i18n="p3_btn">Visit Production</span>
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
               </a>
-              <a href="https://github.com/josuetorres27/cs-interactive-workshop" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center justify-center gap-2" aria-label="Ver repositorio de CS Interactive Workshop en GitHub">
+              <a href="https://github.com/josuetorres27/cs-interactive-workshop" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center justify-center gap-2" aria-label="View CS Interactive Workshop repository on GitHub" data-i18n-aria="aria_gh_workshop">
                 <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
                 <span>GitHub</span>
                 <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -1191,7 +1191,7 @@
                 <span data-i18n="p4_date" class="hidden sm:inline text-xs font-mono text-slate-400">Oct 2026 – Present</span>
               </div>
               <div class="flex items-center gap-2.5 sm:gap-3 mb-3 sm:hidden">
-                <a href="https://github.com/josuetorres27/pades-lta-renewer" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center gap-1.5" aria-label="Ver repositorio de PAdES-LTA Renewer en GitHub">
+                <a href="https://github.com/josuetorres27/pades-lta-renewer" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center gap-1.5" aria-label="View PAdES-LTA Renewer repository on GitHub" data-i18n-aria="aria_gh_pades">
                   <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
                   <span>GitHub</span>
                   <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -1202,7 +1202,7 @@
                 PAdES-LTA Renewer — Long-Term Digital Signature Preservation
               </h4>
             </div>
-            <a href="https://github.com/josuetorres27/pades-lta-renewer" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 items-center gap-2 self-start" aria-label="Ver repositorio de PAdES-LTA Renewer en GitHub">
+            <a href="https://github.com/josuetorres27/pades-lta-renewer" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 items-center gap-2 self-start" aria-label="View PAdES-LTA Renewer repository on GitHub" data-i18n-aria="aria_gh_pades">
               <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
               <span>GitHub</span>
               <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -1320,7 +1320,7 @@
                 <span data-i18n="p1_date" class="hidden sm:inline text-xs font-mono text-slate-400">Mar 2026 – Jul 2026</span>
               </div>
               <div class="flex items-center gap-2.5 sm:gap-3 mb-3 sm:hidden">
-                <a href="https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center gap-1.5" aria-label="Ver repositorio de Virtual Microscope en GitHub">
+                <a href="https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel" target="_blank" rel="noopener noreferrer" class="pixel-btn pixel-btn-secondary pixel-corners-btn px-3 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 inline-flex items-center gap-1.5" aria-label="View Virtual Microscope repository on GitHub" data-i18n-aria="aria_gh_microscope">
                   <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
                   <span>GitHub</span>
                   <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -1331,7 +1331,7 @@
                 Virtual Microscope Administration Panel
               </h4>
             </div>
-            <a href="https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 items-center gap-2 self-start" aria-label="Ver repositorio de Virtual Microscope en GitHub">
+            <a href="https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex pixel-btn pixel-btn-secondary pixel-corners-btn px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider shrink-0 items-center gap-2 self-start" aria-label="View Virtual Microscope repository on GitHub" data-i18n-aria="aria_gh_microscope">
               <svg class="w-4 h-4 fill-current text-slate-300" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
               <span>GitHub</span>
               <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -1731,7 +1731,7 @@
               
               <!-- Slide 1: 1.jpg -->
               <div class="w-full sm:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc1" data-location-url="https://maps.app.goo.gl/2KUMJyLAawHhcthu5" data-location-name="Parque Naomi, Quepos, Puntarenas, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="View full photo" data-i18n-aria="aria_view_photo" data-location-key="interests_photo_loc1" data-location-url="https://maps.app.goo.gl/2KUMJyLAawHhcthu5" data-location-name="Parque Naomi, Quepos, Puntarenas, Costa Rica">
                   <img src="./img/photography/1.jpg" alt="Pacific Coast shoreline under blue tropical skies" class="w-full h-full object-cover object-center transition-all duration-300">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img1" class="text-xs font-semibold text-white drop-shadow">Tropical Coastline & Marine Horizon</span>
@@ -1745,7 +1745,7 @@
 
               <!-- Slide 2: 2.jpg -->
               <div class="w-full sm:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc2" data-location-url="https://maps.app.goo.gl/a6MjnM6DAJu7bmFT6" data-location-name="Playa Bejuco, Parrita, Puntarenas, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="View full photo" data-i18n-aria="aria_view_photo" data-location-key="interests_photo_loc2" data-location-url="https://maps.app.goo.gl/a6MjnM6DAJu7bmFT6" data-location-name="Playa Bejuco, Parrita, Puntarenas, Costa Rica">
                   <img src="./img/photography/2.jpg" alt="Golden sunset reflections along the beach horizon" class="w-full h-full object-cover object-center transition-all duration-300">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img2" class="text-xs font-semibold text-white drop-shadow">Golden Sunset Reflections</span>
@@ -1759,7 +1759,7 @@
 
               <!-- Slide 3: 3.jpeg -->
               <div class="w-full sm:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc3" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="View full photo" data-i18n-aria="aria_view_photo" data-location-key="interests_photo_loc3" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/3.jpeg" alt="Iconic sunflower mural at University of Costa Rica" class="w-full h-full object-cover object-center transition-all duration-300">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img3" class="text-xs font-semibold text-white drop-shadow">The Cosmic Sunflower · UCR</span>
@@ -1773,7 +1773,7 @@
 
               <!-- Slide 4: 4.jpg -->
               <div class="w-full sm:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc4" data-location-url="https://maps.app.goo.gl/3M5YRM2zduhpCBvY7" data-location-name="Marina Pez Vela, Quepos, Puntarenas, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="View full photo" data-i18n-aria="aria_view_photo" data-location-key="interests_photo_loc4" data-location-url="https://maps.app.goo.gl/3M5YRM2zduhpCBvY7" data-location-name="Marina Pez Vela, Quepos, Puntarenas, Costa Rica">
                   <img src="./img/photography/4.jpg" alt="Marina pier with boats and ocean view under tropical sky" class="w-full h-full object-cover object-center transition-all duration-300">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img4" class="text-xs font-semibold text-white drop-shadow">Marina Pier & Sailboats</span>
@@ -1787,7 +1787,7 @@
 
               <!-- Slide 5: 5.jpeg -->
               <div class="w-full sm:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc5" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="View full photo" data-i18n-aria="aria_view_photo" data-location-key="interests_photo_loc5" data-location-url="https://maps.app.goo.gl/9naQaoFhvRepp4Mt6" data-location-name="UCR Rodrigo Facio, San Pedro, San José, Costa Rica">
                   <img src="./img/photography/5.jpeg" alt="Sunset sky gradient with violet and amber tones" class="w-full h-full object-cover object-center transition-all duration-300">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img5" class="text-xs font-semibold text-white drop-shadow">Evening Sky Gradient & Dusk Horizon</span>
@@ -1801,7 +1801,7 @@
 
               <!-- Slide 6: 6.jpg -->
               <div class="w-full sm:w-1/3 flex-shrink-0 px-2 sm:px-2.5">
-                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="Ver fotografía completa" data-location-key="interests_photo_loc6" data-location-url="https://maps.app.goo.gl/1SERCtZCMmwr2hc18" data-location-name="Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica">
+                <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[3/4] shadow-md transition-all hover:border-cyan-500/50" role="button" tabindex="0" aria-label="View full photo" data-i18n-aria="aria_view_photo" data-location-key="interests_photo_loc6" data-location-url="https://maps.app.goo.gl/1SERCtZCMmwr2hc18" data-location-name="Cerca del Parque Central de Zarcero, Zarcero, Alajuela, Costa Rica">
                   <img src="./img/photography/6.jpg" alt="Rustic treehouse in pine trees under clear sky" class="w-full h-full object-cover object-center transition-all duration-300">
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <span data-i18n="interests_photo_img6" class="text-xs font-semibold text-white drop-shadow">Rustic Treehouse</span>
@@ -1820,10 +1820,10 @@
           <div class="flex items-center justify-between mt-5 px-1">
             <!-- Prev/Next Navigation Buttons -->
             <div class="flex items-center gap-2">
-              <button id="photo-prev-btn" type="button" aria-label="Previous photos" class="pixel-btn pixel-btn-icon pixel-corners-btn p-2 text-slate-300 hover:text-white">
+              <button id="photo-prev-btn" type="button" aria-label="Previous photos" data-i18n-aria="aria_prev_photos" class="pixel-btn pixel-btn-icon pixel-corners-btn p-2 text-slate-300 hover:text-white">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
               </button>
-              <button id="photo-next-btn" type="button" aria-label="Next photos" class="pixel-btn pixel-btn-icon pixel-corners-btn p-2 text-slate-300 hover:text-white">
+              <button id="photo-next-btn" type="button" aria-label="Next photos" data-i18n-aria="aria_next_photos" class="pixel-btn pixel-btn-icon pixel-corners-btn p-2 text-slate-300 hover:text-white">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
               </button>
               <span class="text-[11px] font-mono text-slate-400 ml-1.5 hidden sm:inline">
@@ -1870,19 +1870,19 @@
 
         <!-- 1x3 Handicrafts Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
+          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="View full figure" data-i18n-aria="aria_view_figure">
             <img src="./img/handicrafts/1.jpg" alt="Handcrafted miniature sculptures: Stitch, Pikachu, Capybara, Cat, Dragon pencil toppers" class="w-full h-full object-cover object-center transition-all duration-300">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img1" class="text-xs font-semibold text-white drop-shadow">Figuras para Lápiz</span>
             </div>
           </div>
-          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
+          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="View full figure" data-i18n-aria="aria_view_figure">
             <img src="./img/handicrafts/2.jpg" alt="Handcrafted sculptures: Toothless, Spider-Man and Unicorn" class="w-full h-full object-cover object-center transition-all duration-300">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img2" class="text-xs font-semibold text-white drop-shadow">Character Clay Figures</span>
             </div>
           </div>
-          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="Ver figura completa">
+          <div class="lightbox-trigger group relative pixel-corners-sm overflow-hidden border border-slate-800 bg-slate-950 aspect-[4/3] sm:aspect-[3/4] shadow-md transition-all hover:border-amber-500/50" role="button" tabindex="0" aria-label="View full figure" data-i18n-aria="aria_view_figure">
             <img src="./img/handicrafts/3.jpg" alt="Handcrafted sculpture: Commemorative anniversary reading owl on a pencil for library celebration" class="w-full h-full object-cover object-center transition-all duration-300">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <span data-i18n="interests_crafts_img3" class="text-xs font-semibold text-white drop-shadow">Commemorative Reading Owl</span>
@@ -2047,7 +2047,7 @@
           </a>
 
           <!-- Copy Button with Visual Toast -->
-          <button id="copy-email-btn" type="button" class="pixel-btn pixel-btn-icon pixel-corners-btn p-2.5 text-slate-300 hover:text-white" title="Copy email" aria-label="Copy email">
+          <button id="copy-email-btn" type="button" class="pixel-btn pixel-btn-icon pixel-corners-btn p-2.5 text-slate-300 hover:text-white" title="Copy email" data-i18n-title="aria_copy_email" aria-label="Copy email" data-i18n-aria="aria_copy_email">
             <svg id="copy-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
             </svg>
@@ -2109,7 +2109,7 @@
         <div class="w-full flex items-center justify-between gap-3">
           <p id="lightbox-caption" class="text-sm sm:text-base font-semibold tracking-wide truncate text-white min-w-0 flex-1"></p>
           
-          <button id="lightbox-close-btn" type="button" aria-label="Cerrar imagen" class="flex-shrink-0 pixel-btn pixel-btn-icon pixel-corners-btn p-2" title="Cerrar">
+          <button id="lightbox-close-btn" type="button" aria-label="Close image" data-i18n-aria="aria_close_image" class="flex-shrink-0 pixel-btn pixel-btn-icon pixel-corners-btn p-2" title="Cerrar">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
@@ -2221,7 +2221,7 @@
 
         <!-- Exit Button -->
         <div class="pt-1 mt-1 border-t border-slate-800/80 w-full flex justify-center">
-          <button id="rail-exit-btn" type="button" class="group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center transition-all active:scale-95 cursor-pointer" aria-label="Cerrar Modo Aventura" title="Cerrar Modo Aventura">
+          <button id="rail-exit-btn" type="button" class="group relative z-10 w-8 h-8 sm:w-9 sm:h-9 pixel-corners-sm flex items-center justify-center transition-all active:scale-95 cursor-pointer" aria-label="Close Adventure Mode" data-i18n-aria="adv_close_mode" title="Cerrar Modo Aventura">
             <img src="./img/icons/close-x-dark.png" alt="Cerrar" class="theme-icon-dark w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none transition-transform group-hover:scale-110" />
             <img src="./img/icons/close-x-light.png" alt="Cerrar" class="theme-icon-light w-4 h-4 sm:w-5 sm:h-5 pixelated select-none pointer-events-none transition-transform group-hover:scale-110" />
             <span id="rail-exit-tooltip" class="rail-tooltip hidden group-hover:block absolute right-full mr-2.5 px-2.5 py-1 text-[11px] font-mono font-medium text-slate-200 whitespace-nowrap">Salir</span>

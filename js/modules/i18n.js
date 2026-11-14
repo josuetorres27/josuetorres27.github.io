@@ -206,6 +206,20 @@
       }
     });
 
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-aria');
+      if (dict[key] !== undefined) {
+        el.setAttribute('aria-label', dict[key]);
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-title');
+      if (dict[key] !== undefined) {
+        el.setAttribute('title', dict[key]);
+      }
+    });
+
     document.querySelectorAll('.lang-switch-btn').forEach(function (btn) {
       var isMobileBtn = btn.id.endsWith('-m');
       var isEn = btn.id.includes('-en');

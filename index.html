@@ -116,6 +116,11 @@
       document.documentElement.classList.remove('light');
     }
 
+    // A ?lang=en|es link wins over the saved preference, so a language can be shared by URL
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    if (urlLang === 'en' || urlLang === 'es') {
+      localStorage.setItem('portfolio_lang', urlLang);
+    }
     const savedLang = localStorage.getItem('portfolio_lang') || 'en';
     document.documentElement.lang = savedLang;
     window.__portfolioLoaderActive = true;

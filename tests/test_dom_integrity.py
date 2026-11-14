@@ -536,6 +536,17 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("adventureSession++;", close_block)
         self.assertIn("clearIntroIntervals();", close_block)
 
+    def test_language_url_parameter_support(self):
+        """Verify ?lang=en|es is honored before the saved preference is read."""
+        with open(os.path.join(ROOT_DIR, "index.html"), "r", encoding="utf-8") as f:
+            index_code = f.read()
+
+        head_code = index_code.split("</head>")[0]
+        self.assertIn("new URLSearchParams(window.location.search).get('lang')", head_code)
+        url_pos = head_code.find("URLSearchParams")
+        saved_pos = head_code.find("const savedLang = localStorage.getItem('portfolio_lang') || 'en';")
+        self.assertTrue(0 <= url_pos < saved_pos, "URL language must be applied before the saved language is read")
+
 
 if __name__ == "__main__":
     unittest.main()

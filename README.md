@@ -39,12 +39,32 @@ I am a **Computer Science Graduating Senior** (Software Engineering emphasis) at
 
 ## Featured Projects
 
-### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr) *(Active Development)*
+### [LASCE — Institutional Scientific Web Platform](https://lasce.ucr.ac.cr) *(Institutional Project · Concludes Dec 2026)*
 Full-stack institutional and scientific-data platform developed for the **Solar Astrophysics and Space Weather Laboratory (LASCE)** at the Universidad de Costa Rica.
 - **Live Platform:** [https://lasce.ucr.ac.cr](https://lasce.ucr.ac.cr)
 - **Repository:** [LasceUCR/lasce](https://github.com/LasceUCR/lasce)
 - **Stack:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Prisma ORM, PostgreSQL, Redis, BullMQ, Python 3.13 Worker, MinIO, Docker, Playwright E2E, Vitest.
 - **Contributions:** Complete CMS suite for scientific news and the ROSAC radio observatory (optimistic concurrency control, Prisma transactions, MinIO asset pipelines), accessible WCAG UI components, and automated E2E testing suites.
+
+### [CS Interactive Workshop](https://cs-interactive-workshop.web.app/) *(Sep 2024 – Present)*
+Interactive web workshop for Computer Science students at the Universidad de Costa Rica, built on visual simulations backed by real C and C++ engines.
+- **Live App:** [https://cs-interactive-workshop.web.app](https://cs-interactive-workshop.web.app/)
+- **Repository:** [josuetorres27/cs-interactive-workshop](https://github.com/josuetorres27/cs-interactive-workshop)
+- **Stack:** C11, C++17, POSIX Threads, OpenMP, BSD Sockets (TCP/IP), JavaScript, Firebase (Hosting, Auth, Firestore), GitHub Actions.
+- **Highlights:** Stations on algorithms, data structures, concurrency, networking, interview patterns, and SQL; a 2D heat diffusion solver in serial, pthreads, and OpenMP versions with bit-for-bit identical results; a multi-threaded TCP server; and a CI pipeline running more than 880 automated tests before every deployment.
+
+### [PAdES-LTA Renewer](https://github.com/josuetorres27/pades-lta-renewer) *(Oct 2026 – Present · UCR)*
+Research project for **CI-0140 Software Quality**: an engine and web service that renews timestamps on digitally signed PDF documents for long-term preservation (PAdES-B-LTA / ETSI EN 319 142), in line with Costa Rica's Law 8454.
+- **Repository:** [josuetorres27/pades-lta-renewer](https://github.com/josuetorres27/pades-lta-renewer)
+- **Stack:** Python, Flask, cryptography, asn1crypto, pypdf, RFC 3161, X.509, OCSP, CRL, pytest.
+- **Highlights:** RFC 3161 client for the SINPE Time Stamping Authority (BCCR), X.509 chain reconstruction up to the national root CA with OCSP/CRL revocation checks, and incremental PDF updates that add `/DSS` evidence and `/DocTimeStamp` seals without invalidating existing signatures.
+- **Co-author:** Gabriel Serrano Rojas
+
+### ¿Quién controla nuestra atención? *(Ethical Vodcast)*
+Audiovisual ethical investigation analyzing algorithmic recommendation engines, the attention economy, and the professional responsibilities of computing engineers.
+- **Episodes:** [Episodio 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episodio 2 — Detrás de Cámaras (YouTube)](https://youtu.be/MKMLW2HJ6zo)
+- **Co-creators:** [Gabriel Serrano](https://www.linkedin.com/in/gabrielserranor/) & [Rolando Villavicencio González](https://www.linkedin.com/in/rolando-villavicencio-gonzalez/)
+- **Production:** Multi-camera setup, scriptwriting, professional sound engineering, and post-production editing.
 
 ### [Virtual Microscope Administration Panel](https://github.com/RolandoVillavicencio013/biological-microscope-administration-panel) *(UCR)*
 Desktop administration platform that digitizes microscopy workflows and manages biological specimen collections.
@@ -56,17 +76,6 @@ Desktop administration platform that digitizes microscopy workflows and manages 
 Virtual campus simulation built in Unity with a decoupled backend architecture.
 - **Stack:** C#, ASP.NET Core, RESTful APIs, SQL Server, Unity Integration, Scrum.
 - **Highlights:** Decoupled REST services for real-time interaction with virtual campus buildings, facilities, and interactive learning objects.
-
-### Distributed ASCII Art System *(UCR)*
-Distributed client-server network architecture for managing and rendering ASCII art figures across nodes.
-- **Stack:** C++, Linux Sockets (TCP/IP), HTTP Protocol, Inter-Process Communication (IPC), Custom File System.
-- **Highlights:** Concurrent connection handling, network protocol design, and multi-node communication in a Linux environment.
-
-### ¿Quién controla nuestra atención? *(Ethical Vodcast)*
-Audiovisual ethical investigation analyzing algorithmic recommendation engines, the attention economy, and the professional responsibilities of computing engineers.
-- **Episodes:** [Episodio 1 (YouTube)](https://youtu.be/ltSKzyDhLzY) · [Episodio 2 — Detrás de Cámaras (YouTube)](https://youtu.be/MKMLW2HJ6zo)
-- **Co-creators:** [Gabriel Serrano](https://www.linkedin.com/in/gabrielserranor/) & [Rolando Villavicencio González](https://www.linkedin.com/in/rolando-villavicencio-gonzalez/)
-- **Production:** Multi-camera setup, scriptwriting, professional sound engineering, and post-production editing.
 
 ---
 

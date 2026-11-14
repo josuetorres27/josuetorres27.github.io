@@ -492,6 +492,50 @@ class TestDOMIntegrity(unittest.TestCase):
         self.assertIn("will-change: transform;", css_code)
         self.assertIn("transform: translateZ(0);", css_code)
 
+    def test_adventure_motion_stays_on_compositor(self):
+        """Verify the companion, rail indicator and page shift animate with transform, never top/left layout."""
+        with open(os.path.join(ROOT_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
+            adv_code = f.read()
+        with open(os.path.join(ROOT_DIR, "css", "styles.css"), "r", encoding="utf-8") as f:
+            css_code = f.read()
+
+        # 1. Walker and indicator move with translate3d, not the top property
+        self.assertIn("function setRailOffset(", adv_code)
+        self.assertNotIn("style.top", adv_code)
+        self.assertNotIn("'top ' +", adv_code)
+
+        # 2. The stage wrapper slides with transform instead of left
+        wrapper_rule = css_code.split("#adventure-stage-wrapper {")[1].split("}")[0]
+        self.assertIn("transition: transform", wrapper_rule)
+        self.assertNotIn("left", wrapper_rule)
+        self.assertNotIn("stageWrapper.style.left", adv_code)
+
+        # 3. Typewriter flips one character per tick instead of rebuilding innerHTML
+        self.assertIn("function buildDialogueTypewriter(", adv_code)
+        self.assertNotIn("dialogueTextEl.innerHTML", adv_code)
+
+        # 4. Landing hops use an animation (Tailwind translate classes lose to the translateZ(0) GPU rule)
+        self.assertIn("@keyframes sprite-hop", css_code)
+        self.assertNotIn("-translate-y-2", adv_code)
+        self.assertNotIn("-translate-y-3", adv_code)
+
+    def test_adventure_intro_cancelled_on_close(self):
+        """Verify the intro timers are tied to a session so closing mid-intro never revives the rail or dialogue."""
+        with open(os.path.join(ROOT_DIR, "js", "modules", "adventure.js"), "r", encoding="utf-8") as f:
+            adv_code = f.read()
+
+        self.assertIn("function later(", adv_code)
+        self.assertIn("function clearIntroIntervals(", adv_code)
+
+        start_block = adv_code.split("function startAdventure(")[1].split("function closeAdventure(")[0]
+        close_block = adv_code.split("function closeAdventure(")[1].split("function initAdventureMode(")[0]
+        self.assertIn("adventureSession++;", start_block)
+        intro_block = start_block.split("adventureSession++;")[1]
+        self.assertNotIn("setTimeout(", intro_block)
+        self.assertNotIn("setInterval(", intro_block)
+        self.assertIn("adventureSession++;", close_block)
+        self.assertIn("clearIntroIntervals();", close_block)
+
 
 if __name__ == "__main__":
     unittest.main()

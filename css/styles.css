@@ -546,29 +546,20 @@
       animation: pop-out-arc 3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
     }
 
-    /* Adventure Mode Stage Wrapper Shift */
+    /* Adventure Mode Stage Wrapper Shift (transform keeps the slide on the compositor, no page relayout per frame) */
     #adventure-stage-wrapper {
       position: relative;
-      left: 0px;
       width: 100%;
-      transition: left 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: left;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .adventure-stage-shifted #adventure-stage-wrapper {
-      left: calc(var(--adv-content-shift, 36px) * -1);
+      transform: translate3d(calc(var(--adv-content-shift, 36px) * -1), 0, 0);
     }
     .adventure-stage-shifted #adventure-stage-wrapper header,
     .adventure-stage-shifted #adventure-stage-wrapper footer {
       width: calc(100% + var(--adv-content-shift, 36px));
     }
 
-    @keyframes walker-bob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-2.5px); }
-    }
-    .walker-bounce {
-      animation: walker-bob 0.35s ease-in-out infinite;
-    }
 
     /* Light Mode Theme Overrides */
     html.light body {
@@ -2074,6 +2065,22 @@
 
     .animate-pixel-jump {
       animation: pixel-jump-bounce 0.48s cubic-bezier(0.2, 0.8, 0.4, 1) forwards !important;
+    }
+
+    /* Rail Walker & Indicator Glide (moved with transform instead of top to avoid layout on every frame) */
+    #rail-character-walker,
+    #rail-active-indicator {
+      top: 0;
+      transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.3s ease-out;
+    }
+
+    /* Small Landing Hop (animation wins over the translateZ(0) GPU rule, unlike Tailwind translate classes) */
+    @keyframes sprite-hop {
+      0%, 100% { transform: translateY(0); }
+      45% { transform: translateY(-10px); }
+    }
+    .animate-sprite-hop {
+      animation: sprite-hop 0.4s cubic-bezier(0.2, 0.8, 0.4, 1);
     }
 
     /* Hero CV / Resume Dropdown Stepped Border System (Dark & Light Mode) */

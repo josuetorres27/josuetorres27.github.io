@@ -20,6 +20,43 @@
   var isWalkerJumping = false;
   var isAvatarJumping = false;
   var afkTimer = null;
+  var adventureSession = 0;
+  var introIntervals = [];
+
+  // Runs fn after ms only if the same adventure session is still active,
+  // so closing the mode during the intro never revives the rail or dialogue.
+  function later(fn, ms) {
+    var session = adventureSession;
+    return setTimeout(function () {
+      if (session === adventureSession && isAdventureActive) fn();
+    }, ms);
+  }
+
+  function every(fn, ms) {
+    var id = setInterval(fn, ms);
+    introIntervals.push(id);
+    return id;
+  }
+
+  function clearIntroIntervals() {
+    introIntervals.forEach(function (id) { clearInterval(id); });
+    introIntervals = [];
+  }
+
+  // Walker and indicator glide with transform (compositor) instead of top (layout).
+  function setRailOffset(el, y) {
+    el.style.transform = 'translate3d(0, ' + y + 'px, 0)';
+  }
+
+  function hopSprite(sprite) {
+    if (!sprite) return;
+    sprite.classList.remove('animate-sprite-hop');
+    void sprite.offsetWidth;
+    sprite.classList.add('animate-sprite-hop');
+    setTimeout(function () {
+      sprite.classList.remove('animate-sprite-hop');
+    }, 420);
+  }
 
   function playSound(type) {
     if (window.PortfolioAudio && typeof window.PortfolioAudio.play === 'function') {
@@ -27,63 +64,32 @@
     }
   }
 
-  function escapeHtml(str) {
-    if (window.PortfolioI18n && typeof window.PortfolioI18n.escapeHtml === 'function') {
-      return window.PortfolioI18n.escapeHtml(str);
-    }
-    return (str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-  }
-
-  function renderDialogueTypewriter(fullText, charCount) {
-    if (!fullText) return '';
-    var words = fullText.split(' ');
-
-    if (charCount <= 0) {
-      return words.map(function (w) {
-        return '<span class="inline-block whitespace-nowrap" style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeHtml(w) + '</span>';
-      }).join(' ');
-    }
-
-    if (charCount >= fullText.length) {
-      return escapeHtml(fullText);
-    }
-
-    var tokens = [];
-    var regex = /(\s+|[^\s]+)/g;
-    var match;
-    while ((match = regex.exec(fullText)) !== null) {
-      tokens.push({
-        text: match[0],
-        isSpace: /^\s+$/.test(match[0]),
-        start: match.index,
-        end: match.index + match[0].length
-      });
-    }
-
-    var html = '';
-    for (var i = 0; i < tokens.length; i++) {
-      var token = tokens[i];
-      if (token.isSpace) {
-        html += token.text;
-      } else {
-        if (charCount >= token.end) {
-          html += '<span class="inline-block whitespace-nowrap">' + escapeHtml(token.text) + '</span>';
-        } else if (charCount <= token.start) {
-          html += '<span class="inline-block whitespace-nowrap" style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeHtml(token.text) + '</span>';
-        } else {
-          var typed = token.text.substring(0, charCount - token.start);
-          var untyped = token.text.substring(charCount - token.start);
-          html += '<span class="inline-block whitespace-nowrap">' +
-            '<span>' + escapeHtml(typed) + '</span>' +
-            '<span style="visibility:hidden; user-select:none; pointer-events:none;" aria-hidden="true">' + escapeHtml(untyped) + '</span>' +
-          '</span>';
-        }
+  // Lays the whole line out once (words kept together, every character hidden)
+  // so each typing tick only flips one character's visibility: no innerHTML
+  // rebuild and no relayout while the companion is walking.
+  function buildDialogueTypewriter(el, text) {
+    var chars = [];
+    var frag = document.createDocumentFragment();
+    var tokens = (text || '').match(/\s+|\S+/g) || [];
+    tokens.forEach(function (token) {
+      if (/^\s+$/.test(token)) {
+        frag.appendChild(document.createTextNode(token));
+        return;
       }
-    }
-    return html;
+      var word = document.createElement('span');
+      word.className = 'inline-block whitespace-nowrap';
+      Array.from(token).forEach(function (ch) {
+        var charEl = document.createElement('span');
+        charEl.textContent = ch;
+        charEl.style.visibility = 'hidden';
+        word.appendChild(charEl);
+        chars.push(charEl);
+      });
+      frag.appendChild(word);
+    });
+    el.textContent = '';
+    el.appendChild(frag);
+    return chars;
   }
 
   function typeAdventureDialogue(text, onComplete) {
@@ -98,23 +104,17 @@
     if (avatarSprite) {
       avatarSprite.src = './img/character-sprites/front.png';
     }
-    dialogueTextEl.innerHTML = '';
+    var chars = buildDialogueTypewriter(dialogueTextEl, text);
     var idx = 0;
     function tick() {
-      if (idx < text.length) {
-        var step = 1;
-        var code = text.charCodeAt(idx);
-        if (code >= 0xD800 && code <= 0xDBFF) {
-          step = 2;
-        }
-        idx += step;
-        dialogueTextEl.innerHTML = renderDialogueTypewriter(text, idx);
-        if (idx % 3 === 0 && text[idx - 1] !== ' ') {
+      if (idx < chars.length) {
+        chars[idx].style.visibility = '';
+        idx++;
+        if (idx % 3 === 0) {
           playSound('blip');
         }
         advDialogueTimer = setTimeout(tick, 22);
       } else {
-        dialogueTextEl.innerHTML = escapeHtml(text);
         advDialogueTimer = null;
         if (onComplete) onComplete();
       }
@@ -128,16 +128,14 @@
 
     if (!enable || window.innerWidth < 640) {
       document.body.classList.remove('adventure-stage-shifted');
-      stageWrapper.style.left = '0px';
       return;
     }
 
     var container = document.querySelector('#hero .max-w-6xl') || document.querySelector('section .max-w-6xl');
     var freeLeft = 0;
     if (container) {
-      var currentLeft = parseFloat(stageWrapper.style.left) || 0;
-      var rect = container.getBoundingClientRect();
-      freeLeft = rect.left - currentLeft;
+      // Measured against the wrapper itself, so a shift that is still animating does not skew it.
+      freeLeft = container.getBoundingClientRect().left - stageWrapper.getBoundingClientRect().left;
     } else {
       freeLeft = Math.max(0, (window.innerWidth - 1152) / 2);
     }
@@ -154,7 +152,6 @@
     }
 
     document.documentElement.style.setProperty('--adv-content-shift', shift + 'px');
-    stageWrapper.style.left = '-' + shift + 'px';
     document.body.classList.add('adventure-stage-shifted');
   }
 
@@ -209,10 +206,7 @@
       var avatarSprite = document.getElementById('dialogue-avatar-sprite');
       if (avatarSprite) {
         avatarSprite.src = './img/character-sprites/front.png';
-        avatarSprite.classList.add('-translate-y-2');
-        setTimeout(function () {
-          avatarSprite.classList.remove('-translate-y-2');
-        }, 400);
+        hopSprite(avatarSprite);
       }
       playSound('blip');
       typeAdventureDialogue(afkText);
@@ -263,12 +257,12 @@
 
       if (walker) {
         var walkerH = walker.offsetHeight || 80;
-        walker.style.top = Math.round(nodeCenterY - walkerH / 2) + 'px';
+        setRailOffset(walker, Math.round(nodeCenterY - walkerH / 2));
       }
 
       if (indicator) {
         var indH = indicator.offsetHeight || 10;
-        indicator.style.top = Math.round(nodeCenterY - indH / 2) + 'px';
+        setRailOffset(indicator, Math.round(nodeCenterY - indH / 2));
       }
 
       if (walkerSprite && !skipWalkerAnim && !isWalkerJumping) {
@@ -286,7 +280,9 @@
         var walkFrame2 = isMovingUp ? './img/character-sprites/back-walk-2.png' : './img/character-sprites/walk-2.png';
         var idleFrame = isMovingUp ? './img/character-sprites/back.png' : './img/character-sprites/idle.png';
 
-        var step = 0;
+        // First step lands on the same frame the glide starts, so the sprite never slides while standing still.
+        var step = 1;
+        walkerSprite.src = walkFrame1;
         walkerAnimInterval = setInterval(function () {
           step++;
           walkerSprite.src = (step % 2 === 1) ? walkFrame1 : walkFrame2;
@@ -355,9 +351,11 @@
     var portalSprite = document.getElementById('hero-portal-sprite');
     var avatarSprite = document.getElementById('dialogue-avatar-sprite');
 
+    adventureSession++;
+
     if (walker) walker.classList.add('opacity-0');
     if (indicator) {
-      indicator.style.top = '0px';
+      setRailOffset(indicator, 0);
       indicator.classList.add('opacity-0');
     }
     if (walkerSprite) walkerSprite.src = './img/character-sprites/walk-1.png';
@@ -383,37 +381,39 @@
       portalSpriteWrap.classList.remove('opacity-0', 'hidden');
       portalSpriteWrap.classList.add('opacity-100');
 
-      setTimeout(function () {
+      later(function () {
         playSound('jump');
         portalSprite.src = './img/character-sprites/jump.png';
         portalSprite.style.transition = 'transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2)';
         portalSprite.style.transform = 'translateY(-48px)';
 
-        setTimeout(function () {
+        later(function () {
           portalSprite.style.transition = 'transform 0.35s ease-in';
           portalSprite.style.transform = 'translateY(0px)';
 
-          setTimeout(function () {
+          later(function () {
             portalSprite.src = './img/character-sprites/front.png';
             playSound('coin');
             portalSprite.style.transition = 'transform 0.18s ease-out';
             portalSprite.style.transform = 'scale(1.08, 0.92)';
 
-            setTimeout(function () {
+            later(function () {
               portalSprite.style.transform = 'scale(1, 1)';
             }, 180);
 
-            setTimeout(function () {
+            later(function () {
               portalSprite.style.transition = 'transform 1.25s linear';
               portalSprite.style.transform = 'translateY(280px)';
 
-              var portalStep = 0;
-              var portalWalkInterval = setInterval(function () {
+              // Start on a walk frame right away so the sprite never slides while standing.
+              var portalStep = 1;
+              portalSprite.src = './img/character-sprites/walk-1.png';
+              var portalWalkInterval = every(function () {
                 portalStep++;
                 portalSprite.src = (portalStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
               }, 120);
 
-              setTimeout(function () {
+              later(function () {
                 clearInterval(portalWalkInterval);
                 portalSpriteWrap.classList.remove('opacity-100');
                 portalSpriteWrap.classList.add('opacity-0');
@@ -427,7 +427,7 @@
                   heroImg.classList.add('blur-0', 'scale-100', 'opacity-100');
                 }
 
-                setTimeout(function () {
+                later(function () {
                   portalSpriteWrap.classList.add('hidden');
                   if (portalOverlay) portalOverlay.classList.add('hidden');
                   portalSprite.style.transition = '';
@@ -468,31 +468,30 @@
                   }
 
                   walker.style.transition = 'none';
-                  walker.style.top = startTop + 'px';
+                  setRailOffset(walker, startTop);
                   walkerSprite.src = './img/character-sprites/walk-1.png';
                   walker.classList.remove('opacity-0');
 
                   void walker.offsetHeight;
 
                   var walkDurationMs = 850;
-                  walker.style.transition = 'top ' + walkDurationMs + 'ms cubic-bezier(0.25, 0.1, 0.25, 1)';
-                  walker.style.top = targetLevel0Top + 'px';
+                  walker.style.transition = 'transform ' + walkDurationMs + 'ms cubic-bezier(0.25, 0.1, 0.25, 1)';
+                  setRailOffset(walker, targetLevel0Top);
 
-                  var railStep = 0;
-                  var railWalkInterval = setInterval(function () {
+                  var railStep = 1;
+                  var railWalkInterval = every(function () {
                     railStep++;
                     walkerSprite.src = (railStep % 2 === 1) ? './img/character-sprites/walk-1.png' : './img/character-sprites/walk-2.png';
                   }, 110);
 
-                  setTimeout(function () {
+                  later(function () {
                     clearInterval(railWalkInterval);
                     walker.style.transition = '';
                     walkerSprite.src = './img/character-sprites/jump.png';
-                    walker.classList.add('-translate-y-2');
+                    hopSprite(walkerSprite);
                     playSound('coin');
 
-                    setTimeout(function () {
-                      walker.classList.remove('-translate-y-2');
+                    later(function () {
                       walkerSprite.src = './img/character-sprites/idle.png';
                     }, 250);
 
@@ -500,10 +499,9 @@
 
                     showDialogueBox();
                     if (avatarSprite) {
-                      avatarSprite.classList.add('-translate-y-3');
                       avatarSprite.src = './img/character-sprites/jump.png';
-                      setTimeout(function () {
-                        avatarSprite.classList.remove('-translate-y-3');
+                      hopSprite(avatarSprite);
+                      later(function () {
                         avatarSprite.src = './img/character-sprites/front.png';
                       }, 450);
                     }
@@ -546,6 +544,16 @@
     isAdventureActive = false;
     isDialogueDismissed = false;
     isAfkActive = false;
+    adventureSession++;
+    clearIntroIntervals();
+    if (walkerAnimInterval) {
+      clearInterval(walkerAnimInterval);
+      walkerAnimInterval = null;
+    }
+    if (walkerIdleTimeout) {
+      clearTimeout(walkerIdleTimeout);
+      walkerIdleTimeout = null;
+    }
     playSound('exit');
 
     currentAdvLevel = 0;
@@ -593,13 +601,14 @@
     var avatarBtn = document.getElementById('dialogue-avatar-btn');
 
     if (walker) {
-      walker.style.top = '0px';
+      walker.style.transition = '';
+      setRailOffset(walker, 0);
       walker.classList.add('opacity-0');
       walker.classList.remove('is-jumping');
       walker.style.pointerEvents = '';
     }
     if (indicator) {
-      indicator.style.top = '0px';
+      setRailOffset(indicator, 0);
     }
     isWalkerJumping = false;
     isAvatarJumping = false;

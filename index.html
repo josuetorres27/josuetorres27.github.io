@@ -2147,19 +2147,19 @@
     <div id="adventure-rail-wrapper" class="relative flex flex-col items-center">
 
       <!-- Animated Walking Sprite on the Rail (Enlarged Pixel Art - Outside clip-path!) -->
-      <div id="rail-character-walker" class="absolute -left-[86px] sm:-left-[94px] transition-all duration-500 ease-out flex items-center justify-center pointer-events-auto cursor-pointer group select-none z-30 p-2" style="top: 0px;" title="¡Hazme clic para saltar!">
+      <div id="rail-character-walker" class="absolute -left-[86px] sm:-left-[94px] flex items-center justify-center pointer-events-auto cursor-pointer group select-none z-30 p-2" style="top: 0px;" title="¡Hazme clic para saltar!">
         <div id="rail-character-scale-wrap" class="relative flex items-center justify-center">
           <img id="rail-character-sprite" src="./img/character-sprites/idle.png" class="w-16 h-16 sm:w-20 sm:h-20 pixelated drop-shadow-[0_4px_16px_rgba(2,132,199,0.65)]" alt="Mini Josue" />
         </div>
       </div>
 
       <!-- Active Node Cyan Indicator (Positioned right on the container line, between walker and level node!) -->
-      <div id="rail-active-indicator" class="absolute -left-[13px] sm:-left-[16px] transition-all duration-500 ease-out pointer-events-none z-40 flex items-center justify-center" style="top: 0px;">
+      <div id="rail-active-indicator" class="absolute -left-[13px] sm:-left-[16px] pointer-events-none z-40 flex items-center justify-center" style="top: 0px;">
         <span class="w-2.5 h-2.5 rounded-none bg-cyan-400 border-0 animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.9)]"></span>
       </div>
 
       <!-- Map Track Card (Has pixel-corners-card) -->
-      <div id="adventure-rail-card" class="relative py-2 px-1.5 sm:px-2 pixel-corners-card bg-slate-950/95 border border-slate-800/90 shadow-2xl backdrop-blur-md flex flex-col items-center">
+      <div id="adventure-rail-card" class="relative py-2 px-1.5 sm:px-2 pixel-corners-card bg-slate-950/95 border border-slate-800/90 shadow-2xl flex flex-col items-center">
         
         <!-- Top Rail Header / Controls -->
         <div class="flex flex-col items-center py-0.5 pb-1 mb-1 border-b border-slate-800/80 w-full text-center">
@@ -2228,7 +2228,7 @@
 
   <!-- Companion Dialogue Box (Bottom Floating - Stepped Pixel Art Frame) -->
   <div id="adventure-dialogue-box" class="fixed bottom-4 left-3 right-3 sm:left-auto sm:right-5 sm:bottom-5 z-50 w-auto sm:w-[480px] h-[174px] sm:h-[146px] pixel-corners-card p-[2px] hidden opacity-0 transform translate-x-full select-none pointer-events-none transition-all">
-    <div id="adventure-dialogue-inner" class="pixel-corners-card w-full h-full p-3.5 sm:p-4 bg-slate-950/95 backdrop-blur-md flex items-center gap-3.5">
+    <div id="adventure-dialogue-inner" class="pixel-corners-card w-full h-full p-3.5 sm:p-4 bg-slate-950/95 flex items-center gap-3.5">
       <!-- Avatar with Live Animations (Enlarged & Stepped Pixel Frame - No green dot) -->
       <button id="dialogue-avatar-btn" type="button" class="w-16 h-16 sm:w-20 sm:h-20 pixel-corners-sm bg-slate-900 border border-brand-500/40 flex items-center justify-center shrink-0 p-1 group hover:border-brand-400 transition-all active:scale-95 relative cursor-pointer shadow-lg shadow-brand-500/10" title="¡Hazme clic para saltar!">
         <img id="dialogue-avatar-sprite" src="./img/character-sprites/idle.png" class="w-14 h-14 sm:w-16 sm:h-16 pixelated transition-transform duration-200" alt="Mini Josue" />

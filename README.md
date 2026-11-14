@@ -2,7 +2,7 @@
 
 [![Live Portfolio](https://img.shields.io/badge/Live_Site-josuetorres.tech-3b82f6?style=flat-square&logo=google-chrome&logoColor=white)](https://josuetorres.tech/)
 [![CI Test Suite](https://github.com/josuetorres27/josuetorres27.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/josuetorres27/josuetorres27.github.io/actions/workflows/ci.yml)
-[![Automated Tests](https://img.shields.io/badge/Tests-334%20Passing-success?style=flat-square&logo=python&logoColor=white)](#automated-testing--quality-assurance)
+[![Automated Tests](https://img.shields.io/badge/Tests-312%20Passing-success?style=flat-square&logo=python&logoColor=white)](#automated-testing--quality-assurance)
 [![Production Pipeline](https://img.shields.io/badge/Deployed%20with-CI%2FCD%20Pipeline-22c55e?style=flat-square&logo=githubactions&logoColor=white)](https://josuetorres.tech/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38bdf8?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Bilingual](https://img.shields.io/badge/i18n-English%20%7C%20Espa%C3%B1ol-8b5cf6?style=flat-square)](#portfolio-key-features)
@@ -84,7 +84,7 @@ Virtual campus simulation built in Unity with a decoupled backend architecture.
 - **Retro Gaming Aesthetic & Interactive Adventure Mode:** Custom stepped pixel-art frames, arcade CRT/terminal window headers, quest tags, and an interactive pixel companion with animated checkpoints, responsive dialogue engine, and smooth section navigation.
 - **Procedural 8-Bit Audio Synthesis:** Real-time retro sound effects (blip, coin, jump, level-up, exit) synthesized on-the-fly using native **Web Audio API** oscillators — zero external audio files or dependencies.
 - **Zero-Build Static Performance:** Built with clean HTML5, Tailwind CSS, and vanilla ES6+ JavaScript. Blazing-fast load times with zero framework bundle overhead.
-- **Dual-Language Architecture (EN / ES):** Complete client-side internationalization system (`I18N`) with automatic locale detection, persistent language preference, and URL parameter support.
+- **Dual-Language Architecture (EN / ES):** Complete client-side internationalization system (`I18N`) with persistent language preference, `?lang=en|es` URL parameter support, and translated `aria-label` and tooltip bindings.
 - **Adaptive Theme Engine:** Seamless Dark and Light theme switching with custom retro color palettes, system preference detection, and smooth color transitions.
 - **Cross-Platform Responsive & Accessible:** Optimized for devices ranging from mobile (360px – 414px) and tablet (768px – 834px) to widescreen desktop, adhering to semantic HTML, keyboard navigation, and WCAG contrast guidelines.
 - **Interactive Galleries & Lightbox:** Custom carousels and full-screen image inspection modal with geolocation metadata and photography details.
@@ -93,10 +93,10 @@ Virtual campus simulation built in Unity with a decoupled backend architecture.
 
 ## Automated Testing & Quality Assurance
 
-To ensure rock-solid production stability and guarantee that no component or translation breaks silently, this repository includes an automated test suite of **334 tests** executed on Python 3.12+ and integrated into GitHub Actions CI:
+To ensure rock-solid production stability and guarantee that no component or translation breaks silently, this repository includes an automated test suite of **312 tests** executed on Python 3.12+ and integrated into GitHub Actions CI:
 
-- **Internationalization Suite (`tests/test_i18n.py`):** 289 tests validating symmetry across all 280 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n` DOM bindings.
-- **DOM & Semantic Integrity (`tests/test_dom_integrity.py`):** 29 tests verifying HTML5 compliance, OpenGraph metadata, Twitter cards, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, and UI regression guards for the preloader, hero layout, buttons, and adventure-mode sprites.
+- **Internationalization Suite (`tests/test_i18n.py`):** 264 tests validating symmetry across all 254 translation keys between English and Spanish, strict parity, array lengths, absence of encoding mojibake, and synchronization with all `data-i18n`, `data-i18n-html`, `data-i18n-aria` and `data-i18n-title` DOM bindings.
+- **DOM & Semantic Integrity (`tests/test_dom_integrity.py`):** 32 tests verifying HTML5 compliance, OpenGraph metadata, Twitter cards, Schema.org JSON-LD graphs, absence of duplicate element IDs, presence of all interactive target IDs, the `?lang=` URL parameter, and UI regression guards for the preloader, hero layout, buttons, and adventure mode (sprites, compositor-only motion, and intro cancellation).
 - **Assets Integrity (`tests/test_assets_integrity.py`):** 10 tests verifying that every image, sprite sheet, icon, PDF document, and modular script referenced across the codebase physically exists on disk with non-zero size.
 - **JavaScript Syntax & Scope Hygiene (`tests/test_js_syntax.py`):** 6 tests performing lexical scope tracking to prevent variable redeclaration collisions (e.g. duplicate `const`/`let`), delimiter balancing (`{}`, `[]`, `()`), and absence of debugger leftovers.
 
@@ -137,7 +137,7 @@ josuetorres27.github.io/
 │   │   ├── i18n.js                                 # Bilingual translation engine & hero typewriter
 │   │   ├── lightbox.js                             # Touch carousel & full-screen photo viewer
 │   │   └── adventure.js                            # 8-bit companion, rail map & scrollytelling
-│   ├── translations.js                             # Bilingual (EN/ES) dictionaries (280 keys)
+│   ├── translations.js                             # Bilingual (EN/ES) dictionaries (254 keys)
 │   └── main.js                                     # Application orchestrator (window.Portfolio)
 ├── tests/
 │   ├── test_i18n.py                                # Symmetry, encoding, non-emptiness & DOM checks

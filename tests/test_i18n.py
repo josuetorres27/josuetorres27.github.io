@@ -1,7 +1,7 @@
 """
 Tests for Portfolio Internationalization (i18n)
 Validates symmetry, completeness, formatting, non-emptiness, and DOM consistency
-across all 275 translation keys between EN and ES.
+across all 280 translation keys between EN and ES.
 """
 
 import os
@@ -110,7 +110,7 @@ class TestTranslationsSuite(unittest.TestCase):
         self.assertEqual(len(en_items), len(es_items), "hero_phrases count must match between EN and ES")
 
 
-# Generate individual test methods for each of the 275 translation keys
+# Generate individual test methods for each of the 280 translation keys
 en_keys_list, es_keys_list, _ = extract_translation_keys_and_dicts()
 common_keys = sorted(list(set(en_keys_list)))
 
